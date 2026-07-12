@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEDJAY — Sales Psychology, Applied | SaaS & Real Estate Sales Training</title>
+<meta name="description" content="MEDJAY trains sales teams to read what's actually happening in a conversation — not just recite what to say next. Psychology-driven programs for SaaS and Real Estate: SaaS Revenue Academy and Real Estate Neuro-Sales.">
+<link rel="canonical" href="https://medjay.pro/">
+<meta name="theme-color" content="#0a1428">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Steven Saad">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MEDJAY">
+<meta property="og:title" content="MEDJAY — Sales Psychology, Applied">
+<meta property="og:description" content="MEDJAY trains sales teams to read what's actually happening in a conversation — not just recite what to say next.">
+<meta property="og:url" content="https://medjay.pro/">
+<meta property="og:image" content="https://medjay.pro/assets/icon-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MEDJAY — Sales Psychology, Applied">
+<meta name="twitter:description" content="Sales isn't won by scripts. It's won by understanding people. Psychology-driven training for SaaS and Real Estate teams.">
+<meta name="twitter:image" content="https://medjay.pro/assets/icon-512.png">
+
+<!-- Favicons & App Icons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://medjay.pro/#organization",
+      "name": "MEDJAY",
+      "url": "https://medjay.pro/",
+      "logo": "https://medjay.pro/assets/icon-512.png",
+      "description": "Psychology-driven sales training programs for SaaS and Real Estate organizations.",
+      "founder": { "@id": "https://medjay.pro/#founder" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sharjah",
+        "addressCountry": "AE"
+      },
+      "email": "steven@medjay.pro"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://medjay.pro/#founder",
+      "name": "Steven Saad",
+      "jobTitle": "Founder & Sales Psychology Trainer",
+      "worksFor": { "@id": "https://medjay.pro/#organization" },
+      "sameAs": ["https://linkedin.com/in/steven-saad"],
+      "email": "steven@medjay.pro"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://medjay.pro/#website",
+      "url": "https://medjay.pro/",
+      "name": "MEDJAY",
+      "publisher": { "@id": "https://medjay.pro/#organization" },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+<style>
+  :root{
+    --navy: #0a1428;
+    --navy-2: #101d34;
+    --navy-3: #16233d;
+    --white: #f7f4ec;
+    --white-dim: #b7bccb;
+    --gold: #c9a24b;
+    --gold-bright: #e8c572;
+    --sand: #c9bfae;
+    --line: rgba(247,244,236,0.13);
+    --maxw: 1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--navy);
+    color:var(--white);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    color:var(--white);
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold-bright);
+    outline-offset:3px;
+  }
+  section{padding:78px 0;}
+
+  /* ---------- Watch Line signature element ---------- */
+  .watchline{
+    position:relative;
+    height:1px;
+    background:var(--line);
+    width:100%;
+  }
+  .watchline::before{
+    content:"";
+    position:absolute;
+    top:-3px; left:0;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--gold-bright);
+    box-shadow:0 0 8px rgba(232,197,114,0.6);
+    animation:patrol 10s linear infinite;
+  }
+  @keyframes patrol{
+    0%{left:0%;}
+    50%{left:calc(100% - 7px);}
+    100%{left:0%;}
+  }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(10,20,40,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:76px;
+  }
+  .brandmark{
+    display:flex; align-items:center; gap:10px;
+    text-decoration:none;
+  }
+  .brandmark img{
+    height:34px; width:auto; display:block;
+  }
+  .brandmark span{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:19px;
+    letter-spacing:0.08em;
+    color:var(--white);
+  }
+  .navlinks{
+    display:none;
+    gap:32px;
+    list-style:none; margin:0; padding:0;
+  }
+  @media (min-width:780px){ .navlinks{display:flex;} }
+  .navlinks a{
+    text-decoration:none;
+    font-size:14px;
+    color:var(--white-dim);
+    transition:color .2s;
+  }
+  .navlinks a:hover{color:var(--white);}
+  .nav-cta{
+    font-size:14px;
+    text-decoration:none;
+    background:var(--gold);
+    color:var(--navy);
+    font-weight:600;
+    padding:10px 18px;
+    border-radius:2px;
+    transition:background .2s;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--gold-bright);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:88px 0 80px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-12%; top:-25%;
+    width:600px; height:600px;
+    background:radial-gradient(circle, rgba(201,162,75,0.10), transparent 68%);
+    pointer-events:none;
+  }
+  .hero .eyebrow{margin-bottom:22px; display:block;}
+  .tagline-small{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    color:var(--white-dim);
+    margin:0 0 10px;
+    text-transform:none;
+  }
+  .hero h1{
+    font-size:clamp(36px, 5.6vw, 64px);
+    line-height:1.08;
+    max-width:820px;
+  }
+  .hero p.lede{
+    max-width:560px;
+    font-size:18px;
+    color:var(--white-dim);
+    margin:26px 0 36px;
+  }
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:48px;}
+  .btn-primary{
+    font-family:'Inter';
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+    background:var(--gold);
+    color:var(--navy);
+    padding:14px 26px;
+    border-radius:2px;
+    border:1px solid var(--gold);
+    transition:background .2s, transform .2s;
+  }
+  .btn-primary:hover{background:var(--gold-bright); transform:translateY(-1px);}
+  .btn-ghost{
+    font-family:'Inter';
+    font-weight:500;
+    font-size:15px;
+    text-decoration:none;
+    color:var(--white);
+    padding:14px 26px;
+    border-radius:2px;
+    border:1px solid var(--line);
+    transition:border-color .2s, background .2s;
+  }
+  .btn-ghost:hover{border-color:var(--gold); background:rgba(247,244,236,0.03);}
+  .trust-line{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--white-dim);
+    letter-spacing:0.02em;
+  }
+
+  /* ---------- Problem ---------- */
+  .problem-body{
+    max-width:620px;
+    font-size:18px;
+    color:var(--white-dim);
+    margin:20px 0 34px;
+  }
+  .problem-grid{
+    display:grid; grid-template-columns:1fr; gap:1px;
+    background:var(--line); border:1px solid var(--line);
+    margin-bottom:32px;
+  }
+  @media (min-width:700px){ .problem-grid{grid-template-columns:1fr 1fr;} }
+  .problem-item{
+    background:var(--navy);
+    padding:24px 26px;
+    font-size:15.5px;
+    color:var(--white-dim);
+  }
+  .problem-item::before{
+    content:"—";
+    color:var(--gold);
+    margin-right:10px;
+  }
+  .closing-line{
+    font-family:'Fraunces', serif;
+    font-size:20px;
+    color:var(--white);
+    max-width:600px;
+    border-left:2px solid var(--gold);
+    padding-left:18px;
+  }
+
+  /* ---------- Shift ---------- */
+  .shift-body{
+    max-width:620px;
+    color:var(--white-dim);
+    font-size:18px;
+    margin:20px 0 14px;
+  }
+  .shift-body strong{
+    color:var(--white);
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    display:block;
+    font-size:22px;
+    margin-bottom:14px;
+  }
+  .shift-transition{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    margin:36px 0 20px;
+  }
+  .shift-cards{
+    display:grid; grid-template-columns:1fr; gap:20px;
+    margin-bottom:36px;
+  }
+  @media (min-width:760px){ .shift-cards{grid-template-columns:1fr 1fr; align-items:stretch;} }
+  .shift-card{
+    padding:32px 30px;
+    border-radius:4px;
+  }
+  .shift-card.agent{
+    background:var(--sand);
+    color:var(--navy);
+  }
+  .shift-card.consultant{
+    background:linear-gradient(160deg, var(--navy-3), var(--navy));
+    border:1px solid rgba(201,162,75,0.35);
+    color:var(--white);
+  }
+  .shift-card h3{
+    font-size:20px;
+    margin-bottom:18px;
+  }
+  .shift-card.agent h3{color:var(--navy);}
+  .shift-card.consultant h3{color:var(--gold-bright);}
+  .shift-card ul{
+    list-style:none; margin:0; padding:0;
+  }
+  .shift-card li{
+    padding:11px 0;
+    font-size:15px;
+    border-bottom:1px solid rgba(10,20,40,0.12);
+  }
+  .shift-card.consultant li{
+    border-bottom:1px solid rgba(247,244,236,0.1);
+  }
+  .shift-card li:last-child{border-bottom:none;}
+  .shift-closing{
+    font-family:'Fraunces', serif;
+    font-size:22px;
+    line-height:1.4;
+    max-width:520px;
+  }
+  .shift-closing .dim{color:var(--white-dim); font-weight:500;}
+
+  /* ---------- Method ---------- */
+  .method-body{
+    max-width:620px; color:var(--white-dim); font-size:18px; margin:20px 0 30px;
+  }
+  .method-list{
+    list-style:none; padding:0; margin:0 0 28px;
+    display:flex; flex-direction:column; gap:1px;
+    background:var(--line); border:1px solid var(--line);
+    max-width:420px;
+  }
+  .method-list li{
+    background:var(--navy);
+    padding:14px 20px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    color:var(--white);
+    letter-spacing:0.03em;
+  }
+  .method-bridge{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:19px;
+    color:var(--white-dim);
+    max-width:480px;
+    margin-bottom:28px;
+    line-height:1.5;
+  }
+
+  /* ---------- Programs ---------- */
+  .programs-body{
+    max-width:600px; color:var(--white-dim); font-size:18px; margin:20px 0 44px;
+  }
+  .program-card{
+    border:1px solid var(--line);
+    padding:38px 34px;
+    margin-bottom:22px;
+    border-radius:4px;
+  }
+  .program-card .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--gold);
+  }
+  .program-card h3{font-size:26px; margin:14px 0 6px;}
+  .program-card .role{color:var(--white-dim); font-size:14px; margin-bottom:16px;}
+  .program-card p.desc{color:var(--white-dim); margin:0 0 22px; max-width:60ch;}
+  .built-around-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; text-transform:uppercase; letter-spacing:0.1em;
+    color:var(--white-dim); margin-bottom:10px; display:block;
+  }
+  .framework-list{
+    display:flex; flex-wrap:wrap; gap:8px;
+    list-style:none; padding:0; margin:0 0 28px;
+  }
+  .framework-list li{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--gold-bright);
+    border:1px solid rgba(201,162,75,0.4);
+    padding:5px 10px;
+    border-radius:2px;
+  }
+  .kit-links{display:flex; flex-wrap:wrap; gap:12px;}
+  .kit-link{
+    font-size:14px; text-decoration:none;
+    color:var(--navy);
+    background:var(--gold);
+    padding:10px 18px;
+    border-radius:2px;
+    font-weight:600;
+    transition:background .2s;
+  }
+  .kit-link:hover{background:var(--gold-bright);}
+  .delivery-line{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; color:var(--white-dim);
+    text-align:center;
+    margin:36px 0 26px;
+  }
+  .custom-cta{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid var(--line);
+  }
+  .custom-cta p{color:var(--white-dim); margin:0 0 14px; font-size:15px;}
+
+  /* ---------- Founder ---------- */
+  .founder{
+    display:grid; grid-template-columns:1fr; gap:36px;
+  }
+  @media (min-width:820px){ .founder{grid-template-columns: 1.1fr 0.9fr; gap:64px; align-items:start;} }
+  .founder-copy p{color:var(--white-dim); max-width:58ch; margin:0 0 16px;}
+  .founder-copy strong{color:var(--white); font-family:'Fraunces', serif; font-weight:600; font-style:normal;}
+  .founder-copy .line-pair{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--white);
+    font-size:19px;
+    margin:0 0 16px;
+    line-height:1.5;
+  }
+  .credentials{
+    border:1px solid var(--line);
+    padding:26px 28px;
+  }
+  .credentials .eyebrow{margin-bottom:14px; display:block;}
+  .credentials ul{list-style:none; margin:0; padding:0;}
+  .credentials li{
+    padding:11px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14px;
+    color:var(--white-dim);
+  }
+  .credentials li:last-child{border-bottom:none;}
+  .founder-closing{
+    font-family:'Fraunces', serif;
+    font-size:21px;
+    color:var(--white);
+    max-width:600px;
+    margin-top:8px;
+    line-height:1.5;
+  }
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    text-align:center;
+    padding:96px 0;
+    background:linear-gradient(180deg, var(--navy), var(--navy-2));
+  }
+  .cta-band h2{
+    font-size:clamp(30px,5vw,48px);
+    max-width:640px;
+    margin:0 auto 22px;
+  }
+  .cta-band p{
+    color:var(--white-dim);
+    max-width:480px;
+    margin:0 auto 34px;
+    font-size:16.5px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:44px 0 36px;
+  }
+  .footer-grid{
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px;
+    margin-bottom:28px;
+  }
+  .footer-col h4{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:12px;
+  }
+  .footer-col a, .footer-col p{
+    display:block;
+    color:var(--white-dim);
+    text-decoration:none;
+    font-size:14px;
+    margin-bottom:8px;
+  }
+  .footer-col a:hover{color:var(--white);}
+  .footer-bottom{
+    font-size:12.5px;
+    color:var(--white-dim);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+
+  /* reveal on scroll */
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* accessibility: skip link */
+  .skip-link{
+    position:absolute;
+    left:-9999px;
+    top:0;
+    background:var(--gold);
+    color:var(--navy);
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:14px;
+    padding:12px 20px;
+    z-index:100;
+    border-radius:0 0 4px 0;
+    text-decoration:none;
+  }
+  .skip-link:focus{
+    left:0;
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header>
+  <nav class="wrap" aria-label="Primary">
+    <a href="#main" class="brandmark" aria-label="MEDJAY — home">
+      <img src="assets/medjay-mark-nav.png" alt="" width="48" height="42" fetchpriority="high">
+      <span>MEDJAY</span>
+    </a>
+    <ul class="navlinks">
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#founder">Founder</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Book a Discovery Call</a>
+  </nav>
+</header>
+
+<div class="watchline" role="presentation"></div>
+
+<main id="main">
+<section class="hero">
+  <div class="wrap">
+    <p class="tagline-small reveal">Sales psychology, applied where it's proven.</p>
+    <span class="eyebrow reveal">Read the room. Not the script.</span>
+    <h1 class="reveal">Sales isn't won by scripts.<br>It's won by understanding people.</h1>
+    <p class="lede reveal">MEDJAY trains sales teams to read what's actually happening in a conversation — not just recite what to say next.</p>
+    <div class="hero-ctas reveal">
+      <a href="#programs" class="btn-primary">Explore Programs</a>
+      <a href="#contact" class="btn-ghost">Book a Discovery Call</a>
+    </div>
+    <div class="trust-line reveal">10+ years in sales · 6+ years in training · 2,500+ learners · Dubai, UAE</div>
+  </div>
+</section>
+
+<div class="watchline"></div>
+
+<section id="problem">
+  <div class="wrap">
+    <span class="eyebrow reveal">The Gap</span>
+    <h2 class="reveal" style="margin-top:16px;">Why Most Sales Training Doesn't Stick</h2>
+    <p class="problem-body reveal">Most sales training teaches people what to say. Customers don't buy a script — they buy feeling understood.</p>
+    <div class="problem-grid reveal">
+      <div class="problem-item">Reps memorize scripts, but customers don't follow them.</div>
+      <div class="problem-item">Product knowledge replaces meaningful conversation.</div>
+      <div class="problem-item">Objections get fought instead of understood.</div>
+      <div class="problem-item">Managers coach activity instead of behavior.</div>
+    </div>
+    <p class="closing-line reveal">Teams can know the product inside out — and still lose opportunities they should have won.</p>
+  </div>
+</section>
+
+<div class="watchline"></div>
+
+<section id="shift">
+  <div class="wrap">
+    <span class="eyebrow reveal">The Shift</span>
+    <h2 class="reveal" style="margin-top:16px;">From Sales Agent to Sales Consultant</h2>
+    <div class="shift-body reveal">
+      <strong>The product doesn't change.<br>The conversation does.</strong>
+      MEDJAY helps sales professionals move beyond presenting products to understanding people — turning every conversation into a thoughtful buying experience, not a scripted sales pitch.
+    </div>
+    <div class="shift-transition reveal">The shift looks like this:</div>
+    <div class="shift-cards reveal">
+      <div class="shift-card agent">
+        <h3>Sales Agent</h3>
+        <ul>
+          <li>Talks first</li>
+          <li>Explains the product</li>
+          <li>Handles objections</li>
+          <li>Follows a script</li>
+          <li>Pushes for the close</li>
+          <li>Focuses on features</li>
+        </ul>
+      </div>
+      <div class="shift-card consultant">
+        <h3>Sales Consultant</h3>
+        <ul>
+          <li>Asks first</li>
+          <li>Diagnoses the need</li>
+          <li>Understands what's behind them</li>
+          <li>Reads the conversation</li>
+          <li>Guides the decision</li>
+          <li>Focuses on outcomes</li>
+        </ul>
+      </div>
+    </div>
+    <p class="shift-closing reveal"><span class="dim">Same person. Same product.</span><br>A different conversation. A different outcome.</p>
+  </div>
+</section>
+
+<div class="watchline"></div>
+
+<section id="method">
+  <div class="wrap">
+    <span class="eyebrow reveal">The Method</span>
+    <h2 class="reveal" style="margin-top:16px;">The Psychology Doesn't Change.<br>The Context Does.</h2>
+    <p class="method-body reveal">Products change. Markets change. Sales cycles change. Human decision-making doesn't. MEDJAY builds its programs around the psychology behind buying decisions — then adapts that methodology to the language, challenges, and realities of each industry.</p>
+    <ul class="method-list reveal">
+      <li>SaaS Revenue Academy</li>
+      <li>Real Estate Neuro-Sales</li>
+    </ul>
+    <p class="method-bridge reveal">Every new industry starts the same way: understand the context, build around the psychology.</p>
+    <p class="closing-line reveal">The method stays the same.<br>The conversation adapts.</p>
+  </div>
+</section>
+
+<div class="watchline"></div>
+
+<section id="programs">
+  <div class="wrap">
+    <span class="eyebrow reveal">Programs</span>
+    <h2 class="reveal" style="margin-top:16px;">Two Programs.<br>One Method.</h2>
+    <p class="programs-body reveal">Each program is built around the same psychological principles, then adapted to the realities of its industry.</p>
+
+    <div class="program-card reveal">
+      <span class="tag">SaaS</span>
+      <h3>SaaS Revenue Academy</h3>
+      <p class="role">For SaaS founders, sales leaders, and revenue teams.</p>
+      <p class="desc">A complete sales enablement program designed to improve discovery, qualification, commercial conversations, and enterprise selling — without relying on scripts.</p>
+      <span class="built-around-label">Built Around</span>
+      <ul class="framework-list">
+        <li>MEDDPICC</li>
+        <li>C-Suite Selling</li>
+        <li>Pipeline Generation</li>
+        <li>Sales Psychology</li>
+      </ul>
+      <div class="kit-links">
+        <a href="https://payhip.com/b/2pCFv" class="kit-link" target="_blank" rel="noopener" aria-label="Get the SaaS B2B Kit on Payhip (opens in new tab)">Get the SaaS B2B Kit →</a>
+      </div>
+    </div>
+
+    <div class="program-card reveal">
+      <span class="tag">Real Estate</span>
+      <h3>Real Estate Neuro-Sales</h3>
+      <p class="role">For agencies, brokers, and real estate professionals.</p>
+      <p class="desc">A psychology-driven sales program focused on buyer behavior, trust-building, objection reframing, and confident decision guidance.</p>
+      <span class="built-around-label">Built Around</span>
+      <ul class="framework-list">
+        <li>Challenger Sale</li>
+        <li>System 1 & System 2</li>
+        <li>Tactical Labeling</li>
+        <li>Chris Voss Principles</li>
+      </ul>
+      <div class="kit-links">
+        <a href="https://payhip.com/b/Qr3Vp" class="kit-link" target="_blank" rel="noopener" aria-label="Get the Real Estate B2C Kit on Payhip (opens in new tab)">Get the B2C Kit →</a>
+        <a href="https://payhip.com/b/yz59f" class="kit-link" target="_blank" rel="noopener" aria-label="Get the Real Estate B2B Kit on Payhip (opens in new tab)">Get the B2B Kit →</a>
+      </div>
+    </div>
+
+    <p class="delivery-line reveal">Delivered by a certified facilitator — online or in person.</p>
+
+    <div class="custom-cta reveal">
+      <p>Need it customized?</p>
+      <a href="#contact" class="btn-ghost">Book a Discovery Call →</a>
+    </div>
+  </div>
+</section>
+
+<div class="watchline"></div>
+
+<section id="founder">
+  <div class="wrap founder">
+    <div class="founder-copy reveal">
+      <span class="eyebrow">The Founder</span>
+      <h2 style="margin:16px 0 22px;">The Scout Behind MEDJAY</h2>
+      <p>Steven Saad spent more than a decade in sales — across retail, wholesale distribution, telecommunications, and corporate training in Dubai — before every conversation taught him the same lesson:</p>
+      <p class="line-pair">People don't buy because of a better script.<br>They buy when they feel understood.</p>
+      <p>To understand that more deeply, he paired his sales experience with a Diploma in Psychology & Emotional Intelligence and a B.Ed in Geography from Alexandria University.</p>
+      <p class="line-pair">One taught him to read terrain.<br>The other taught him to read people.</p>
+      <p>What began as instinct became a method. That method became MEDJAY. I discovered I was a trainer long before I knew the title existed.</p>
+      <p>Since 2022, that method has reached more than 2,500 learners across Arabic and English, while continuing to evolve through real conversations, real organizations, and real sales environments.</p>
+      <p class="founder-closing">The goal was never to create another sales course.<br>It was to build a better way to understand why people buy.</p>
+    </div>
+    <div class="credentials reveal">
+      <span class="eyebrow">Credentials</span>
+      <ul>
+        <li>Founder, MEDJAY</li>
+        <li>Neuro Sales Trainer</li>
+        <li>Diploma in Psychology & Emotional Intelligence</li>
+        <li>B.Ed (Geography), Alexandria University</li>
+        <li>10+ Years in Sales</li>
+        <li>6+ Years in Corporate Training</li>
+        <li>Sales Trainer in Dubai since 2023</li>
+        <li>2,500+ Learners</li>
+        <li>Udemy Instructor (Arabic & English)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="watchline"></div>
+
+<section id="contact" class="cta-band">
+  <div class="wrap">
+    <span class="eyebrow reveal">What's Next</span>
+    <h2 class="reveal" style="margin-top:16px;">Let's start with a conversation.</h2>
+    <p class="reveal">Every organization has a different context. That's why every engagement starts the same way: understanding your people before discussing our programs. If we're the right fit, we'll build from there.</p>
+    <div class="hero-ctas reveal" style="justify-content:center; margin-bottom:0;">
+      <a href="mailto:steven@medjay.pro" class="btn-primary">Email Steven</a>
+      <a href="https://linkedin.com/in/steven-saad" class="btn-ghost" target="_blank" rel="noopener" aria-label="Connect with Steven Saad on LinkedIn (opens in new tab)">Connect on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Medjay</h4>
+        <p>Sales psychology, applied.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <a href="#programs">SaaS Revenue Academy</a>
+        <a href="#programs">Real Estate Neuro-Sales</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:steven@medjay.pro">steven@medjay.pro</a>
+        <a href="https://linkedin.com/in/steven-saad" target="_blank" rel="noopener" aria-label="Steven Saad on LinkedIn (opens in new tab)">LinkedIn — Steven Saad</a>
+      </div>
+      <div class="footer-col">
+        <h4>Location</h4>
+        <p>Sharjah, UAE</p>
+      </div>
+    </div>
+    <div class="watchline" style="margin-bottom:22px;"></div>
+    <div class="footer-bottom">
+      <span>© 2026 MEDJAY. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
