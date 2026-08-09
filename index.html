@@ -496,6 +496,92 @@
     line-height:1.5;
   }
 
+  /* ---------- Field Notes ---------- */
+  .fieldnotes-body{
+    max-width:600px; color:var(--white-dim); font-size:18px; margin:20px 0 40px;
+  }
+  .notes-grid{
+    display:grid; grid-template-columns:1fr; gap:1px;
+    background:var(--line); border:1px solid var(--line);
+    margin-bottom:56px;
+  }
+  @media (min-width:700px){ .notes-grid{grid-template-columns:1fr 1fr;} }
+  @media (min-width:1000px){ .notes-grid{grid-template-columns:1fr 1fr 1fr;} }
+  .note-card{
+    background:var(--navy);
+    padding:26px 24px;
+  }
+  .note-week{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--gold);
+    display:block;
+    margin-bottom:12px;
+  }
+  .note-card p{
+    font-size:14.5px;
+    color:var(--white-dim);
+    margin:0;
+    line-height:1.65;
+  }
+
+  /* ---------- Newsletter ---------- */
+  .newsletter-box{
+    border:1px solid rgba(201,162,75,0.3);
+    background:linear-gradient(160deg, var(--navy-3), var(--navy));
+    padding:44px 40px;
+    border-radius:4px;
+  }
+  .newsletter-copy h3{
+    font-size:24px;
+    margin:14px 0 10px;
+  }
+  .newsletter-copy p{
+    color:var(--white-dim);
+    font-size:15px;
+    margin:0 0 26px;
+    max-width:480px;
+  }
+  .newsletter-form{
+    display:flex; flex-wrap:wrap; gap:12px;
+    max-width:480px;
+  }
+  .newsletter-form input[type="email"]{
+    flex:1 1 220px;
+    background:var(--navy);
+    border:1px solid var(--line);
+    color:var(--white);
+    font-family:'Inter', sans-serif;
+    font-size:15px;
+    padding:14px 16px;
+    border-radius:2px;
+  }
+  .newsletter-form input[type="email"]::placeholder{color:var(--white-dim);}
+  .newsletter-form input[type="email"]:focus-visible{
+    outline:2px solid var(--gold-bright);
+    outline-offset:2px;
+  }
+  .newsletter-form button{
+    cursor:pointer;
+    border:1px solid var(--gold);
+  }
+  .newsletter-status{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--gold-bright);
+    margin:14px 0 0;
+    min-height:18px;
+  }
+  .visually-hidden{
+    position:absolute;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+  }
+
   /* ---------- CTA band ---------- */
   .cta-band{
     text-align:center;
@@ -581,7 +667,7 @@
     </a>
     <ul class="navlinks">
       <li><a href="#programs">Programs</a></li>
-      <li><a href="#method">Method</a></li>
+      <li><a href="#field-notes">Field Notes</a></li>
       <li><a href="#founder">Founder</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -721,6 +807,23 @@
       </div>
     </div>
 
+    <div class="program-card reveal">
+      <span class="tag">USA Real Estate</span>
+      <h3>USA Real Estate Broker Certification</h3>
+      <p class="role">For independent U.S. residential real estate brokers and advisors.</p>
+      <p class="desc">A 12-week neuro-sales certification — from first-contact psychology and frame control to objection handling and the assumptive close — built specifically for the U.S. brokerage market.</p>
+      <span class="built-around-label">Built Around</span>
+      <ul class="framework-list">
+        <li>Cold Call Psychology</li>
+        <li>Frame Control</li>
+        <li>Objection Handling Matrix</li>
+        <li>Assumptive Closing</li>
+      </ul>
+      <div class="kit-links">
+        <a href="https://payhip.com/b/F6wqm" class="kit-link" target="_blank" rel="noopener" aria-label="Get the USA Real Estate Broker Certification on Payhip (opens in new tab)">Get the Certification →</a>
+      </div>
+    </div>
+
     <p class="delivery-line reveal">Delivered by a certified facilitator — online or in person.</p>
 
     <div class="custom-cta reveal">
@@ -758,6 +861,45 @@
         <li>2,500+ Learners</li>
         <li>Udemy Instructor (Arabic & English)</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<div class="watchline"></div>
+
+<section id="field-notes">
+  <div class="wrap">
+    <span class="eyebrow reveal">Field Notes</span>
+    <h2 class="reveal" style="margin-top:16px;">A Taste of the Method</h2>
+    <p class="fieldnotes-body reveal">Short excerpts, one from each week of the MEDJAY programs. Read a few — if one lands, the full course is one click away.</p>
+
+    <div class="notes-grid reveal">
+      <div class="note-card"><span class="note-week">Week 01</span><p>The first 10 seconds aren't for pitching. They're for safety. If a prospect's brain can't categorize you in that window, nothing you say after it gets heard.</p></div>
+      <div class="note-card"><span class="note-week">Week 02</span><p>A "yes" feels like a trap. A "no" feels like protection. The openers that work give people permission to say no — that's what actually gets them to stay on the line.</p></div>
+      <div class="note-card"><span class="note-week">Week 03</span><p>Stop asking "what's your budget?" Budgets are psychological thresholds, not numbers — and a direct question just makes people guard them harder.</p></div>
+      <div class="note-card"><span class="note-week">Week 04</span><p>"I'm busy" isn't a rejection. It's a reflex. Treat it as a final answer, and you lose clients who were never actually saying no.</p></div>
+      <div class="note-card"><span class="note-week">Week 05</span><p>A property doesn't sell because it's good. It sells because it matches how that specific buyer thinks — and that wiring is different for every person in the room.</p></div>
+      <div class="note-card"><span class="note-week">Week 06</span><p>Every time you hand over information without context, you stop being an advisor and become a door-opener. Structure holds status. Speed gives it away.</p></div>
+      <div class="note-card"><span class="note-week">Week 07</span><p>If a client leaves the room thinking exactly what they thought walking in, you added nothing. Respectful challenge earns trust — agreement doesn't.</p></div>
+      <div class="note-card"><span class="note-week">Week 08</span><p>Headline numbers mean nothing. Net yield is what protects capital — and clarity, not hype, is what actually builds trust in the room.</p></div>
+      <div class="note-card"><span class="note-week">Week 09</span><p>An objection is rarely a final answer. It's an uncalibrated clue. Defending your price the moment you hear one just confirms what the client already suspected.</p></div>
+      <div class="note-card"><span class="note-week">Week 10</span><p>Artificial urgency breeds skepticism. Real urgency is always tied to a real consequence — and that's the only kind clients actually believe.</p></div>
+      <div class="note-card"><span class="note-week">Week 11</span><p>Paperwork isn't the scary part. How you frame it is. Explain it with clinical simplicity, and the fear drops before it even starts.</p></div>
+      <div class="note-card"><span class="note-week">Week 12</span><p>Your identity is your process. The market doesn't respect desperation. It respects structure, held consistently, under real pressure.</p></div>
+    </div>
+
+    <div class="newsletter-box reveal">
+      <div class="newsletter-copy">
+        <span class="eyebrow">Free Newsletter</span>
+        <h3>One field note a week, straight to your inbox.</h3>
+        <p>No spam, no daily noise — just one practical insight from the method, every week.</p>
+      </div>
+      <form id="newsletter-form" class="newsletter-form" novalidate>
+        <label for="newsletter-email" class="visually-hidden">Email address</label>
+        <input type="email" id="newsletter-email" name="email" placeholder="you@company.com" required autocomplete="email">
+        <button type="submit" class="btn-primary">Subscribe Free</button>
+      </form>
+      <p class="newsletter-status" id="newsletter-status" role="status" aria-live="polite"></p>
     </div>
   </div>
 </section>
@@ -818,6 +960,41 @@
     });
   }, {threshold:0.12});
   revealEls.forEach(el=>io.observe(el));
+
+  const newsletterForm = document.getElementById('newsletter-form');
+  const newsletterStatus = document.getElementById('newsletter-status');
+  if(newsletterForm){
+    newsletterForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      const emailInput = document.getElementById('newsletter-email');
+      const email = emailInput.value.trim();
+      const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+      if(!email){ return; }
+      submitBtn.disabled = true;
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Subscribing…';
+      newsletterStatus.textContent = '';
+      try{
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({email})
+        });
+        if(res.ok){
+          newsletterStatus.textContent = "You're in. Check your inbox to confirm.";
+          newsletterForm.reset();
+        } else {
+          const data = await res.json().catch(()=>({}));
+          newsletterStatus.textContent = data.message || 'Something went wrong. Please try again.';
+        }
+      } catch(err){
+        newsletterStatus.textContent = 'Network error. Please try again.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+  }
 </script>
 
 </body>
