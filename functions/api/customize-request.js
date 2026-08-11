@@ -22,6 +22,7 @@ export async function onRequestPost(context) {
   const name = (body.name || '').trim();
   const email = (body.email || '').trim();
   const industry = (body.industry || '').trim();
+  const industryDetail = (body.industryDetail || '').trim();
   const teamSize = (body.teamSize || '').trim();
   const need = (body.need || '').trim();
 
@@ -41,6 +42,7 @@ export async function onRequestPost(context) {
     <p><strong>Name:</strong> ${escapeHtml(name)}</p>
     <p><strong>Email:</strong> ${escapeHtml(email)}</p>
     <p><strong>Industry:</strong> ${escapeHtml(industry)}</p>
+    ${industryDetail ? `<p><strong>Industry Detail:</strong> ${escapeHtml(industryDetail)}</p>` : ''}
     <p><strong>Team Size:</strong> ${escapeHtml(teamSize)}</p>
     <p><strong>What they need:</strong><br>${escapeHtml(need).replace(/\n/g, '<br>')}</p>
   `;
