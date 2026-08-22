@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MEDJAY Programs — SaaS & Real Estate Sales Training, Customized</title>
-<meta name="description" content="Explore MEDJAY's psychology-driven sales training programs — SaaS Revenue Academy, Real Estate Neuro-Sales, and the USA Real Estate Broker Certification. Need something different? Tell us about your team and we'll build a plan around it.">
-<link rel="canonical" href="https://medjay.pro/programs">
+<title>SaaS Revenue Academy — Full Curriculum & Certification Tracks | MEDJAY</title>
+<meta name="description" content="The complete SaaS Revenue Academy curriculum — three certification tracks, fourteen modules, and every pricing option from a single track to a full white-label license.">
+<link rel="canonical" href="https://medjay.pro/programs/saas">
 <meta name="theme-color" content="#0a1428">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Steven Saad">
@@ -13,9 +13,9 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MEDJAY">
-<meta property="og:title" content="MEDJAY Programs — Sales Psychology, Applied">
-<meta property="og:description" content="Psychology-driven sales training programs for SaaS and Real Estate teams — or a course customized around your context.">
-<meta property="og:url" content="https://medjay.pro/programs">
+<meta property="og:title" content="SaaS Revenue Academy — MEDJAY">
+<meta property="og:description" content="Three certification tracks, fourteen modules, and every framework a SaaS sales team needs — from first discovery call to a C-Suite negotiation.">
+<meta property="og:url" content="https://medjay.pro/programs/saas">
 <meta property="og:image" content="https://medjay.pro/assets/icon-512.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
@@ -23,8 +23,8 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="MEDJAY Programs — Sales Psychology, Applied">
-<meta name="twitter:description" content="SaaS Revenue Academy. Real Estate Neuro-Sales. Or a program built around your own team.">
+<meta name="twitter:title" content="SaaS Revenue Academy — MEDJAY">
+<meta name="twitter:description" content="Three certification tracks. Fourteen modules. Every framework a SaaS sales team needs.">
 <meta name="twitter:image" content="https://medjay.pro/assets/icon-512.png">
 
 <!-- Favicons & App Icons -->
@@ -520,6 +520,91 @@
     min-height:18px;
   }
 
+  /* ---------- SaaS Curriculum ---------- */
+  .curriculum-stats{
+    display:flex; gap:44px; flex-wrap:wrap; margin-top:48px;
+  }
+  .cstat .n{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:30px; font-weight:600; color:var(--gold);
+  }
+  .cstat .l{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--white-dim); margin-top:6px;
+  }
+  .curriculum-body{
+    max-width:640px; color:var(--white-dim); font-size:18px; margin:20px 0 10px;
+  }
+  .track-meta{
+    display:flex; gap:24px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--white-dim);
+    margin-top:18px;
+  }
+  .track-meta b{color:var(--gold);}
+  .track-desc{
+    max-width:700px; color:var(--white-dim); font-size:16px; margin:18px 0 8px;
+  }
+  .modules-grid{
+    display:grid; grid-template-columns:1fr; gap:1px;
+    background:var(--line); border:1px solid var(--line);
+    margin-top:28px;
+  }
+  @media (min-width:700px){ .modules-grid{grid-template-columns:1fr 1fr;} }
+  @media (min-width:1000px){ .modules-grid{grid-template-columns:1fr 1fr 1fr;} }
+  .module-card{background:var(--navy); padding:26px 24px;}
+  .module-card .mnum{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--gold); display:block; margin-bottom:12px;
+  }
+  .module-card h4{font-size:18px; margin:0 0 10px; line-height:1.3;}
+  .module-card p{font-size:14.5px; color:var(--white-dim); margin:0; line-height:1.6;}
+
+  .pricing-body{
+    max-width:640px; color:var(--white-dim); font-size:18px; margin:20px 0 44px;
+  }
+  .pricing-grid{
+    display:grid; grid-template-columns:1fr; gap:20px;
+  }
+  @media (min-width:640px){ .pricing-grid{grid-template-columns:1fr 1fr;} }
+  @media (min-width:1000px){ .pricing-grid{grid-template-columns:1fr 1fr 1fr;} }
+  .pricing-card{
+    border:1px solid var(--line);
+    background:var(--navy);
+    padding:30px 28px;
+    border-radius:4px;
+    display:flex; flex-direction:column;
+    position:relative;
+  }
+  .pricing-card .p-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:26px; font-weight:600;
+    color:rgba(201,162,75,0.35);
+    margin-bottom:8px;
+  }
+  .pricing-card h3{font-size:21px; margin:0 0 10px;}
+  .pricing-card p.desc{color:var(--white-dim); font-size:14.5px; margin:0 0 24px; flex-grow:1;}
+  .pricing-card .price{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:26px; color:var(--gold); font-weight:600;
+  }
+  .pricing-card .price small{font-size:13px; color:var(--white-dim); font-weight:400; font-family:'Inter', sans-serif;}
+  .pricing-card .price-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; color:var(--white-dim); margin-top:8px;
+  }
+  .pricing-card.featured{
+    border-color:var(--gold);
+    background:linear-gradient(160deg, var(--navy-3), var(--navy));
+  }
+  .pricing-card .badge-save{
+    position:absolute; top:-13px; right:24px;
+    background:var(--gold); color:var(--navy);
+    font-family:'IBM Plex Mono', monospace; font-size:11px; font-weight:600;
+    padding:5px 12px; border-radius:20px; letter-spacing:0.05em;
+  }
+
   /* ---------- Founder ---------- */
   .founder{
     display:grid; grid-template-columns:1fr; gap:36px;
@@ -739,140 +824,216 @@
 <div class="watchline" role="presentation"></div>
 
 <main id="main">
-<section id="customize">
+<section class="hero">
   <div class="wrap">
-    <span class="eyebrow reveal">Something Different?</span>
-    <h2 class="reveal" style="margin-top:16px;">Customize Your Course</h2>
-    <p class="customize-body reveal">Not every team fits a standard program. Tell us about yours, and we'll get back to you with a plan built around your context.</p>
-
-    <form id="customize-form" class="customize-form reveal" novalidate>
-      <div class="form-row">
-        <div class="form-field">
-          <label for="customize-name">Name</label>
-          <input type="text" id="customize-name" name="name" required autocomplete="name">
-        </div>
-        <div class="form-field">
-          <label for="customize-email">Email</label>
-          <input type="email" id="customize-email" name="email" required autocomplete="email">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-field">
-          <label for="customize-industry">Industry</label>
-          <select id="customize-industry" name="industry" required>
-            <option value="" disabled selected>Select an industry</option>
-            <option value="SaaS">SaaS</option>
-            <option value="Real Estate">Real Estate</option>
-            <option value="Retail">Retail</option>
-            <option value="Car Sales">Car Sales</option>
-            <option value="Insurance">Insurance</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label for="customize-team-size">Team Size</label>
-          <select id="customize-team-size" name="teamSize" required>
-            <option value="" disabled selected>Select a team size</option>
-            <option value="Just me">Just me</option>
-            <option value="2–10">2–10</option>
-            <option value="11–50">11–50</option>
-            <option value="50–100">50–100</option>
-            <option value="100–200">100–200</option>
-            <option value="200+">200+</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-field" id="customize-retail-field" hidden>
-        <label for="customize-retail-category">Retail Category</label>
-        <select id="customize-retail-category" name="retailCategory">
-          <option value="" disabled selected>Select a category</option>
-          <option value="Mobile Phones">Mobile Phones</option>
-          <option value="Perfume">Perfume</option>
-          <option value="Home Appliances">Home Appliances</option>
-          <option value="Fashion & Apparel">Fashion & Apparel</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Furniture & Home Decor">Furniture & Home Decor</option>
-        </select>
-      </div>
-      <div class="form-field" id="customize-other-field" hidden>
-        <label for="customize-other-industry">Please specify</label>
-        <input type="text" id="customize-other-industry" name="otherIndustry" placeholder="Tell us your industry">
-      </div>
-      <div class="form-field">
-        <label for="customize-need">What do you need?</label>
-        <textarea id="customize-need" name="need" rows="4" required></textarea>
-      </div>
-      <button type="submit" class="btn-primary">Send Request</button>
-      <p class="customize-status" id="customize-status" role="status" aria-live="polite"></p>
-    </form>
+    <span class="eyebrow reveal">Enterprise SaaS Sales Certification</span>
+    <h1 class="reveal">The complete system for training SaaS sellers <span style="color:var(--gold-bright);">who actually close enterprise deals.</span></h1>
+    <p class="lede reveal">Three certification tracks, fourteen modules, and every framework a SaaS sales team needs — from first discovery call to a C-Suite negotiation. Built on MEDDICC, SPIN, and behavioral economics, not generic filler.</p>
+    <div class="hero-ctas reveal">
+      <a href="#pricing" class="btn-primary">View Pricing</a>
+      <a href="/#contact" class="btn-ghost">Book a Discovery Call</a>
+    </div>
+    <div class="curriculum-stats reveal">
+      <div class="cstat"><div class="n">3</div><div class="l">Certification Tracks</div></div>
+      <div class="cstat"><div class="n">14</div><div class="l">Modules</div></div>
+      <div class="cstat"><div class="n">280</div><div class="l">Slides</div></div>
+      <div class="cstat"><div class="n">38hrs</div><div class="l">Total Content</div></div>
+    </div>
   </div>
 </section>
 
 <div class="watchline"></div>
 
-<section id="programs">
+<section id="curriculum">
   <div class="wrap">
-    <span class="eyebrow reveal">Programs</span>
-    <h2 class="reveal" style="margin-top:16px;">Two Programs.<br>One Method.</h2>
-    <p class="programs-body reveal">Each program is built around the same psychological principles, then adapted to the realities of its industry.</p>
+    <span class="eyebrow reveal">The Curriculum</span>
+    <h2 class="reveal" style="margin-top:16px;">Three Tracks. One Clear Path<br>From First Call to the Boardroom.</h2>
+    <p class="curriculum-body reveal">Each track is a complete, standalone certification — with its own facilitator guide, assessment, and workbook. Take them in sequence, or start wherever your team's skill gap actually is.</p>
+  </div>
+</section>
 
-    <div class="program-card reveal">
-      <span class="tag">SaaS</span>
-      <h3>SaaS Revenue Academy</h3>
-      <p class="role">For SaaS founders, sales leaders, and revenue teams.</p>
-      <p class="desc">A complete sales enablement program designed to improve discovery, qualification, commercial conversations, and enterprise selling — without relying on scripts.</p>
-      <span class="built-around-label">Built Around</span>
-      <ul class="framework-list">
-        <li>MEDDPICC</li>
-        <li>C-Suite Selling</li>
-        <li>Pipeline Generation</li>
-        <li>Sales Psychology</li>
-      </ul>
-      <div class="kit-links">
-        <a href="/programs/saas" class="kit-link" aria-label="View the full SaaS Revenue Academy curriculum">View Full Curriculum →</a>
+<div class="watchline"></div>
+
+<section id="beginner">
+  <div class="wrap">
+    <span class="eyebrow reveal">Track 01 — Foundations</span>
+    <h2 class="reveal" style="margin-top:16px;">SaaS Sales Mastery: Beginner</h2>
+    <div class="track-meta reveal">
+      <span><b>4</b> modules</span>
+      <span><b>61</b> slides</span>
+      <span><b>8</b> hours</span>
+    </div>
+    <p class="track-desc reveal">For SDRs, junior AEs, and anyone new to selling software as a recurring commercial relationship instead of a one-time transaction. Builds the financial and behavioral literacy every later track assumes.</p>
+    <div class="modules-grid reveal">
+      <div class="module-card">
+        <span class="mnum">Module B-01</span>
+        <h4>The SaaS Business Model</h4>
+        <p>ARR, MRR, churn, LTV:CAC, and NRR — and why discounting a bad-fit deal is worse than losing it. The MRR Waterfall and Feature-Benefit-Outcome translation.</p>
+      </div>
+      <div class="module-card">
+        <span class="mnum">Module B-02</span>
+        <h4>Decoding the SaaS Buyer</h4>
+        <p>Mapping the buying committee, System 1 vs. System 2 decision psychology, and reframing pitches with loss aversion instead of feature lists.</p>
+      </div>
+      <div class="module-card">
+        <span class="mnum">Module B-03</span>
+        <h4>Precision Prospecting</h4>
+        <p>The 3-Layer ICP, behavioral trigger events, and a 3-touch outbound sequence built to replace spray-and-pray outreach.</p>
+      </div>
+      <div class="module-card">
+        <span class="mnum">Module B-04</span>
+        <h4>Advanced Enterprise Discovery</h4>
+        <p>The pain hierarchy (technical → business → personal), quantifying Cost of Inaction, and a first pass at MEDDPICC and TEDW questioning.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="program-card reveal">
-      <span class="tag">Real Estate</span>
-      <h3>Real Estate Neuro-Sales</h3>
-      <p class="role">For agencies, brokers, and real estate professionals.</p>
-      <p class="desc">A psychology-driven sales program focused on buyer behavior, trust-building, objection reframing, and confident decision guidance.</p>
-      <span class="built-around-label">Built Around</span>
-      <ul class="framework-list">
-        <li>Challenger Sale</li>
-        <li>System 1 & System 2</li>
-        <li>Tactical Labeling</li>
-        <li>Chris Voss Principles</li>
-      </ul>
-      <div class="kit-links">
-        <a href="https://payhip.com/b/Qr3Vp" class="kit-link" target="_blank" rel="noopener" aria-label="Get the Real Estate B2C Kit on Payhip (opens in new tab)">Get the B2C Kit →</a>
-        <a href="https://payhip.com/b/yz59f" class="kit-link" target="_blank" rel="noopener" aria-label="Get the Real Estate B2B Kit on Payhip (opens in new tab)">Get the B2B Kit →</a>
+<div class="watchline"></div>
+
+<section id="intermediate">
+  <div class="wrap">
+    <span class="eyebrow reveal">Track 02 — Execution</span>
+    <h2 class="reveal" style="margin-top:16px;">Advanced SaaS Sales: Intermediate</h2>
+    <div class="track-meta reveal">
+      <span><b>5</b> modules</span>
+      <span><b>100</b> slides</span>
+      <span><b>11</b> hours</span>
+    </div>
+    <p class="track-desc reveal">For reps who can run a discovery call but still lose deals to unmapped stakeholders and soft forecasts. This is where MEDDICC becomes muscle memory.</p>
+    <div class="modules-grid reveal">
+      <div class="module-card">
+        <span class="mnum">Module I-01</span>
+        <h4>Advanced Discovery Architecture</h4>
+        <p>A 3-stage discovery sequence — Surface, Deep, Strategic — plus mirroring, labeling, and strategic silence as execution techniques.</p>
+      </div>
+      <div class="module-card">
+        <span class="mnum">Module I-02</span>
+        <h4>Advanced SPIN Selling Mastery</h4>
+        <p>Full SPIN methodology integrated with MEDDPICC, built around Situation, Problem, Implication, and Need-Payoff questioning under real deal pressure.</p>
+      </div>
+      <div class="module-card">
+        <span class="mnum">Module I-03</span>
+        <h4>MEDDICC: Full Qualification Depth</h4>
+        <p>Scoring deal risk across all 7 MEDDICC dimensions, and a Champion Strength framework that separates a real Champion from a friendly Coach.</p>
+      </div>
+      <div class="module-card">
+        <span class="mnum">Module I-04</span>
+        <h4>Stakeholder Mapping & Multi-Threading</h4>
+        <p>Identifying Advocates, Skeptics, and Detractors, and the "Phantom Blocker" pattern that kills late-stage deals no one saw coming.</p>
+      </div>
+      <div class="module-card">
+        <span class="mnum">Module I-05</span>
+        <h4>Pipeline Hygiene & Forecast Discipline</h4>
+        <p>The Golden Rule of Forecasting, strict Commit/Best Case/Pipeline categories, and a live pipeline scrub methodology for managers.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="program-card reveal">
-      <span class="tag">USA Real Estate</span>
-      <h3>USA Real Estate Broker Certification</h3>
-      <p class="role">For independent U.S. residential real estate brokers and advisors.</p>
-      <p class="desc">A 12-week neuro-sales certification — from first-contact psychology and frame control to objection handling and the assumptive close — built specifically for the U.S. brokerage market.</p>
-      <span class="built-around-label">Built Around</span>
-      <ul class="framework-list">
-        <li>Cold Call Psychology</li>
-        <li>Frame Control</li>
-        <li>Objection Handling Matrix</li>
-        <li>Assumptive Closing</li>
-      </ul>
-      <div class="kit-links">
-        <a href="https://payhip.com/b/F6wqm" class="kit-link" target="_blank" rel="noopener" aria-label="Get the USA Real Estate Broker Certification on Payhip (opens in new tab)">Get the Certification →</a>
+<div class="watchline"></div>
+
+<section id="advanced">
+  <div class="wrap">
+    <span class="eyebrow reveal">Track 03 — Enterprise</span>
+    <h2 class="reveal" style="margin-top:16px;">Enterprise Revenue Mastery: Advanced</h2>
+    <div class="track-meta reveal">
+      <span><b>5</b> modules</span>
+      <span><b>119</b> slides</span>
+      <span><b>19</b> hours</span>
+    </div>
+    <p class="track-desc reveal">For senior AEs, Key Account Managers, and revenue leaders operating at the $500k–$15M deal size, where the buyer is a boardroom, not a person.</p>
+    <div class="modules-grid reveal">
+      <div class="module-card">
+        <span class="mnum">Module A-01</span>
+        <h4>Mastering Complex Negotiation</h4>
+        <p>BATNA diagnosis, diminishing concession architecture, and navigating procurement without losing access to the Economic Buyer.</p>
+      </div>
+      <div class="module-card">
+        <span class="mnum">Module A-02</span>
+        <h4>C-Suite Selling & Executive Presence</h4>
+        <p>An archetype map for the CEO, CFO, CTO, CPO, and CISO, and the 5-part structure behind every board-ready executive briefing.</p>
+      </div>
+      <div class="module-card">
+        <span class="mnum">Module A-03</span>
+        <h4>Executive Presence & Political Navigation</h4>
+        <p>The companion module to A-02: reading the room, the "Ghost Executive" who can kill a deal without ever joining a call, and tactical empathy in practice.</p>
+      </div>
+      <div class="module-card">
+        <span class="mnum">Module A-04</span>
+        <h4>Strategic Key Account Management</h4>
+        <p>The five dimensions of account health, white space mapping, and rebuilding a KAM's role around Net Revenue Retention, not renewal paperwork.</p>
+      </div>
+      <div class="module-card">
+        <span class="mnum">Module A-05</span>
+        <h4>Enterprise Revenue Governance & Expansion</h4>
+        <p>The capstone module: NRR as an economic engine, the Deal Squad model, and running expansion like a general contractor runs a build.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <p class="delivery-line reveal">Delivered by a certified facilitator — online or in person.</p>
+<div class="watchline"></div>
 
-    <div class="custom-cta reveal">
-      <p>Need it customized?</p>
-      <a href="#customize" class="btn-ghost">Book a Discovery Call →</a>
+<section id="pricing">
+  <div class="wrap">
+    <span class="eyebrow reveal">Five Ways to Work With Us</span>
+    <h2 class="reveal" style="margin-top:16px;">Choose the track your team needs<br>— or license the whole system.</h2>
+    <p class="pricing-body reveal">Every option includes the full slide curriculum, a facilitator guide, a certification assessment with answer key, and a participant workbook.</p>
+
+    <div class="pricing-grid reveal">
+      <div class="pricing-card">
+        <div class="p-num">01</div>
+        <h3>Beginner Track</h3>
+        <p class="desc">4 modules, 61 slides. For SDRs and junior AEs building their first foundation in SaaS sales.</p>
+        <div class="price">$1,800</div>
+        <div class="kit-links" style="margin-top:22px;">
+          <a href="https://payhip.com/b/O14r5" class="kit-link" target="_blank" rel="noopener" aria-label="Get the Beginner Track on Payhip (opens in new tab)">Get the Beginner Track →</a>
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="p-num">02</div>
+        <h3>Intermediate Track</h3>
+        <p class="desc">5 modules, 100 slides. MEDDICC, multi-threading, and pipeline discipline for reps running complex deals.</p>
+        <div class="price">$1,900</div>
+        <div class="kit-links" style="margin-top:22px;">
+          <a href="https://payhip.com/b/7AFTc" class="kit-link" target="_blank" rel="noopener" aria-label="Get the Intermediate Track on Payhip (opens in new tab)">Get the Intermediate Track →</a>
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="p-num">03</div>
+        <h3>Advanced Track</h3>
+        <p class="desc">5 modules, 119 slides. Negotiation, C-Suite selling, and revenue governance for senior AEs and leaders.</p>
+        <div class="price">$2,000</div>
+        <div class="kit-links" style="margin-top:22px;">
+          <a href="https://payhip.com/b/MS5Ft" class="kit-link" target="_blank" rel="noopener" aria-label="Get the Advanced Track on Payhip (opens in new tab)">Get the Advanced Track →</a>
+        </div>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="badge-save">Save $1,200</div>
+        <div class="p-num">04</div>
+        <h3>Complete Bundle</h3>
+        <p class="desc">All 3 tracks — 14 modules, 280 slides, every guide and workbook. The full certification path in one package.</p>
+        <div class="price">$4,500<small> / bundle</small></div>
+        <div class="price-note">vs. $5,700 purchased separately</div>
+        <div class="kit-links" style="margin-top:22px;">
+          <a href="https://payhip.com/b/M7CnW" class="kit-link" target="_blank" rel="noopener" aria-label="Get the Complete Bundle on Payhip (opens in new tab)">Get the Complete Bundle →</a>
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="p-num">05</div>
+        <h3>White-Label License</h3>
+        <p class="desc">Full unrestricted buyout. Rebrand it, edit it, resell it, or claim authorship — no royalties, no resale limits.</p>
+        <div class="price">$10,000</div>
+        <div class="price-note">One-time, full ownership transfer</div>
+        <div class="kit-links" style="margin-top:22px;">
+          <a href="https://payhip.com/b/TBCnl" class="kit-link" target="_blank" rel="noopener" aria-label="Get the White-Label License on Payhip (opens in new tab)">Get the White-Label License →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -889,8 +1050,8 @@
       </div>
       <div class="footer-col">
         <h4>Programs</h4>
-        <a href="#programs">SaaS Revenue Academy</a>
-        <a href="#programs">Real Estate Neuro-Sales</a>
+        <a href="/programs">SaaS Revenue Academy</a>
+        <a href="/programs">Real Estate Neuro-Sales</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
@@ -920,81 +1081,6 @@
     });
   }, {threshold:0.12});
   revealEls.forEach(el=>io.observe(el));
-
-  const industrySelect = document.getElementById('customize-industry');
-  const retailField = document.getElementById('customize-retail-field');
-  const retailSelect = document.getElementById('customize-retail-category');
-  const otherField = document.getElementById('customize-other-field');
-  const otherInput = document.getElementById('customize-other-industry');
-
-  function updateIndustryDetailFields(){
-    const value = industrySelect.value;
-    retailField.hidden = value !== 'Retail';
-    retailSelect.required = value === 'Retail';
-    otherField.hidden = value !== 'Other';
-    otherInput.required = value === 'Other';
-    if(value !== 'Retail'){ retailSelect.value = ''; }
-    if(value !== 'Other'){ otherInput.value = ''; }
-  }
-  if(industrySelect){
-    industrySelect.addEventListener('change', updateIndustryDetailFields);
-    updateIndustryDetailFields();
-  }
-
-  const customizeForm = document.getElementById('customize-form');
-  const customizeStatus = document.getElementById('customize-status');
-  if(customizeForm){
-    customizeForm.addEventListener('submit', async function(e){
-      e.preventDefault();
-      const submitBtn = customizeForm.querySelector('button[type="submit"]');
-      const industry = industrySelect.value;
-      let industryDetail = '';
-      if(industry === 'Retail'){
-        industryDetail = retailSelect.value;
-      } else if(industry === 'Other'){
-        industryDetail = otherInput.value.trim();
-      }
-      const payload = {
-        name: document.getElementById('customize-name').value.trim(),
-        email: document.getElementById('customize-email').value.trim(),
-        industry: industry,
-        industryDetail: industryDetail,
-        teamSize: document.getElementById('customize-team-size').value,
-        need: document.getElementById('customize-need').value.trim()
-      };
-      const missingRequired = !payload.name || !payload.email || !payload.industry || !payload.teamSize || !payload.need
-        || (industry === 'Retail' && !industryDetail)
-        || (industry === 'Other' && !industryDetail);
-      if(missingRequired){
-        customizeStatus.textContent = 'Please fill in all fields.';
-        return;
-      }
-      submitBtn.disabled = true;
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending…';
-      customizeStatus.textContent = '';
-      try{
-        const res = await fetch('/api/customize-request', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(payload)
-        });
-        const data = await res.json().catch(()=>({}));
-        if(res.ok){
-          customizeStatus.textContent = data.message || "Thanks — we'll be in touch shortly.";
-          customizeForm.reset();
-          updateIndustryDetailFields();
-        } else {
-          customizeStatus.textContent = data.message || 'Something went wrong. Please try again.';
-        }
-      } catch(err){
-        customizeStatus.textContent = 'Network error. Please try again.';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-      }
-    });
-  }
 </script>
 
 </body>
