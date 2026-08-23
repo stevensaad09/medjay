@@ -163,7 +163,10 @@
   }
   nav.wrap{
     display:flex; align-items:center; justify-content:space-between;
-    height:76px;
+    flex-wrap:wrap;
+    min-height:76px;
+    row-gap:10px;
+    padding-top:14px; padding-bottom:14px;
   }
   .brandmark{
     display:flex; align-items:center; gap:10px;
@@ -180,11 +183,26 @@
     color:var(--white);
   }
   .navlinks{
-    display:none;
-    gap:32px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 24px;
     list-style:none; margin:0; padding:0;
+    order:3;
+    flex-basis:100%;
+    justify-content:center;
   }
-  @media (min-width:780px){ .navlinks{display:flex;} }
+  @media (min-width:780px){
+    .navlinks{
+      flex-basis:auto;
+      order:0;
+      justify-content:flex-start;
+      gap:32px;
+    }
+  }
+  @media (max-width:499px){
+    .navlinks{gap:8px 16px;}
+    .navlinks a{font-size:13px;}
+  }
   .navlinks a{
     text-decoration:none;
     font-size:14px;
@@ -728,7 +746,7 @@
     </a>
     <ul class="navlinks">
       <li><a href="/">Home</a></li>
-      <li><a href="/#founder">Info</a></li>
+      <li><a href="/info">Info</a></li>
       <li><a href="/programs">Programs</a></li>
       <li><a href="/#contact">Contact Us</a></li>
     </ul>
