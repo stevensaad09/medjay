@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Info — Steven Saad | MEDJAY</title>
-<meta name="description" content="Meet Steven Saad, founder of MEDJAY — a decade in sales, a diploma in psychology and emotional intelligence, and the method behind MEDJAY's training programs.">
-<link rel="canonical" href="https://medjay.pro/info/stevensaad">
+<title>Articles | MEDJAY</title>
+<meta name="description" content="Long-form field notes on sales psychology, buyer behavior, and the method behind MEDJAY's training programs.">
+<link rel="canonical" href="https://medjay.pro/articles">
 <meta name="theme-color" content="#0a1428">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Steven Saad">
@@ -13,9 +13,9 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MEDJAY">
-<meta property="og:title" content="Info — Steven Saad | MEDJAY">
-<meta property="og:description" content="A decade in sales, a diploma in psychology and emotional intelligence, and the method behind MEDJAY's training programs.">
-<meta property="og:url" content="https://medjay.pro/info/stevensaad">
+<meta property="og:title" content="Articles | MEDJAY">
+<meta property="og:description" content="Long-form field notes on sales psychology, buyer behavior, and the method behind MEDJAY's training programs.">
+<meta property="og:url" content="https://medjay.pro/articles">
 <meta property="og:image" content="https://medjay.pro/assets/icon-512.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
@@ -23,8 +23,8 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Info — Steven Saad | MEDJAY">
-<meta name="twitter:description" content="The scout behind MEDJAY — a decade in sales, a diploma in psychology, and the method that became MEDJAY.">
+<meta name="twitter:title" content="Articles | MEDJAY">
+<meta name="twitter:description" content="Long-form field notes on sales psychology and buyer behavior.">
 <meta name="twitter:image" content="https://medjay.pro/assets/icon-512.png">
 
 <!-- Favicons & App Icons -->
@@ -238,14 +238,6 @@
     pointer-events:none;
   }
   .hero .eyebrow{margin-bottom:22px; display:block;}
-  .tagline-small{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.08em;
-    color:var(--white-dim);
-    margin:0 0 10px;
-    text-transform:none;
-  }
   .hero h1{
     font-size:clamp(36px, 5.6vw, 64px);
     line-height:1.08;
@@ -255,76 +247,37 @@
     max-width:560px;
     font-size:18px;
     color:var(--white-dim);
-    margin:26px 0 36px;
-  }
-  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:48px;}
-  .btn-primary{
-    font-family:'Inter';
-    font-weight:600;
-    font-size:15px;
-    text-decoration:none;
-    background:var(--gold);
-    color:var(--navy);
-    padding:14px 26px;
-    border-radius:2px;
-    border:1px solid var(--gold);
-    transition:background .2s, transform .2s;
-  }
-  .btn-primary:hover{background:var(--gold-bright); transform:translateY(-1px);}
-  .btn-ghost{
-    font-family:'Inter';
-    font-weight:500;
-    font-size:15px;
-    text-decoration:none;
-    color:var(--white);
-    padding:14px 26px;
-    border-radius:2px;
-    border:1px solid var(--line);
-    transition:border-color .2s, background .2s;
-  }
-  .btn-ghost:hover{border-color:var(--gold); background:rgba(247,244,236,0.03);}
-  .trust-line{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12.5px;
-    color:var(--white-dim);
-    letter-spacing:0.02em;
+    margin:26px 0 0;
   }
 
-  /* ---------- Founder ---------- */
-  .founder{
-    display:grid; grid-template-columns:1fr; gap:36px;
+  /* ---------- Articles grid ---------- */
+  .articles-grid{
+    display:grid; grid-template-columns:1fr; gap:24px;
   }
-  @media (min-width:820px){ .founder{grid-template-columns: 1.1fr 0.9fr; gap:64px; align-items:start;} }
-  .founder-copy p{color:var(--white-dim); max-width:58ch; margin:0 0 16px;}
-  .founder-copy strong{color:var(--white); font-family:'Fraunces', serif; font-weight:600; font-style:normal;}
-  .founder-copy .line-pair{
-    font-family:'Fraunces', serif;
-    font-style:italic;
-    color:var(--white);
-    font-size:19px;
-    margin:0 0 16px;
-    line-height:1.5;
-  }
-  .credentials{
+  @media (min-width:700px){ .articles-grid{grid-template-columns:1fr 1fr;} }
+  .article-card{
     border:1px solid var(--line);
-    padding:26px 28px;
+    padding:32px 30px;
+    border-radius:4px;
+    display:flex; flex-direction:column;
+    text-decoration:none;
+    transition:border-color .2s;
   }
-  .credentials .eyebrow{margin-bottom:14px; display:block;}
-  .credentials ul{list-style:none; margin:0; padding:0;}
-  .credentials li{
-    padding:11px 0;
-    border-bottom:1px solid var(--line);
-    font-size:14px;
-    color:var(--white-dim);
+  .article-card:hover{border-color:var(--gold);}
+  .article-card .article-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:14px; display:block;
   }
-  .credentials li:last-child{border-bottom:none;}
-  .founder-closing{
-    font-family:'Fraunces', serif;
-    font-size:21px;
-    color:var(--white);
-    max-width:600px;
-    margin-top:8px;
-    line-height:1.5;
+  .article-card h3{font-size:22px; margin-bottom:10px; color:var(--white);}
+  .article-card p{color:var(--white-dim); font-size:15px; line-height:1.6; margin:0; flex-grow:1;}
+  .article-card .read-more{
+    margin-top:18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px; color:var(--gold-bright); letter-spacing:0.05em;
+  }
+  .articles-empty, .articles-loading{
+    color:var(--white-dim); font-size:15.5px;
   }
 
   /* ---------- Footer ---------- */
@@ -406,32 +359,20 @@
 <div class="watchline" role="presentation"></div>
 
 <main id="main">
-<section id="founder">
-  <div class="wrap founder">
-    <div class="founder-copy reveal">
-      <span class="eyebrow">The Founder</span>
-      <h2 style="margin:16px 0 22px;">Steven Saad</h2>
-      <p>Steven Saad spent more than a decade in sales — across retail, wholesale distribution, telecommunications, and corporate training in Dubai — before every conversation taught him the same lesson:</p>
-      <p class="line-pair">People don't buy because of a better script.<br>They buy when they feel understood.</p>
-      <p>To understand that more deeply, he paired his sales experience with a Diploma in Psychology & Emotional Intelligence and a B.Ed in Geography from Alexandria University.</p>
-      <p class="line-pair">One taught him to read terrain.<br>The other taught him to read people.</p>
-      <p>What began as instinct became a method. That method became MEDJAY. I discovered I was a trainer long before I knew the title existed.</p>
-      <p>Since 2022, that method has reached more than 2,500 learners across Arabic and English, while continuing to evolve through real conversations, real organizations, and real sales environments.</p>
-      <p class="founder-closing">The goal was never to create another sales course.<br>It was to build a better way to understand why people buy.</p>
-    </div>
-    <div class="credentials reveal">
-      <span class="eyebrow">Credentials</span>
-      <ul>
-        <li>Founder, MEDJAY</li>
-        <li>Neuro Sales Trainer</li>
-        <li>Diploma in Psychology & Emotional Intelligence</li>
-        <li>B.Ed (Geography), Alexandria University</li>
-        <li>10+ Years in Sales</li>
-        <li>6+ Years in Corporate Training</li>
-        <li>Sales Trainer in Dubai since 2023</li>
-        <li>2,500+ Learners</li>
-        <li>Udemy Instructor (Arabic & English)</li>
-      </ul>
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow reveal">Articles</span>
+    <h1 class="reveal">Field notes, at length.</h1>
+    <p class="lede reveal">Longer reads on sales psychology, buyer behavior, and the method behind MEDJAY's training programs.</p>
+  </div>
+</section>
+
+<div class="watchline"></div>
+
+<section id="articles-list">
+  <div class="wrap">
+    <div class="articles-grid" id="articles-grid">
+      <p class="articles-loading">Loading articles…</p>
     </div>
   </div>
 </section>
@@ -479,6 +420,44 @@
     });
   }, {threshold:0.12});
   revealEls.forEach(el=>io.observe(el));
+
+  function escapeHtml(str){
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+  function formatDate(iso){
+    try{
+      return new Date(iso).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+    } catch(err){ return iso; }
+  }
+
+  async function loadArticles(){
+    const grid = document.getElementById('articles-grid');
+    try{
+      const res = await fetch('/api/articles?published=1');
+      const data = await res.json().catch(()=>({}));
+      const articles = data.articles || [];
+      if(!articles.length){
+        grid.innerHTML = '<p class="articles-empty">No articles published yet. Check back soon.</p>';
+        return;
+      }
+      grid.innerHTML = articles.map(function(a){
+        return '<a class="article-card" href="/articles/' + encodeURIComponent(a.slug) + '">' +
+          '<span class="article-date">' + escapeHtml(formatDate(a.created_at)) + '</span>' +
+          '<h3>' + escapeHtml(a.title) + '</h3>' +
+          '<p>' + escapeHtml(a.excerpt || '') + '</p>' +
+          '<span class="read-more">Read the article →</span>' +
+        '</a>';
+      }).join('');
+    } catch(err){
+      grid.innerHTML = '<p class="articles-empty">Something went wrong loading articles. Please try again.</p>';
+    }
+  }
+  loadArticles();
 </script>
 
 </body>
