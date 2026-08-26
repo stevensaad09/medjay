@@ -526,7 +526,7 @@
     statusEl.textContent = '';
     try{
       const isEdit = !!editingId;
-      const res = await fetch(isEdit ? '/api/articles/' + editingId : '/api/articles', {
+      const res = await fetch(isEdit ? '/api/admin/articles/' + editingId : '/api/admin/articles', {
         method: isEdit ? 'PUT' : 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload)
@@ -548,7 +548,7 @@
 
   async function togglePublished(article){
     try{
-      const res = await fetch('/api/articles/' + article.id, {
+      const res = await fetch('/api/admin/articles/' + article.id, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -575,7 +575,7 @@
       return;
     }
     try{
-      const res = await fetch('/api/articles/' + article.id, { method: 'DELETE' });
+      const res = await fetch('/api/admin/articles/' + article.id, { method: 'DELETE' });
       if(res.ok){
         if(editingId === article.id){ resetForm(); }
         await loadArticles();
@@ -623,7 +623,7 @@
 
   async function loadArticles(){
     try{
-      const res = await fetch('/api/articles');
+      const res = await fetch('/api/admin/articles');
       const data = await res.json().catch(()=>({}));
       articlesCache = data.articles || [];
       renderList();
