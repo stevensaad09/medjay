@@ -48,7 +48,7 @@ export async function onRequestGet(context) {
 
 function renderArticlePage(article, comments) {
   const title = escapeHtml(article.title);
-  const description = escapeHtml(article.excerpt || stripHtml(article.content).slice(0, 160));
+  const description = escapeHtml(article.excerpt || stripMarkdown(article.content).slice(0, 160));
   const canonical = `https://medjay.pro/articles/${escapeHtml(article.slug)}`;
   const publishedDate = formatDate(article.created_at);
   const isoPublished = toIso(article.created_at);
@@ -73,7 +73,7 @@ function renderArticlePage(article, comments) {
 <section id="article-body">
   <div class="wrap">
     <div class="article-body reveal">
-      ${article.content}
+      ${renderPlainTextContent(article.content)}
     </div>
   </div>
 </section>
@@ -775,8 +775,30 @@ function escapeHtml(str) {
     .replace(/'/g, '&#39;');
 }
 
-function stripHtml(str) {
-  return String(str).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+function stripMarkdown(str) {
+  return String(str).replace(/\*\*(.+?)\*\*/g, '$1').replace(/\s+/g, ' ').trim();
+}
+
+// Converts the article's stored plain text (blank lines separate
+// paragraphs, **text** is bold) into HTML at render time. The raw
+// text is escaped first so the only markup this ever produces is the
+// <p>/<strong>/<br> it adds itself.
+function renderPlainTextContent(raw) {
+  const escaped = escapeHtml(raw || '');
+  const paragraphs = escaped
+    .split(/\n\s*\n+/)
+    .map(function (block) { return block.trim(); })
+    .filter(function (block) { return block.length > 0; });
+
+  if (!paragraphs.length) return '';
+
+  return paragraphs
+    .map(function (block) {
+      const withBold = block.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      const withBreaks = withBold.replace(/\n/g, '<br>');
+      return '<p>' + withBreaks + '</p>';
+    })
+    .join('\n      ');
 }
 
 function starGlyphs(rating) {

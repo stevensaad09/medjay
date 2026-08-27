@@ -5,11 +5,21 @@
 -- or paste this file's contents into the D1 Console in the Cloudflare
 -- dashboard (Workers & Pages -> D1 -> medjay-articles -> Console).
 --
--- Note on `content`: stored as raw HTML, rendered directly on the
--- article page with no further parsing (e.g. write <p>, <h2>,
--- <strong>, <a href="..."> directly in the dashboard's content field).
--- The dashboard that writes this table sits behind Cloudflare Access,
--- so only Steven can author it.
+-- Note on `content`: stored as plain text with minimal Markdown-style
+-- formatting (blank lines separate paragraphs, **text** becomes bold).
+-- It is converted to HTML only at render time, in
+-- functions/articles/[slug].js — the raw plain text stays editable in
+-- the dashboard without HTML tags cluttering the textarea. The
+-- dashboard that writes this table sits behind Cloudflare Access, so
+-- only Steven can author it.
+--
+-- Note: CREATE TABLE IF NOT EXISTS will NOT update an existing table
+-- with a different shape. If articles/comments already exist with a
+-- different column set (e.g. from an earlier partial migration),
+-- inserts can fail with a NOT NULL / no-such-column error even though
+-- this file looks correct — inspect the live schema (`PRAGMA
+-- table_info(articles);` in the D1 console) before assuming the code
+-- is at fault.
 
 CREATE TABLE IF NOT EXISTS articles (
   id INTEGER PRIMARY KEY AUTOINCREMENT,

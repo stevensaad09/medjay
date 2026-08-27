@@ -226,12 +226,18 @@
     padding:13px 14px;
     border-radius:2px;
   }
-  .form-field textarea{resize:vertical; min-height:110px; font-family:'IBM Plex Mono', monospace; font-size:13.5px;}
+  .form-field textarea{resize:vertical; min-height:110px; line-height:1.6;}
   #dash-content{min-height:280px;}
   .form-field input:focus-visible,
   .form-field textarea:focus-visible{
     outline:2px solid var(--gold-bright);
     outline-offset:2px;
+  }
+  .form-hint{
+    font-family:'Inter', sans-serif;
+    font-size:12.5px;
+    color:var(--white-dim);
+    margin:0 0 8px;
   }
   .form-checkbox{
     display:flex; align-items:center; gap:10px;
@@ -375,8 +381,13 @@
         <input type="text" id="dash-excerpt" placeholder="A short summary shown on the articles list">
       </div>
       <div class="form-field">
-        <label for="dash-content">Content (HTML)</label>
-        <textarea id="dash-content" placeholder="&lt;p&gt;Write the article body here. Basic HTML tags like &lt;p&gt;, &lt;h2&gt;, &lt;strong&gt;, &lt;a&gt; are supported.&lt;/p&gt;" required></textarea>
+        <label for="dash-content">Content</label>
+        <p class="form-hint">Leave a blank line between paragraphs. Use **text** for bold.</p>
+        <textarea id="dash-content" placeholder="Write the article here.
+
+Leave a blank line between paragraphs, like this one.
+
+Use **bold text** when you want emphasis." required></textarea>
       </div>
       <label class="form-checkbox">
         <input type="checkbox" id="dash-published">
