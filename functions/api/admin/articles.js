@@ -20,7 +20,8 @@ export async function onRequestGet(context) {
     ).all();
     return jsonResponse({ articles: results || [] }, 200);
   } catch (err) {
-    return jsonResponse({ message: 'Something went wrong. Please try again.' }, 500);
+    // Access-protected endpoint: safe to surface the real D1 error.
+    return jsonResponse({ message: 'Database error: ' + (err && err.message ? err.message : String(err)) }, 500);
   }
 }
 
@@ -49,6 +50,10 @@ export async function onRequestPost(context) {
   }
 
   try {
+    // created_at/updated_at are always supplied explicitly below rather
+    // than relying on the schema's SQL defaults, since articles, slug,
+    // title, content, excerpt, published, created_at, and updated_at
+    // are all NOT NULL columns and every one of them needs a bound value.
     const now = new Date().toISOString();
     const result = await env.DB.prepare(
       `INSERT INTO articles (slug, title, content, excerpt, published, created_at, updated_at)
@@ -60,7 +65,10 @@ export async function onRequestPost(context) {
     if (String(err && err.message).includes('UNIQUE')) {
       return jsonResponse({ message: 'That slug is already in use. Choose a different one.' }, 409);
     }
-    return jsonResponse({ message: 'Something went wrong. Please try again.' }, 500);
+    // This endpoint sits behind Cloudflare Access, so it's safe to
+    // surface the real D1 error here to make issues diagnosable from
+    // the dashboard UI instead of a generic message.
+    return jsonResponse({ message: 'Database error: ' + (err && err.message ? err.message : String(err)) }, 500);
   }
 }
 

@@ -48,7 +48,8 @@ export async function onRequestPut(context) {
     if (String(err && err.message).includes('UNIQUE')) {
       return jsonResponse({ message: 'That slug is already in use. Choose a different one.' }, 409);
     }
-    return jsonResponse({ message: 'Something went wrong. Please try again.' }, 500);
+    // Access-protected endpoint: safe to surface the real D1 error.
+    return jsonResponse({ message: 'Database error: ' + (err && err.message ? err.message : String(err)) }, 500);
   }
 }
 
@@ -75,7 +76,8 @@ export async function onRequestDelete(context) {
     }
     return jsonResponse({ message: 'Article deleted.' }, 200);
   } catch (err) {
-    return jsonResponse({ message: 'Something went wrong. Please try again.' }, 500);
+    // Access-protected endpoint: safe to surface the real D1 error.
+    return jsonResponse({ message: 'Database error: ' + (err && err.message ? err.message : String(err)) }, 500);
   }
 }
 
