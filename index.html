@@ -504,45 +504,6 @@
     border:0;
   }
 
-  /* ---------- The Book ---------- */
-  .book-body{
-    max-width:600px; color:var(--white-dim); font-size:18px; margin:20px 0 44px;
-  }
-  .book-grid{
-    display:grid; grid-template-columns:1fr; gap:20px;
-  }
-  @media (min-width:760px){ .book-grid{grid-template-columns:1fr 1fr; align-items:stretch;} }
-  .book-card{
-    border:1px solid var(--line);
-    padding:38px 34px;
-    border-radius:4px;
-    display:flex; flex-direction:column;
-  }
-  .book-card h3{font-size:24px; margin:0 0 10px;}
-  .book-card .book-price{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:22px; font-weight:600; color:var(--gold);
-    margin-bottom:18px;
-  }
-  .book-card p.desc{color:var(--white-dim); margin:0 0 16px; max-width:60ch;}
-  .book-card .book-meta{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px; letter-spacing:0.05em;
-    color:var(--white-dim); margin:6px 0 22px; display:block;
-  }
-  .book-card .kit-links{margin-top:auto;}
-  .kit-links{display:flex; flex-wrap:wrap; gap:12px;}
-  .kit-link{
-    font-size:14px; text-decoration:none;
-    color:var(--navy);
-    background:var(--gold);
-    padding:10px 18px;
-    border-radius:2px;
-    font-weight:600;
-    transition:background .2s;
-  }
-  .kit-link:hover{background:var(--gold-bright);}
-
   /* ---------- CTA band ---------- */
   .cta-band{
     text-align:center;
@@ -628,6 +589,7 @@
     </a>
     <ul class="navlinks">
       <li><a href="/">Home</a></li>
+      <li><a href="/books">Books</a></li>
       <li><a href="/info/stevensaad">Info</a></li>
       <li><a href="/programs">Programs</a></li>
       <li><a href="/articles">Articles</a></li>
@@ -760,40 +722,6 @@
         <button type="submit" class="btn-primary">Subscribe Free</button>
       </form>
       <p class="newsletter-status" id="newsletter-status" role="status" aria-live="polite"></p>
-    </div>
-  </div>
-</section>
-
-<div class="watchline"></div>
-
-<section id="the-book">
-  <div class="wrap">
-    <span class="eyebrow reveal">The Book</span>
-    <h2 class="reveal" style="margin-top:16px;">Sales Psychology, In Writing.</h2>
-    <p class="book-body reveal">Before you commit to a program, read the method. Two formats — a fast primer or the complete field system.</p>
-
-    <div class="book-grid reveal">
-      <div class="book-card">
-        <h3>Your Guide to Sales Psychology</h3>
-        <div class="book-price">$9.99</div>
-        <p class="desc">The short version of the method. Nine chapters, each built the same way: a common mistake every salesperson learns, the psychology behind why it backfires, and how to apply the fix across three contexts — everyday life, B2C, and B2B.</p>
-        <p class="desc">Covers the Power of No, the A.R.T. and A.I.M. frameworks, authentic scarcity, social proof, and the line between persuasion and manipulation — each chapter closes with an AI practice prompt so you can rehearse before you face a real buyer.</p>
-        <span class="book-meta">9 chapters · PDF</span>
-        <div class="kit-links">
-          <a href="https://payhip.com/b/ca8Yh" class="kit-link" target="_blank" rel="noopener" aria-label="Get Your Guide to Sales Psychology on Payhip (opens in new tab)">Get the Guide →</a>
-        </div>
-      </div>
-
-      <div class="book-card">
-        <h3>Sales Mastery Playbook</h3>
-        <div class="book-price">$70</div>
-        <p class="desc">The Guide in one sentence: seven frameworks in plain language. The Playbook in one sentence: those same frameworks turned into a field manual — because most resistance, hesitation, and distrust sound identical out loud, and applying the right framework to the wrong one just confirms the buyer's original defensiveness.</p>
-        <p class="desc">Where the Guide teaches the frameworks, the Playbook adds what's underneath them: a diagnostic layer that identifies which kind of resistance you're actually facing, a 12-objection quick-reference library, three complete conversations (B2B, retail, real estate) showing every framework working together, ten real sales cases, 50 ready-to-use lines, a six-mode AI training system, and a 30-day plan to make it habitual.</p>
-        <span class="book-meta">8 modules · 50 scripts · 10 real cases · PDF</span>
-        <div class="kit-links">
-          <a href="https://payhip.com/b/xSYtO" class="kit-link" target="_blank" rel="noopener" aria-label="Get the Sales Mastery Playbook on Payhip (opens in new tab)">Get the Playbook →</a>
-        </div>
-      </div>
     </div>
   </div>
 </section>

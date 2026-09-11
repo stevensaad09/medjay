@@ -706,6 +706,7 @@ ${jsonLd ? `<script type="application/ld+json">${jsonLd}</script>` : ''}
     </a>
     <ul class="navlinks">
       <li><a href="/">Home</a></li>
+      <li><a href="/books">Books</a></li>
       <li><a href="/info/stevensaad">Info</a></li>
       <li><a href="/programs">Programs</a></li>
       <li><a href="/articles">Articles</a></li>
