@@ -284,6 +284,18 @@
   .dash-actions button.danger:hover{border-color:#d4685a; color:#e0897d;}
   .dash-empty{color:var(--white-dim); font-size:15px; padding:8px 0;}
 
+  /* ---------- Comment moderation ---------- */
+  .dash-badge.pending{color:#e0897d; border-color:rgba(212,104,90,0.45);}
+  .dash-comment-text{
+    color:var(--white-dim); font-size:14.5px; line-height:1.6; margin:10px 0 0;
+    white-space:pre-wrap; word-break:break-word;
+  }
+  .dash-comment-stars{color:var(--gold); letter-spacing:2px; font-size:13px; margin-left:8px;}
+  .dash-subhead{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--white-dim); margin:28px 0 0;
+  }
+
   /* ---------- Footer ---------- */
   footer{
     border-top:1px solid var(--line);
@@ -358,7 +370,7 @@
   <div class="wrap">
     <span class="eyebrow">Dashboard</span>
     <h1 style="margin-top:16px;">Articles</h1>
-    <p>Create, edit, publish, and delete articles. Changes here go live immediately on /articles.</p>
+    <p>Create, edit, publish, and delete articles, and moderate comments. Changes here go live immediately on /articles.</p>
   </div>
 </section>
 
@@ -409,6 +421,23 @@ Use **bold text** when you want emphasis." required></textarea>
     <span class="eyebrow">All Articles</span>
     <div class="dash-list" id="dash-list" style="margin-top:20px;">
       <p class="dash-empty">Loading articles…</p>
+    </div>
+  </div>
+</section>
+
+<div class="watchline"></div>
+
+<section id="dash-comments-section">
+  <div class="wrap">
+    <span class="eyebrow">Comments</span>
+    <p class="form-hint" style="margin-top:12px;">New comments stay hidden until you approve them. Deleting a comment cannot be undone.</p>
+    <p class="dash-subhead">Awaiting approval <span id="dash-pending-count"></span></p>
+    <div class="dash-list" id="dash-pending-list" style="margin-top:12px;">
+      <p class="dash-empty">Loading comments…</p>
+    </div>
+    <p class="dash-subhead">Approved (public)</p>
+    <div class="dash-list" id="dash-approved-list" style="margin-top:12px;">
+      <p class="dash-empty">Loading comments…</p>
     </div>
   </div>
 </section>
@@ -644,6 +673,110 @@ Use **bold text** when you want emphasis." required></textarea>
     }
   }
   loadArticles();
+
+  /* ---------- Comment moderation ---------- */
+  let commentsCache = [];
+  const pendingListEl = document.getElementById('dash-pending-list');
+  const approvedListEl = document.getElementById('dash-approved-list');
+  const pendingCountEl = document.getElementById('dash-pending-count');
+
+  function renderCommentItem(c){
+    const isPending = !c.approved;
+    const rating = Math.max(0, Math.min(5, parseInt(c.rating, 10) || 0));
+    const articleLabel = c.article_title
+      ? '<a href="/articles/' + encodeURIComponent(c.article_slug) + '" target="_blank" rel="noopener" style="color:inherit;">' + escapeHtml(c.article_title) + '</a>'
+      : 'Article #' + c.article_id;
+    return '<div class="dash-item">' +
+      '<div class="dash-item-main">' +
+        '<h4>' + escapeHtml(c.author_name) +
+          '<span class="dash-comment-stars" aria-label="' + rating + ' out of 5 stars">' + '★'.repeat(rating) + '</span>' +
+          '<span class="dash-badge ' + (isPending ? 'pending' : 'published') + '">' + (isPending ? 'Pending' : 'Approved') + '</span>' +
+        '</h4>' +
+        '<div class="dash-meta">On ' + articleLabel + ' · ' + escapeHtml(formatDate(c.created_at)) + '</div>' +
+        '<p class="dash-comment-text">' + escapeHtml(c.comment_text) + '</p>' +
+      '</div>' +
+      '<div class="dash-actions">' +
+        (isPending ? '<button type="button" data-action="approve" data-id="' + c.id + '">Approve</button>' : '') +
+        '<button type="button" class="danger" data-action="delete" data-id="' + c.id + '">Delete</button>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderComments(){
+    const pending = commentsCache.filter(function(c){ return !c.approved; });
+    const approved = commentsCache.filter(function(c){ return !!c.approved; });
+    pendingCountEl.textContent = pending.length ? '(' + pending.length + ')' : '';
+    pendingListEl.innerHTML = pending.length
+      ? pending.map(renderCommentItem).join('')
+      : '<p class="dash-empty">No comments waiting for approval.</p>';
+    approvedListEl.innerHTML = approved.length
+      ? approved.map(renderCommentItem).join('')
+      : '<p class="dash-empty">No approved comments yet.</p>';
+  }
+
+  async function approveComment(c){
+    try{
+      const res = await fetch('/api/admin/comments/' + c.id, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ approved: true })
+      });
+      if(res.ok){
+        await loadComments();
+      } else {
+        const data = await res.json().catch(()=>({}));
+        alert(data.message || 'Something went wrong approving the comment.');
+      }
+    } catch(err){
+      alert('Network error. Please try again.');
+    }
+  }
+
+  async function deleteComment(c){
+    if(!confirm('Delete the comment by "' + c.author_name + '"? This cannot be undone.')){
+      return;
+    }
+    try{
+      const res = await fetch('/api/admin/comments/' + c.id, { method: 'DELETE' });
+      if(res.ok){
+        await loadComments();
+      } else {
+        const data = await res.json().catch(()=>({}));
+        alert(data.message || 'Something went wrong deleting the comment.');
+      }
+    } catch(err){
+      alert('Network error. Please try again.');
+    }
+  }
+
+  function onCommentListClick(e){
+    const btn = e.target.closest('button[data-action]');
+    if(!btn) return;
+    const id = parseInt(btn.dataset.id, 10);
+    const comment = commentsCache.find(function(c){ return c.id === id; });
+    if(!comment) return;
+    if(btn.dataset.action === 'approve'){ approveComment(comment); }
+    else if(btn.dataset.action === 'delete'){ deleteComment(comment); }
+  }
+  pendingListEl.addEventListener('click', onCommentListClick);
+  approvedListEl.addEventListener('click', onCommentListClick);
+
+  async function loadComments(){
+    try{
+      const res = await fetch('/api/admin/comments');
+      const data = await res.json().catch(()=>({}));
+      if(!res.ok){
+        throw new Error(data.message || 'Request failed');
+      }
+      commentsCache = data.comments || [];
+      renderComments();
+    } catch(err){
+      const msg = '<p class="dash-empty">Could not load comments: ' + escapeHtml(err.message || 'unknown error') + '</p>';
+      pendingListEl.innerHTML = msg;
+      approvedListEl.innerHTML = '';
+    }
+  }
+  loadComments();
 </script>
 
 </body>
