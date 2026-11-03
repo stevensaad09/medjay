@@ -8,6 +8,8 @@
 //
 // The API key never reaches the browser — it lives only here, server-side.
 
+import { isProduction, logSkippedWrite } from '../_lib/env.js';
+
 export async function onRequestPost(context) {
   const { request, env } = context;
 
@@ -22,6 +24,12 @@ export async function onRequestPost(context) {
 
   if (!isValidEmail(email)) {
     return jsonResponse({ message: 'Please enter a valid email address.' }, 400);
+  }
+
+  // Preview / non-production: do not call Brevo.
+  if (!isProduction(request)) {
+    logSkippedWrite(request, 'newsletter subscribe');
+    return jsonResponse({ message: "You're in. Welcome to the list." }, 200);
   }
 
   if (!env.BREVO_API_KEY) {

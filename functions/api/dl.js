@@ -7,8 +7,10 @@
 // so it always stays on this site (no open redirect). Anything else is a
 // 404. Logged: course, file, country, date. No IP or other personal data.
 // HEAD requests, prefetches and obvious bots are redirected but not counted.
+// On preview / non-production hosts nothing is written (see _lib/env.js).
 
 import { FILES, isCourse, isLikelyBot, countryOf } from '../_lib/courses.js';
+import { isProduction, logSkippedWrite } from '../_lib/env.js';
 
 export async function onRequest(context) {
   const { request, env } = context;
@@ -28,7 +30,9 @@ export async function onRequest(context) {
     });
   }
 
-  if (env.DB && !isLikelyBot(request)) {
+  if (!isProduction(request)) {
+    logSkippedWrite(request, `download ${course} ${file}`);
+  } else if (env.DB && !isLikelyBot(request)) {
     const insert = env.DB.prepare(
       'INSERT INTO course_events (course, event, country, created_at) VALUES (?, ?, ?, ?)'
     ).bind(course, file, countryOf(request), new Date().toISOString());

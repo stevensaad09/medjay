@@ -1,8 +1,9 @@
 // Cloudflare Pages Function
 // Handles PUT/DELETE /api/admin/articles/:id
 // Dashboard use only. /api/admin/* is protected by Cloudflare Access at
-// the infrastructure level (same policy as /dashboard/*), so no
-// additional auth check is done here.
+// the infrastructure level (same policy as /dashboard/*), and every
+// request also passes functions/api/admin/_middleware.js first: it checks
+// the Access headers and blocks writes on preview hosts.
 
 export async function onRequestPut(context) {
   const { request, env, params } = context;

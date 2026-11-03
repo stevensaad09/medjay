@@ -14,10 +14,14 @@
 // Brevo problems never fail the request: the lead is already saved, and
 // the outcome is written to course_leads.brevo_status.
 //
+// On preview / non-production hosts the fields are still validated, but
+// nothing is saved or sent; the normal success response is returned.
+//
 // SETUP: uses the existing Cloudflare secret BREVO_API_KEY. The Brevo
 // contact attributes ROLE, TEAM_SIZE and COURSE (type Text) must exist.
 
 import { COURSE_NAMES, ROLES, TEAM_SIZES, isCourse, isFollowUp, countryOf } from '../_lib/courses.js';
+import { isProduction, logSkippedWrite } from '../_lib/env.js';
 
 const BREVO_LIST_ID = 57;
 const ALERT_TO = 'steven@medjay.pro';
@@ -56,6 +60,12 @@ export async function onRequestPost(context) {
 
   if (!isValidEmail(email) || !ROLES.includes(role) || !TEAM_SIZES.includes(teamSize)) {
     return reply(isJson, course, false, 'Please enter a valid email and choose a role and team size.', 400);
+  }
+
+  // Preview / non-production: no D1 write, no Brevo contact, no alert email.
+  if (!isProduction(request)) {
+    logSkippedWrite(request, `course lead ${course}`);
+    return reply(isJson, course, true, 'Thanks. You are on the list.', 200);
   }
 
   if (!env.DB) {

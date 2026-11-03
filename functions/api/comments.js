@@ -7,6 +7,8 @@
 //        endpoint before touching the DB, then validates the rest of the
 //        fields and inserts the comment.
 
+import { isProduction, logSkippedWrite } from '../_lib/env.js';
+
 export async function onRequestGet(context) {
   const { request, env } = context;
 
@@ -54,6 +56,12 @@ export async function onRequestPost(context) {
 
   if (!Number.isInteger(articleId) || !authorName || !commentText || !Number.isInteger(rating) || rating < 1 || rating > 5) {
     return jsonResponse({ message: 'Please fill in your name, a rating (1-5), and a comment.' }, 400);
+  }
+
+  // Preview / non-production: validate only, do not write to D1.
+  if (!isProduction(request)) {
+    logSkippedWrite(request, `comment on article ${articleId}`);
+    return jsonResponse({ message: 'Thanks — your comment has been posted.' }, 201);
   }
 
   if (!turnstileToken) {
