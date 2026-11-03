@@ -41,7 +41,11 @@ CREATE TABLE IF NOT EXISTS comments (
   author_name TEXT NOT NULL,
   rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
   comment_text TEXT NOT NULL,
+  -- 0 = awaiting moderation (hidden publicly), 1 = approved (shown).
+  -- Added by migrations/0001_comment_moderation.sql on existing databases.
+  approved INTEGER NOT NULL DEFAULT 0,
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
 CREATE INDEX IF NOT EXISTS idx_comments_article_id ON comments(article_id);
+CREATE INDEX IF NOT EXISTS idx_comments_article_approved ON comments(article_id, approved);

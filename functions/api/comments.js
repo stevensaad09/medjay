@@ -1,11 +1,12 @@
 // Cloudflare Pages Function
 // Handles GET/POST /api/comments
 //
-// GET  ?article_id=X - returns all comments for that article, newest first.
+// GET  ?article_id=X - returns APPROVED comments for that article, newest first.
 // POST - accepts { article_id, author_name, rating, comment_text, turnstile_token }.
 //        Verifies turnstile_token server-side against Cloudflare's siteverify
 //        endpoint before touching the DB, then validates the rest of the
-//        fields and inserts the comment.
+//        fields and inserts the comment as NOT approved (approved = 0).
+//        It stays hidden until approved in /dashboard.
 
 export async function onRequestGet(context) {
   const { request, env } = context;
@@ -24,7 +25,7 @@ export async function onRequestGet(context) {
   try {
     const { results } = await env.DB.prepare(
       `SELECT id, author_name, rating, comment_text, created_at
-       FROM comments WHERE article_id = ? ORDER BY created_at DESC, id DESC`
+       FROM comments WHERE article_id = ? AND approved = 1 ORDER BY created_at DESC, id DESC`
     ).bind(articleId).all();
     return jsonResponse({ comments: results || [] }, 200);
   } catch (err) {
@@ -92,11 +93,11 @@ export async function onRequestPost(context) {
 
     const now = new Date().toISOString();
     await env.DB.prepare(
-      `INSERT INTO comments (article_id, author_name, rating, comment_text, created_at)
-       VALUES (?, ?, ?, ?, ?)`
+      `INSERT INTO comments (article_id, author_name, rating, comment_text, approved, created_at)
+       VALUES (?, ?, ?, ?, 0, ?)`
     ).bind(articleId, authorName, rating, commentText, now).run();
 
-    return jsonResponse({ message: 'Thanks — your comment has been posted.' }, 201);
+    return jsonResponse({ message: 'Thanks — your comment was received and will appear once it is approved.' }, 201);
   } catch (err) {
     return jsonResponse({ message: 'Something went wrong. Please try again.' }, 500);
   }

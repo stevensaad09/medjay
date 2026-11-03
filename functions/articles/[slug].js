@@ -1,8 +1,9 @@
 // Cloudflare Pages Function
 // Handles GET /articles/:slug
 // Server-renders a single published article (matching the site's design
-// system) with a comment form (protected by Turnstile) and the existing
-// comment list. Returns 404 for missing or unpublished articles.
+// system) with a comment form (protected by Turnstile) and the list of
+// approved comments (unapproved ones are hidden until moderated).
+// Returns 404 for missing or unpublished articles.
 
 const TURNSTILE_SITE_KEY = '0x4AAAAAAEdGei9y6nHiNLdP';
 
@@ -33,7 +34,7 @@ export async function onRequestGet(context) {
   let comments = [];
   try {
     const { results } = await env.DB.prepare(
-      'SELECT id, author_name, rating, comment_text, created_at FROM comments WHERE article_id = ? ORDER BY created_at DESC, id DESC'
+      'SELECT id, author_name, rating, comment_text, created_at FROM comments WHERE article_id = ? AND approved = 1 ORDER BY created_at DESC, id DESC'
     ).bind(article.id).all();
     comments = results || [];
   } catch (err) {
@@ -248,7 +249,7 @@ function renderArticlePage(article, comments) {
         });
         const data = await res.json().catch(function(){ return {}; });
         if(res.ok){
-          commentStatus.textContent = data.message || 'Thanks — your comment has been posted.';
+          commentStatus.textContent = data.message || 'Thanks — your comment was received and will appear once it is approved.';
           commentForm.reset();
           setRating(0);
           await reloadComments();
