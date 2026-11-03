@@ -132,7 +132,7 @@ function renderArticlePage(article, comments) {
       "name": "MEDJAY",
       "url": "https://medjay.pro/",
       "logo": "https://medjay.pro/assets/icon-512.png",
-      "description": "Psychology-driven sales training programs for SaaS and Real Estate organizations.",
+      "description": "Psychology-driven sales training programs for real estate and distribution teams.",
       "founder": { "@id": "https://medjay.pro/#founder" },
       "address": { "@type": "PostalAddress", "addressLocality": "Sharjah", "addressCountry": "AE" },
       "email": "steven@medjay.pro"
@@ -729,9 +729,11 @@ ${bodyContent}
       </div>
       <div class="footer-col">
         <h4>Programs</h4>
-        <a href="/programs/saas">SaaS Revenue Academy</a>
-        <a href="/programs/usa-real-estate">Real Estate Neuro-Sales — Individual</a>
-        <a href="/programs/usa-real-estate-enterprise">Real Estate Neuro-Sales — Enterprise</a>
+        <a href="/programs/usa-real-estate">USA Real Estate: Self-Study</a>
+        <a href="/programs/usa-real-estate-enterprise">USA Real Estate: Enterprise</a>
+        <a href="/programs/uae-real-estate">UAE Real Estate: Self-Study</a>
+        <a href="/programs/uae-real-estate-enterprise">UAE Real Estate: Enterprise</a>
+        <a href="/programs/contractor-sales-mastery">Contractor Sales Mastery</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
