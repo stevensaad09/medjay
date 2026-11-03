@@ -23,6 +23,7 @@ const STATIC_PAGES = [
   { path: '/books', changefreq: 'monthly', priority: '0.8' },
   { path: '/info/stevensaad', changefreq: 'monthly', priority: '0.7' },
   { path: '/articles', changefreq: 'weekly', priority: '0.7' },
+  { path: '/privacy/', changefreq: 'yearly', priority: '0.3' },
 ];
 
 const COURSE_SLUGS = [

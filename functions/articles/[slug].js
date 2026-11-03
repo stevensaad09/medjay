@@ -112,6 +112,7 @@ function renderArticlePage(article, comments) {
         <div class="cf-turnstile" data-sitekey="${TURNSTILE_SITE_KEY}"></div>
       </div>
       <button type="submit" class="btn-primary">Post Comment</button>
+      <p class="comment-consent" style="font-size:13px; color:var(--white-dim); line-height:1.55; margin:12px 0 0; max-width:480px;">Your name, rating and comment will be shown publicly. <a href="/privacy/" style="color:var(--gold-bright);">Privacy Policy</a>.</p>
       <p class="customize-status" id="comment-status" role="status" aria-live="polite"></p>
     </form>
 
@@ -347,9 +348,7 @@ function pageShell({ title, description, canonical, jsonLd, bodyContent, extraSc
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/fonts.css">
 ${includeTurnstile ? '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>' : ''}
 ${jsonLd ? `<script type="application/ld+json">${jsonLd}</script>` : ''}
 <style>
@@ -750,6 +749,7 @@ ${bodyContent}
     <div class="watchline" style="margin-bottom:22px;"></div>
     <div class="footer-bottom">
       <span>© 2026 MEDJAY. All rights reserved.</span>
+      <a href="/privacy/" style="color:inherit;">Privacy Policy</a>
     </div>
   </div>
 </footer>
