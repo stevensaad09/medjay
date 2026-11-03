@@ -284,6 +284,22 @@
   .dash-actions button.danger:hover{border-color:#d4685a; color:#e0897d;}
   .dash-empty{color:var(--white-dim); font-size:15px; padding:8px 0;}
 
+  /* ---------- Free course stats ---------- */
+  .dash-range{display:flex; align-items:center; gap:12px; margin:20px 0 16px;}
+  .dash-range label{font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--white-dim);}
+  .dash-range select{background:var(--navy); border:1px solid var(--line); color:var(--white); font-family:'Inter', sans-serif; font-size:14px; padding:8px 10px; border-radius:2px;}
+  .dash-table-wrap{overflow-x:auto; border:1px solid var(--line);}
+  .dash-table{width:100%; border-collapse:collapse; font-size:14px; min-width:560px;}
+  .dash-table th, .dash-table td{padding:12px 14px; text-align:right; border-bottom:1px solid var(--line); white-space:nowrap;}
+  .dash-table th:first-child, .dash-table td:first-child{text-align:left;}
+  .dash-table th{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--white-dim); font-weight:500;}
+  .dash-table tbody tr:last-child td{border-bottom:0;}
+  .dash-table tfoot td{font-weight:600; color:var(--gold-bright); border-top:1px solid var(--line); border-bottom:0;}
+  .dash-subhead{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--white-dim); margin:32px 0 6px;
+  }
+
   /* ---------- Footer ---------- */
   footer{
     border-top:1px solid var(--line);
@@ -410,6 +426,36 @@ Use **bold text** when you want emphasis." required></textarea>
     <span class="eyebrow">All Articles</span>
     <div class="dash-list" id="dash-list" style="margin-top:20px;">
       <p class="dash-empty">Loading articles…</p>
+    </div>
+  </div>
+</section>
+
+<div class="watchline"></div>
+
+<section id="dash-courses-section">
+  <div class="wrap">
+    <span class="eyebrow">Free Courses</span>
+    <p class="form-hint" style="margin-top:12px;">Approximate counts: obvious bots are filtered out. Page open = interested, Day 1 = started, Day 5 = finished or close, Zip = downloaded everything.</p>
+    <div class="dash-range">
+      <label for="dash-course-range">Period</label>
+      <select id="dash-course-range">
+        <option value="all">All time</option>
+        <option value="30">Last 30 days</option>
+        <option value="7">Last 7 days</option>
+      </select>
+    </div>
+    <div class="dash-table-wrap">
+      <table class="dash-table" id="dash-course-table">
+        <thead>
+          <tr><th scope="col">Course</th><th scope="col">Page opens</th><th scope="col">Day 1</th><th scope="col">Day 5</th><th scope="col">Zip</th><th scope="col">Form</th></tr>
+        </thead>
+        <tbody><tr><td colspan="6" class="dash-empty">Loading…</td></tr></tbody>
+      </table>
+    </div>
+    <p class="dash-subhead">Follow up <span id="dash-followup-count"></span></p>
+    <p class="form-hint">Manager or Business Owner with a team of 2 or more. All time.</p>
+    <div class="dash-list" id="dash-followup-list" style="margin-top:12px;">
+      <p class="dash-empty">Loading…</p>
     </div>
   </div>
 </section>
@@ -648,6 +694,50 @@ Use **bold text** when you want emphasis." required></textarea>
     }
   }
   loadArticles();
+
+  /* ---------- Free course stats ---------- */
+  const courseTable = document.getElementById('dash-course-table');
+  const courseRange = document.getElementById('dash-course-range');
+  const followList = document.getElementById('dash-followup-list');
+  const followCount = document.getElementById('dash-followup-count');
+
+  function renderCourseStats(data){
+    const rows = data.courses || [];
+    const total = { open:0, day1:0, day5:0, zip:0, forms:0 };
+    const body = rows.map(function(r){
+      Object.keys(total).forEach(function(k){ total[k] += r[k] || 0; });
+      return '<tr><td>' + escapeHtml(r.name) + '</td><td>' + r.open + '</td><td>' + r.day1 + '</td><td>' + r.day5 + '</td><td>' + r.zip + '</td><td>' + r.forms + '</td></tr>';
+    }).join('');
+    courseTable.querySelector('tbody').innerHTML = body || '<tr><td colspan="6" class="dash-empty">No data yet.</td></tr>';
+    let tfoot = courseTable.querySelector('tfoot');
+    if(!tfoot){ tfoot = document.createElement('tfoot'); courseTable.appendChild(tfoot); }
+    tfoot.innerHTML = '<tr><td>Total</td><td>' + total.open + '</td><td>' + total.day1 + '</td><td>' + total.day5 + '</td><td>' + total.zip + '</td><td>' + total.forms + '</td></tr>';
+
+    const leads = data.followUps || [];
+    followCount.textContent = leads.length ? '(' + leads.length + ')' : '';
+    followList.innerHTML = leads.length ? leads.map(function(l){
+      return '<div class="dash-item"><div class="dash-item-main">' +
+        '<h4><a href="mailto:' + encodeURIComponent(l.email) + '" style="color:inherit;">' + escapeHtml(l.email) + '</a></h4>' +
+        '<div class="dash-meta">' + escapeHtml(l.role) + ' · team ' + escapeHtml(l.team_size) + ' · ' + escapeHtml(l.course_name) +
+        (l.country ? ' · ' + escapeHtml(l.country) : '') + ' · ' + escapeHtml(formatDate(l.created_at)) + '</div>' +
+        (l.brevo_status && l.brevo_status.indexOf('error') !== -1 ? '<div class="dash-meta" style="color:#e0897d; margin-top:4px;">Brevo: ' + escapeHtml(l.brevo_status) + '</div>' : '') +
+      '</div></div>';
+    }).join('') : '<p class="dash-empty">No follow-up leads yet.</p>';
+  }
+
+  async function loadCourseStats(){
+    try{
+      const res = await fetch('/api/admin/course-stats?range=' + encodeURIComponent(courseRange.value));
+      const data = await res.json().catch(()=>({}));
+      if(!res.ok){ throw new Error(data.message || 'Request failed'); }
+      renderCourseStats(data);
+    } catch(err){
+      courseTable.querySelector('tbody').innerHTML = '<tr><td colspan="6" class="dash-empty">Could not load course stats: ' + escapeHtml(err.message || 'unknown error') + '</td></tr>';
+      followList.innerHTML = '';
+    }
+  }
+  courseRange.addEventListener('change', loadCourseStats);
+  loadCourseStats();
 </script>
 
 </body>

@@ -930,6 +930,27 @@
   .back-links{display:flex; flex-wrap:wrap; gap:12px 24px; margin-top:36px; font-size:15px;}
   .back-links a{color:var(--white-dim);}
   .back-links a:hover{color:var(--white);}
+
+  /* ---------- Optional lead form (download pages) ---------- */
+  #stay-in-touch h2{font-size:24px; margin:0 0 20px;}
+  .lead-form{max-width:640px; border:1px solid var(--line); border-radius:4px; padding:24px 20px; background:var(--navy-2);}
+  .lead-row{display:grid; grid-template-columns:1fr; gap:0 16px;}
+  @media (min-width:640px){ .lead-row{grid-template-columns:1fr 1fr;} }
+  .lead-field{margin-bottom:18px;}
+  .lead-field label{
+    display:block; font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--white-dim); margin-bottom:8px;
+  }
+  .lead-field input, .lead-field select{
+    width:100%; min-height:48px; background:var(--navy); border:1px solid var(--line); color:var(--white);
+    font-family:'Inter', sans-serif; font-size:16px; padding:12px 14px; border-radius:2px;
+  }
+  .lead-field input:focus-visible, .lead-field select:focus-visible{outline:2px solid var(--gold-bright); outline-offset:2px;}
+  .lead-form .btn-primary{border:0; cursor:pointer; font-size:15px;}
+  .lead-form .btn-primary[disabled]{opacity:.6; cursor:default;}
+  .lead-consent{font-size:13px; color:var(--white-dim); line-height:1.55; margin:16px 0 0;}
+  .lead-status{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--gold-bright); margin:12px 0 0; min-height:18px;}
+  .hp-field{position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden;}
 </style>
 <noscript><style>.reveal{opacity:1; transform:none;}</style></noscript>
 </head>
@@ -964,23 +985,67 @@
     <h1 class="reveal">Your course is ready.</h1>
     <p class="lede reveal">One study guide for each day. Download them one at a time, or all at once.</p>
     <ul class="download-list reveal">
-      <li><a class="download-btn" href="/courses/files/assistant-manager-essentials-day-1.pdf" download>
+      <li><a class="download-btn" href="/api/dl?course=assistant-manager-essentials&amp;file=day-1" download rel="nofollow">
         <span class="label"><b>Day 1:</b> The Role and the Decision Map</span><span class="fmt">PDF</span>
       </a></li>
-      <li><a class="download-btn" href="/courses/files/assistant-manager-essentials-day-2.pdf" download>
+      <li><a class="download-btn" href="/api/dl?course=assistant-manager-essentials&amp;file=day-2" download rel="nofollow">
         <span class="label"><b>Day 2:</b> Running the Day</span><span class="fmt">PDF</span>
       </a></li>
-      <li><a class="download-btn" href="/courses/files/assistant-manager-essentials-day-3.pdf" download>
+      <li><a class="download-btn" href="/api/dl?course=assistant-manager-essentials&amp;file=day-3" download rel="nofollow">
         <span class="label"><b>Day 3:</b> Leading People</span><span class="fmt">PDF</span>
       </a></li>
-      <li><a class="download-btn" href="/courses/files/assistant-manager-essentials-day-4.pdf" download>
+      <li><a class="download-btn" href="/api/dl?course=assistant-manager-essentials&amp;file=day-4" download rel="nofollow">
         <span class="label"><b>Day 4:</b> Problems and Decisions</span><span class="fmt">PDF</span>
       </a></li>
-      <li><a class="download-btn" href="/courses/files/assistant-manager-essentials-day-5.pdf" download>
+      <li><a class="download-btn" href="/api/dl?course=assistant-manager-essentials&amp;file=day-5" download rel="nofollow">
         <span class="label"><b>Day 5:</b> Reliability and Growth</span><span class="fmt">PDF</span>
       </a></li>
     </ul>
-    <a class="zip-link reveal" href="/courses/files/assistant-manager-essentials-all.zip" download>Prefer one file? Download all (zip)</a>
+    <a class="zip-link reveal" href="/api/dl?course=assistant-manager-essentials&amp;file=all" download rel="nofollow">Prefer one file? Download all (zip)</a>
+  </div>
+</section>
+
+<div class="watchline"></div>
+
+<section id="stay-in-touch">
+  <div class="wrap">
+    <h2 class="reveal">Stay in touch (optional)</h2>
+    <form class="lead-form reveal" id="lead-form" action="/api/course-lead" method="post">
+      <input type="hidden" name="course" value="assistant-manager-essentials">
+      <div class="hp-field" aria-hidden="true">
+        <label for="lead-website">Website</label>
+        <input type="text" id="lead-website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="lead-field">
+        <label for="lead-email">Email</label>
+        <input type="email" id="lead-email" name="email" required autocomplete="email" inputmode="email" maxlength="254">
+      </div>
+      <div class="lead-row">
+        <div class="lead-field">
+          <label for="lead-role">Role</label>
+          <select id="lead-role" name="role" required>
+            <option value="" disabled selected>Select your role</option>
+            <option value="Individual">Individual</option>
+            <option value="Team Leader">Team Leader</option>
+            <option value="Manager">Manager</option>
+            <option value="Business Owner">Business Owner</option>
+          </select>
+        </div>
+        <div class="lead-field">
+          <label for="lead-team-size">Team size</label>
+          <select id="lead-team-size" name="team_size" required>
+            <option value="" disabled selected>Select team size</option>
+            <option value="1">1</option>
+            <option value="2-10">2-10</option>
+            <option value="11-50">11-50</option>
+            <option value="50+">50+</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn-primary">Send</button>
+      <p class="lead-consent">By submitting, you agree to receive emails from MEDJAY about this course and our training. Unsubscribe anytime.</p>
+      <p class="lead-status" id="lead-status" role="status" aria-live="polite"></p>
+    </form>
     <div class="back-links reveal">
       <a href="/courses/assistant-manager-essentials/">← Back to Assistant Manager Essentials</a>
       <a href="/courses/">All free courses</a>
@@ -1037,5 +1102,44 @@
   revealEls.forEach(el=>io.observe(el));
 </script>
 
+
+<script>
+  (function(){
+    var course = 'assistant-manager-essentials';
+    try {
+      var payload = JSON.stringify({ course: course });
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon('/api/course-event', new Blob([payload], { type: 'application/json' }));
+      } else {
+        fetch('/api/course-event', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload, keepalive: true });
+      }
+    } catch (err) {}
+
+    var form = document.getElementById('lead-form');
+    var status = document.getElementById('lead-status');
+    if (!form) return;
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var btn = form.querySelector('button[type="submit"]');
+      var data = {
+        course: course,
+        email: form.email.value.trim(),
+        role: form.role.value,
+        team_size: form.team_size.value,
+        website: form.website.value
+      };
+      btn.disabled = true;
+      status.textContent = 'Sending...';
+      fetch('/api/course-lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+        .then(function(res){ return res.json().catch(function(){ return {}; }).then(function(d){ return { ok: res.ok, d: d }; }); })
+        .then(function(r){
+          if (r.ok) { form.reset(); status.textContent = r.d.message || 'Thanks. You are on the list.'; }
+          else { status.textContent = r.d.message || 'Something went wrong. Please try again.'; btn.disabled = false; }
+        })
+        .catch(function(){ status.textContent = 'Network error. Please try again.'; btn.disabled = false; });
+    });
+  })();
+</script>
 </body>
 </html>
