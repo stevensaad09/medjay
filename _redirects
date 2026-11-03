@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects (https://developers.cloudflare.com/pages/configuration/redirects/)
+# SaaS Revenue Academy was retired; its page file is kept until removal is approved.
+/programs/saas /programs 301
+/programs/saas/ /programs 301
+/programs/saas/index.html /programs 301
