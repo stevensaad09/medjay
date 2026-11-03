@@ -134,7 +134,7 @@ function renderArticlePage(article, comments) {
       "logo": "https://medjay.pro/assets/icon-512.png",
       "description": "Psychology-driven sales training programs for real estate and distribution teams.",
       "founder": { "@id": "https://medjay.pro/#founder" },
-      "address": { "@type": "PostalAddress", "addressLocality": "Sharjah", "addressCountry": "AE" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Ras Al Khaimah", "addressCountry": "AE" },
       "email": "steven@medjay.pro"
     },
     {
@@ -744,7 +744,7 @@ ${bodyContent}
       </div>
       <div class="footer-col">
         <h4>Location</h4>
-        <p>Sharjah, UAE</p>
+        <p>Ras Al Khaimah, UAE</p>
       </div>
     </div>
     <div class="watchline" style="margin-bottom:22px;"></div>

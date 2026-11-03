@@ -3,12 +3,8 @@
 // Dashboard use only. /api/admin/* is protected by Cloudflare Access at
 // the infrastructure level (same policy as /dashboard/*).
 //
-// Because this endpoint returns lead emails, it also refuses any request
-// that carries neither header Cloudflare Access adds after login
-// (Cf-Access-Authenticated-User-Email or Cf-Access-Jwt-Assertion). This
-// only checks that a header is present; it does not verify the token.
-// Cloudflare Access is the real protection, and this is not a replacement
-// for it.
+// The Cloudflare Access header check runs for every /api/admin/* request
+// in functions/api/admin/_middleware.js (shared helper _lib/auth.js).
 //
 // Returns per-course counts (page opens, Day 1, Day 5, zip, form
 // submissions) for the chosen range, and the list of "Follow up" leads.
@@ -18,12 +14,6 @@ import { COURSE_SLUGS, COURSE_NAMES } from '../../_lib/courses.js';
 export async function onRequestGet(context) {
   const { request, env } = context;
 
-  const hasAccessHeader =
-    request.headers.get('Cf-Access-Authenticated-User-Email') ||
-    request.headers.get('Cf-Access-Jwt-Assertion');
-  if (!hasAccessHeader) {
-    return jsonResponse({ message: 'Not authorized.' }, 403);
-  }
   if (!env.DB) {
     return jsonResponse({ message: 'Server not configured.' }, 500);
   }
