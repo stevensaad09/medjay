@@ -483,6 +483,16 @@
     color:var(--white-dim); font-size:13.5px; font-style:italic;
     margin:-12px 0 24px; max-width:60ch;
   }
+  .free-card{
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px 24px;
+    border:1px dashed rgba(201,162,75,0.45); border-radius:4px;
+    padding:20px 24px; margin:8px 0 34px;
+  }
+  .free-card .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--gold);
+  }
+  .free-card p{color:var(--white-dim); font-size:15px; margin:6px 0 0; max-width:52ch;}
   .custom-cta{
     text-align:center;
     padding:30px;
@@ -762,6 +772,7 @@
       <li><a href="/books">Books</a></li>
       <li><a href="/info/stevensaad">Info</a></li>
       <li><a href="/programs">Programs</a></li>
+      <li><a href="/courses/">Free Courses</a></li>
       <li><a href="/articles">Articles</a></li>
       <li><a href="/#contact">Contact Us</a></li>
     </ul>
@@ -879,6 +890,14 @@
       </div>
     </div>
 
+    <div class="free-card reveal">
+      <div class="free-card-text">
+        <span class="tag">Start free</span>
+        <p>Free 5-day self-study courses for frontline sales, customer service and team leaders.</p>
+      </div>
+      <a href="/courses/" class="btn-ghost">Browse free courses →</a>
+    </div>
+
     <div class="custom-cta reveal">
       <p>Need it customized?</p>
       <a href="#customize" class="btn-ghost">Book a Discovery Call →</a>
@@ -969,6 +988,7 @@
       </div>
       <div class="footer-col">
         <h4>Programs</h4>
+        <a href="/courses/">Free Courses</a>
         <a href="/programs/usa-real-estate">USA Real Estate: Self-Study</a>
         <a href="/programs/usa-real-estate-enterprise">USA Real Estate: Enterprise</a>
         <a href="/programs/uae-real-estate">UAE Real Estate: Self-Study</a>

@@ -3,6 +3,10 @@
 // Generates the sitemap on every request: the fixed site pages below,
 // plus every PUBLISHED article from D1 (drafts are never listed).
 // To add a new static page to the sitemap, add it to STATIC_PAGES.
+// Free course pages are listed from COURSE_SLUGS: /courses/ plus one
+// /courses/<slug>/ page per slug (with trailing slashes, matching their
+// canonical URLs). Download pages and /courses/files/* are deliberately
+// never listed. To add a course, add its slug to COURSE_SLUGS.
 // If D1 is unavailable, the static pages are still returned so search
 // engines always get a valid sitemap.
 
@@ -21,10 +25,29 @@ const STATIC_PAGES = [
   { path: '/articles', changefreq: 'weekly', priority: '0.7' },
 ];
 
+const COURSE_SLUGS = [
+  'retail-sales-essentials',
+  'counter-sales-essentials',
+  'tele-sales-essentials',
+  'b2b-sales-essentials',
+  'customer-service-essentials',
+  'call-center-essentials',
+  'team-leader-essentials',
+  'assistant-manager-essentials',
+  'store-manager-essentials',
+  'area-manager-essentials',
+  'sales-manager-essentials',
+];
+
+const COURSE_PAGES = [
+  { path: '/courses/', changefreq: 'monthly', priority: '0.8' },
+  ...COURSE_SLUGS.map((slug) => ({ path: `/courses/${slug}/`, changefreq: 'monthly', priority: '0.7' })),
+];
+
 export async function onRequestGet(context) {
   const { env } = context;
 
-  const urls = STATIC_PAGES.map((p) => ({
+  const urls = [...STATIC_PAGES, ...COURSE_PAGES].map((p) => ({
     loc: ORIGIN + p.path,
     changefreq: p.changefreq,
     priority: p.priority,

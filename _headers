@@ -1,0 +1,5 @@
+# Cloudflare Pages headers (https://developers.cloudflare.com/pages/configuration/headers/)
+# Course PDFs and zips must not appear in search results; search engines
+# should send people to the course pages instead.
+/courses/files/*
+  X-Robots-Tag: noindex
