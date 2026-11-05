@@ -445,6 +445,24 @@
     line-height:1.65;
   }
 
+  /* ---------- Free Courses ---------- */
+  .fc-intro{max-width:600px; color:var(--white-dim); font-size:18px; margin:20px 0 40px;}
+  #free-courses h2 a{color:inherit; text-decoration:none; border-bottom:1px solid var(--gold);}
+  #free-courses h2 a:hover{color:var(--gold-bright);}
+  .fc-groups{display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
+  @media (min-width:1000px){ .fc-groups{grid-template-columns:1fr 1fr 1fr;} }
+  .fc-group{background:var(--navy); padding:26px 24px;}
+  .fc-group h3{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--gold); font-weight:500; margin:0 0 14px;
+  }
+  .fc-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:16px;}
+  .fc-list a{color:var(--white); font-weight:600; text-decoration:none; border-bottom:1px solid var(--line);}
+  .fc-list a:hover{color:var(--gold-bright); border-bottom-color:var(--gold);}
+  .fc-list span{display:block; font-size:14.5px; color:var(--white-dim); line-height:1.6; margin-top:4px;}
+  .fc-all{margin:28px 0 0; font-size:15px;}
+  .fc-all a{color:var(--gold-bright);}
+
   /* ---------- Newsletter ---------- */
   .newsletter-box{
     border:1px solid rgba(201,162,75,0.3);
@@ -723,6 +741,45 @@
       <p class="newsletter-status" id="newsletter-status" role="status" aria-live="polite"></p>
       <p class="newsletter-consent" style="font-size:13px; color:var(--white-dim); line-height:1.55; margin:12px 0 0; max-width:480px;">By subscribing, you agree to receive the MEDJAY newsletter. Unsubscribe anytime. <a href="/privacy/" style="color:var(--gold-bright);">Privacy Policy</a>.</p>
     </div>
+  </div>
+</section>
+
+<div class="watchline"></div>
+
+<section id="free-courses">
+  <div class="wrap">
+    <span class="eyebrow">Free Courses</span>
+    <h2 style="margin-top:16px;"><a href="/courses/">Free Level 1 Courses</a></h2>
+    <p class="fc-intro">Eleven free 5-day self-study courses for frontline sales, customer service and leadership roles. Study at your own pace and apply it at work.</p>
+    <div class="fc-groups">
+      <div class="fc-group">
+        <h3>Sales</h3>
+        <ul class="fc-list">
+          <li><a href="/courses/retail-sales-essentials/">Retail Sales Essentials</a><span>In retail sales: how customers decide, opening conversations, finding needs, handling objections, add-ons and closing.</span></li>
+          <li><a href="/courses/counter-sales-essentials/">Counter Sales Essentials</a><span>In counter sales: finding the real need, recommending what the job needs, handling objections and getting the order right.</span></li>
+          <li><a href="/courses/tele-sales-essentials/">Tele Sales Essentials</a><span>In tele sales: preparing a session, opening calls, discovery by phone, handling objections with A.R.T., and closing.</span></li>
+          <li><a href="/courses/b2b-sales-essentials/">B2B Sales Essentials</a><span>In B2B sales: account research, outreach, discovery, several decision makers, price conversations and closing.</span></li>
+        </ul>
+      </div>
+      <div class="fc-group">
+        <h3>Customer Service</h3>
+        <ul class="fc-list">
+          <li><a href="/courses/customer-service-essentials/">Customer Service Essentials</a><span>In customer service: first contact, finding the real problem, angry customers, phone, chat and email, and keeping promises.</span></li>
+          <li><a href="/courses/call-center-essentials/">Call Center Essentials</a><span>For call center agents: queues and metrics, the call from start to finish, voice and words, upset callers and your first 90 days.</span></li>
+        </ul>
+      </div>
+      <div class="fc-group">
+        <h3>Leadership</h3>
+        <ul class="fc-list">
+          <li><a href="/courses/team-leader-essentials/">Team Leader Essentials</a><span>For team leaders: delegating, setting expectations, daily huddles, coaching and feedback, conflict, and building trust.</span></li>
+          <li><a href="/courses/assistant-manager-essentials/">Assistant Manager Essentials</a><span>For assistant managers: decision authority, running the day, leading people, problems and decisions, and reliability.</span></li>
+          <li><a href="/courses/store-manager-essentials/">Store Manager Essentials</a><span>For store managers: priorities and delegation, daily operations, coaching the team, reading the numbers and a 30-day plan.</span></li>
+          <li><a href="/courses/area-manager-essentials/">Area Manager Essentials</a><span>For area managers: leading through unit managers, comparing results, coaching managers, shared problems and area reviews.</span></li>
+          <li><a href="/courses/sales-manager-essentials/">Sales Manager Essentials</a><span>For sales managers: strategy and priorities, targets and allocation, KPIs and forecasting, coaching and sales reviews.</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fc-all"><a href="/courses/">See all free courses →</a></p>
   </div>
 </section>
 
