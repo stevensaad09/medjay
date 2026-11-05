@@ -70,3 +70,48 @@ CREATE TABLE IF NOT EXISTS course_leads (
 );
 CREATE INDEX IF NOT EXISTS idx_course_leads_course ON course_leads(course);
 CREATE INDEX IF NOT EXISTS idx_course_leads_follow_up ON course_leads(follow_up);
+
+-- Level 1 exams and certificates (also in migrations/0003_exams.sql,
+-- which additionally inserts the 11 exams rows).
+CREATE TABLE IF NOT EXISTS exams (
+  course_slug TEXT PRIMARY KEY,
+  prefix TEXT NOT NULL,
+  title TEXT NOT NULL,
+  total INTEGER NOT NULL DEFAULT 20,
+  pass_mark INTEGER NOT NULL DEFAULT 14,
+  active INTEGER NOT NULL DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS exam_keys (
+  course_slug TEXT NOT NULL,
+  question_no INTEGER NOT NULL,
+  correct TEXT NOT NULL CHECK (correct IN ('A','B','C','D')),
+  PRIMARY KEY (course_slug, question_no)
+);
+
+CREATE TABLE IF NOT EXISTS exam_attempts (
+  id TEXT PRIMARY KEY,
+  course_slug TEXT NOT NULL,
+  answers TEXT NOT NULL,
+  score INTEGER NOT NULL,
+  passed INTEGER NOT NULL,
+  created_at TEXT NOT NULL,
+  certificate_no TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_exam_attempts_course_created ON exam_attempts(course_slug, created_at);
+CREATE INDEX IF NOT EXISTS idx_exam_attempts_certificate ON exam_attempts(certificate_no);
+
+CREATE TABLE IF NOT EXISTS certificates (
+  certificate_no TEXT PRIMARY KEY,
+  course_slug TEXT NOT NULL,
+  attempt_id TEXT NOT NULL,
+  full_name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  score INTEGER NOT NULL,
+  issued_at TEXT NOT NULL,
+  purge_after TEXT NOT NULL,
+  revoked INTEGER NOT NULL DEFAULT 0,
+  UNIQUE (course_slug, email)
+);
+CREATE INDEX IF NOT EXISTS idx_certificates_attempt ON certificates(attempt_id);
+CREATE INDEX IF NOT EXISTS idx_certificates_purge_after ON certificates(purge_after);

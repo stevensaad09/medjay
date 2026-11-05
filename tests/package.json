@@ -1,0 +1,9 @@
+{
+  "name": "medjay-tests",
+  "private": true,
+  "description": "Tests only. Lives in tests/ (not the repo root) so Cloudflare Pages never sees a package.json and its build/deploy is unchanged. Run: node --test tests/",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
