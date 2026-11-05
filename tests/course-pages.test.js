@@ -116,6 +116,9 @@ for (const slug of SLUGS) {
     assert.equal((days.match(/What you(?:'|&#x27;)ll learn:/g) || []).length, 5, 'learn line on each day');
     assert.equal((days.match(/Stretch goal:/g) || []).length, 5, 'stretch goal on each day');
     assert.equal((days.match(/What(?:'|&#x27;)s inside:/g) || []).length, 5, "what's inside on each day");
+    // The Frameworks introduced line only appears on days that introduce at least one framework.
+    const fw = days.match(/<li><strong>Frameworks introduced:<\/strong>[^<]*<\/li>/g) || [];
+    for (const l of fw) assert.ok(visibleText(l).replace('Frameworks introduced:', '').trim().length > 3, 'frameworks line is not empty');
     assert.match(text, /20 multiple-choice questions/, 'exam facts');
     assert.match(text, /Pass with 14 or more/, 'pass mark');
     assert.match(text, /Download PDF/, 'certificate button label');
@@ -136,6 +139,7 @@ for (const slug of SLUGS) {
     assert.ok(!/NOT FOUND/.test(text), 'NOT FOUND');
     assert.ok(!/\bn\.d\./.test(text), 'n.d.');
     assert.ok(!/Level 2/i.test(text), 'Level 2');
+    assert.ok(!/none named/i.test(text), 'empty "Frameworks introduced" line');
     assert.ok(!/\[(?:EXPAGE|PAGE|EXJSON|SUBMIT|CLAIM|CERT|VERIFY|MIG|EXLIB|DL):/.test(text), 'source tag');
     assert.ok(!/\[[A-Za-z0-9]+ D\d \//.test(text), 'PDF source tag');
     assert.ok(!/Draft notes|Phase 1 Task/.test(text), 'draft markers');
