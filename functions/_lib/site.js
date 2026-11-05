@@ -18,9 +18,12 @@ export function jsonResponse(data, status = 200) {
   });
 }
 
-export function htmlResponse(html, status = 200, { noindex = false, cache = 'no-store' } = {}) {
+// noindex sends "noindex, nofollow". `robots` overrides it with an exact
+// X-Robots-Tag value (for example "noindex, follow" on exam pages).
+export function htmlResponse(html, status = 200, { noindex = false, robots = '', cache = 'no-store' } = {}) {
   const headers = { 'Content-Type': 'text/html; charset=UTF-8', 'Cache-Control': cache };
-  if (noindex) headers['X-Robots-Tag'] = 'noindex, nofollow';
+  if (robots) headers['X-Robots-Tag'] = robots;
+  else if (noindex) headers['X-Robots-Tag'] = 'noindex, nofollow';
   return new Response(html, { status, headers });
 }
 
@@ -71,7 +74,7 @@ const BASE_CSS = `
   .footer-bottom a{color:inherit;}
 `;
 
-export function pageShell({ title, description = '', bodyContent, extraCss = '', extraHead = '', extraScript = '', noindex = false, canonical = '' }) {
+export function pageShell({ title, description = '', bodyContent, extraCss = '', extraHead = '', extraScript = '', noindex = false, robots = '', canonical = '' }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,7 +84,7 @@ export function pageShell({ title, description = '', bodyContent, extraCss = '',
 ${description ? `<meta name="description" content="${escapeHtml(description)}">` : ''}
 ${canonical ? `<link rel="canonical" href="${escapeHtml(canonical)}">` : ''}
 <meta name="theme-color" content="#0a1428">
-<meta name="robots" content="${noindex ? 'noindex, nofollow' : 'index, follow'}">
+<meta name="robots" content="${robots || (noindex ? 'noindex, nofollow' : 'index, follow')}">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">

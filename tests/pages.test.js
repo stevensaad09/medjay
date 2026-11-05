@@ -119,3 +119,18 @@ test('exam page: 20 questions in JSON order, Turnstile, no answer data', async (
   const missing = await get(examPage, '/exam/nope', {}, { slug: 'nope' });
   assert.equal(missing.res.status, 404);
 });
+
+test('exam pages: noindex, follow in meta and X-Robots-Tag; back link kept; 404 is noindex, nofollow', async () => {
+  for (const slug of ['retail-sales-essentials', 'sales-manager-essentials']) {
+    const { res, html } = await get(examPage, `/exam/${slug}`, {}, { slug });
+    assert.equal(res.status, 200);
+    assert.equal(res.headers.get('X-Robots-Tag'), 'noindex, follow');
+    assert.match(html, /<meta name="robots" content="noindex, follow">/);
+    assert.ok(!/content="index, follow"/.test(html));
+    assert.ok(html.includes(`href="/courses/${slug}/"`));
+  }
+  const missing = await get(examPage, '/exam/nope', {}, { slug: 'nope' });
+  assert.equal(missing.res.status, 404);
+  assert.equal(missing.res.headers.get('X-Robots-Tag'), 'noindex, nofollow');
+  assert.match(missing.html, /<meta name="robots" content="noindex, nofollow">/);
+});

@@ -18,8 +18,8 @@ import { siteKeyFor } from '../_lib/turnstile.js';
 export async function onRequestGet(context) {
   const { request, params } = context;
   const exam = getExam(params.slug);
-  if (!exam) return htmlResponse(renderNotFound(), 404);
-  return htmlResponse(renderExam(exam, siteKeyFor(request)), 200, { cache: 'public, max-age=300' });
+  if (!exam) return htmlResponse(renderNotFound(), 404, { noindex: true });
+  return htmlResponse(renderExam(exam, siteKeyFor(request)), 200, { robots: 'noindex, follow', cache: 'public, max-age=300' });
 }
 
 function stemHtml(text) {
@@ -307,6 +307,7 @@ function renderExam(exam, siteKey) {
     title,
     description: `Take the free ${exam.title} Level 1 exam and earn a MEDJAY certificate.`,
     canonical: `https://medjay.pro/exam/${exam.slug}`,
+    robots: 'noindex, follow',
     bodyContent,
     extraCss,
     extraHead: '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>',
