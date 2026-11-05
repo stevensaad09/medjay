@@ -4,7 +4,7 @@
 // Correct answers never live in this repo. They are loaded from the
 // D1 table exam_keys at grading time (see functions/_lib/exam-db.js).
 
-import data from '../_data/exam-questions.json' with { type: 'json' };
+import data from '../_data/exam-questions.json';
 
 // ---- Config constants (Steven fills the empty ones after merge) ----
 
