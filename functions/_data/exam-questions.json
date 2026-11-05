@@ -1,0 +1,2524 @@
+{
+  "version": 1,
+  "exams": [
+    {
+      "slug": "retail-sales-essentials",
+      "prefix": "RSE",
+      "title": "Retail Sales Essentials",
+      "total": 20,
+      "pass_mark": 14,
+      "questions": [
+        {
+          "id": "RSE-Q01",
+          "no": 1,
+          "stem": "In a kitchenware store, a customer walks quickly past two displays, then stops at the coffee grinders. She picks one up, puts it down, and comes back to it a minute later.\nWhat does her behavior most likely tell you?",
+          "options": {
+            "A": "She is still browsing and should be left alone until she asks for help.",
+            "B": "She has already decided to buy and is only waiting to hear the price.",
+            "C": "She has moved from browsing to interest, so a calm approach may help.",
+            "D": "She is testing whether the staff in this store are paying attention."
+          }
+        },
+        {
+          "id": "RSE-Q02",
+          "no": 2,
+          "stem": "A customer asks how long a mattress warranty lasts. A few minutes later she asks again, then asks what happens if a spring breaks in year two. She keeps rereading the label.\nWhat is the best approach with her?",
+          "options": {
+            "A": "Slow your pace, answer each question once and clearly, then pause.",
+            "B": "Give her a full comparison of every model so she has all the facts at once.",
+            "C": "Take the lead and tell her which mattress to buy so she can stop worrying.",
+            "D": "Reassure her with high energy that the product is excellent and safe."
+          }
+        },
+        {
+          "id": "RSE-Q03",
+          "no": 3,
+          "stem": "A customer looking at a sofa says, \"It's nice, but it's expensive.\" Earlier he mentioned he has two dogs at home.\nWhich response best fits what you learned about value and price?",
+          "options": {
+            "A": "List the frame material, fabric rating and stain coating so the price makes sense.",
+            "B": "Explain that the price is fair compared with other stores in the area.",
+            "C": "Point him to a cheaper sofa so he does not feel any pressure to spend more.",
+            "D": "Give one specific reason tied to his dogs: the fabric is made for homes with pets."
+          }
+        },
+        {
+          "id": "RSE-Q04",
+          "no": 4,
+          "stem": "You greet a customer at a phone-case display. She says, \"I'm fine, thanks,\" without looking up. Two minutes later she is still there, now comparing two cases side by side. A colleague says, \"Go back and push. She's interested.\"\nWhat should you do?",
+          "options": {
+            "A": "Return right away with a stronger pitch, since her interest is now clear.",
+            "B": "Stay available nearby and wait for her to look up or ask before you return.",
+            "C": "Go back and ask her directly which of the two cases she is going to buy.",
+            "D": "Announce a promotion loudly nearby so she hears it without being approached."
+          }
+        },
+        {
+          "id": "RSE-Q05",
+          "no": 5,
+          "stem": "A customer has picked up two pairs of trail running shoes.\nWhich opening follows the First-Contact Standard in the correct order?",
+          "options": {
+            "A": "\"What kind of running do you do? I'm Lina. Those trail shoes just came in, and take your time.\"",
+            "B": "\"Hi, I'm Lina, I work here. Take your time. I noticed the trail shoes; they just came in. What kind of running do you do?\"",
+            "C": "\"Those trail shoes just came in. Hi, I'm Lina. What kind of running do you do? Take your time.\"",
+            "D": "\"Hi, I'm Lina, I work here. What kind of running do you do? Those just came in. Take your time.\""
+          }
+        },
+        {
+          "id": "RSE-Q06",
+          "no": 6,
+          "stem": "A customer is replacing her vacuum cleaner. You already know what she uses now, and she has told you it loses suction on carpets.\nFollowing the Question Ladder, what should you ask next?",
+          "options": {
+            "A": "\"Would you like to see our most powerful model?\"",
+            "B": "\"What brand is the one you have now?\"",
+            "C": "\"What would a good vacuum need to do for you?\"",
+            "D": "\"When it loses suction, how does that affect your cleaning week?\""
+          }
+        },
+        {
+          "id": "RSE-Q07",
+          "no": 7,
+          "stem": "During discovery, a customer says, \"The store down the road had a similar blender for less.\"\nWhat is the best response?",
+          "options": {
+            "A": "\"What did you like about that one?\"",
+            "B": "\"Ours has a better motor, so the difference is worth it.\"",
+            "C": "\"That store's products often don't last as long.\"",
+            "D": "\"Let me check whether we can beat their price.\""
+          }
+        },
+        {
+          "id": "RSE-Q08",
+          "no": 8,
+          "stem": "You ask, \"What would a good washing machine need to do for you?\" The customer goes quiet for a few seconds, then says, \"Honestly, the last one broke after a year, and the store didn't help me at all.\"\nWhat is the best next move?",
+          "options": {
+            "A": "Reassure her that this brand rarely breaks, then move on to the models.",
+            "B": "Ask a closed question: \"So durability is your main priority, yes?\"",
+            "C": "Name it: \"It sounds like you were let down last time,\" then let her continue.",
+            "D": "Explain the store's full return policy so she knows you are different."
+          }
+        },
+        {
+          "id": "RSE-Q09",
+          "no": 9,
+          "stem": "A customer says she walks 40 minutes to work and her feet hurt by the time she arrives. The shoe she is holding has a memory-foam insole.\nWhich line is a true benefit for her?",
+          "options": {
+            "A": "\"You can walk your full 40 minutes and arrive without sore feet.\"",
+            "B": "\"It has a memory-foam insole with extra cushioning in the heel.\"",
+            "C": "\"The insole absorbs more impact than a standard flat insole does.\"",
+            "D": "\"This is one of our most comfortable and popular walking shoes.\""
+          }
+        },
+        {
+          "id": "RSE-Q10",
+          "no": 10,
+          "stem": "A customer says, \"I'd rather buy it from the brand's own website, in case something goes wrong after I buy.\"\nWhich source of objection is this?",
+          "options": {
+            "A": "Price: the number feels bigger than the value he can see.",
+            "B": "Timing: he is not ready to make the decision today.",
+            "C": "Trust: he is unsure about the store's after-sale support.",
+            "D": "Need: he is not convinced the product does what he needs."
+          }
+        },
+        {
+          "id": "RSE-Q11",
+          "no": 11,
+          "stem": "A customer says, \"I really like it, but my budget this month is fixed, and this is over it.\"\nWhat is the best way to handle this?",
+          "options": {
+            "A": "Run A.R.T. and reframe toward the cost of inaction until the price feels right.",
+            "B": "Treat it as a budget fact, respect it, and show her what fits within it.",
+            "C": "Offer a discount right away so the gap between budget and price closes.",
+            "D": "Explain in detail why the higher price is worth it over the long term."
+          }
+        },
+        {
+          "id": "RSE-Q12",
+          "no": 12,
+          "stem": "A customer looking at a food processor says, \"I don't think I'll use it enough to justify this.\"\nWhich line is a correct Acknowledge step?",
+          "options": {
+            "A": "\"I understand, but most customers end up using it every day.\"",
+            "B": "\"You'd be surprised how often you'll reach for it once it's home.\"",
+            "C": "\"What would you use it for most often in your kitchen?\"",
+            "D": "\"You're not sure you'll get enough use out of it.\""
+          }
+        },
+        {
+          "id": "RSE-Q13",
+          "no": 13,
+          "stem": "You ran a full A.R.T. chain on a price objection for a stand mixer. The customer says, \"I hear you, but it still feels like too much.\"\nWhat should you do next?",
+          "options": {
+            "A": "Repeat your reframe more firmly so the point finally lands with her.",
+            "B": "Offer a small discount, since the chain has already been used once.",
+            "C": "Run a short chain again on her new concern, ending with a what question.",
+            "D": "Ask, \"So, shall I ring it up for you?\" to check whether she's ready."
+          }
+        },
+        {
+          "id": "RSE-Q14",
+          "no": 14,
+          "stem": "A customer walks in talking on his phone, arms crossed, heading fast toward the back of the store and glancing at the door.\nWhat should you do?",
+          "options": {
+            "A": "Greet him right away so he knows staff are available to help.",
+            "B": "Follow him to the back and offer help as soon as he stops.",
+            "C": "Mention today's promotion as he walks past the counter.",
+            "D": "Let him settle, and approach only if open signals appear."
+          }
+        },
+        {
+          "id": "RSE-Q15",
+          "no": 15,
+          "stem": "A student buying a laptop told you, \"I always run out of battery in afternoon lectures.\" You want to suggest a power bank using A.I.M.\nWhich line is the correct Anchor?",
+          "options": {
+            "A": "\"You said your battery runs out in afternoon lectures.\"",
+            "B": "\"Most students find they need a power bank sooner or later.\"",
+            "C": "\"This power bank charges a laptop to full in about two hours.\"",
+            "D": "\"Would you like to add a power bank to your order today?\""
+          }
+        },
+        {
+          "id": "RSE-Q16",
+          "no": 16,
+          "stem": "A customer is still comparing two strollers and has not chosen one yet. A colleague suggests you mention the rain cover now and say \"only a few left,\" although there is plenty in stock.\nWhat is the best approach?",
+          "options": {
+            "A": "Mention it now with the scarcity line to help speed up her decision.",
+            "B": "Wait until she has chosen, then suggest it with no invented urgency.",
+            "C": "Mention it now, but leave out the scarcity line so it stays honest.",
+            "D": "Skip the add-on entirely, since suggesting extras always feels like pressure."
+          }
+        },
+        {
+          "id": "RSE-Q17",
+          "no": 17,
+          "stem": "The conversation has gone well, and the customer is happy with the product.\nWhich closing line is a calibrated question?",
+          "options": {
+            "A": "\"So, do you want to take it?\"",
+            "B": "\"Shall I go ahead and wrap it up for you?\"",
+            "C": "\"What would you need to see to feel confident taking this today?\"",
+            "D": "\"Would you like to sign up for delivery today?\""
+          }
+        },
+        {
+          "id": "RSE-Q18",
+          "no": 18,
+          "stem": "A customer's main criterion is, \"It must arrive before my move on Saturday.\" You are not sure delivery can make Saturday.\nWhat should you do before you close?",
+          "options": {
+            "A": "Close now and confirm the delivery date after she has paid.",
+            "B": "Tell her Saturday should be fine, since delivery usually is on time.",
+            "C": "Offer a small discount in case the delivery turns out to be late.",
+            "D": "Verify the delivery date first, before asking for any commitment."
+          }
+        },
+        {
+          "id": "RSE-Q19",
+          "no": 19,
+          "stem": "A customer comes back with a kettle whose lid is stiff. You know this is a known issue with this batch, and it was not mentioned at the sale.\nWhat is the best response?",
+          "options": {
+            "A": "Tell her some stiffness is normal at first and it will ease with regular use.",
+            "B": "Be honest that it's a known issue, fix what you can, and say what happens next.",
+            "C": "Refer her to the manufacturer's hotline so the counter stays clear for others.",
+            "D": "Offer a voucher for her next visit instead of dealing with the kettle itself."
+          }
+        },
+        {
+          "id": "RSE-Q20",
+          "no": 20,
+          "stem": "At the close, a customer says, \"I'll think about it. Unless you can knock something off the price.\"\nWhat is the best response?",
+          "options": {
+            "A": "Ask what still feels unclear; if it's price, trade any adjustment for buying today.",
+            "B": "Give a small discount now so she doesn't leave the store without buying.",
+            "C": "Let her go and hope she returns, since any pressure creates resistance.",
+            "D": "Tell her the price is fixed and that today's offer won't last long."
+          }
+        }
+      ]
+    },
+    {
+      "slug": "customer-service-essentials",
+      "prefix": "CSE",
+      "title": "Customer Service Essentials",
+      "total": 20,
+      "pass_mark": 14,
+      "questions": [
+        {
+          "id": "CSE-Q01",
+          "no": 1,
+          "stem": "Two customers report the same two-day delivery delay. One says, \"No worries, these things happen.\" The other says, \"Typical. Nothing ever works with you.\"\nWhat best explains the difference in their reactions?",
+          "options": {
+            "A": "The second customer is unreasonable and should be handled more firmly.",
+            "B": "Their trust balances differ, based on their past experiences with the company.",
+            "C": "The first customer has not understood how long the delay really is.",
+            "D": "The second customer wants compensation and is building a case for it."
+          }
+        },
+        {
+          "id": "CSE-Q02",
+          "no": 2,
+          "stem": "A customer is transferred to you and says, \"I already explained all of this to the last person.\" The case only says: \"Customer called re: order.\"\nWhat is the most important cost here?",
+          "options": {
+            "A": "A longer call, which will hurt the team's response time measure.",
+            "B": "Nothing serious, since hearing the details again helps confirm the facts.",
+            "C": "A risk of a wrong refund, since the facts may have changed since then.",
+            "D": "Another loss for the customer: having to tell the whole story again."
+          }
+        },
+        {
+          "id": "CSE-Q03",
+          "no": 3,
+          "stem": "A customer on the phone speaks fast, interrupts you, and says, \"Just fix it. I don't have time for questions.\" You notice your own speech speeding up.\nWhat is the best move?",
+          "options": {
+            "A": "Notice it, breathe out, and slow your own pace so he can borrow it.",
+            "B": "Match his speed so he feels you share his sense of urgency.",
+            "C": "Skip the questions and promise a fix today to calm him quickly.",
+            "D": "Tell him calmly that you cannot help unless he lets you finish."
+          }
+        },
+        {
+          "id": "CSE-Q04",
+          "no": 4,
+          "stem": "A customer opens a chat with: \"My card was charged, but the order says it failed.\"\nWhich line correctly repeats her reason back?",
+          "options": {
+            "A": "\"So you're having a payment issue.\"",
+            "B": "\"So it's a billing error on our side.\"",
+            "C": "\"So your card was charged, but the order says it failed.\"",
+            "D": "\"So you'd like a refund for the failed order.\""
+          }
+        },
+        {
+          "id": "CSE-Q05",
+          "no": 5,
+          "stem": "A customer calls about a router that keeps disconnecting.\nWhich line shows Autonomy as this course teaches it?",
+          "options": {
+            "A": "\"Would you rather we test it together now, or I book a technician visit?\"",
+            "B": "\"Would you like to call back later, when you're at home with the router?\"",
+            "C": "\"Shall I go ahead and open a repair ticket for you right now?\"",
+            "D": "\"Is now a good time, or would you prefer to end the call here?\""
+          }
+        },
+        {
+          "id": "CSE-Q06",
+          "no": 6,
+          "stem": "A customer says, \"My replacement charger hasn't arrived.\" You arrange a standard re-send in three to five days. At the end, she says you were no help at all.\nWhat did you most likely miss?",
+          "options": {
+            "A": "The order number and the exact delivery address on the account.",
+            "B": "A clear, specific apology before arranging the re-send.",
+            "C": "The courier's tracking details for the first parcel sent.",
+            "D": "The impact: what the missing charger was costing her."
+          }
+        },
+        {
+          "id": "CSE-Q07",
+          "no": 7,
+          "stem": "A customer returned an item after the return window closed. She mentions she was abroad. You need to understand what happened.\nWhich question is best?",
+          "options": {
+            "A": "\"Why didn't you contact us before the return window closed?\"",
+            "B": "\"What was happening on your side while you were away?\"",
+            "C": "\"Did you know the return window was thirty days?\"",
+            "D": "\"Can you explain why the return came in late?\""
+          }
+        },
+        {
+          "id": "CSE-Q08",
+          "no": 8,
+          "stem": "A customer says the technician's late arrival this morning made her late for work.\nWhich reply is most likely to lower the heat?",
+          "options": {
+            "A": "\"I apologize for any inconvenience this may have caused.\"",
+            "B": "\"Actually, our records show the technician arrived within the slot.\"",
+            "C": "\"It sounds like the wait this morning made you late for work.\"",
+            "D": "\"I understand, but the appointment window was eight to twelve.\""
+          }
+        },
+        {
+          "id": "CSE-Q09",
+          "no": 9,
+          "stem": "A customer's refund is two weeks late. You have already acknowledged his frustration.\nWhich line is a correct Reframe?",
+          "options": {
+            "A": "\"The two weeks are gone; what I can do now is find where it is and get you a real date.\"",
+            "B": "\"The delay came from the finance team, so it wasn't caused by our support desk.\"",
+            "C": "\"Our system shows the refund was processed correctly on our side.\"",
+            "D": "\"What would you need to see to feel confident about the refund?\""
+          }
+        },
+        {
+          "id": "CSE-Q10",
+          "no": 10,
+          "stem": "You are handing a case to your supervisor while the customer is still on the line.\nWhich introduction fits the handover moves?",
+          "options": {
+            "A": "\"This customer is very upset with us and has been difficult on the whole call.\"",
+            "B": "\"I have a complaint here that I couldn't deal with myself, so it's yours now.\"",
+            "C": "\"This one has been going in circles for a while; can you take it over?\"",
+            "D": "\"Her service has been down three days and she's called twice; here's what's been checked.\""
+          }
+        },
+        {
+          "id": "CSE-Q11",
+          "no": 11,
+          "stem": "Halfway through a contact, before the issue is resolved, a customer says, \"I've had enough. I'm going to hang up.\"\nWhat is the best response?",
+          "options": {
+            "A": "Ask her to stay a few more minutes so you can finish the fix.",
+            "B": "Respect it, and confirm what is recorded and when she will hear next.",
+            "C": "Let her go without comment, since pushing would only add pressure.",
+            "D": "Offer a goodwill credit if she stays on the line until it's resolved."
+          }
+        },
+        {
+          "id": "CSE-Q12",
+          "no": 12,
+          "stem": "You say, \"It sounds like you're angry about the bill.\" The customer replies, \"I'm not angry. I'm embarrassed. My card was declined in front of my colleagues.\"\nWhat is the best next line?",
+          "options": {
+            "A": "\"I'm sorry, but the decline came from your bank, not from us.\"",
+            "B": "\"Understood. Let me check the bill now so we can move on.\"",
+            "C": "\"Thank you for telling me. It sounds like that was a really embarrassing moment.\"",
+            "D": "\"That's frustrating. Why do you think the card was declined?\""
+          }
+        },
+        {
+          "id": "CSE-Q13",
+          "no": 13,
+          "stem": "When you reply to a customer by email, what does your message most need to protect?",
+          "options": {
+            "A": "Your tone of voice, since it carries the feeling.",
+            "B": "The customer's time, through short and fast replies.",
+            "C": "Speed, so the reply goes out before anything else.",
+            "D": "The record, since the customer may reread or forward it."
+          }
+        },
+        {
+          "id": "CSE-Q14",
+          "no": 14,
+          "stem": "A customer's subscription was paused by mistake. You have confirmed the mistake but not yet the fix.\nWhich chat message holds up?",
+          "options": {
+            "A": "\"I can see your plan was paused by mistake on the 12th. I've asked billing to restore it. I'll update you here by 5 pm today.\"",
+            "B": "\"Thanks for your patience. Your request has been forwarded to the relevant team, and we will be in touch with you soon.\"",
+            "C": "\"I can see your plan was paused by mistake. Don't worry, it will be restored today and no extra charges will apply.\"",
+            "D": "\"I've asked billing to restore your plan. They usually reply quickly, so it should all be sorted out very shortly.\""
+          }
+        },
+        {
+          "id": "CSE-Q15",
+          "no": 15,
+          "stem": "A customer sends a calm, detailed email asking how to move his account to a new address and whether his contract terms will change.\nHow should you set the four dials?",
+          "options": {
+            "A": "Low detail, high warmth, very fast reply, few words.",
+            "B": "Low detail, low warmth, slow reply, few words.",
+            "C": "Higher detail, moderate warmth, normal reply time, clear steps.",
+            "D": "High detail, high warmth, instant one-line reply first."
+          }
+        },
+        {
+          "id": "CSE-Q16",
+          "no": 16,
+          "stem": "Your shift is ending and you must hand over an open case. The customer was told, \"Billing will confirm the refund by Friday.\"\nWhich case note works?",
+          "options": {
+            "A": "\"Customer very angry about a refund, ref 5521, and unhappy with us. Promised her the refund by Friday. Please call her back.\"",
+            "B": "\"Facts: duplicate charge of 60 on the 3rd, ref 5521. Promised: billing to confirm by Friday. Verified: both charges present; refund not yet approved.\"",
+            "C": "\"Refund issue, ref 5521. Handled for now. Customer was told it is being processed and should not need to call again.\"",
+            "D": "\"Ref 5521: full card number and home address noted. Charged twice on the 3rd. Refund approved for Friday, customer informed.\""
+          }
+        },
+        {
+          "id": "CSE-Q17",
+          "no": 17,
+          "stem": "A customer's lost bank card has been replaced. There is nothing left for her to choose.\nWhich ending fits best?",
+          "options": {
+            "A": "\"Your new card is booked to arrive Monday, and you'll get a text when it ships. What else can I check for you?\"",
+            "B": "\"Your new card is booked to arrive Monday. Is there anything else I can help you with today?\"",
+            "C": "\"Your new card is booked to arrive Monday. Shall we go ahead and close the case now?\"",
+            "D": "\"Your new card is booked to arrive Monday. Thanks for calling, and have a great day.\""
+          }
+        },
+        {
+          "id": "CSE-Q18",
+          "no": 18,
+          "stem": "Which of these contacts calls for the Commitment Close instead of the simple ending?",
+          "options": {
+            "A": "A customer whose password reset worked and who just wants to confirm it.",
+            "B": "A customer being transferred to another department for a billing query.",
+            "C": "A customer you are calling back with a no-news update on a delay.",
+            "D": "A customer choosing between a repair next week and a replacement this Friday."
+          }
+        },
+        {
+          "id": "CSE-Q19",
+          "no": 19,
+          "stem": "You promised to email a customer by Wednesday about her refund. It is Wednesday afternoon, and finance has not replied.\nWhat should you do?",
+          "options": {
+            "A": "Wait until Thursday, when finance will probably have replied, then email.",
+            "B": "Email that the refund should arrive soon, so she is not worried.",
+            "C": "Email now: no change yet, no confirmed date, and when you'll write next.",
+            "D": "Email to ask whether she still needs an update on the refund."
+          }
+        },
+        {
+          "id": "CSE-Q20",
+          "no": 20,
+          "stem": "A customer can take a refund today, or wait for a confirmed restock of the exact model in ten days. She said she wants this exact model and is not in a hurry. Your team is under pressure to close contacts fast.\nWhich Consequence line is honest?",
+          "options": {
+            "A": "\"The refund today is the fastest way to close this, so it's the best option for you.\"",
+            "B": "\"You want this exact model and aren't rushed, so waiting ten days may serve you better.\"",
+            "C": "\"Stock can sell out quickly, so it's safer to take the refund today instead.\"",
+            "D": "\"Both options end up the same, so it doesn't really matter which one you pick.\""
+          }
+        }
+      ]
+    },
+    {
+      "slug": "team-leader-essentials",
+      "prefix": "TLE",
+      "title": "Team Leader Essentials",
+      "total": 20,
+      "pass_mark": 14,
+      "questions": [
+        {
+          "id": "TLE-Q01",
+          "no": 1,
+          "stem": "A new team leader lets a friend from her old team submit his weekly report on Monday, while everyone else must submit by Friday.\nWhich pattern is she showing?",
+          "options": {
+            "A": "The Buddy",
+            "B": "The Boss",
+            "C": "The Favorite",
+            "D": "The Ghost"
+          }
+        },
+        {
+          "id": "TLE-Q02",
+          "no": 2,
+          "stem": "A team leader says to a team member: \"Can you handle the stock count this week? Make sure it's done properly. Thanks.\"\nWhat is most important that is missing from this briefing?",
+          "options": {
+            "A": "What done looks like, the limits, and a real check-in date.",
+            "B": "A reminder that the leader used to do the count faster.",
+            "C": "A step-by-step list of exactly how the leader does the count.",
+            "D": "A warning about what happens if the count comes out wrong."
+          }
+        },
+        {
+          "id": "TLE-Q03",
+          "no": 3,
+          "stem": "You delegated the weekly shift rota. The team member built it differently from how you would. Every shift is covered and every rule is followed, but she arranged one swap you would have done another way.\nWhat should you do?",
+          "options": {
+            "A": "Redo the rota your way, since you know the team's patterns best.",
+            "B": "Take the task back next week to avoid any more differences.",
+            "C": "Ask her to rebuild it using your usual template before it goes out.",
+            "D": "Let it stand, because the outcome meets the standard."
+          }
+        },
+        {
+          "id": "TLE-Q04",
+          "no": 4,
+          "stem": "Your manager praises the team's record month in a meeting. Most of it came from a big account that Omar closed. She says to you, \"Great work. You've done really well.\"\nWhat is the best response?",
+          "options": {
+            "A": "\"Thank you. I put in a lot of extra hours this month.\"",
+            "B": "\"Thank you. Omar closed the big account; his follow-ups made it.\"",
+            "C": "\"Thank you. The team did fine, nothing special really.\"",
+            "D": "\"Thank you. I mostly coached them on how I used to close.\""
+          }
+        },
+        {
+          "id": "TLE-Q05",
+          "no": 5,
+          "stem": "A team member who is also your friend has missed the follow-up standard several times. Another team member says to you, \"Rules are clearly different for him.\" You have not raised it with him yet.\nWhat should you do?",
+          "options": {
+            "A": "Talk to him privately and soon, with facts, and hold him to the same standard.",
+            "B": "Repeat the standard at the huddle without naming anyone, to avoid singling him out.",
+            "C": "Tell the team member who complained that you'll handle it and it's not her concern.",
+            "D": "Give your friend one more week, since the friendship makes a direct talk harder."
+          }
+        },
+        {
+          "id": "TLE-Q06",
+          "no": 6,
+          "stem": "Which of these is a clear expectation?",
+          "options": {
+            "A": "\"Keep the shelves in much better shape this week.\"",
+            "B": "\"Take more ownership of the shelves going forward.\"",
+            "C": "\"Make sure the shelves always look good for customers.\"",
+            "D": "\"Restock shelf gaps before 10 each morning; I'll check at 10:30.\""
+          }
+        },
+        {
+          "id": "TLE-Q07",
+          "no": 7,
+          "stem": "You explain a new expectation to a team member and ask, \"Clear?\" She says, \"Yes, got it.\"\nWhat is the best next step?",
+          "options": {
+            "A": "Move on, since a clear yes means the expectation landed.",
+            "B": "Ask her to say back, in her own words, what she will do.",
+            "C": "Send the same instruction again by email the same day.",
+            "D": "Check her work on Friday to see whether she understood."
+          }
+        },
+        {
+          "id": "TLE-Q08",
+          "no": 8,
+          "stem": "Which line works best as the Win in your daily huddle?",
+          "options": {
+            "A": "\"Great job yesterday, everyone. Let's keep the energy up today.\"",
+            "B": "\"Sam is always a real team player. Thanks for everything, Sam.\"",
+            "C": "\"Sam, you called the customer back before noon, and he kept his order.\"",
+            "D": "\"Thanks to everyone who worked so hard on the sales push yesterday.\""
+          }
+        },
+        {
+          "id": "TLE-Q09",
+          "no": 9,
+          "stem": "For the third week in a row, the same blocker comes up in the huddle: price approvals from another department take two days.\nWhat is the best move?",
+          "options": {
+            "A": "Take it to your manager with a proposed rule, so it stops coming back.",
+            "B": "Clear it again today, since clearing blockers is your job in the huddle.",
+            "C": "Ask the team to stop raising it, since everyone already knows about it.",
+            "D": "Add it as a permanent agenda item so it is discussed every day."
+          }
+        },
+        {
+          "id": "TLE-Q10",
+          "no": 10,
+          "stem": "You are coaching a team member about a delayed order. You have asked, \"Where does the order stand now?\"\nFollowing the Question Ladder, what should you ask next?",
+          "options": {
+            "A": "\"What would help most right now?\"",
+            "B": "\"What's been hard about it so far?\"",
+            "C": "\"What happens if it slips another week?\"",
+            "D": "\"Have you tried calling the supplier?\""
+          }
+        },
+        {
+          "id": "TLE-Q11",
+          "no": 11,
+          "stem": "A team member sent two invoices with wrong totals. Which feedback is strongest?",
+          "options": {
+            "A": "\"You never double-check the invoices, and it keeps causing the same problems.\"",
+            "B": "\"You're not really a details person, so let's put a checklist on your desk.\"",
+            "C": "\"You need to be a lot more careful with invoices from now on, okay?\"",
+            "D": "\"On Monday's run, two invoice totals went out wrong and a client queried them.\""
+          }
+        },
+        {
+          "id": "TLE-Q12",
+          "no": 12,
+          "stem": "During a coaching conversation, a team member says the deadline slipped because you changed her priorities twice that week. You realize she is right, and you feel defensive.\nWhat should you do?",
+          "options": {
+            "A": "Explain why the priorities had to change, so she understands the pressure.",
+            "B": "Move on to the Impact question, since your part is not the point here.",
+            "C": "Say plainly that part of it is on you, then ask what would help now.",
+            "D": "Agree, then end the conversation, since the fault was mostly yours."
+          }
+        },
+        {
+          "id": "TLE-Q13",
+          "no": 13,
+          "stem": "A team member complains: \"Jake is lazy. He never covers lunch.\"\nWhich version of the problem is most likely to lead to a fix?",
+          "options": {
+            "A": "\"Lunch coverage has no clear rule.\"",
+            "B": "\"Jake doesn't respect his colleagues.\"",
+            "C": "\"Jake needs a stronger warning.\"",
+            "D": "\"The team doesn't get along.\""
+          }
+        },
+        {
+          "id": "TLE-Q14",
+          "no": 14,
+          "stem": "Two team members argue loudly on the shop floor about who owns a returning customer.\nWhat is your first move?",
+          "options": {
+            "A": "Bring both into a room together right away and settle it.",
+            "B": "Decide who owns the customer now, so the noise stops.",
+            "C": "Calm it, then talk to each of them privately before meeting together.",
+            "D": "Tell them to sort it out themselves and keep it off the floor."
+          }
+        },
+        {
+          "id": "TLE-Q15",
+          "no": 15,
+          "stem": "In an underperformance conversation, a team member says, \"This feels like you're picking on me.\" You have acknowledged the feeling and reframed.\nWhich line is the correct Transition?",
+          "options": {
+            "A": "\"Can we agree that things need to improve from here?\"",
+            "B": "\"I'm not picking on you; I talk to everyone about this.\"",
+            "C": "\"You'll see it differently once the numbers improve.\"",
+            "D": "\"What would help you hit the target over the next two weeks?\""
+          }
+        },
+        {
+          "id": "TLE-Q16",
+          "no": 16,
+          "stem": "Two weeks ago you agreed one change with a team member and booked a check-in for today. Today is busy, but her improvement is already clear.\nWhat should you do?",
+          "options": {
+            "A": "Skip the check-in this time, since the improvement is already clear.",
+            "B": "Keep the check-in, even briefly, and name the change you have seen.",
+            "C": "Send a quick \"keep it up\" message and move the check-in to next month.",
+            "D": "Use the check-in to raise two other things she could improve next."
+          }
+        },
+        {
+          "id": "TLE-Q17",
+          "no": 17,
+          "stem": "What is the most reliable way to learn what motivates each team member?",
+          "options": {
+            "A": "Use a personality test and sort the team into types.",
+            "B": "Assume they are moved by the same things you were.",
+            "C": "Watch who works hardest and reward them the most.",
+            "D": "Ask each person what part of their work feels most worth it."
+          }
+        },
+        {
+          "id": "TLE-Q18",
+          "no": 18,
+          "stem": "You set an aggressive daily call target. Call numbers jump, but complaints about rushed calls also rise.\nWhat is the best response?",
+          "options": {
+            "A": "Look at how the target is being met, and adjust it or what you praise.",
+            "B": "Raise the target further, since the team clearly has more capacity.",
+            "C": "Keep the target and add a penalty for any customer complaint.",
+            "D": "Drop all targets and tell the team to just do their best."
+          }
+        },
+        {
+          "id": "TLE-Q19",
+          "no": 19,
+          "stem": "A quiet team member did excellent work this week. You know she dislikes being the center of attention.\nHow should you recognize her?",
+          "options": {
+            "A": "Praise her at the huddle anyway, since public praise lifts the whole team.",
+            "B": "Give her specific recognition privately, in the form she prefers.",
+            "C": "Skip recognition this time so she does not feel uncomfortable.",
+            "D": "Tell the huddle the team did well, without naming her."
+          }
+        },
+        {
+          "id": "TLE-Q20",
+          "no": 20,
+          "stem": "Last week, in front of the team, you blamed a team member for a late order. You have now found it was your own scheduling error.\nWhat is the best response?",
+          "options": {
+            "A": "Apologize to her privately, so your authority with the team stays intact.",
+            "B": "Let it go quietly, since raising it again would only reopen the issue.",
+            "C": "Tell the team you got it wrong, and what you will do differently.",
+            "D": "Thank her for her patience at the next huddle, without saying why."
+          }
+        }
+      ]
+    },
+    {
+      "slug": "assistant-manager-essentials",
+      "prefix": "AME",
+      "title": "Assistant Manager Essentials",
+      "total": 20,
+      "pass_mark": 14,
+      "questions": [
+        {
+          "id": "AME-Q01",
+          "no": 1,
+          "stem": "You approve a schedule change that moves two people's start times for the month. It is inside your authority, but payroll may ask about overtime later.\nHow should you handle this decision?",
+          "options": {
+            "A": "Own it and tell no one, since it is inside your authority.",
+            "B": "Own it and document it: what was decided, when, by whom and why.",
+            "C": "Escalate it, since anything touching payroll belongs to your manager.",
+            "D": "Wait for payroll to raise it, then explain your reasoning to them."
+          }
+        },
+        {
+          "id": "AME-Q02",
+          "no": 2,
+          "stem": "A customer insists you guarantee delivery by Friday. Delivery dates are set by the logistics manager. You think Friday is likely.\nWhat do you say?",
+          "options": {
+            "A": "\"Friday should be fine; I'll personally make sure it happens.\"",
+            "B": "\"I'm sure it will be fine. These usually arrive on time.\"",
+            "C": "\"Delivery isn't my area, so you'll need to call logistics yourself.\"",
+            "D": "\"I can't confirm Friday myself; I'll get a firm date and call you by 3.\""
+          }
+        },
+        {
+          "id": "AME-Q03",
+          "no": 3,
+          "stem": "You are opening a boundary conversation with your manager about the weekly rota.\nWhich question is best?",
+          "options": {
+            "A": "\"What would you need from me to be comfortable with me owning the weekly rota?\"",
+            "B": "\"Can I take over the weekly rota from now on, without checking with you?\"",
+            "C": "\"Is it okay if I just handle the rota myself and tell you if anything goes wrong?\"",
+            "D": "\"Should I keep bringing every rota decision to you each week, like I do now?\""
+          }
+        },
+        {
+          "id": "AME-Q04",
+          "no": 4,
+          "stem": "You have been an Assistant Manager for three weeks. You check with your manager before every shift swap, every small supplier follow-up and every break change, all of which are inside your authority. She seems irritated.\nWhich mistake is this, and what is the best fix?",
+          "options": {
+            "A": "Overstepping authority; stop deciding until your boundaries are agreed.",
+            "B": "Acting like a peer; spend less time with the team during the day.",
+            "C": "Waiting to be told; make one routine call alone today and tell her after.",
+            "D": "No mistake; checking everything is the safest way to start the role."
+          }
+        },
+        {
+          "id": "AME-Q05",
+          "no": 5,
+          "stem": "You have a training plan due in three weeks. It will shape how the team works next quarter.\nWhere does it belong in your day?",
+          "options": {
+            "A": "Do it first thing today, before anything else.",
+            "B": "Delegate it, since it is not urgent yet.",
+            "C": "Book a named block for it in your calendar.",
+            "D": "Leave it until it becomes urgent."
+          }
+        },
+        {
+          "id": "AME-Q06",
+          "no": 6,
+          "stem": "You arrive in the morning to 30 unread messages.\nWhat does a good opening routine tell you to do?",
+          "options": {
+            "A": "Review what came in, confirm top items and promises due, then start your first item.",
+            "B": "Answer every message first, so nobody is left waiting on you today.",
+            "C": "Start on whichever message is marked as the most urgent one.",
+            "D": "Skip planning on busy days and deal with things as they arrive."
+          }
+        },
+        {
+          "id": "AME-Q07",
+          "no": 7,
+          "stem": "You write this brief: \"Outcome: updated price labels on aisle 4. Steps: print from the system, replace the old labels, bin them. Deadline: Thursday 5 pm.\"\nWhat is missing?",
+          "options": {
+            "A": "The reason the prices changed.",
+            "B": "Who approved the new prices.",
+            "C": "A list of every product affected.",
+            "D": "Checkpoints: when you will look at it together."
+          }
+        },
+        {
+          "id": "AME-Q08",
+          "no": 8,
+          "stem": "You are handing an account update to a colleague.\nWhich handover message is complete?",
+          "options": {
+            "A": "\"You own the update now. Let me know if you need anything, any time, and I'll help.\"",
+            "B": "\"You own it. Check-in tomorrow at 10 with your draft. Don't agree any price change; message me and I'll escalate it.\"",
+            "C": "\"You own it. Agree whatever the customer needs to keep them happy. I'll check in at the end of the week.\"",
+            "D": "\"You own it. Send me an update every hour so I can see exactly how it's going.\""
+          }
+        },
+        {
+          "id": "AME-Q09",
+          "no": 9,
+          "stem": "You are setting an expectation with a team member.\nWhich line gives permission to report a problem early?",
+          "options": {
+            "A": "\"This needs to be perfect, so take your time.\"",
+            "B": "\"Don't let this one slip; it's important.\"",
+            "C": "\"I'll check in with you on Friday afternoon.\"",
+            "D": "\"If you can see it going past Thursday, tell me Wednesday.\""
+          }
+        },
+        {
+          "id": "AME-Q10",
+          "no": 10,
+          "stem": "In a one-to-one, you ask a real question. The team member goes quiet for several seconds.\nWhat should you do?",
+          "options": {
+            "A": "Offer a solution to help her get started.",
+            "B": "Wait, and if needed ask one more question.",
+            "C": "Move to the next topic to save time.",
+            "D": "Answer the question yourself with your best guess."
+          }
+        },
+        {
+          "id": "AME-Q11",
+          "no": 11,
+          "stem": "You are giving SBI feedback on Monday's stock count.\nWhich line is the Behavior part?",
+          "options": {
+            "A": "\"You've been rushing your counts lately.\"",
+            "B": "\"The order went out short and we reordered at rush cost.\"",
+            "C": "\"Three shelves weren't counted, and the sheet was marked complete.\"",
+            "D": "\"You don't seem to take the stock count seriously.\""
+          }
+        },
+        {
+          "id": "AME-Q12",
+          "no": 12,
+          "stem": "A team member asks to leave two hours early every Friday this month for a course. Long-term schedule changes are outside your authority. You have acknowledged the request, and she pushes back again.\nWhat should you do?",
+          "options": {
+            "A": "Say plainly you can't approve it, and escalate it today with your recommendation.",
+            "B": "Approve it this once, since the reason is good and it is only for a month.",
+            "C": "Tell her it isn't your decision and she should ask the manager herself.",
+            "D": "Refuse firmly, since you can't approve it and there's nothing more to say."
+          }
+        },
+        {
+          "id": "AME-Q13",
+          "no": 13,
+          "stem": "Which of these is a fact?",
+          "options": {
+            "A": "\"Order 4471 shipped Thursday and arrived Monday.\"",
+            "B": "\"The customer is angry because of the delay.\"",
+            "C": "\"The weekend team forgot to pack it.\"",
+            "D": "\"This always happens on Fridays.\""
+          }
+        },
+        {
+          "id": "AME-Q14",
+          "no": 14,
+          "stem": "A customer needs a small replacement for a damaged item. It is inside your authority, low cost and reversible.\nWhat do you do?",
+          "options": {
+            "A": "Ask your manager first, so she is not surprised.",
+            "B": "Wait for the weekly meeting to raise it.",
+            "C": "Decide, then send a short line on what and why.",
+            "D": "Decide and say nothing, since it is routine."
+          }
+        },
+        {
+          "id": "AME-Q15",
+          "no": 15,
+          "stem": "A supplier contract renewal is due in three weeks. The wrong choice could cost the team a lot.\nWhat is the best approach?",
+          "options": {
+            "A": "Decide today so it is off your list.",
+            "B": "Form a recommendation and check once with someone who knows more.",
+            "C": "Escalate it right away with no view, since the risk is high.",
+            "D": "Wait until the week it is due, then decide."
+          }
+        },
+        {
+          "id": "AME-Q16",
+          "no": 16,
+          "stem": "Your manager is away for three days. A customer demands a cost exception that only your manager can approve, and says she will cancel her next order.\nWhat is the best response?",
+          "options": {
+            "A": "Approve it to save the account, then explain to your manager on Monday.",
+            "B": "Tell her \"I'm sure it'll be fine\" so she stays calm until Monday.",
+            "C": "Tell her nothing can happen until your manager is back on Monday.",
+            "D": "Restate her problem, say what you'll do and when, and escalate with a recommendation."
+          }
+        },
+        {
+          "id": "AME-Q17",
+          "no": 17,
+          "stem": "In a corridor, you promise a colleague you will check a delivery date for her.\nWhat is the best habit?",
+          "options": {
+            "A": "Trust your memory, since it is a small promise.",
+            "B": "Note it at the end of the week with the others.",
+            "C": "Keep small promises off the list so it stays short.",
+            "D": "Say the date out loud and write it down before you leave."
+          }
+        },
+        {
+          "id": "AME-Q18",
+          "no": 18,
+          "stem": "Which line works best in the \"decisions needed\" part of your weekly update?",
+          "options": {
+            "A": "\"Approve two extra Saturday shifts for the stock-take, which I recommend to finish before the audit.\"",
+            "B": "\"The stock-take may run late this month. What would you like me to do about it?\"",
+            "C": "\"None this week. Everything is going fine, and I'll let you know if that changes.\"",
+            "D": "\"Please let me know your thoughts on the stock-take whenever you have time.\""
+          }
+        },
+        {
+          "id": "AME-Q19",
+          "no": 19,
+          "stem": "You have made your case for promotion using your record.\nWhich question should you close with?",
+          "options": {
+            "A": "\"Can I count on your support for the role?\"",
+            "B": "\"Do you think I'm ready for the role now?\"",
+            "C": "\"What would you need to see from me over the next quarter to support me?\"",
+            "D": "\"Will you put my name forward this cycle?\""
+          }
+        },
+        {
+          "id": "AME-Q20",
+          "no": 20,
+          "stem": "Your manager says your weekly updates are too long and she does not read them. You think the detail matters.\nWhat is the best response?",
+          "options": {
+            "A": "\"I understand, but there's a lot going on, so the detail is needed.\"",
+            "B": "\"You're saying they're too long to be useful. What would a version you'd read include?\"",
+            "C": "\"Can we agree the detail is useful, even if they run a bit long?\"",
+            "D": "\"Okay, I'll stop sending them until things calm down a little.\""
+          }
+        }
+      ]
+    },
+    {
+      "slug": "b2b-sales-essentials",
+      "prefix": "B2B",
+      "title": "B2B Sales Essentials",
+      "total": 20,
+      "pass_mark": 14,
+      "questions": [
+        {
+          "id": "B2B-Q01",
+          "no": 1,
+          "stem": "You are researching a software company that sells monthly subscriptions to other businesses.\nBased on its business model, what does it most likely care about?",
+          "options": {
+            "A": "Keeping paid staff busy between projects.",
+            "B": "Stock levels and footfall in its stores.",
+            "C": "Winning large one-off projects each quarter.",
+            "D": "Keeping existing clients and reducing churn."
+          }
+        },
+        {
+          "id": "B2B-Q02",
+          "no": 2,
+          "stem": "You are writing one industry pressure for a regional chain of private clinics.\nWhich line is usable?",
+          "options": {
+            "A": "\"They want to grow their business and make more money this year.\"",
+            "B": "\"Clinics adding sites often struggle to keep booking consistent across locations.\"",
+            "C": "\"Their business is probably not doing very well in the current market.\"",
+            "D": "\"Healthcare is a large industry with a lot of competition everywhere.\""
+          }
+        },
+        {
+          "id": "B2B-Q03",
+          "no": 3,
+          "stem": "A company fits your client profile well and just announced an expansion. But after real effort, you cannot find any plausible contact or way to reach them.\nHow should you rank it this week?",
+          "options": {
+            "A": "Lower, since a target you can't reach isn't a target for this week.",
+            "B": "First, since fit and signal matter more than reachability.",
+            "C": "Send a pitch to the general inbox, since any contact is better than none.",
+            "D": "Remove it from your list permanently."
+          }
+        },
+        {
+          "id": "B2B-Q04",
+          "no": 4,
+          "stem": "A logistics company has six open job postings for warehouse supervisors.\nWhich opening reason is strongest?",
+          "options": {
+            "A": "\"Your warehouse operations are clearly struggling, and we can fix that for you.\"",
+            "B": "\"We help logistics companies like yours improve their warehouse efficiency.\"",
+            "C": "\"I saw you're hiring six warehouse supervisors. Growing teams often find consistent training is the hard part. What's that been like?\"",
+            "D": "\"Since you're hiring six supervisors, you clearly need a better training system right now, before it's too late.\""
+          }
+        },
+        {
+          "id": "B2B-Q05",
+          "no": 5,
+          "stem": "You sell fleet maintenance software. Drivers feel breakdowns every day. The fleet manager owns maintenance scheduling and its budget.\nWho should you contact first?",
+          "options": {
+            "A": "The fleet manager, since that role owns the problem your offer solves.",
+            "B": "Any driver, since drivers feel the problem every day.",
+            "C": "The CEO, since senior people make decisions faster.",
+            "D": "Whoever's email you find first, so you can start quickly."
+          }
+        },
+        {
+          "id": "B2B-Q06",
+          "no": 6,
+          "stem": "On a promising first call, the client starts to sound lukewarm. You feel a strong urge to keep them on the line.\nWhat keeps you credible?",
+          "options": {
+            "A": "Offer a first-order discount to keep their interest alive.",
+            "B": "Explain every feature so they can see all of the value.",
+            "C": "Ask one open question and accept a no calmly if it comes.",
+            "D": "Speed up and add urgency so the call keeps moving forward."
+          }
+        },
+        {
+          "id": "B2B-Q07",
+          "no": 7,
+          "stem": "Last week a contact said \"I'm busy,\" and you offered two times to call back. Today you call, and she says, \"I told you, we're not interested. Please don't call again.\"\nWhat should you do?",
+          "options": {
+            "A": "Ask one more question to understand what is behind the no.",
+            "B": "Agree, and set a reminder to try again next month.",
+            "C": "Send an email instead, since only calls were refused.",
+            "D": "Thank her, end the call, and log the do-not-contact request."
+          }
+        },
+        {
+          "id": "B2B-Q08",
+          "no": 8,
+          "stem": "You are writing to an operations director you have never spoken to. His company opened a second plant in March.\nWhich message follows the First-Contact Standard?",
+          "options": {
+            "A": "\"Hi Mark, great to reconnect! Your second plant is a big step. Shall we book 15 minutes this week?\"",
+            "B": "\"I'm Dina from Fieldline. If this isn't a priority, tell me and I'll stop. I saw your second plant opened in March. How are you keeping standards the same across both?\"",
+            "C": "\"I'm Dina from Fieldline. I saw your second plant opened in March. We help manufacturers improve efficiency. Do you have 15 minutes this week?\"",
+            "D": "\"Your second plant opened in March, and you need consistent standards now. I'm Dina from Fieldline. If this isn't a priority, tell me and I'll stop.\""
+          }
+        },
+        {
+          "id": "B2B-Q09",
+          "no": 9,
+          "stem": "Which is the best calibrated rewrite of \"Is uptime important to you?\"",
+          "options": {
+            "A": "\"Is uptime one of your main priorities?\"",
+            "B": "\"Why is uptime such a concern for you?\"",
+            "C": "\"What happens on your side when the system goes down?\"",
+            "D": "\"Would better uptime be useful to you?\""
+          }
+        },
+        {
+          "id": "B2B-Q10",
+          "no": 10,
+          "stem": "A client says the project can wait until spring. After careful questions, you find no deadline, no rising cost and no risk that grows by waiting.\nWhat is the most honest response?",
+          "options": {
+            "A": "Say waiting seems fine, and agree a date to talk before spring.",
+            "B": "Point out that prices may rise, so acting now is safer.",
+            "C": "Keep asking what happens if it slips until a cost appears.",
+            "D": "Offer a discount if they decide this month instead."
+          }
+        },
+        {
+          "id": "B2B-Q11",
+          "no": 11,
+          "stem": "A client says, \"And then the whole schedule fell apart because of the penalty clause.\"\nWhich response is a mirror?",
+          "options": {
+            "A": "\"So the schedule fell apart. Let's look at the fix.\"",
+            "B": "\"The penalty clause?\"",
+            "C": "\"That sounds really stressful.\"",
+            "D": "\"Why did you sign a penalty clause?\""
+          }
+        },
+        {
+          "id": "B2B-Q12",
+          "no": 12,
+          "stem": "A client mentions that invoice errors keep coming up. You want to understand the financial impact.\nWhat is the best question?",
+          "options": {
+            "A": "\"What's your budget for fixing invoice errors this year?\"",
+            "B": "\"Errors like that usually cost around 50,000 a year. Is that right for you?\"",
+            "C": "\"Would saving money on invoice errors be useful to your team?\"",
+            "D": "\"What does an invoice error cost you over a quarter, in time or money?\""
+          }
+        },
+        {
+          "id": "B2B-Q13",
+          "no": 13,
+          "stem": "In a B2B deal, what is the finance contact's silent question?",
+          "options": {
+            "A": "\"Will this make my day better or worse?\"",
+            "B": "\"When does the money leave, and when does it come back?\"",
+            "C": "\"What could this break in our systems?\"",
+            "D": "\"Can I defend this spend to my boss?\""
+          }
+        },
+        {
+          "id": "B2B-Q14",
+          "no": 14,
+          "stem": "Close to a decision, a client keeps asking small, unrelated questions about contract paperwork and onboarding steps, and the deal stalls.\nWhich friction block is most likely, and how do you test it?",
+          "options": {
+            "A": "Comparison Confusion: \"What are you comparing it with?\"",
+            "B": "Regret Avoidance: \"What would you need to know to feel confident either way?\"",
+            "C": "Value Disconnect: \"What would you need to see to know it was worth it?\"",
+            "D": "Trust Deficit: \"Which part of the process feels least clear right now?\""
+          }
+        },
+        {
+          "id": "B2B-Q15",
+          "no": 15,
+          "stem": "A client says, \"This is more than we planned to spend.\"\nWhich line is a correct Acknowledge step?",
+          "options": {
+            "A": "\"I understand, but our quality justifies the price.\"",
+            "B": "\"Most clients feel that way at first, honestly.\"",
+            "C": "\"It sounds like this is more than you'd budgeted for.\"",
+            "D": "\"What would you need to see to approve it?\""
+          }
+        },
+        {
+          "id": "B2B-Q16",
+          "no": 16,
+          "stem": "In week four of a deal, the IT manager joins a meeting and says, \"This won't fit our system.\" Afterwards your main contact tells you, \"Ignore him. I'll handle it.\"\nWhat should you do?",
+          "options": {
+            "A": "Treat it as a real concern, ask him what he'd need to see, and add him to your map.",
+            "B": "Follow your contact's advice and keep IT out of the process from now on.",
+            "C": "Send IT a full technical specification and move on to the finance contact.",
+            "D": "Ask the executive sponsor to override IT so the deal keeps moving."
+          }
+        },
+        {
+          "id": "B2B-Q17",
+          "no": 17,
+          "stem": "A client has been quiet for a week after a good call.\nWhich follow-up message is strongest?",
+          "options": {
+            "A": "\"Let me know if you have any questions.\"",
+            "B": "\"Just checking in to see where things stand.\"",
+            "C": "\"I'll call Tuesday at 11 to go through the pilot scope. What would make that call useful?\"",
+            "D": "\"Following up on my last email. Any update?\""
+          }
+        },
+        {
+          "id": "B2B-Q18",
+          "no": 18,
+          "stem": "Which line creates honest urgency rather than pressure?",
+          "options": {
+            "A": "\"Your contract ends 30 June, as you shared; setup takes four weeks, so starting by 1 June keeps you covered.\"",
+            "B": "\"This price is only valid until Friday, so you'll want to move quickly on this.\"",
+            "C": "\"Other clients in your sector are signing up fast, so places are filling up.\"",
+            "D": "\"If you don't decide now, you'll fall behind your competitors this year.\""
+          }
+        },
+        {
+          "id": "B2B-Q19",
+          "no": 19,
+          "stem": "Which line offers a genuine choice?",
+          "options": {
+            "A": "\"Shall we sign today or tomorrow?\"",
+            "B": "\"Would you like the premium plan, or the premium plan with extra support?\"",
+            "C": "\"Do you want to go ahead, yes or no?\"",
+            "D": "\"Would you rather pilot at one site from the 15th, or both sites from the 1st?\""
+          }
+        },
+        {
+          "id": "B2B-Q20",
+          "no": 20,
+          "stem": "At the close, a client says, \"We can't approve anything until the board meets in September.\"\nWhat is the best response?",
+          "options": {
+            "A": "Ask what still needs to become clear, then send more case studies this week.",
+            "B": "Treat it as a real constraint: agree a date after the board meets, and say you'll wait.",
+            "C": "Point out that waiting until September will cost them, to bring the decision forward.",
+            "D": "Ask to present to the board yourself before September to speed things up."
+          }
+        }
+      ]
+    },
+    {
+      "slug": "call-center-essentials",
+      "prefix": "CCE",
+      "title": "Call Center Essentials",
+      "total": 20,
+      "pass_mark": 14,
+      "questions": [
+        {
+          "id": "CCE-Q01",
+          "no": 1,
+          "stem": "Salma has just finished a tense phone call with a customer whose parcel was lost. The next item in her queue is an email from a different customer asking about an invoice.\nWhat should she do first?",
+          "options": {
+            "A": "Reply right away in the same fast, clipped style, so no time is lost.",
+            "B": "Take a breath, read the email properly, and start clean.",
+            "C": "Write a long reply that covers every possible question, so the customer never needs to write back.",
+            "D": "Leave the email until the end of the shift, because email is not live."
+          }
+        },
+        {
+          "id": "CCE-Q02",
+          "no": 2,
+          "stem": "Hadi's scheduled break starts at 3:00 pm. A call that began at 2:55 runs until 3:12. Two colleagues are covering the line in the meantime.\nWhat does the guide expect him to do?",
+          "options": {
+            "A": "Say nothing and quietly shorten his next break to make up the time.",
+            "B": "Mention it at the end of the shift, when things are quieter.",
+            "C": "Do nothing, because the queue is managed around him and a few minutes will not matter.",
+            "D": "Tell his supervisor early that the call ran long and the break was missed."
+          }
+        },
+        {
+          "id": "CCE-Q03",
+          "no": 3,
+          "stem": "Karim believes the best service is a perfect call. He takes about 25 minutes on every call, and each customer leaves delighted. It is a busy hour.\nWhat is the likely cost?",
+          "options": {
+            "A": "The people waiting behind him wait longer, and one long call can strand many of them.",
+            "B": "Nothing, because a delighted customer improves every other metric automatically.",
+            "C": "His first contact resolution falls, because long calls mean the problem is never solved.",
+            "D": "Only his own adherence suffers. No customer is affected."
+          }
+        },
+        {
+          "id": "CCE-Q04",
+          "no": 4,
+          "stem": "Her team lead is pushing for lower average handle time this week. Dana helps a caller whose gym card payment keeps failing. She fixes the payment in four minutes and ends the call. The next day the same caller phones back, angry about a late fee that appeared in the meantime.\nWhich change would best protect both resolution and handle time?",
+          "options": {
+            "A": "Close even faster next time, since a shorter call leaves less room for new problems.",
+            "B": "Ask five closed questions about dates and amounts before touching the payment.",
+            "C": "After fixing the payment, ask one open question about what the failed payment has caused, and accept a slightly longer call.",
+            "D": "Skip the \"anything else?\" question to save time, because the caller can phone back."
+          }
+        },
+        {
+          "id": "CCE-Q05",
+          "no": 5,
+          "stem": "Mina needs about three minutes to check an order in another system while the caller waits.\nWhat is the right way to handle the hold?",
+          "options": {
+            "A": "Place the caller on hold without a word, so no time is lost explaining.",
+            "B": "Tell the caller she is putting them on hold now, then return only when she has the answer.",
+            "C": "Ask the caller to phone back once she has found the answer.",
+            "D": "Ask permission, give the reason and the time, and check back at that time even if she has no answer yet."
+          }
+        },
+        {
+          "id": "CCE-Q06",
+          "no": 6,
+          "stem": "A caller says, \"I was charged twice for the same flight.\" The agent replies, \"So this is a payment processing issue. Can you read me the booking reference?\"\nWhat is the best correction?",
+          "options": {
+            "A": "Keep the category name, since it sounds more professional, and ask for the reference more politely.",
+            "B": "Say the problem back in the caller's words, \"charged twice for the same flight\", then ask an open question about what they noticed.",
+            "C": "Explain the company's billing policy first, so the caller knows what to expect.",
+            "D": "Ask a yes/no question: \"Was it a duplicate charge?\""
+          }
+        },
+        {
+          "id": "CCE-Q07",
+          "no": 7,
+          "stem": "A man says he is calling for his elderly mother, who owns the account. He knows her address and phone number, and he wants her plan changed. He is polite and in a hurry.\nWhat do you do?",
+          "options": {
+            "A": "Make the change, since knowing her details shows he is family.",
+            "B": "End the call, because a caller who is not the account holder is hostile.",
+            "C": "Explain that you check a few details so nothing is changed by mistake, then offer the path that exists, such as a callback to the account holder.",
+            "D": "Say you cannot help and offer nothing else."
+          }
+        },
+        {
+          "id": "CCE-Q08",
+          "no": 8,
+          "stem": "You ask a caller, \"Can you tell me what happened with the transfer?\" She answers in one flat sentence, \"It just didn't go through,\" and goes quiet.\nWhat is the best next move?",
+          "options": {
+            "A": "Pause, because the second answer is often the useful one, then say back what she told you in her own words.",
+            "B": "Fill the silence at once with closed questions about the amount, the date and the account, so no time is wasted.",
+            "C": "Label it straight away, \"So you have a payments issue,\" and start troubleshooting.",
+            "D": "Promise it will be sorted out today, to calm her before you know the details."
+          }
+        },
+        {
+          "id": "CCE-Q09",
+          "no": 9,
+          "stem": "An agent says \"I'll open a case for you\" and her voice rises at the end of the sentence.\nWhat does the caller most likely hear?",
+          "options": {
+            "A": "Confidence, because a rising voice sounds energetic.",
+            "B": "Nothing, because only the words carry meaning, not the tone.",
+            "C": "Doubt, because a rising ending sounds like a question.",
+            "D": "Urgency, because a rising voice signals action."
+          }
+        },
+        {
+          "id": "CCE-Q10",
+          "no": 10,
+          "stem": "A customer asks for a delivery slot tomorrow morning. The system shows Thursday as the earliest. A cancellation list exists, and it notifies customers first when a slot opens.\nWhich reply fits best?",
+          "options": {
+            "A": "\"The earliest slot I can book is Thursday morning. I can also add you to the cancellation list now, so you hear first if a sooner slot opens.\"",
+            "B": "\"I can't do tomorrow, sorry. Thursday is all we have.\"",
+            "C": "\"I'll try to squeeze you in tomorrow. Maybe it will go through.\"",
+            "D": "\"Delivery slots are handled by the scheduling team, so you'll need to contact them.\""
+          }
+        },
+        {
+          "id": "CCE-Q11",
+          "no": 11,
+          "stem": "A colleague's chat reply to a customer named Sam reads: \"Refund queued per SOP-12, TAT 7 BD, ref ICM-88.\" You are asked to rewrite it for Sam.\nWhich rewrite is best?",
+          "options": {
+            "A": "\"Your refund has been processed in line with our standard operating procedure and will be completed in due course.\"",
+            "B": "\"Hi Sam, sorry for the wait. Your refund request has been queued under SOP-12 and is subject to the 7 BD turnaround time.\"",
+            "C": "\"Hi Sam, thanks for your patience. We understand how important this is, and we are working on it.\"",
+            "D": "\"Hi Sam, I've sent your refund request for approval today. The money should reach your card within seven working days. Your reference is 6120.\""
+          }
+        },
+        {
+          "id": "CCE-Q12",
+          "no": 12,
+          "stem": "A caller shouts, \"Nobody here listens! I've explained this to three people and the wrong charge is still on my account!\" You have just heard his whole story.\nWhich reply is best?",
+          "options": {
+            "A": "\"So you have a billing issue. I understand, but the other agents followed procedure. Let me look at it.\"",
+            "B": "(after a pause) \"Three people, and the wrong charge is still there. That is frustrating. What I can do right now is check what the account shows and note it, so no one asks you to start over. What would a good outcome look like for you today?\"",
+            "C": "\"I'm sorry about that, I'll just check your account quickly. Is that all right?\"",
+            "D": "\"I hear you, and I promise this will be fixed by tomorrow. Can I put you on hold while I look?\""
+          }
+        },
+        {
+          "id": "CCE-Q13",
+          "no": 13,
+          "stem": "A new colleague asks why you say a plain sentence like \"That is frustrating\" out loud to an upset caller.\nWhat is the best reason?",
+          "options": {
+            "A": "Putting a feeling into words lowers its intensity, so the caller can start listening again.",
+            "B": "It admits fault, so the caller calms down once the company takes the blame.",
+            "C": "It buys you time to search the system.",
+            "D": "It shows the caller you agree they should get what they are asking for."
+          }
+        },
+        {
+          "id": "CCE-Q14",
+          "no": 14,
+          "stem": "You told Amir once, plainly, that you cannot waive his cancellation fee. He now says, \"Everyone else waives it. Why not you?\"\nWhat do you do?",
+          "options": {
+            "A": "Add one reason after another until he accepts that the policy is fair.",
+            "B": "Offer a smaller fee reduction to end the argument.",
+            "C": "Pause, do not reopen the debate with new justifications, and move to the real path, such as logging his request with the team that decides.",
+            "D": "End the call, because he refuses to accept the answer."
+          }
+        },
+        {
+          "id": "CCE-Q15",
+          "no": 15,
+          "stem": "Six minutes into a call, Lea realizes a service credit the caller wants is beyond her authority. The caller has already been transferred once today.\nWhat is the best move?",
+          "options": {
+            "A": "Keep trying alternatives herself, to avoid a second transfer.",
+            "B": "Say plainly that it is outside her authority, then hand the call over once, warmly, with a note of what she has already done.",
+            "C": "Transfer the call quickly without telling the caller why, so the next agent can explain.",
+            "D": "Give the caller the credits team's number and ask them to phone it directly."
+          }
+        },
+        {
+          "id": "CCE-Q16",
+          "no": 16,
+          "stem": "A caller has just shouted at you. You used A.R.T., escalated a credit request to another team, and promised the caller a call by 5 pm tomorrow. The next call is already waiting.\nWhat do you do?",
+          "options": {
+            "A": "Take the next call now and write the note at the end of the shift, while the details are still clear.",
+            "B": "Take two slow breaths, then write the customer's words, what you verified and what you did. Leave the promise out, because the other team owns the follow-up.",
+            "C": "Skip the note, because you told the other team everything during the transfer.",
+            "D": "Breathe out slowly, name what happened in a few words, write the note with every part including your promise and the policy that blocked the credit, then take one slow breath before the next call."
+          }
+        },
+        {
+          "id": "CCE-Q17",
+          "no": 17,
+          "stem": "While helping a customer, Omar finds a knowledge base article that gives two different refund periods in two paragraphs.\nWhat should he do?",
+          "options": {
+            "A": "Pick the shorter period to be safe and tell the customer that.",
+            "B": "Not improvise a rule: tell the customer he will confirm the exact step rather than guess, and escalate the gap.",
+            "C": "Answer from memory of the last similar case.",
+            "D": "Quote both periods and let the customer choose."
+          }
+        },
+        {
+          "id": "CCE-Q18",
+          "no": 18,
+          "stem": "A customer says, \"It smells like burning after ten minutes, and my kids' room is next door.\" Which first line of the call note is best?",
+          "options": {
+            "A": "\"Faulty heater, safety issue.\"",
+            "B": "\"Product complaint.\"",
+            "C": "\"Customer upset, heater problem, resolved.\"",
+            "D": "\"Customer said: 'It smells like burning after ten minutes, and my kids' room is next door.'\""
+          }
+        },
+        {
+          "id": "CCE-Q19",
+          "no": 19,
+          "stem": "By mid-afternoon, Rana notices she is finishing customers' sentences and sighing before she answers.\nWhat is the best response?",
+          "options": {
+            "A": "Speed up, so she clears the queue and reaches her break sooner.",
+            "B": "Push through, because stress clears as soon as each call ends.",
+            "C": "Take one slow breath before the next call, and use her scheduled break to rest her voice.",
+            "D": "Treat it as a personal weakness and hide it from the team."
+          }
+        },
+        {
+          "id": "CCE-Q20",
+          "no": 20,
+          "stem": "In week eight, a new agent's handle time is the best on her team, and her supervisor praises it. But her notes show her first contact resolution fell from nine of twelve cases to six of twelve.\nWhat should she do?",
+          "options": {
+            "A": "Look at what changed in the cases that needed a callback, protect resolution over speed, and bring one specific question to her coach.",
+            "B": "Keep pushing handle time down, since the praise shows it is the number that matters.",
+            "C": "Slow down on every call to raise satisfaction, and ignore handle time completely.",
+            "D": "Grade herself on every metric each day, to improve faster."
+          }
+        }
+      ]
+    },
+    {
+      "slug": "counter-sales-essentials",
+      "prefix": "CTS",
+      "title": "Counter Sales Essentials",
+      "total": 20,
+      "pass_mark": 14,
+      "questions": [
+        {
+          "id": "CTS-Q01",
+          "no": 1,
+          "stem": "At a hardware counter, a woman puts a cracked plastic tap part down and says quietly, \"I don't know what this is called, but I need another one.\" She looks a little embarrassed.\nWhat does she need most from you?",
+          "options": {
+            "A": "Speed above all, because her time is money and she wants to be gone quickly.",
+            "B": "A tour of the whole plumbing range, so she can see every part you stock.",
+            "C": "Patience and plain language, with reassurance that you will find the right part.",
+            "D": "A few extras added to her order straight away, to lift the value of the sale."
+          }
+        },
+        {
+          "id": "CTS-Q02",
+          "no": 2,
+          "stem": "Ben greets a customer who says, \"I need a tin of paint for my fence.\" Ben has not asked anything yet.\nAccording to the counter sale map, what comes next?",
+          "options": {
+            "A": "Find the need: ask what the fence is made of and what job the paint has to do.",
+            "B": "Add what the job needs: offer brushes, a tray and a roller so the sale is complete.",
+            "C": "Recommend: name the tin that sells best, so the customer can decide quickly.",
+            "D": "Close and confirm: ring up one tin, since the customer asked for exactly that."
+          }
+        },
+        {
+          "id": "CTS-Q03",
+          "no": 3,
+          "stem": "A new seller has the highest average sale value in the store this month. His returns are also the highest.\nWhat does the course suggest this most likely means?",
+          "options": {
+            "A": "He is doing well, because average sale value is the only number that really counts at a counter.",
+            "B": "He is serving too slowly, and customers are sending items back out of frustration with the wait.",
+            "C": "He should stop offering any add-on at all, even when the job truly needs one to finish.",
+            "D": "He is likely selling extras the job did not need, so sales rise while trust falls."
+          }
+        },
+        {
+          "id": "CTS-Q04",
+          "no": 4,
+          "stem": "On a busy Saturday, a woman puts an unmarked electrical connector on the counter and asks for \"one like this.\" You do not recognise it. A man behind her keeps checking his watch, and two more people are waiting.\nWhat is the best way to handle the next few minutes?",
+          "options": {
+            "A": "Say \"What do you need? We're busy,\" and if nothing in the system matches, give her the closest connector so the line keeps moving.",
+            "B": "Open calmly, acknowledge the people waiting in one real line, ask what the connector is going into, then check the catalog and the supplier and tell her you are confirming.",
+            "C": "Serve her calmly and fully, and ignore the people waiting until you have finished, since they can see you are busy.",
+            "D": "Tell her you do not know the part and cannot help, then turn to the next person so the line keeps moving."
+          }
+        },
+        {
+          "id": "CTS-Q05",
+          "no": 5,
+          "stem": "Tom opens a sale with a fast, loud \"Hi! What do you need?\" The customer, who was walking up, slows down and steps back.\nWhich behavior of the First-Contact Standard should Tom have used first?",
+          "options": {
+            "A": "Low Threat: a calm, unhurried pace and a simple \"I'm Tom from the parts desk.\"",
+            "B": "Autonomy: tell the customer he is free to leave whenever he likes.",
+            "C": "Relevance: give one reason the conversation is about the customer.",
+            "D": "Curiosity: ask the open question first, since it gets the customer talking fastest."
+          }
+        },
+        {
+          "id": "CTS-Q06",
+          "no": 6,
+          "stem": "A customer at a phone counter says, \"I need the fastest charger you have.\"\nWhich question best finds the job behind the request?",
+          "options": {
+            "A": "\"Would you like the 20-watt one or the 65-watt one?\"",
+            "B": "\"Are you buying it today, or just looking?\"",
+            "C": "\"What are you charging, and where does it need to work?\"",
+            "D": "\"Our fastest one is also our most expensive. Is that all right?\""
+          }
+        },
+        {
+          "id": "CTS-Q07",
+          "no": 7,
+          "stem": "You are cutting a key for one customer, and you know it will be at least ten minutes before you can properly help the woman who has just joined the line.\nWhat is the best thing to say to her?",
+          "options": {
+            "A": "\"Just a minute!\" and carry on cutting, so she believes the wait will be short and stays.",
+            "B": "\"It's about ten minutes before I can help properly. Would you rather I look something up now, or come back when it's quieter?\"",
+            "C": "Say nothing and keep your eyes on the key, because talking to her would only slow the job down.",
+            "D": "Stop cutting the key and start helping her, so the line looks shorter to everyone watching."
+          }
+        },
+        {
+          "id": "CTS-Q08",
+          "no": 8,
+          "stem": "A woman asks for a particular roofing screw. It is out of stock, and you do not know when the supplier will deliver. She hopes to start work this weekend.\nWhat is the best approach?",
+          "options": {
+            "A": "Tell her it should be in soon so she plans her weekend around it, then turn to the next customer.",
+            "B": "Hand her the nearest screw and say it is exactly the same, because she needs something she can use today.",
+            "C": "Lay out the exact screw to order, three substitutes and two other brands, and let her choose whichever she likes.",
+            "D": "Ask what the roof is and when she starts, check the supplier now, then offer a real substitute with one honest line on the difference, or an order for a day you can keep."
+          }
+        },
+        {
+          "id": "CTS-Q09",
+          "no": 9,
+          "stem": "You are about to offer a customer a pack of wall plugs with the shelf bracket he is buying.\nWhich check should you pass before you offer it?",
+          "options": {
+            "A": "Whether it will lift today's average sale value.",
+            "B": "Whether you can finish \"you need this because the job...\" with a real reason.",
+            "C": "Whether your add-on rate is below target this week.",
+            "D": "Whether the customer is in a hurry and unlikely to question it."
+          }
+        },
+        {
+          "id": "CTS-Q10",
+          "no": 10,
+          "stem": "A customer needs work gloves for one afternoon of garden clean-up and says he will not use them again. You stock a basic pair, a mid-range pair and a heavy-duty pair made for forestry work.\nHow should you present them?",
+          "options": {
+            "A": "Use good-better-best every time, because customers always like to see every level.",
+            "B": "Show all three and lead with the heavy-duty pair, so the other two look cheaper.",
+            "C": "Use good-better-best but hide the basic pair, so the choice is not confusing.",
+            "D": "Skip the ladder and recommend the pair that fits the job, because the heavy-duty pair is not a real answer to it."
+          }
+        },
+        {
+          "id": "CTS-Q11",
+          "no": 11,
+          "stem": "A customer holds up an oil filter and asks, \"How much is this one?\" The price is eighteen dollars.\nWhich answer shows the confidence the course teaches?",
+          "options": {
+            "A": "\"It's eighteen dollars.\" Then stay quiet and let him think.",
+            "B": "Start with the filter's materials and features, and give the price at the end, quickly, before he can react.",
+            "C": "\"It's eighteen dollars, I'm afraid,\" and then offer a discount before he reacts.",
+            "D": "\"It's eighteen dollars,\" then keep talking about other filters so there is no awkward silence."
+          }
+        },
+        {
+          "id": "CTS-Q12",
+          "no": 12,
+          "stem": "You give a customer the price of a recommended sander in one calm sentence and pause. He says, \"That much? The one next to it is half the price.\"\nWhat is the best next move?",
+          "options": {
+            "A": "List the sander's motor, dust bag, warranty and brand, one after another, to show him exactly where the money goes.",
+            "B": "Offer a small discount at once, before he reaches for the cheaper one and walks away from the counter.",
+            "C": "Pause a few seconds, name his concern with no \"but\", show what the cheaper one could cost in time and a second trip, then ask what the job needs it to do.",
+            "D": "Say \"I understand, but this one lasts much longer,\" and then ask, \"Shall I put it through for you?\""
+          }
+        },
+        {
+          "id": "CTS-Q13",
+          "no": 13,
+          "stem": "A customer looks at a price tag and says, \"That's too expensive.\" He asks nothing else.\nHow should you hear that?",
+          "options": {
+            "A": "As a personal attack on you and on your product.",
+            "B": "As a final no, so the only answer is to drop the price.",
+            "C": "As a cue to defend the features as fast as you can.",
+            "D": "As a fear speaking: of paying too much, of being sold to, or of losing control."
+          }
+        },
+        {
+          "id": "CTS-Q14",
+          "no": 14,
+          "stem": "A customer asks, \"Can you do something on the price?\" You are new and are not sure how much room you have.\nWhat do you do?",
+          "options": {
+            "A": "Offer ten percent to be safe and sort it out with the manager afterwards.",
+            "B": "Say honestly that you need to check what you can offer, and check with the person who sets it before promising anything.",
+            "C": "Say \"I'll see what I can do\" and agree to a price you think the manager would accept.",
+            "D": "Say no flatly and turn to the next customer, so you cannot promise something wrong."
+          }
+        },
+        {
+          "id": "CTS-Q15",
+          "no": 15,
+          "stem": "A customer says, \"The shop next door has it cheaper.\" You have paused, acknowledged his wish to get a good deal, and reframed the decision around the cost of a wrong part and a second trip.\nWhich Transition question is correct?",
+          "options": {
+            "A": "\"So shall I put this one through for you?\"",
+            "B": "\"Would you like me to match their price?\"",
+            "C": "\"What matters most to you here: having it today, or saving a little by waiting?\"",
+            "D": "\"Do you agree this one is better value?\""
+          }
+        },
+        {
+          "id": "CTS-Q16",
+          "no": 16,
+          "stem": "A customer comes back angry because the cable he bought is the wrong length. You let him finish and acknowledged his frustration. He now accepts an exchange for the right length, and three people are waiting.\nHow do you finish?",
+          "options": {
+            "A": "Thank the queue for waiting in one line, then read the new item and length back with him, check the label together, confirm any payment and hand over the receipt with the return window.",
+            "B": "Swap the cable quickly and let him go, because the tension has passed and the queue is long.",
+            "C": "Check the exchange with him in full detail but say nothing to the queue, so he feels completely heard.",
+            "D": "Hand him the new cable and tell him to check the length at home and come back if it is wrong."
+          }
+        },
+        {
+          "id": "CTS-Q17",
+          "no": 17,
+          "stem": "A customer is fitting a latch to a garden gate and told you it must last through winter. You are closing the sale with the Commitment Close.\nWhich line is the Consequence step?",
+          "options": {
+            "A": "\"You told me this has to last through winter and you want to do it once.\"",
+            "B": "\"This latch is galvanised and rated for outdoor use, and it is in stock.\"",
+            "C": "\"If you fit the indoor latch, it will probably rust by spring and you will be back replacing it.\"",
+            "D": "\"What would you need to see to take the outdoor latch today?\""
+          }
+        },
+        {
+          "id": "CTS-Q18",
+          "no": 18,
+          "stem": "At the end of your first month, a supervisor asks how you plan to use months two and three.\nWhich plan fits the course?",
+          "options": {
+            "A": "Drop the First-Contact Standard, because it was only for the first month.",
+            "B": "Chase a higher average sale value, whatever the jobs need.",
+            "C": "Ask colleagues to judge your personality and attitude.",
+            "D": "Focus on add-ons that fit the job and on building regulars, and ask for feedback on specific behaviors."
+          }
+        },
+        {
+          "id": "CTS-Q19",
+          "no": 19,
+          "stem": "A customer wants a heavy-duty water pump today. You know a newer model arrives next Friday, and he has told you his job does not start for three weeks.\nHow do you handle the Consequence and the choice?",
+          "options": {
+            "A": "Say honestly that waiting a week may suit him, then offer a real choice with a date: take the current pump today, or have the new one set aside for Friday.",
+            "B": "Hint that the current pump might sell out soon, so he decides today.",
+            "C": "Say nothing about the new model and ask, \"Shall I put this one through?\"",
+            "D": "Tell him to come back after Friday, without setting either pump aside or agreeing a date."
+          }
+        },
+        {
+          "id": "CTS-Q20",
+          "no": 20,
+          "stem": "In week six, a new seller has the shortest waiting times in the store. His returns are the highest. He asks you what to focus on.\nWhich advice fits the course?",
+          "options": {
+            "A": "Keep going, because his best number shows he is doing well.",
+            "B": "Slow down at the need and the item: ask about the job, read every order back, and ask for feedback on one specific behavior.",
+            "C": "Raise his average sale value, so the numbers balance out.",
+            "D": "Stop all add-ons, since add-ons are what cause returns."
+          }
+        }
+      ]
+    },
+    {
+      "slug": "store-manager-essentials",
+      "prefix": "SME",
+      "title": "Store Manager Essentials",
+      "total": 20,
+      "pass_mark": 14,
+      "questions": [
+        {
+          "id": "SME-Q01",
+          "no": 1,
+          "stem": "A shoe store has a wet week and footfall drops sharply. The weekly sales target is missed, and the area manager asks what happened.\nWhich answer shows accountability?",
+          "options": {
+            "A": "\"It rained all week, so the target was never realistic and nobody could have hit it.\"",
+            "B": "\"Footfall fell with the weather, which I can't change. What I own is our response: two staff moved to the door.\"",
+            "C": "\"I would have hit the target, but the weather kept customers away from the store all week.\"",
+            "D": "\"The team worked hard and did their best in tough conditions, so I think we should be proud.\""
+          }
+        },
+        {
+          "id": "SME-Q02",
+          "no": 2,
+          "stem": "A branch manager writes this on the whiteboard: \"Cut the till queue to under two minutes at peak. Check on the 20th. Owner: the team.\" A colleague says it looks complete.\nWhat is missing?",
+          "options": {
+            "A": "Two more goals for the till, so the team has a stretch target to aim at.",
+            "B": "Looser words such as \"improve the till area,\" so that nobody feels judged.",
+            "C": "The team's agreement that it is a shared job, so no single person carries it.",
+            "D": "One named colleague as owner, who can be asked on the 20th how it went."
+          }
+        },
+        {
+          "id": "SME-Q03",
+          "no": 3,
+          "stem": "You delegated the weekend window display to a senior colleague, with a clear standard and a check-in. At the check-in, the layout misses the standard on one point. You are tempted to rebuild it tonight.\nWhat should you do?",
+          "options": {
+            "A": "Leave it with her, point out the one gap against the standard, and let her fix it.",
+            "B": "Rebuild it tonight and say nothing, so that the window looks right for the busy Saturday trade.",
+            "C": "Take the task back, since it is quicker to do it yourself than to explain it all again.",
+            "D": "Stop checking in from now on, because the accountability has moved to the colleague who holds the task."
+          }
+        },
+        {
+          "id": "SME-Q04",
+          "no": 4,
+          "stem": "A new manager spends every busy afternoon on the till himself, because it feels productive and customers are grateful. The rota has his strongest floor person doing stock work in the same block.\nWhich change fixes both problems?",
+          "options": {
+            "A": "Keep covering the till at the peak himself, and book his management time for the quiet mornings instead.",
+            "B": "Ask head office for an extra till operator, so he can finally leave the till during the peak.",
+            "C": "Move the stock work out of the peak, put a named colleague on the till, and observe instead.",
+            "D": "Stay in the office through the whole peak so that nobody can pull him back onto the shop floor."
+          }
+        },
+        {
+          "id": "SME-Q05",
+          "no": 5,
+          "stem": "At a homeware store, three staff \"look after\" the returns desk. Returns sit unlogged for days and customers wait at the counter, each person assuming another is on it.\nWhat is the best fix?",
+          "options": {
+            "A": "Add a fourth person to the desk, so that there are enough people to cover every return.",
+            "B": "Ask the three of them to talk to each other more, and to share the desk between themselves.",
+            "C": "Name one owner for the desk on each shift.",
+            "D": "Post a longer procedure on the wall by the desk, so everyone can see what to do."
+          }
+        },
+        {
+          "id": "SME-Q06",
+          "no": 6,
+          "stem": "A manager's standard says: \"Every customer is greeted within seconds of entering.\" On Saturdays, with one person on the floor, it fails by mid-morning, and the team starts ignoring it.\nWhat should she do?",
+          "options": {
+            "A": "Write a minimum version that holds on a busy day, and check it.",
+            "B": "Suspend the standard on busy days and bring it back whenever the store is quiet again.",
+            "C": "Add more standards so the team has a fuller guide to follow when the day gets rough.",
+            "D": "Put a bigger sign up so the standard stays visible to everyone working on the floor."
+          }
+        },
+        {
+          "id": "SME-Q07",
+          "no": 7,
+          "stem": "Saturday queues are long, and a supervisor asks for another person at the till. You watch one busy block and count 24 waits. Seventeen of them are customers waiting while someone walks to the stock room for the most-sold items.\nWhat do you do?",
+          "options": {
+            "A": "Add a person to the till anyway, because the long waits show the till is short of staff at the peak.",
+            "B": "Ask the team to walk faster to the stock room during the peak, so each sale takes less time.",
+            "C": "Cut the add-on question at the till, so every sale finishes sooner and the queue shrinks.",
+            "D": "Move the fastest sellers closer to the till, then recount the waits before asking for hours."
+          }
+        },
+        {
+          "id": "SME-Q08",
+          "no": 8,
+          "stem": "Last week a promotion started with no stock. The manager improvised, nobody knew who was in charge, and the one-page disruption plan stayed in a drawer. A new hire watched all of it. The manager now wants her to follow the plan next time.\nWhat should the manager do?",
+          "options": {
+            "A": "Nothing more, since the plan is written and the new hire can read it whenever she likes.",
+            "B": "Talk the plan through in a quiet block and have her practice her part, since new hires copy what they see.",
+            "C": "Tell her last week was an exception and that the written plan is the real standard from now on.",
+            "D": "Expand the plan to cover every possible disruption, so that no one is ever left guessing."
+          }
+        },
+        {
+          "id": "SME-Q09",
+          "no": 9,
+          "stem": "You are writing expectations for a new supervisor.\nWhich one is written as an observable behavior?",
+          "options": {
+            "A": "\"Show more initiative on the shop floor.\"",
+            "B": "\"Be more helpful to customers who look lost.\"",
+            "C": "\"Take ownership of the fitting rooms.\"",
+            "D": "\"Reset the fitting rooms and return unsold items to the floor before every break.\""
+          }
+        },
+        {
+          "id": "SME-Q10",
+          "no": 10,
+          "stem": "A supervisor wants to give feedback to a colleague who handed a customer a receipt without looking up, at the till on Tuesday afternoon.\nWhich version follows SBI?",
+          "options": {
+            "A": "\"You are careless at the till, and customers notice it. I need you to be more careful from now on.\"",
+            "B": "\"Situation: Tuesday afternoon, at the till. Behavior: you handed her the receipt without looking up. Impact: she asked if the payment had gone through.\"",
+            "C": "\"Situation: Tuesday afternoon, at the till. Behavior: you were rude to the customer. Impact: she looked unhappy when she left the store.\"",
+            "D": "\"Other staff manage to look up and greet every customer at the till, so I expect the same from you.\""
+          }
+        },
+        {
+          "id": "SME-Q11",
+          "no": 11,
+          "stem": "After you give a team member SBI feedback on one behavior, he says, \"Got it, I'll try next time,\" and you are about to walk away.\nWhat does the coaching loop call for next?",
+          "options": {
+            "A": "Leave it there, since he has said that he understands.",
+            "B": "Add two more behaviors while you have his attention.",
+            "C": "Ask him to do it again now, with you watching, then agree a check date.",
+            "D": "Raise it again at the monthly meeting, when there is time for a proper conversation."
+          }
+        },
+        {
+          "id": "SME-Q12",
+          "no": 12,
+          "stem": "Your garden section's conversion rate was the best in the store last week, up sharply on the week before. The assistant manager wants to announce it at the huddle and ask other sections to copy \"what garden did.\"\nWhat is the best move?",
+          "options": {
+            "A": "Ask how it happened, watch the behavior, and see if it holds before spreading it.",
+            "B": "Announce the number and set it as the target for every section in the store this month.",
+            "C": "Treat it as luck and say nothing about it, because good numbers need no explanation at all.",
+            "D": "Praise the supervisor for the number, and leave the question of how she got it for later."
+          }
+        },
+        {
+          "id": "SME-Q13",
+          "no": 13,
+          "stem": "A manager is judged on sales alone, so she watches only sales. Over two months, sales stay on target while returns and shrink creep up unnoticed.\nWhy did this happen?",
+          "options": {
+            "A": "A single watched number pulls attention toward it, and the others drift unobserved.",
+            "B": "Sales figures are unreliable, so she should have trusted the other numbers a lot more.",
+            "C": "Returns and shrink are head office numbers, so they were never the store manager's concern.",
+            "D": "She picked the wrong single number, and watching margin alone would have caught everything."
+          }
+        },
+        {
+          "id": "SME-Q14",
+          "no": 14,
+          "stem": "Returns on one product are climbing, and only in weeks when one particular shift sells it. The assistant manager suggests pulling the product off the shelves.\nWhat is the best next step?",
+          "options": {
+            "A": "Pull it off the shelves, because the returns number is the problem and removing it solves it.",
+            "B": "Rebuild the rota so that no single shift sells the product on its own again.",
+            "C": "Watch how the shift sells and handles it, and keep asking why.",
+            "D": "Warn that shift's team that their returns number is poor, so they know it needs to improve."
+          }
+        },
+        {
+          "id": "SME-Q15",
+          "no": 15,
+          "stem": "A manager posts shrink by shift on the staff room wall, with the worst shift in red, \"to motivate people.\" Two weeks later, damaged goods are being written off less often, but stock accuracy gets worse.\nWhat is the most likely explanation?",
+          "options": {
+            "A": "The shifts are competing honestly, and the drop in write-offs is a real improvement.",
+            "B": "The red marker is working, so she should add more figures to the wall for every shift.",
+            "C": "Only the worst shift is affected, and the other shifts are unchanged by the wall.",
+            "D": "Staff are hiding damage and errors because they take the number as a judgment."
+          }
+        },
+        {
+          "id": "SME-Q16",
+          "no": 16,
+          "stem": "Complaints rose over three weeks, from 4 to 9 a week. You traced most of them to a broken entrance door that only the landlord's contractor can repair. Your manager wants the weekly one-page review.\nWhich line belongs on the page?",
+          "options": {
+            "A": "\"Complaints are up again and the contractor has let us down, so there is nothing we can do until he turns up.\"",
+            "B": "\"Complaints rose from 4 to 9 a week, mostly about the door. I can't book the repair. I recommend using the side entrance until then. I need your decision by Friday.\"",
+            "C": "\"Complaints rose over three weeks, but I'm confident it will settle on its own once the repair is finally done.\"",
+            "D": "\"Complaints and every other figure are in the full export attached, with a long paragraph under each one explaining what it means.\""
+          }
+        },
+        {
+          "id": "SME-Q17",
+          "no": 17,
+          "stem": "Saturday is busy, and the manager must choose between two plans. One makes the floor look tidier. The other makes sure every customer leaves certain that the item fits and works.\nWhich question should settle it?",
+          "options": {
+            "A": "Which plan will look neater in my report to the area manager?",
+            "B": "Which plan makes the customer's outcome more certain?",
+            "C": "Which plan is easier for the team to run on the day?",
+            "D": "Which plan would head office prefer to see on the floor?"
+          }
+        },
+        {
+          "id": "SME-Q18",
+          "no": 18,
+          "stem": "A customer comes to the till angry. His sofa was delivered damaged, and this is his third visit about it. He says, \"Do something.\"\nWhat is the best response?",
+          "options": {
+            "A": "\"Three visits and a damaged sofa: you're right to be angry. I'm booking a replacement now and will call you Wednesday by noon.\"",
+            "B": "\"Damage has to be reported within two days. Let me check whether you did that.\"",
+            "C": "\"I'll sort everything out: a replacement, a full refund and a voucher, all today, no problem.\"",
+            "D": "\"I understand it's frustrating, but delays happen with every delivery, and it is not unusual.\""
+          }
+        },
+        {
+          "id": "SME-Q19",
+          "no": 19,
+          "stem": "A new manager drafts a 30-day plan with five priorities. One reads: \"Improve stock accuracy. Owner: the store. Check: end of month.\"\nWhat is the best fix?",
+          "options": {
+            "A": "Keep all five, because a full month is long enough to make progress on every area.",
+            "B": "Leave the line as it is, and share it with the team out loud rather than in writing.",
+            "C": "Cut to no more than three, and give the stock line a measurable goal, a named owner and one behavior.",
+            "D": "Keep five, but write each one in fewer words so that the whole plan reads quickly."
+          }
+        },
+        {
+          "id": "SME-Q20",
+          "no": 20,
+          "stem": "Your 30-day plan has conversion as a priority, with a goal of 20 percent. At day 25 it is at 17. In the middle of the month, head office changed the price of your top-selling line. Your manager asks for an update.\nWhich update is best?",
+          "options": {
+            "A": "\"We would have hit 20 percent by now, but head office changed the price of our top-selling line in the middle of the month.\"",
+            "B": "\"It may well recover on its own once customers get used to the new price, so I'll report when it does.\"",
+            "C": "\"The team has worked very hard in a month when the price change made the goal unrealistic for everyone.\"",
+            "D": "\"Conversion is 17 against 20. The price change was outside my control; what I own is our response, a greeting question at that aisle. I recommend we review the goal. I need your decision by Friday.\""
+          }
+        }
+      ]
+    },
+    {
+      "slug": "tele-sales-essentials",
+      "prefix": "TSE",
+      "title": "Tele Sales Essentials",
+      "total": 20,
+      "pass_mark": 14,
+      "questions": [
+        {
+          "id": "TSE-Q01",
+          "no": 1,
+          "stem": "Rana wants to know whether her listening and her matching of offers to needs are improving week by week.\nWhich number should she watch most closely?",
+          "options": {
+            "A": "Calls made, because more dials in a week show more effort and more chances taken.",
+            "B": "Contact rate, because it shows how often her dials actually reach a person.",
+            "C": "Average order value, because bigger orders always mean she listened better.",
+            "D": "Conversion: the share of real conversations that end in the outcome."
+          }
+        },
+        {
+          "id": "TSE-Q02",
+          "no": 2,
+          "stem": "Karim's conversion is the best on the team, but his average order value is the lowest. Several of his customers call back within a month to move to a bigger plan.\nWhat does this most likely tell you?",
+          "options": {
+            "A": "He should make more dials, because volume is what is holding his numbers back.",
+            "B": "He is often recommending less than the customer really needs.",
+            "C": "His contact rate must be low, so he keeps reaching the wrong people.",
+            "D": "Nothing important, since conversion is the only number that reflects skill."
+          }
+        },
+        {
+          "id": "TSE-Q03",
+          "no": 3,
+          "stem": "Before a one-hour session, a rep writes her goal at the top of the page.\nWhich is the best session goal?",
+          "options": {
+            "A": "\"Make as many calls as I can before five o'clock.\"",
+            "B": "\"Get through all 40 names on today's list.\"",
+            "C": "\"Book two meetings with small business owners.\"",
+            "D": "\"Sell harder than yesterday and close more deals.\""
+          }
+        },
+        {
+          "id": "TSE-Q04",
+          "no": 4,
+          "stem": "Omar calls a past customer whose broadband contract with his company ends this month. The customer is on an approved list.\nWhich opening is best?",
+          "options": {
+            "A": "\"Hello, this is Omar from Brightwave. I know this call is unexpected, so if now is a bad time, just say so. I'm calling because your contract with us ends this month. How has the connection been for you lately?\"",
+            "B": "\"Hi, how are you today? I'll be quick. I'm Omar from Brightwave, and we have a great deal I think you'll love. Have you got a minute to hear it?\"",
+            "C": "\"Hello, Omar from Brightwave. Your contract ends this month, and we have some new plans. Would you like to hear about them now?\"",
+            "D": "\"Hello, this is Omar from Brightwave. If now is a bad time, just say. Everyone on your street is switching to our new plan, so I wanted to make sure you don't miss out.\""
+          }
+        },
+        {
+          "id": "TSE-Q05",
+          "no": 5,
+          "stem": "You end your opener with an open question, and the line goes quiet for a couple of seconds.\nWhat should you do?",
+          "options": {
+            "A": "Answer your own question, so the silence does not start to feel awkward.",
+            "B": "Wait. The pause is space for the other person to think.",
+            "C": "Fill the gap with the main benefits of the offer while you have their attention.",
+            "D": "Ask, \"Are you still there?\" and repeat the whole opener a little faster."
+          }
+        },
+        {
+          "id": "TSE-Q06",
+          "no": 6,
+          "stem": "A woman calls the mobile line and says she wants to add a second SIM for her teenage son. On your screen you can see a family bundle, a TV add-on and phone insurance.\nWhat is the best next step?",
+          "options": {
+            "A": "Mention the family bundle, the TV add-on and the insurance, so she knows everything you offer.",
+            "B": "Read her the current promotion first, since it may change what she wants today.",
+            "C": "Ask for her name again and run through the full standard script before anything else.",
+            "D": "Ask a little about how her son will use the phone, and understand that first."
+          }
+        },
+        {
+          "id": "TSE-Q07",
+          "no": 7,
+          "stem": "A shop owner says, \"Not a good time.\" You give one calm line with your true reason and offer to let her go. She says, \"Really, not now.\"\nWhat do you do?",
+          "options": {
+            "A": "Thank her and close honestly, offering to call at a time that suits her.",
+            "B": "Read out the main points of the offer quickly, before she has a chance to hang up.",
+            "C": "Tell her it will only take a minute, so that she stays on the line a little longer.",
+            "D": "Make the same push a third time, more slowly, so that she finally hears your reason."
+          }
+        },
+        {
+          "id": "TSE-Q08",
+          "no": 8,
+          "stem": "After your opener, a small business owner says, \"Honestly, our deliveries are a mess every Monday.\"\nWhat is the best next move?",
+          "options": {
+            "A": "Now that there is interest, explain your delivery service and its main features in full.",
+            "B": "Ask four quick questions in a row about volume, drivers, routes and costs.",
+            "C": "Say back what you heard in a few words, ask one short open question, then stop.",
+            "D": "Say, \"So you're busy on Mondays. Would our delivery service help with that?\""
+          }
+        },
+        {
+          "id": "TSE-Q09",
+          "no": 9,
+          "stem": "A client says, \"We lose half a morning chasing unpaid invoices.\"\nWhat should your note say?",
+          "options": {
+            "A": "\"lose half a morning chasing unpaid invoices\"",
+            "B": "\"invoicing inefficiency\"",
+            "C": "\"busy mornings\"",
+            "D": "\"interested in product\""
+          }
+        },
+        {
+          "id": "TSE-Q10",
+          "no": 10,
+          "stem": "You want a sense of a small firm's budget without making the owner defensive.\nWhich question fits the course?",
+          "options": {
+            "A": "\"What is your budget for this?\"",
+            "B": "\"How much are you willing to spend each month?\"",
+            "C": "\"Most firms your size choose between a smaller starting option and a fuller one. Which sounds more like you?\"",
+            "D": "\"Our plans start at 90 a month. Can you afford that?\""
+          }
+        },
+        {
+          "id": "TSE-Q11",
+          "no": 11,
+          "stem": "On a phone call, a rep reads out all four plans in detail. The client says, \"Let me think about it.\"\nWhat is the most likely reason?",
+          "options": {
+            "A": "The client is not interested and is ending the call politely.",
+            "B": "The price of every plan is too high for the client's budget.",
+            "C": "The client needs to hear about more plans before deciding.",
+            "D": "Too many options with nothing to look at stalled the decision."
+          }
+        },
+        {
+          "id": "TSE-Q12",
+          "no": 12,
+          "stem": "Earlier in the call, the client said, \"I'm sick of the system crashing every Friday.\" Now she says, \"Another company quoted us less.\"\nWhat is the best response?",
+          "options": {
+            "A": "\"I understand, but our servers are faster and our support team runs around the clock.\"",
+            "B": "(pause) \"That's fair. Price matters. The question I'd ask is what those Friday crashes cost you now. What would need to be true for this to be worth it?\"",
+            "C": "\"I can take ten percent off if you sign today, so that we beat their quote.\"",
+            "D": "\"That's fair, price matters. So would you like to go ahead with us anyway?\""
+          }
+        },
+        {
+          "id": "TSE-Q13",
+          "no": 13,
+          "stem": "A client says, \"That's a lot.\" The rep stays quiet for two slow breaths, and the client adds, \"Our last provider promised the same and let us down.\"\nWhat did the pause do?",
+          "options": {
+            "A": "It made the client uncomfortable, which pressured him into talking.",
+            "B": "It gave the rep time to prepare a full list of features to answer with.",
+            "C": "It gave the client room to say the real reason behind the objection.",
+            "D": "It signalled doubt, so the client tried to reassure the rep."
+          }
+        },
+        {
+          "id": "TSE-Q14",
+          "no": 14,
+          "stem": "You are allowed to waive the setup fee. A client asks, \"Can you do something on the price?\"\nWhat do you do?",
+          "options": {
+            "A": "Offer to waive the fee in return for something of equal value, such as a twelve-month term.",
+            "B": "Waive the fee straight away as a goodwill gesture, so the client feels looked after.",
+            "C": "Promise a bigger discount on the call and get it approved by your manager afterwards.",
+            "D": "Say \"I'm sure we can do something\" and work out the details after the call."
+          }
+        },
+        {
+          "id": "TSE-Q15",
+          "no": 15,
+          "stem": "A rep listens to her recorded calls. Every Acknowledge she uses is the same two words: \"I understand.\"\nWhat should she change?",
+          "options": {
+            "A": "Add \"but\" and a short explanation, so the acknowledgment leads somewhere useful.",
+            "B": "Use a sentence she would actually say, such as \"That's a fair worry.\"",
+            "C": "Drop the acknowledgment and go straight to the reframe to save time on each call.",
+            "D": "Say \"I understand\" twice, so it sounds warmer and more sincere to the client."
+          }
+        },
+        {
+          "id": "TSE-Q16",
+          "no": 16,
+          "stem": "You ran A.R.T. on a client's concern, and she says, \"OK, that makes sense.\" You know her criteria, and the fit is clear.\nWhat is the best next move?",
+          "options": {
+            "A": "\"Great. Shall I send the contract over now?\"",
+            "B": "Keep reframing for another minute, to be sure the concern is fully gone.",
+            "C": "Tell her the offer ends today, so she decides before the call ends.",
+            "D": "Restate her criteria, show the evidence, name the consequence honestly, ask an open question, then offer two real dates."
+          }
+        },
+        {
+          "id": "TSE-Q17",
+          "no": 17,
+          "stem": "A client's current contract charges an exit fee if she leaves before March. It is January.\nWhich Consequence line is honest?",
+          "options": {
+            "A": "\"Switching now means paying the exit fee. Waiting until March costs you nothing, so starting then may suit you better.\"",
+            "B": "\"Waiting is risky. Prices may go up next week, so it's better to switch today.\"",
+            "C": "Skip the Consequence step, since mentioning the fee could lose the sale.",
+            "D": "\"Most of your neighbours have already switched, so waiting makes no sense.\""
+          }
+        },
+        {
+          "id": "TSE-Q18",
+          "no": 18,
+          "stem": "A call ends with the office manager saying, \"We decide after the budget meeting on the 14th. Call me the next day at ten.\"\nWhich log entry is best?",
+          "options": {
+            "A": "\"Interested. Call back.\"",
+            "B": "\"Office manager, positive call, good chance.\"",
+            "C": "\"Follow up after their meeting sometime next week.\"",
+            "D": "\"Spoke to Lina (office manager). Said: 'We decide after the budget meeting on the 14th.' Agreed: call on the 15th at 10:00.\""
+          }
+        },
+        {
+          "id": "TSE-Q19",
+          "no": 19,
+          "stem": "After fifteen fast \"no\"s in a row, a rep starts to feel the session is a failure and that the problem is her.\nWhat does the course recommend?",
+          "options": {
+            "A": "Push harder on the next calls to make up for the ones she lost.",
+            "B": "Treat each outcome as information and score herself on what she controls.",
+            "C": "Stop logging the quick no's, so the session feels less discouraging.",
+            "D": "Judge the session only by sales, since that is the number that really matters."
+          }
+        },
+        {
+          "id": "TSE-Q20",
+          "no": 20,
+          "stem": "In his second week in a new tele sales job, Ali wants to impress his manager. He plans to double his dials before learning the product or the rules on who may be called and when.\nWhat should he do instead?",
+          "options": {
+            "A": "Double the dials anyway, because a high call count shows effort and effort is what counts.",
+            "B": "Skip logging the short calls, so he has more time in each session to dial.",
+            "C": "Learn the product and the contact rules first, keep his own call log, and watch conversations and conversion, not dials alone.",
+            "D": "Extend his calls into the evening, when more people are home, to raise his contact rate."
+          }
+        }
+      ]
+    },
+    {
+      "slug": "area-manager-essentials",
+      "prefix": "ARM",
+      "title": "Area Manager Essentials",
+      "total": 20,
+      "pass_mark": 14,
+      "questions": [
+        {
+          "id": "ARM-Q01",
+          "no": 1,
+          "stem": "A new area manager writes down what she owns.\nWhich item is hers, not her unit managers'?",
+          "options": {
+            "A": "Which priorities matter across the area, and how her support is spread.",
+            "B": "The daily decisions on each unit's pipeline and which quotes to chase first.",
+            "C": "Each branch's customer relationships and who calls which client this week.",
+            "D": "The daily behavior of each team on the sales floor and on the phones."
+          }
+        },
+        {
+          "id": "ARM-Q02",
+          "no": 2,
+          "stem": "An area manager wants all four units to open client calls with the same three-sentence script, and to reply to every new enquiry within the same set time.\nWhat should become an area standard?",
+          "options": {
+            "A": "Both, because consistency across units always builds client trust.",
+            "B": "Neither, because each unit manager knows their own clients best.",
+            "C": "The response time, while the call opening stays with each unit.",
+            "D": "The script, because the wording is what clients hear first on every call."
+          }
+        },
+        {
+          "id": "ARM-Q03",
+          "no": 3,
+          "stem": "On a call, a unit manager tells you, \"Clients are unhappy everywhere this month.\" She bases it on one difficult conversation she had yesterday.\nHow should you treat it on your area map?",
+          "options": {
+            "A": "Rank her unit first for support straight away, since she raised the alarm.",
+            "B": "As a lead to check against evidence, such as response times, missed promises and what clients said.",
+            "C": "Ignore it completely, because one manager's feelings are not data.",
+            "D": "Move most of your support to her unit until the mood there improves."
+          }
+        },
+        {
+          "id": "ARM-Q04",
+          "no": 4,
+          "stem": "One unit's conversion has slipped for two months. You are tempted to sit in on its pipeline review and phone the stalled clients yourself.\nWhat is the best approach?",
+          "options": {
+            "A": "Phone the stalled clients yourself, since a senior voice reassures them and wins back time.",
+            "B": "Set the unit a conversion push for next month, so the manager knows it is a priority.",
+            "C": "Tell the manager how to close each stalled deal, since you have more selling experience.",
+            "D": "Compare the slip with lead quality and cycle, take questions to the manager, and agree one action she owns."
+          }
+        },
+        {
+          "id": "ARM-Q05",
+          "no": 5,
+          "stem": "Unit North had 400 qualified opportunities and closed 80. Unit South had 100 and closed 30.\nWhich unit converted better?",
+          "options": {
+            "A": "North, because it closed far more sales over the period.",
+            "B": "They converted equally well over the period.",
+            "C": "Neither can be judged, because the units are different sizes.",
+            "D": "South, at 30 percent against North's 20 percent."
+          }
+        },
+        {
+          "id": "ARM-Q06",
+          "no": 6,
+          "stem": "Before discussing any unit's performance, you use the course's fixed routine.\nWhich order is correct?",
+          "options": {
+            "A": "What changed, who is different, which behavior drives it, one thing to try.",
+            "B": "Who is different, what changed, one thing to try, which behavior drives it.",
+            "C": "Which behavior drives it, what changed, who is different, one thing to try.",
+            "D": "One thing to try, what changed, which behavior drives it, who is different."
+          }
+        },
+        {
+          "id": "ARM-Q07",
+          "no": 7,
+          "stem": "After five steady months, one unit's conversion fell this month. A colleague says, \"That manager has lost the plot.\"\nWhat do you do first?",
+          "options": {
+            "A": "Call the manager and tell her the unit is now underperforming.",
+            "B": "Set a recovery target for next month and review it then.",
+            "C": "Set the drop beside lead quality, cycle, capacity and mix for the same periods.",
+            "D": "Compare its closed totals with the largest unit in the area."
+          }
+        },
+        {
+          "id": "ARM-Q08",
+          "no": 8,
+          "stem": "Your comparison shows one unit's follow-up rate dropped from 85 to 55 percent in a month. You meet the unit manager.\nWhat is the best opening?",
+          "options": {
+            "A": "\"Your team has gone lazy on follow-up, and I need it fixed this month.\"",
+            "B": "\"Follow-up dropped from 85 to 55 percent. What changed? Pick one opportunity that went cold and walk me through it.\" Then wait.",
+            "C": "\"I'll sit with your reps this week and coach them on follow-up myself.\"",
+            "D": "\"Here are five things to fix: scripts, timing, CRM use, reminders and weekly checks.\""
+          }
+        },
+        {
+          "id": "ARM-Q09",
+          "no": 9,
+          "stem": "You observe a unit manager coaching a rep after a lost deal.\nWhat should your feedback focus on?",
+          "options": {
+            "A": "The rep's selling mistakes, which you explain to the rep directly afterwards.",
+            "B": "The manager's personality and general style as a leader of the team.",
+            "C": "The manager's coaching behavior in that session.",
+            "D": "The unit's conversion figures for the month so far."
+          }
+        },
+        {
+          "id": "ARM-Q10",
+          "no": 10,
+          "stem": "This morning you watched unit manager Lina coach a rep, Omar. Three times she finished his answers for him.\nWhich feedback follows SBI with the practice step?",
+          "options": {
+            "A": "\"Lina, you are too controlling in your coaching sessions.\"",
+            "B": "\"Lina, in this morning's session you interrupted Omar three times. Try not to do that.\"",
+            "C": "\"Lina, you were impatient this morning, and Omar seemed unhappy.\"",
+            "D": "\"Lina, this morning you finished Omar's answers three times, and he stopped offering ideas. Let's rehearse letting him finish.\""
+          }
+        },
+        {
+          "id": "ARM-Q11",
+          "no": 11,
+          "stem": "A unit manager's coaching log shows nine sessions this month. Eight were with the same top rep.\nWhat do you do?",
+          "options": {
+            "A": "Point to the pattern and ask how coaching will reach the rest of the team, with a dated check.",
+            "B": "Praise the number of sessions, since nine is well above the area average.",
+            "C": "Coach the other reps yourself, so nobody on the team is left behind.",
+            "D": "Leave it alone, because the top rep's numbers went up this month."
+          }
+        },
+        {
+          "id": "ARM-Q12",
+          "no": 12,
+          "stem": "A unit manager tells you her lost deals are \"all about price.\" The reps wrote \"price\" in the lost-sale notes, but the clients' own words say, \"I didn't understand what was included.\" Other units do not show this.\nWhat is your best move?",
+          "options": {
+            "A": "Approve a lower price for that unit, since the manager knows her clients best.",
+            "B": "Read the clients' words with her, ask her to walk you through one lost deal, then agree one coaching change.",
+            "C": "Accept the reps' summaries, since they were the ones on the calls.",
+            "D": "Roll out new pricing materials to every unit in the area."
+          }
+        },
+        {
+          "id": "ARM-Q13",
+          "no": 13,
+          "stem": "Two responses could both fix a problem: a short shared product explanation, or a full redesign of all materials.\nWhat should you do first?",
+          "options": {
+            "A": "The full redesign, because it covers everything at once.",
+            "B": "The smaller response, tested first in a limited pilot.",
+            "C": "Both at the same time, so the problem disappears faster.",
+            "D": "Neither, until the problem appears in every single unit."
+          }
+        },
+        {
+          "id": "ARM-Q14",
+          "no": 14,
+          "stem": "Clients in four units say, \"I couldn't tell which package was right for me.\" Each unit compares the offer to a different benchmark.\nWhich response fits?",
+          "options": {
+            "A": "Coach each manager separately on how their own team explains packages.",
+            "B": "Ask every unit to make more calls this month to make up the gap.",
+            "C": "Lower prices, so the choice feels less risky to the client.",
+            "D": "One shared comparison guide that every unit uses."
+          }
+        },
+        {
+          "id": "ARM-Q15",
+          "no": 15,
+          "stem": "A month after rolling out a practice to three units, every manager tells you, \"Yes, we're doing it.\"\nWhat do you do next?",
+          "options": {
+            "A": "Check conversations, notes and observations for real use, against the measure set before the pilot.",
+            "B": "Take their word for it, since they own execution in their units.",
+            "C": "Wait for the quarter's results before looking at anything.",
+            "D": "Roll it out to the remaining units straight away."
+          }
+        },
+        {
+          "id": "ARM-Q16",
+          "no": 16,
+          "stem": "Your two-unit pilot has ended. In one unit the success measure was met. In the other it was partly met, because the manager started two weeks late.\nHow does it go in your area review?",
+          "options": {
+            "A": "Report the unit that met the measure, and leave the other out to keep the story clear.",
+            "B": "Announce an area-wide rollout now, since the pilot has proved that it works.",
+            "C": "Mark one done and one partial with the reason, and recommend the next step with a date.",
+            "D": "Leave the pilot out of the review until both units have complete results."
+          }
+        },
+        {
+          "id": "ARM-Q17",
+          "no": 17,
+          "stem": "Your draft area review is nine pages of unit-by-unit detail.\nWhat should it contain instead?",
+          "options": {
+            "A": "All nine pages, so the leader has every fact available.",
+            "B": "One line: \"Sales are down, we are working on it.\"",
+            "C": "A story of the month's main client conversations.",
+            "D": "Results against target with context, customer-facing risks, and decisions needed."
+          }
+        },
+        {
+          "id": "ARM-Q18",
+          "no": 18,
+          "stem": "You hold a quarterly area review and send nothing in between. Your senior leader has started skipping your updates.\nWhat does the course recommend?",
+          "options": {
+            "A": "Wait for the next review and make it longer and more detailed.",
+            "B": "A short written summary after each review, updates at an agreed interval, and a note when a commitment closes.",
+            "C": "A long daily report covering every unit in the area.",
+            "D": "Contact the leader only when there is bad news to share."
+          }
+        },
+        {
+          "id": "ARM-Q19",
+          "no": 19,
+          "stem": "Your unit managers report twelve client concerns this month.\nWhich belong in your review to senior leaders?",
+          "options": {
+            "A": "All twelve, so that nothing important is missed.",
+            "B": "None, because client concerns belong to unit managers.",
+            "C": "Only those that would change a senior leader's decision.",
+            "D": "The ones raised by the loudest or most senior clients."
+          }
+        },
+        {
+          "id": "ARM-Q20",
+          "no": 20,
+          "stem": "A key account shared by two units complains that each unit gives a different turnaround time for repairs. Fixing it needs a senior decision on one area-wide repair promise. The account manager in one unit leads the client relationship.\nWhat do you do?",
+          "options": {
+            "A": "In the review, name the risk with evidence from both units, note that the account manager leads the client, and recommend one standard with a decision date.",
+            "B": "Call the client yourself and promise one turnaround time, then tell the two managers.",
+            "C": "Send senior leaders every unit's repair figures and let them draw their own conclusions.",
+            "D": "Ask senior leaders in the review, \"What should we do about repair times?\""
+          }
+        }
+      ]
+    },
+    {
+      "slug": "sales-manager-essentials",
+      "prefix": "SLM",
+      "title": "Sales Manager Essentials",
+      "total": 20,
+      "pass_mark": 14,
+      "questions": [
+        {
+          "id": "SLM-Q01",
+          "no": 1,
+          "stem": "On her first Monday as sales manager, Hana sits down to plan the week.\nWhich question should she start with?",
+          "options": {
+            "A": "\"What do I need to close personally this week to hit my number?\"",
+            "B": "\"Where should our selling effort go this cycle, and what will it cost?\"",
+            "C": "\"Which accounts called me most last week, so I can get back to them first?\"",
+            "D": "\"Which of the biggest deals can I take over myself to make sure they land?\""
+          }
+        },
+        {
+          "id": "SLM-Q02",
+          "no": 2,
+          "stem": "The business objective is growth this year. Segment one, hospitals, is large, but you have no references there and buying runs through nine-month tenders. Segment two, small clinics, is smaller, but your team already has 30 relationships there and clinics buy direct.\nWhich should be the priority this cycle?",
+          "options": {
+            "A": "Hospitals, because the bigger market is the bigger forecast.",
+            "B": "Both equally, so no opportunity is missed this year.",
+            "C": "Neither, until the team has sold in both for a full year.",
+            "D": "Clinics, because the team can serve them well now."
+          }
+        },
+        {
+          "id": "SLM-Q03",
+          "no": 3,
+          "stem": "A draft priority plan says, \"We will stop field visits to our smallest accounts this cycle.\" Nothing else is written about those accounts.\nWhat is missing?",
+          "options": {
+            "A": "How those accounts will be served instead, such as inside support or a partner.",
+            "B": "Nothing, because the not-pursued line is already the hardest part to write.",
+            "C": "A promise to keep visiting them now and then, so nobody notices the change.",
+            "D": "A few more priorities, so the plan looks as ambitious as the business wants."
+          }
+        },
+        {
+          "id": "SLM-Q04",
+          "no": 4,
+          "stem": "Your plan frees two reps from core accounts to work a new segment. When you allocate the target, the core channel's slice is still the same as last year.\nWhat should you do?",
+          "options": {
+            "A": "Keep the core slice as it is and expect the remaining reps to cover the freed reps' accounts too.",
+            "B": "Raise the new segment's slice until the totals match, because the business needs the growth.",
+            "C": "Lower the core slice for the capacity moved, write the trade-off beside it, and raise any gap in the total openly.",
+            "D": "Quietly drop the new segment if it falls behind, so the core slice can still be met."
+          }
+        },
+        {
+          "id": "SLM-Q05",
+          "no": 5,
+          "stem": "You are setting next year's target for one channel.\nWhich is the right base to start from?",
+          "options": {
+            "A": "What it actually delivered over the last few comparable periods.",
+            "B": "Its single best month this year, multiplied by twelve.",
+            "C": "Last year's total plus a growth percentage that sounds inspiring.",
+            "D": "The growth rate your main competitor announced this year."
+          }
+        },
+        {
+          "id": "SLM-Q06",
+          "no": 6,
+          "stem": "A company sells through distributors and through a direct key-account team. The new manager splits the target equally across four regions, because that is how the org chart is drawn.\nWhat does the course say?",
+          "options": {
+            "A": "Keep the regional split, since equal slices feel fair to every team.",
+            "B": "Split it evenly by rep headcount, so every person carries the same number.",
+            "C": "Split by channel first, then by territory inside each channel.",
+            "D": "Keep one shared number for the whole team, so everyone owns all of it."
+          }
+        },
+        {
+          "id": "SLM-Q07",
+          "no": 7,
+          "stem": "A manager's allocation adds exactly 10 percent to each channel's slice from last year. The total is last year's plus 10 percent.\nWhat check does the course ask for?",
+          "options": {
+            "A": "None, because a proportional increase is the fairest split there is.",
+            "B": "Build the allocation bottom-up from channel evidence and capacity, then compare.",
+            "C": "Raise the strongest channel's slice further, to build in a safety margin.",
+            "D": "Leave it, and let the review points correct any slice that turns out wrong."
+          }
+        },
+        {
+          "id": "SLM-Q08",
+          "no": 8,
+          "stem": "At the planned mid-year review point, the partner channel is 30 percent ahead of its slice. Most of the gain comes from one large order. A team lead proposes moving part of the direct target onto partners for the rest of the year.\nWhat do you do?",
+          "options": {
+            "A": "Agree now, since the partner channel has clearly outgrown its slice.",
+            "B": "Raise the partner slice and keep direct unchanged, so the total rises.",
+            "C": "Change nothing, and wait for the year-end result before looking again.",
+            "D": "Strip out the one-off order, check the written partner assumption, then decide what the review may change."
+          }
+        },
+        {
+          "id": "SLM-Q09",
+          "no": 9,
+          "stem": "Calls made dropped sharply this month, but closed deals are on plan.\nWhat is the most likely reading?",
+          "options": {
+            "A": "There is no problem, because the outcome numbers are steady.",
+            "B": "Activity does not matter, because outcomes held without it.",
+            "C": "The team must have changed size, so the averages moved.",
+            "D": "A lag effect: the drop may show up in closed deals later."
+          }
+        },
+        {
+          "id": "SLM-Q10",
+          "no": 10,
+          "stem": "Your pipeline shows few deals at first contact, and fourteen deals that have sat in negotiation for more than three months.\nHow should you read it?",
+          "options": {
+            "A": "As a warning: deals sitting still late in the pipeline may not be real deals.",
+            "B": "As a healthy pipeline, since a full late stage means a strong quarter is coming.",
+            "C": "As a problem at first contact only, because the early stage is too thin.",
+            "D": "As forecast-ready, so add all fourteen to the forecast at full value."
+          }
+        },
+        {
+          "id": "SLM-Q11",
+          "no": 11,
+          "stem": "The team closed its target number of deals this quarter, but revenue is 15 percent below plan. The average deal value fell.\nWhat kind of gap is this?",
+          "options": {
+            "A": "A volume gap, so the fix is more calls and more meetings this quarter.",
+            "B": "A conversion gap, so the fix is in how quotes are handled.",
+            "C": "A price gap: deals are closing, but at a lower value than planned.",
+            "D": "No real gap, so lower the revenue target quietly to match the deals."
+          }
+        },
+        {
+          "id": "SLM-Q12",
+          "no": 12,
+          "stem": "One rep's win rate on quotes fell from one in two to one in four. You check the lost quotes: most went out on an old price list, because the new list was never added to the quote templates his branch uses.\nWhat is the gap, and what is the fix?",
+          "options": {
+            "A": "A skill gap: role-play quote handling with the rep this week.",
+            "B": "A process gap: get the templates updated, with an owner and a date.",
+            "C": "A capacity gap: move some of the rep's accounts to a colleague.",
+            "D": "A volume gap: ask the rep to send more quotes to make up the difference."
+          }
+        },
+        {
+          "id": "SLM-Q13",
+          "no": 13,
+          "stem": "Before sending a quote, a rep confirmed the client's delivery date, and the client signed the same day.\nWhich feedback best helps the rep repeat it?",
+          "options": {
+            "A": "\"Great job on that one!\"",
+            "B": "\"You're a natural closer. Keep it up.\"",
+            "C": "\"In Tuesday's quote, you confirmed the delivery date before sending, and the client signed that day. Keep doing that.\"",
+            "D": "Say nothing, because coaching time is for fixing mistakes."
+          }
+        },
+        {
+          "id": "SLM-Q14",
+          "no": 14,
+          "stem": "You are about to join a rep on a client visit for the first time.\nWhat do you tell the rep before you go in?",
+          "options": {
+            "A": "\"I'm here to check on how you are doing.\"",
+            "B": "\"I'm here to see what works, so we can build on it.\"",
+            "C": "\"If it starts going wrong, I'll take over the meeting.\"",
+            "D": "Nothing. The rep will see why you are there."
+          }
+        },
+        {
+          "id": "SLM-Q15",
+          "no": 15,
+          "stem": "You asked a rep to \"review every key account by month-end.\" He phoned each one. You meant a full account review with the client, as the team had done before.\nWhat kind of gap is this, and what fixes it?",
+          "options": {
+            "A": "A skill gap, fixed with a role-play on running account reviews.",
+            "B": "Persistent underperformance, fixed with a formal conversation.",
+            "C": "A capacity gap, fixed by moving some accounts to a colleague.",
+            "D": "An expectation gap, fixed with a written standard he can repeat back."
+          }
+        },
+        {
+          "id": "SLM-Q16",
+          "no": 16,
+          "stem": "Last week a rep committed in the review to send a revised proposal with phased payments by Friday. The tracker shows it was sent on time. The client is still silent.\nWhat do you do in this week's review?",
+          "options": {
+            "A": "Mark it done, then ask whether it worked. If payment terms were not the blocker, find what is before agreeing the next action.",
+            "B": "Mark it done and move on, since the commitment was kept.",
+            "C": "Tell the rep to try harder with the client, since the deal still has not moved.",
+            "D": "Add five new commitments for this deal, so nothing is left untried."
+          }
+        },
+        {
+          "id": "SLM-Q17",
+          "no": 17,
+          "stem": "Leadership asks whether a strategic account will close this quarter. You honestly do not know yet.\nWhat do you say?",
+          "options": {
+            "A": "\"Yes, it will close,\" because a decisive answer builds confidence.",
+            "B": "\"We will have to wait and see how it goes.\"",
+            "C": "Give a high figure and pad it a little, so it sounds safe.",
+            "D": "\"I don't know yet. We will have a clear answer by the last Friday of the month.\""
+          }
+        },
+        {
+          "id": "SLM-Q18",
+          "no": 18,
+          "stem": "You have three candidate actions for the next 30 days. Action X would close half the gap, but you are 20 percent confident it will work. Action Y would close a fifth of the gap, at 80 percent confidence. Action Z would close 30 percent of the gap, at 40 percent confidence.\nWhich do you run first?",
+          "options": {
+            "A": "Action X, because it addresses the largest share of the gap.",
+            "B": "Action Y, because it has the largest expected impact.",
+            "C": "Action Z, because it sits in the middle on both measures.",
+            "D": "All three at once, so the gap closes as fast as possible."
+          }
+        },
+        {
+          "id": "SLM-Q19",
+          "no": 19,
+          "stem": "Your 30-day plan aims to cut quote turnaround time. Every faster quote still needs a pricing approval from finance.\nWhen do you involve finance?",
+          "options": {
+            "A": "Name the person in finance and walk them through the plan before it starts.",
+            "B": "After the first week, once you have results to show them.",
+            "C": "Only if the plan fails and approvals turn out to be the cause.",
+            "D": "Let each rep contact finance individually when they need an approval."
+          }
+        },
+        {
+          "id": "SLM-Q20",
+          "no": 20,
+          "stem": "Your new segment priority rests on a conversion rate of one in four account reviews. You have never tested that rate. Leadership asks for next quarter's forecast for the segment.\nWhat do you report?",
+          "options": {
+            "A": "Present the figure as firm, since leaders prefer confident numbers they can plan with.",
+            "B": "Leave the segment out of the forecast entirely until your own records exist.",
+            "C": "The number and your confidence, the conversion rate labeled as an untested assumption, and what would change the outcome.",
+            "D": "Use the largest market figure you can find, so the segment looks worth the investment."
+          }
+        }
+      ]
+    }
+  ]
+}
