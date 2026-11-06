@@ -19,7 +19,7 @@ const STATIC_PAGES = [
   { path: '/programs/usa-real-estate-enterprise', changefreq: 'monthly', priority: '0.8' },
   { path: '/programs/uae-real-estate', changefreq: 'monthly', priority: '0.8' },
   { path: '/programs/uae-real-estate-enterprise', changefreq: 'monthly', priority: '0.8' },
-  { path: '/programs/contractor-sales-mastery', changefreq: 'monthly', priority: '0.8' },
+  { path: '/programs/selling-to-contractors', changefreq: 'monthly', priority: '0.8' },
   { path: '/books', changefreq: 'monthly', priority: '0.8' },
   { path: '/info/stevensaad', changefreq: 'monthly', priority: '0.7' },
   { path: '/articles', changefreq: 'weekly', priority: '0.7' },
