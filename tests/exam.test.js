@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   EXAMS, EXAM_SLUGS, getExam, isValidAnswers, grade, randomCode, makeCertificateNo,
   isCertificateNo, CERT_CHARSET, cleanName, cleanEmail, addYears, linkedInAddUrl, formatIssueDate,
+  LINKEDIN_COMPANY_ID,
 } from '../functions/_lib/exam.js';
 import { readFileSync } from 'node:fs';
 
@@ -112,6 +113,18 @@ test('cleanEmail trims, lower-cases and validates', () => {
   assert.equal(cleanEmail('<a>@example.com'), null);
   assert.equal(cleanEmail('a@b.c'), null);
   assert.equal(cleanEmail('a'.repeat(250) + '@x.com'), null);
+});
+
+test('LINKEDIN_COMPANY_ID is set, and the default Add to LinkedIn link uses it', () => {
+  // Fails if the company id is ever emptied: the link would fall back to organizationName.
+  assert.equal(typeof LINKEDIN_COMPANY_ID, 'string');
+  assert.ok(LINKEDIN_COMPANY_ID.length > 0, 'LINKEDIN_COMPANY_ID must not be empty');
+  assert.match(LINKEDIN_COMPANY_ID, /^\d+$/, 'LINKEDIN_COMPANY_ID must be a numeric id');
+  const u = new URL(linkedInAddUrl({ courseTitle: 'Retail Sales Essentials', certNo: 'MJ-RSE-2026-X6PU2H', issuedAt: '2026-11-05T00:00:00Z' }));
+  assert.equal(u.origin + u.pathname, 'https://www.linkedin.com/profile/add');
+  assert.equal(u.searchParams.get('organizationId'), LINKEDIN_COMPANY_ID);
+  assert.equal(u.searchParams.get('organizationName'), null);
+  assert.equal(u.searchParams.get('certId'), 'MJ-RSE-2026-X6PU2H');
 });
 
 test('purge_after is issued_at + 10 years', () => {

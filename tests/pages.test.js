@@ -6,7 +6,7 @@ import { claimCertificate } from '../functions/_lib/exam-db.js';
 import { onRequestGet as certPage } from '../functions/certificate/[number].js';
 import { onRequestGet as verifyPage } from '../functions/verify/[number].js';
 import { onRequestGet as examPage } from '../functions/exam/[slug].js';
-import { LINKEDIN_COMPANY_URL, LINKEDIN_PROFILE_URL } from '../functions/_lib/exam.js';
+import { LINKEDIN_COMPANY_ID, LINKEDIN_COMPANY_URL, LINKEDIN_PROFILE_URL } from '../functions/_lib/exam.js';
 
 const SLUG = 'store-manager-essentials';
 
@@ -42,6 +42,19 @@ test('certificate page: name, course, date, number, verify line, signature; no e
   assert.ok(html.includes('@page{size:A4 landscape'));
   assert.ok(!html.includes('secret.person'));
   assert.ok(!/18\s*\/\s*20|Score/i.test(html));
+});
+
+test('certificate page: Add to LinkedIn profile link carries the company id', async () => {
+  assert.ok(LINKEDIN_COMPANY_ID.length > 0, 'LINKEDIN_COMPANY_ID must not be empty');
+  const DB = makeD1();
+  const no = await seedCert(DB, 'Jane Doe');
+  const { html } = await get(certPage, `/certificate/${no}`, { DB }, { number: no });
+  const m = html.match(/href="(https:\/\/www\.linkedin\.com\/profile\/add\?[^"]+)"[^>]*>Add to LinkedIn profile</);
+  assert.ok(m, 'Add to LinkedIn profile link is on the page');
+  const u = new URL(m[1].replace(/&amp;/g, '&'));
+  assert.equal(u.searchParams.get('organizationId'), LINKEDIN_COMPANY_ID);
+  assert.equal(u.searchParams.get('organizationName'), null);
+  assert.equal(u.searchParams.get('certId'), no);
 });
 
 test('certificate + verify escape hostile names (defence in depth)', async () => {
