@@ -14,15 +14,15 @@ const ORIGIN = 'https://medjay.pro';
 
 const STATIC_PAGES = [
   { path: '/', changefreq: 'monthly', priority: '1.0' },
-  { path: '/programs', changefreq: 'monthly', priority: '0.9' },
-  { path: '/programs/usa-real-estate', changefreq: 'monthly', priority: '0.8' },
-  { path: '/programs/usa-real-estate-enterprise', changefreq: 'monthly', priority: '0.8' },
-  { path: '/programs/uae-real-estate', changefreq: 'monthly', priority: '0.8' },
-  { path: '/programs/uae-real-estate-enterprise', changefreq: 'monthly', priority: '0.8' },
-  { path: '/programs/selling-to-contractors', changefreq: 'monthly', priority: '0.8' },
-  { path: '/books', changefreq: 'monthly', priority: '0.8' },
-  { path: '/info/stevensaad', changefreq: 'monthly', priority: '0.7' },
-  { path: '/articles', changefreq: 'weekly', priority: '0.7' },
+  { path: '/programs/', changefreq: 'monthly', priority: '0.9' },
+  { path: '/programs/usa-real-estate/', changefreq: 'monthly', priority: '0.8' },
+  { path: '/programs/usa-real-estate-enterprise/', changefreq: 'monthly', priority: '0.8' },
+  { path: '/programs/uae-real-estate/', changefreq: 'monthly', priority: '0.8' },
+  { path: '/programs/uae-real-estate-enterprise/', changefreq: 'monthly', priority: '0.8' },
+  { path: '/programs/selling-to-contractors/', changefreq: 'monthly', priority: '0.8' },
+  { path: '/books/', changefreq: 'monthly', priority: '0.8' },
+  { path: '/info/stevensaad/', changefreq: 'monthly', priority: '0.7' },
+  { path: '/articles/', changefreq: 'weekly', priority: '0.7' },
   { path: '/privacy/', changefreq: 'yearly', priority: '0.3' },
 ];
 

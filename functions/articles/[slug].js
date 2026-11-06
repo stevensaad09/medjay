@@ -297,7 +297,7 @@ function renderNotFoundPage() {
     <h1 class="reveal">Article not found</h1>
     <p class="lede reveal">This article doesn't exist, or isn't published yet.</p>
     <div class="hero-ctas reveal">
-      <a href="/articles" class="btn-primary">Back to Articles</a>
+      <a href="/articles/" class="btn-primary">Back to Articles</a>
     </div>
   </div>
 </section>
@@ -306,7 +306,6 @@ function renderNotFoundPage() {
   return pageShell({
     title: 'Article Not Found | MEDJAY',
     description: 'This article does not exist, or is not published yet.',
-    canonical: 'https://medjay.pro/articles',
     jsonLd: null,
     bodyContent,
     extraScript: '',
@@ -322,7 +321,7 @@ function pageShell({ title, description, canonical, jsonLd, bodyContent, extraSc
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${escapeHtml(title)}</title>
 <meta name="description" content="${escapeHtml(description)}">
-<link rel="canonical" href="${canonical}">
+${canonical ? `<link rel="canonical" href="${canonical}">` : ''}
 <meta name="theme-color" content="#0a1428">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Steven Saad">
@@ -331,7 +330,7 @@ function pageShell({ title, description, canonical, jsonLd, bodyContent, extraSc
 <meta property="og:site_name" content="MEDJAY">
 <meta property="og:title" content="${escapeHtml(title)}">
 <meta property="og:description" content="${escapeHtml(description)}">
-<meta property="og:url" content="${canonical}">
+${canonical ? `<meta property="og:url" content="${canonical}">` : ''}
 <meta property="og:image" content="https://medjay.pro/assets/icon-512.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
@@ -705,11 +704,11 @@ ${jsonLd ? `<script type="application/ld+json">${jsonLd}</script>` : ''}
     </a>
     <ul class="navlinks">
       <li><a href="/">Home</a></li>
-      <li><a href="/books">Books</a></li>
-      <li><a href="/info/stevensaad">Info</a></li>
-      <li><a href="/programs">Programs</a></li>
+      <li><a href="/books/">Books</a></li>
+      <li><a href="/info/stevensaad/">Info</a></li>
+      <li><a href="/programs/">Programs</a></li>
       <li><a href="/courses/">Free Courses</a></li>
-      <li><a href="/articles">Articles</a></li>
+      <li><a href="/articles/">Articles</a></li>
       <li><a href="/#contact">Contact Us</a></li>
     </ul>
     <a class="nav-cta" href="/#contact">Book a Discovery Call</a>
@@ -730,11 +729,11 @@ ${bodyContent}
       <div class="footer-col">
         <h4>Programs</h4>
         <a href="/courses/">Free Courses</a>
-        <a href="/programs/usa-real-estate">USA Real Estate: Self-Study</a>
-        <a href="/programs/usa-real-estate-enterprise">USA Real Estate: Enterprise</a>
-        <a href="/programs/uae-real-estate">UAE Real Estate: Self-Study</a>
-        <a href="/programs/uae-real-estate-enterprise">UAE Real Estate: Enterprise</a>
-        <a href="/programs/selling-to-contractors">Selling to Contractors</a>
+        <a href="/programs/usa-real-estate/">USA Real Estate: Self-Study</a>
+        <a href="/programs/usa-real-estate-enterprise/">USA Real Estate: Enterprise</a>
+        <a href="/programs/uae-real-estate/">UAE Real Estate: Self-Study</a>
+        <a href="/programs/uae-real-estate-enterprise/">UAE Real Estate: Enterprise</a>
+        <a href="/programs/selling-to-contractors/">Selling to Contractors</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
