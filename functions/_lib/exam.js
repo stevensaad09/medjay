@@ -10,7 +10,7 @@ import data from '../_data/exam-questions.json';
 
 // LinkedIn numeric company id. While empty, the "Add to LinkedIn" link
 // sends organizationName=MEDJAY; once set, it sends organizationId.
-export const LINKEDIN_COMPANY_ID = '';
+export const LINKEDIN_COMPANY_ID = '106624858';
 // Shown on the verification page next to "Issued by MEDJAY".
 export const LINKEDIN_PROFILE_URL = 'https://linkedin.com/in/steven-saad';
 export const LINKEDIN_COMPANY_URL = 'https://www.linkedin.com/company/medjay-physcology-training/';
