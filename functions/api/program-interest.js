@@ -35,6 +35,7 @@ const MAX = { name: 100, email: 254, job_title: 100, country: 100 };
 
 const MSG_OK = 'Thanks, we have your details.';
 const MSG_ERROR = 'Something went wrong. Please try again.';
+const MSG_UNCONFIGURED = 'Something went wrong. Please try again later, or email steven@medjay.pro.';
 
 export async function onRequestPost(context) {
   const { request, env } = context;
@@ -84,11 +85,11 @@ export async function onRequestPost(context) {
   const check = await verifyTurnstile(request, env, token);
   if (check === 'missing') return jsonResponse({ message: 'Please complete the verification challenge.' }, 400);
   if (check === 'failed') return jsonResponse({ message: 'Verification failed. Please try again.' }, 403);
-  if (check === 'unconfigured') return jsonResponse({ message: 'Server not configured. Please try again later.' }, 500);
+  if (check === 'unconfigured') return jsonResponse({ message: MSG_UNCONFIGURED }, 500);
   if (check !== 'ok') return jsonResponse({ message: 'Verification failed. Please try again.' }, 502);
 
   if (!env.BREVO_API_KEY) {
-    return jsonResponse({ message: 'Server not configured. Please try again later.' }, 500);
+    return jsonResponse({ message: MSG_UNCONFIGURED }, 500);
   }
 
   const htmlContent = `

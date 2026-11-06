@@ -2,6 +2,7 @@
 // USA Enterprise and Selling to Contractors pages.
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { ctx, mockFetch } from './helpers.js';
 import { onRequestPost, PROGRAMS } from '../functions/api/program-interest.js';
 
@@ -88,15 +89,19 @@ test('honeypot filled: success message, nothing verified or sent', async () => {
   assert.equal(fx.calls.length, 0);
 });
 
-test('Turnstile: missing token 400, failed check 403, missing secret 500; nothing sent', async () => {
+test('Turnstile: missing token 400, failed check 403, missing secret 500 with the fallback message; nothing sent', async () => {
   assert.equal((await post(valid({ turnstile_token: '' }))).status, 400);
   assert.equal((await post(valid({ turnstile_token: 'bad' }))).status, 403);
-  assert.equal((await post(valid(), { env: { BREVO_API_KEY: 'k' } })).status, 500);
+  const noSecret = await post(valid(), { env: { BREVO_API_KEY: 'k' } });
+  assert.equal(noSecret.status, 500);
+  assert.equal(noSecret.data.message, 'Something went wrong. Please try again later, or email steven@medjay.pro.');
   assert.equal(brevoCalls().length, 0);
 });
 
-test('missing Brevo key 500; Brevo failure gives the approved error message', async () => {
-  assert.equal((await post(valid(), { env: { TURNSTILE_SECRET_KEY: 's' } })).status, 500);
+test('missing Brevo key 500 with the fallback message; Brevo failure gives the approved error message', async () => {
+  const noKey = await post(valid(), { env: { TURNSTILE_SECRET_KEY: 's' } });
+  assert.equal(noKey.status, 500);
+  assert.equal(noKey.data.message, 'Something went wrong. Please try again later, or email steven@medjay.pro.');
   fx.restore();
   const orig = globalThis.fetch;
   globalThis.fetch = async (url) => (String(url).includes('turnstile')
@@ -134,4 +139,9 @@ test('HTML is escaped in the email and the subject is a single line', async () =
   assert.ok(sent.htmlContent.includes('&lt;script&gt;'));
   assert.ok(!/[\r\n]/.test(sent.subject));
   assert.ok(!/[\r\n]/.test(sent.replyTo.name));
+});
+
+test('no response from this endpoint says "Server not configured"', () => {
+  const src = readFileSync(new URL('../functions/api/program-interest.js', import.meta.url), 'utf8');
+  assert.ok(!src.includes('Server not configured'));
 });
