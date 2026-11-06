@@ -3,3 +3,7 @@
 /programs/saas /programs 301
 /programs/saas/ /programs 301
 /programs/saas/index.html /programs 301
+# Contractor sales program renamed to Selling to Contractors.
+/programs/contractor-sales-mastery /programs/selling-to-contractors 301
+/programs/contractor-sales-mastery/ /programs/selling-to-contractors 301
+/programs/contractor-sales-mastery/index.html /programs/selling-to-contractors 301
