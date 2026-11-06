@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Selling to Contractors: Sales Training for Distribution &amp; Rental Teams (USA) | MEDJAY</title>
-<meta name="description" content="Trainer-led sales program for US industrial distribution and rental teams selling to contractors: 3 levels, 30 days, role-plays and certificates.">
+<meta name="description" content="Trainer-led sales program for US distribution and rental teams that sell to contractors: 3 levels, 30 days, role-plays, final exams and certificates of completion.">
 <link rel="canonical" href="https://medjay.pro/programs/selling-to-contractors/">
 <meta name="theme-color" content="#0a1428">
 <meta name="robots" content="index, follow">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MEDJAY">
 <meta property="og:title" content="Selling to Contractors: Sales Training for Distribution &amp; Rental Teams (USA)">
-<meta property="og:description" content="Trainer-led sales program for US industrial distribution and rental teams selling to contractors: 3 levels, 30 days, role-plays and certificates.">
+<meta property="og:description" content="Trainer-led sales program for US distribution and rental teams that sell to contractors: 3 levels, 30 days, role-plays, final exams and certificates of completion.">
 <meta property="og:url" content="https://medjay.pro/programs/selling-to-contractors/">
 <meta property="og:image" content="https://medjay.pro/assets/icon-512.png">
 <meta property="og:image:width" content="512">
@@ -24,7 +24,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Selling to Contractors: Sales Training for Distribution &amp; Rental Teams (USA)">
-<meta name="twitter:description" content="Trainer-led sales program for US industrial distribution and rental teams selling to contractors: 3 levels, 30 days, role-plays and certificates.">
+<meta name="twitter:description" content="Trainer-led sales program for US distribution and rental teams that sell to contractors: 3 levels, 30 days, role-plays, final exams and certificates of completion.">
 <meta name="twitter:image" content="https://medjay.pro/assets/icon-512.png">
 
 <!-- Favicons & App Icons -->
@@ -97,6 +97,29 @@
         "@id": "https://medjay.pro/#organization"
       },
       "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://medjay.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Programs",
+          "item": "https://medjay.pro/programs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Selling to Contractors",
+          "item": "https://medjay.pro/programs/selling-to-contractors/"
+        }
+      ]
     }
   ]
 }
@@ -842,8 +865,48 @@
   .skip-link:focus{
     left:0;
   }
+  /* ---------- Program page content, FAQ and interest form ---------- */
+  #main section h2{margin:0 0 22px;}
+  .pp-list{list-style:none; margin:0; padding:0; max-width:76ch;}
+  .pp-list li{position:relative; padding:12px 0 12px 24px; border-bottom:1px solid var(--line); color:var(--white-dim);}
+  .pp-list li:last-child{border-bottom:none;}
+  .pp-list li::before{content:""; position:absolute; left:0; top:24px; width:10px; height:1px; background:var(--gold);}
+  .pp-list li strong{color:var(--white); font-weight:600;}
+  .pp-steps li{padding-left:0;}
+  .pp-steps li::before{display:none;}
+  .pp-num{display:inline-block; min-width:34px; font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--gold);}
+  .pp-milestone{color:var(--gold-bright) !important; font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.06em; text-transform:uppercase;}
+  .pp-month{margin-top:30px;}
+  .pp-month:first-child{margin-top:0;}
+  .pp-month h3{font-size:20px; margin:0 0 6px;}
+  .pp-text{max-width:72ch; color:var(--white-dim); margin:18px 0 0;}
+  .pp-text:first-child{margin-top:0;}
+  .pp-price{font-family:'Fraunces', serif; font-size:clamp(30px, 4vw, 44px); color:var(--gold-bright); margin:0;}
+  .pp-faq{max-width:76ch; padding:18px 0; border-bottom:1px solid var(--line);}
+  .pp-faq:last-child{border-bottom:none;}
+  .pp-faq h3{font-size:19px; margin:0 0 8px;}
+  .pp-faq p{color:var(--white-dim); margin:0;}
+  .pp-refs li{font-size:14px;}
+  .pp-list a, .pp-faq a, .pp-text a, .pp-form-note a{color:var(--gold-bright); text-decoration:underline;}
+  .pp-form{max-width:640px; border:1px solid rgba(201,162,75,0.3); background:linear-gradient(160deg, var(--navy-3), var(--navy)); padding:36px 32px; border-radius:4px;}
+  @media (max-width:499px){ .pp-form{padding:28px 18px;} }
+  .pp-row{display:grid; grid-template-columns:1fr; gap:20px; margin-bottom:20px;}
+  @media (min-width:560px){ .pp-row{grid-template-columns:1fr 1fr;} }
+  .pp-field{margin-bottom:20px;}
+  .pp-row .pp-field{margin-bottom:0;}
+  .pp-field label{display:block; font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--white-dim); margin-bottom:8px;}
+  .pp-field input, .pp-field select{width:100%; background:var(--navy); border:1px solid var(--line); color:var(--white); font-family:'Inter', sans-serif; font-size:15px; padding:13px 14px; border-radius:2px;}
+  .pp-field input:focus-visible, .pp-field select:focus-visible{outline:2px solid var(--gold-bright); outline-offset:2px;}
+  .pp-form .cf-turnstile{margin:4px 0 20px;}
+  .pp-form button{cursor:pointer; border:1px solid var(--gold);}
+  .pp-form button[disabled]{opacity:.6; cursor:wait;}
+  .pp-form-note{font-size:13px; color:var(--white-dim); line-height:1.55; margin:12px 0 0; max-width:480px;}
+  .pp-status{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--gold-bright); margin:14px 0 0; min-height:18px;}
+  .pp-after{margin:28px 0 0;}
+  .hp-field{position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden;}
 </style>
 <noscript><style>.reveal{opacity:1; transform:none;}</style></noscript>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
@@ -872,62 +935,271 @@
 <main id="main">
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow reveal">Sales Training for Distribution &amp; Rental Teams (USA)</span>
-    <h1 class="reveal">Selling to Contractors. <span style="color:var(--gold-bright);">Train the conversation, not just the product.</span></h1>
-    <p class="lede reveal">Selling to Contractors is a complete, ready-to-run curriculum for the conversations distribution and rental teams have every day: the counter at 6:30 a.m., the quote that needs a reason to close, the job-site visit and the price objection. Three levels of ten days each take reps, team leads and branch managers from the counter to the branch P&amp;L. Your own managers deliver it, with timed agendas, role-play cards and a final exam for each level. Completion earns a certificate issued by your company, not an accredited qualification.</p>
+    <h1 class="reveal">Selling to Contractors</h1>
+    <p class="lede reveal">Sales Training for Distribution &amp; Rental Teams (USA). A 30-day, trainer-led program your own managers deliver, from the counter to the branch P&amp;L.</p>
     <div class="hero-ctas reveal">
-      <a href="/#contact" class="btn-primary">Book a Discovery Call</a>
+      <a href="#request" class="btn-primary">Request a proposal</a>
       <a href="/programs/" class="btn-ghost">View All Programs →</a>
     </div>
-    <div class="curriculum-stats reveal">
-      <div class="cstat"><div class="n">3</div><div class="l">Levels</div></div>
-      <div class="cstat"><div class="n">30</div><div class="l">Days</div></div>
-      <div class="cstat"><div class="n">3</div><div class="l">Hours per Day</div></div>
-    </div>
-    <p class="lede reveal" style="margin-top:28px;">A trainer-led program licensed to companies: three levels of ten days each, delivered by your own trainers, with every guide, deck and answer key included. Licensed for internal use by level and learner count.</p>
   </div>
 </section>
+<div class="watchline"></div>
 
+<section id="who">
+  <div class="wrap">
+    <h2 class="reveal">Who It's For</h2>
+    <ul class="pp-list reveal">
+      <li>US industrial distribution and rental companies whose customers are construction contractors.</li>
+      <li>Sales leaders, L&amp;D leads and branch managers who train their teams in-house.</li>
+      <li>Not for contractors themselves. The contractor is your customer; this program trains the people who sell to them.</li>
+    </ul>
+  </div>
+</section>
 <div class="watchline"></div>
 
 <section id="levels">
   <div class="wrap">
-    <span class="eyebrow reveal">Program Structure</span>
-    <h2 class="reveal" style="margin-top:16px;">Three Levels. Ten Days Each.</h2>
-    <div class="track-meta reveal">
-      <span><b>10</b> days per level</span>
-      <span><b>3</b> hours per day</span>
+    <h2 class="reveal">Three Levels, One Method</h2>
+    <ul class="pp-list reveal">
+      <li>Level 1: Beginner, for outside, inside and counter sales reps</li>
+      <li>Level 2: Intermediate, for team leads and senior reps</li>
+      <li>Level 3: Advanced, for branch and area managers</li>
+    </ul>
+    <p class="pp-text reveal">Run them in order. Level 3 is also an entry point: managers who skipped Levels 1–2 start with the MEDJAY Toolkit at a Glance on Day 1.</p>
+  </div>
+</section>
+<div class="watchline"></div>
+
+<section id="level-1">
+  <div class="wrap">
+    <h2 class="reveal">Level 1: Selling to Contractors (10 days)</h2>
+    <ul class="pp-list pp-steps reveal">
+      <li><span class="pp-num">01</span> How Contractors Actually Buy</li>
+      <li><span class="pp-num">02</span> Earning Credibility</li>
+      <li><span class="pp-num">03</span> The Counter Rush</li>
+      <li><span class="pp-num">04</span> Phone, Email and Fast Quotes</li>
+      <li><span class="pp-num">05</span> The Job-Site Visit</li>
+      <li><span class="pp-num">06</span> Questions That Uncover</li>
+      <li><span class="pp-num">07</span> Presenting Your Offer</li>
+      <li><span class="pp-num">08</span> "Your Price Is Too High"</li>
+      <li><span class="pp-num">09</span> Reliability Selling</li>
+      <li><span class="pp-num">10</span> Assessment and 30-60-90 Day Plan</li>
+    </ul>
+  </div>
+</section>
+<div class="watchline"></div>
+
+<section id="level-2">
+  <div class="wrap">
+    <h2 class="reveal">Level 2: Leading the Team (10 days)</h2>
+    <ul class="pp-list pp-steps reveal">
+      <li><span class="pp-num">01</span> From Top Rep to Team Lead</li>
+      <li><span class="pp-num">02</span> The Linking Pin</li>
+      <li><span class="pp-num">03</span> Leading Through Change</li>
+      <li><span class="pp-num">04</span> Coaching That Changes Behavior</li>
+      <li><span class="pp-num">05</span> Huddles, KPIs and Team Performance</li>
+      <li><span class="pp-num">06</span> Handling Conflict</li>
+      <li><span class="pp-num">07</span> Onboarding and Keeping New Reps</li>
+      <li><span class="pp-num">08</span> Growing Accounts and Protecting Margin</li>
+      <li><span class="pp-num">09</span> Leading With Integrity</li>
+      <li><span class="pp-num">10</span> Assessment and 30-60-90 Day Plan</li>
+    </ul>
+  </div>
+</section>
+<div class="watchline"></div>
+
+<section id="level-3">
+  <div class="wrap">
+    <h2 class="reveal">Level 3: Running the Branch (10 days)</h2>
+    <ul class="pp-list pp-steps reveal">
+      <li><span class="pp-num">01</span> From Team Lead to Branch Manager</li>
+      <li><span class="pp-num">02</span> Owning the Branch P&amp;L</li>
+      <li><span class="pp-num">03</span> Pricing Governance</li>
+      <li><span class="pp-num">04</span> Territory and Account Strategy</li>
+      <li><span class="pp-num">05</span> Hiring the Right People</li>
+      <li><span class="pp-num">06</span> Retention and Culture</li>
+      <li><span class="pp-num">07</span> Leading Leaders</li>
+      <li><span class="pp-num">08</span> Standardizing Operations</li>
+      <li><span class="pp-num">09</span> Leading Strategic Change</li>
+      <li><span class="pp-num">10</span> Assessment and 30-60-90 Day Plan</li>
+    </ul>
+  </div>
+</section>
+<div class="watchline"></div>
+
+<section id="connect">
+  <div class="wrap">
+    <h2 class="reveal">How the Levels Connect</h2>
+    <p class="pp-text reveal">Level 1 gives reps the tools: the Counter Flow, the Question Ladder, A.I.M. offers and A.R.T. for objections. Level 2 teaches team leads to coach those tools with SBI feedback and to communicate upward. Level 3 teaches managers to hire for those behaviors, set standards around them and run the branch as a business.</p>
+  </div>
+</section>
+<div class="watchline"></div>
+
+<section id="day">
+  <div class="wrap">
+    <h2 class="reveal">A Typical Day (about 3 hours)</h2>
+    <ul class="pp-list reveal">
+      <li>Review of the last on-the-job challenge</li>
+      <li>The rookie mistake the day corrects</li>
+      <li>The psychology behind it, in plain language</li>
+      <li>The day's tool, practiced in pairs or small groups</li>
+      <li>A worked scenario, then triad role-plays with an observer</li>
+      <li>Key takeaways, a 5-question practice quiz and the next on-the-job challenge</li>
+    </ul>
+    <p class="pp-text reveal">Every day is built on KASU objectives: Knowledge, Attitude, Skill and an Upskill challenge completed on the job.</p>
+  </div>
+</section>
+<div class="watchline"></div>
+
+<section id="certificate">
+  <div class="wrap">
+    <h2 class="reveal">Assessment and Certificate</h2>
+    <ul class="pp-list reveal">
+      <li>Final Exam per level: 30 multiple-choice questions in 45 minutes. Pass: 24 correct (80%).</li>
+      <li>Day 10 role-play: scored on 6 behaviors. Pass: Meets or better on at least 5, including the level's key behavior (Level 1: Honesty; Level 2: Fairness and Integrity; Level 3: Standards and Integrity).</li>
+      <li>One retake of the failed part only, at least a week later, after coaching.</li>
+      <li>Participants who pass both parts receive a certificate of completion issued by your company, powered by MEDJAY. Valid 12 months, renewed by review. Not an accredited qualification, CE credit or license.</li>
+    </ul>
+  </div>
+</section>
+<div class="watchline"></div>
+
+<section id="package">
+  <div class="wrap">
+    <h2 class="reveal">What's in the Package (185 files)</h2>
+    <ul class="pp-list reveal">
+      <li>30 slide decks, 30 Study Guides and 30 Trainer Guides with timed agendas</li>
+      <li>3 Final Exams with Answer Keys</li>
+      <li>Printable role-play cards, observer checklists and forms for each level</li>
+      <li>Sales Playbook, Distribution Edition: counter, inside and outside sales, price and quote scripts, credit and delivery conversations, templates</li>
+      <li>Twelve From the Field stories, each with a construction application</li>
+      <li>Delivery Operations Guide, certificate templates and the License</li>
+      <li>Editable Word and PowerPoint files, plus PDFs of all participant materials</li>
+    </ul>
+  </div>
+</section>
+<div class="watchline"></div>
+
+<section id="license">
+  <div class="wrap">
+    <h2 class="reveal">License</h2>
+    <ul class="pp-list reveal">
+      <li>Perpetual internal-use license, by level and by learner count. Each learner counts once per level.</li>
+      <li>Your own trainers deliver it, in person or live online.</li>
+      <li>You may adapt examples, prices, product names and local market data.</li>
+      <li>30 days of email support. Content corrections free for 12 months.</li>
+    </ul>
+  </div>
+</section>
+<div class="watchline"></div>
+
+<section id="pricing">
+  <div class="wrap">
+    <h2 class="reveal">Pricing (one-time license, USD)</h2>
+    <ul class="pp-list reveal">
+      <li>One level, up to 25 learners: $3,900</li>
+      <li>All 3 levels, up to 25 learners per level: $9,900</li>
+      <li>Multi-branch, all 3 levels, up to 100 learners per level: $24,900</li>
+      <li>Additional learners: $120 per learner, per level</li>
+    </ul>
+  </div>
+</section>
+<div class="watchline"></div>
+
+<section id="request">
+  <div class="wrap">
+    <h2 class="reveal">Request a Proposal</h2>
+    <form id="interest-form" class="pp-form reveal" novalidate>
+      <input type="hidden" name="program" value="selling-to-contractors">
+      <div class="hp-field" aria-hidden="true">
+        <label for="interest-website">Website</label>
+        <input type="text" id="interest-website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="pp-row">
+        <div class="pp-field">
+          <label for="interest-name">Full name</label>
+          <input type="text" id="interest-name" name="name" required maxlength="100" autocomplete="name">
+        </div>
+        <div class="pp-field">
+          <label for="interest-email">Email</label>
+          <input type="email" id="interest-email" name="email" required maxlength="254" autocomplete="email">
+        </div>
+      </div>
+      <div class="pp-row">
+        <div class="pp-field">
+          <label for="interest-job-title">Job title</label>
+          <input type="text" id="interest-job-title" name="job_title" required maxlength="100" autocomplete="organization-title">
+        </div>
+        <div class="pp-field">
+          <label for="interest-country">Country</label>
+          <input type="text" id="interest-country" name="country" required maxlength="100" autocomplete="country-name">
+        </div>
+      </div>
+      <div class="pp-field">
+        <label for="interest-team-size">Team size</label>
+        <select id="interest-team-size" name="team_size" required>
+            <option value="" disabled selected>Select a team size</option>
+            <option value="Just me">Just me</option>
+            <option value="2–10">2–10</option>
+            <option value="11–50">11–50</option>
+            <option value="50–100">50–100</option>
+            <option value="100–200">100–200</option>
+            <option value="200+">200+</option>
+        </select>
+      </div>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAEdGei9y6nHiNLdP"></div>
+      <button type="submit" class="btn-primary">Request a proposal</button>
+      <p class="pp-form-note">We will reply to schedule a short call to discuss your team's needs. We use these details only to reply about this program.</p>
+      <p class="pp-status" id="interest-status" role="status" aria-live="polite"></p>
+    </form>
+    <noscript><p class="pp-form-note">Please turn on JavaScript to send this form, or email <a href="mailto:steven@medjay.pro">steven@medjay.pro</a>.</p></noscript>
+    <p class="pp-after reveal"><a href="/courses/" class="btn-ghost">Browse free courses →</a></p>
+  </div>
+</section>
+<div class="watchline"></div>
+
+<section id="faq">
+  <div class="wrap">
+    <h2 class="reveal">FAQ</h2>
+    <div class="pp-faq reveal">
+      <h3>Who delivers the training?</h3>
+      <p>Your own sales leaders, branch managers or L&amp;D team. Each Trainer Guide has a timed agenda, role-play cards and facilitation notes.</p>
     </div>
-    <div class="modules-grid reveal">
-      <div class="module-card">
-        <span class="mnum">Level 1</span>
-        <h4>Beginner</h4>
-        <p>For reps: how contractors buy, the counter rush, quotes, job-site visits, price objections.</p>
-      </div>
-      <div class="module-card">
-        <span class="mnum">Level 2</span>
-        <h4>Intermediate</h4>
-        <p>For team leads: leading former peers, coaching, huddles and KPIs, onboarding.</p>
-      </div>
-      <div class="module-card">
-        <span class="mnum">Level 3</span>
-        <h4>Advanced</h4>
-        <p>For branch and area managers: branch P&amp;L, pricing governance, hiring, leading leaders.</p>
-      </div>
+<div class="pp-faq reveal">
+      <h3>Can we buy only one level?</h3>
+      <p>Yes. Each level is licensed on its own. Level 3 works as a standalone entry point for branch and area managers.</p>
+    </div>
+<div class="pp-faq reveal">
+      <h3>How do we schedule it?</h3>
+      <p>Ten consecutive working days per level, or two days a week over five weeks, with time between days for the on-the-job challenge.</p>
+    </div>
+<div class="pp-faq reveal">
+      <h3>Does it cover pricing and hiring law?</h3>
+      <p>Level 3 includes Legal Boundary sections on pricing, competitors and hiring. They are training summaries, not legal advice. Your legal or HR team reviews them before delivery.</p>
+    </div>
+<div class="pp-faq reveal">
+      <h3>Does it guarantee results?</h3>
+      <p>No. Results depend on how the program is delivered and applied.</p>
     </div>
   </div>
 </section>
-
 <div class="watchline"></div>
 
-<section id="contact-cta">
+<section id="references">
   <div class="wrap">
-    <span class="eyebrow reveal">Next Step</span>
-    <h2 class="reveal" style="margin-top:16px;">Plan Selling to Contractors for your team.</h2>
-    <div class="reveal" style="margin-top:32px;">
-      <a href="/#contact" class="btn-primary">Book a Discovery Call</a>
-      <a href="/courses/" class="btn-ghost">Browse free courses →</a>
-    </div>
+    <h2 class="reveal">References (selected, from the program's evidence base)</h2>
+    <ul class="pp-list pp-refs reveal">
+      <li>Kahneman, D., &amp; Tversky, A. (1979). Prospect theory: An analysis of decision under risk. <em>Econometrica</em>.</li>
+      <li>Cialdini, R. B. (2016). <em>Pre-Suasion</em>; (2021). <em>Influence, New and Expanded</em>.</li>
+      <li>Fisher, R., &amp; Ury, W. (1981). <em>Getting to Yes</em>.</li>
+      <li>Likert, R. (1961). <em>New Patterns of Management</em>.</li>
+      <li>Hersey, P., &amp; Blanchard, K. H. (1969). Life cycle theory of leadership.</li>
+      <li>Edmondson, A. (1999). Psychological safety and learning behavior in work teams.</li>
+      <li>Locke, E. A., &amp; Latham, G. P. (2002). Goal setting research.</li>
+      <li>Griffeth, R. W., Hom, P. W., &amp; Gaertner, S. (2000). A meta-analysis of employee turnover.</li>
+      <li>Kaplan, R. S., &amp; Norton, D. P. (1992). <em>The Balanced Scorecard</em>.</li>
+      <li>Baldwin, T. T., &amp; Ford, J. K. (1988). Transfer of training.</li>
+    </ul>
   </div>
 </section>
 </main>
@@ -979,6 +1251,60 @@
     });
   }, {threshold:0.12});
   revealEls.forEach(el=>io.observe(el));
+
+  (function(){
+    const form = document.getElementById('interest-form');
+    const status = document.getElementById('interest-status');
+    if(!form) return;
+    function resetTurnstile(){ if(window.turnstile){ try{ window.turnstile.reset(); }catch(e){} } }
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      const val = (n)=>{ const el = form.elements[n]; return el ? String(el.value || '').trim() : ''; };
+      const payload = {
+        program: val('program'),
+        name: val('name'),
+        email: val('email'),
+        job_title: val('job_title'),
+        country: val('country'),
+        team_size: val('team_size'),
+        website: val('website'),
+        turnstile_token: val('cf-turnstile-response')
+      };
+      if(!payload.name || !payload.email || !payload.job_title || !payload.country || !payload.team_size){
+        status.textContent = 'Please fill in all fields.';
+        return;
+      }
+      if(!payload.turnstile_token){
+        status.textContent = 'Please complete the verification challenge.';
+        return;
+      }
+      const btn = form.querySelector('button[type="submit"]');
+      const label = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      status.textContent = '';
+      try{
+        const res = await fetch('/api/program-interest', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json().catch(()=>({}));
+        if(res.ok){
+          status.textContent = data.message || 'Thanks, we have your details.';
+          form.reset();
+        } else {
+          status.textContent = data.message || 'Something went wrong. Please try again.';
+        }
+      } catch(err){
+        status.textContent = 'Something went wrong. Please try again.';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = label;
+        resetTurnstile();
+      }
+    });
+  })();
 </script>
 
 </body>
