@@ -17,7 +17,7 @@ const PROGRAM_PAGES = [
   'programs/selling-to-contractors/index.html',
 ];
 const CHANGED = [...PROGRAM_PAGES, 'programs/index.html', 'index.html', 'books/index.html', 'info/stevensaad/index.html', 'articles/index.html'];
-const NEW_URL = 'https://medjay.pro/programs/selling-to-contractors';
+const NEW_URL = 'https://medjay.pro/programs/selling-to-contractors/';
 const OLD_NAME = /contractor\s+sales\s+mastery|contractor-sales-mastery/i;
 
 function decode(s) {
@@ -60,9 +60,9 @@ test('hub has For Individuals and For Companies with the right cards', () => {
   assert.ok(ind, 'For Individuals before For Companies');
   const com = h.match(/<h2[^>]*>For Companies<\/h2>([\s\S]*?)class="free-card/);
   assert.ok(com, 'For Companies section');
-  const links = (x) => [...x.matchAll(/class="kit-link" aria-label="[^"]*" ?>|href="(\/programs\/[a-z-]+)" class="kit-link"/g)].map((m) => m[1]).filter(Boolean);
-  assert.deepEqual(links(ind[1]), ['/programs/usa-real-estate', '/programs/uae-real-estate']);
-  assert.deepEqual(links(com[1]), ['/programs/usa-real-estate-enterprise', '/programs/uae-real-estate-enterprise', '/programs/selling-to-contractors']);
+  const links = (x) => [...x.matchAll(/class="kit-link" aria-label="[^"]*" ?>|href="(\/programs\/[a-z-]+\/)" class="kit-link"/g)].map((m) => m[1]).filter(Boolean);
+  assert.deepEqual(links(ind[1]), ['/programs/usa-real-estate/', '/programs/uae-real-estate/']);
+  assert.deepEqual(links(com[1]), ['/programs/usa-real-estate-enterprise/', '/programs/uae-real-estate-enterprise/', '/programs/selling-to-contractors/']);
   assert.match(h, /Customize Your Course/);
   assert.match(h, /id="customize-form"/);
   assert.match(h, /href="\/courses\/" class="btn-ghost">Browse free courses/);
@@ -88,9 +88,25 @@ test('sitemap lists the new route and not the old one', async () => {
 test('_redirects sends the three old paths to the new route with 301', () => {
   const r = read('_redirects');
   for (const from of ['/programs/contractor-sales-mastery', '/programs/contractor-sales-mastery/', '/programs/contractor-sales-mastery/index.html']) {
-    assert.ok(r.split('\n').includes(`${from} /programs/selling-to-contractors 301`), from);
+    assert.ok(r.split('\n').includes(`${from} /programs/selling-to-contractors/ 301`), from);
   }
   assert.ok(existsSync(join(ROOT, 'programs/selling-to-contractors/index.html')));
+});
+
+test('_redirects sends the three retired saas paths to /programs/ with 301 (one hop)', () => {
+  const r = read('_redirects').split('\n');
+  for (const from of ['/programs/saas', '/programs/saas/', '/programs/saas/index.html']) {
+    assert.ok(r.includes(`${from} /programs/ 301`), from);
+  }
+});
+
+test('every _redirects target is the final slash-form URL of an existing folder page', () => {
+  for (const line of read('_redirects').split('\n').filter((l) => l.startsWith('/'))) {
+    const [, to, code] = line.split(/\s+/);
+    assert.equal(code, '301');
+    assert.ok(to.endsWith('/'), `${line}: target must end with /`);
+    assert.ok(existsSync(join(ROOT, to.slice(1), 'index.html')), `${line}: target has no index.html`);
+  }
 });
 
 // ---- 7. canonical
@@ -161,7 +177,7 @@ for (const p of PROGRAM_PAGES) {
 test('homepage links to /programs and to every program', () => {
   const h = read('index.html');
   const sec = h.match(/<section id="programs">([\s\S]*?)<\/section>/)[1];
-  for (const u of ['/programs', ...PROGRAM_PAGES.map((p) => '/' + p.replace('/index.html', ''))]) assert.ok(sec.includes(`href="${u}"`), u);
+  for (const u of ['/programs/', ...PROGRAM_PAGES.map((p) => '/' + p.replace('index.html', ''))]) assert.ok(sec.includes(`href="${u}"`), u);
 });
 
 // ---- 12. no Level 2 of the free courses
@@ -172,3 +188,56 @@ for (const p of CHANGED) {
     assert.ok(!/Level 2/i.test(t));
   });
 }
+
+// ---- Trailing-slash alignment (SEO batch P2)
+// Cloudflare Pages serves folder/index.html at /folder/ and 308-redirects /folder there,
+// so every sitemap URL, canonical and internal link must use the slash form.
+const FUNCTION_ROUTE_FILES = ['functions/articles/[slug].js', 'functions/_lib/site.js'];
+
+function allFiles() {
+  return walk(ROOT).map((p) => p.slice(ROOT.length).replace(/\\/g, '/').replace(/^\//, ''))
+    .filter((p) => !p.startsWith('tests/') && !p.startsWith('node_modules/') && !p.startsWith('.git/'));
+}
+
+test('every sitemap URL equals the canonical (and og:url) of its page', async () => {
+  const xml = await (await sitemap({ env: {} })).text();
+  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  assert.ok(locs.length >= 23);
+  for (const loc of locs) {
+    const path = new URL(loc).pathname;
+    const file = join(ROOT, path === '/' ? 'index.html' : path.replace(/^\//, '') + 'index.html');
+    assert.ok(existsSync(file), `${loc}: no index.html for this sitemap URL`);
+    const h = readFileSync(file, 'utf8');
+    assert.ok(h.includes(`<link rel="canonical" href="${loc}">`), `${loc}: canonical differs`);
+    assert.ok(h.includes(`<meta property="og:url" content="${loc}">`), `${loc}: og:url differs`);
+    // A JSON-LD url or @id that points at the page itself must use the slash form.
+    for (const m of h.matchAll(/"(?:url|@id)": "(https:\/\/medjay\.pro\/[^"#]*)(?:#[^"]*)?"/g)) {
+      if (path !== '/' && m[1].replace(/\/$/, '') === loc.replace(/\/$/, '')) assert.equal(m[1], loc, `${loc}: JSON-LD ${m[1]}`);
+    }
+  }
+});
+
+test('no internal href to a folder page lacks the trailing slash', () => {
+  const files = allFiles().filter((p) => (p.endsWith('.html') && p !== 'programs/saas/index.html') || FUNCTION_ROUTE_FILES.includes(p));
+  const bad = [];
+  for (const f of files) {
+    const src = readFileSync(join(ROOT, f), 'utf8');
+    for (const m of src.matchAll(/href="(\/[^"#?]*)(?:[#?][^"]*)?"/g)) {
+      const path = m[1];
+      if (path === '/' || path.endsWith('/') || /\.[a-z0-9]+$/i.test(path)) continue;
+      if (existsSync(join(ROOT, path.slice(1), 'index.html'))) bad.push(`${f}: ${path}`);
+    }
+  }
+  assert.deepEqual(bad, []);
+});
+
+test('article-not-found page has a 404 status and no canonical or og:url', async () => {
+  const { onRequestGet } = await import('../functions/articles/[slug].js');
+  const env = { DB: { prepare: () => ({ bind: () => ({ first: async () => null }) }) } };
+  const res = await onRequestGet({ env, params: { slug: 'nope' } });
+  assert.equal(res.status, 404);
+  const html = await res.text();
+  assert.ok(!/rel="canonical"/.test(html));
+  assert.ok(!/og:url/.test(html));
+  assert.match(html, /<h1[^>]*>Article not found<\/h1>/);
+});

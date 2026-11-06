@@ -53,7 +53,7 @@ test('certificate page: Add to LinkedIn profile link carries the company id', as
   assert.ok(m, 'Add to LinkedIn profile link is on the page');
   const u = new URL(m[1].replace(/&amp;/g, '&'));
   assert.equal(u.searchParams.get('organizationId'), LINKEDIN_COMPANY_ID);
-  assert.equal(u.searchParams.get('organizationName'), null);
+  assert.equal(u.searchParams.get('organizationName'), 'MEDJAY');
   assert.equal(u.searchParams.get('certId'), no);
 });
 

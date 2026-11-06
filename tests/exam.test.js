@@ -123,7 +123,7 @@ test('LINKEDIN_COMPANY_ID is set, and the default Add to LinkedIn link uses it',
   const u = new URL(linkedInAddUrl({ courseTitle: 'Retail Sales Essentials', certNo: 'MJ-RSE-2026-X6PU2H', issuedAt: '2026-11-05T00:00:00Z' }));
   assert.equal(u.origin + u.pathname, 'https://www.linkedin.com/profile/add');
   assert.equal(u.searchParams.get('organizationId'), LINKEDIN_COMPANY_ID);
-  assert.equal(u.searchParams.get('organizationName'), null);
+  assert.equal(u.searchParams.get('organizationName'), 'MEDJAY');
   assert.equal(u.searchParams.get('certId'), 'MJ-RSE-2026-X6PU2H');
 });
 
@@ -132,7 +132,7 @@ test('purge_after is issued_at + 10 years', () => {
   assert.equal(formatIssueDate('2026-11-05T10:00:00.000Z'), '5 November 2026');
 });
 
-test('LinkedIn URL: encoded, organizationName by default, organizationId when set', () => {
+test('LinkedIn URL: encoded, organizationName always, organizationId when set', () => {
   const args = { courseTitle: 'B2B Sales Essentials', certNo: 'MJ-B2B-2026-7K4Q9X', issuedAt: '2026-11-05T10:00:00Z' };
   const u = new URL(linkedInAddUrl(args, ''));
   assert.equal(u.origin + u.pathname, 'https://www.linkedin.com/profile/add');
@@ -150,5 +150,5 @@ test('LinkedIn URL: encoded, organizationName by default, organizationId when se
   assert.ok(!raw.includes('+'));
   const v = new URL(linkedInAddUrl(args, '12345'));
   assert.equal(v.searchParams.get('organizationId'), '12345');
-  assert.equal(v.searchParams.get('organizationName'), null);
+  assert.equal(v.searchParams.get('organizationName'), 'MEDJAY');
 });

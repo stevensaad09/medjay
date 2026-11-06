@@ -48,7 +48,7 @@ test('404.html content: heading, one line, and three links', () => {
   assert.match(main[1], /<h1[^>]*>Page not found<\/h1>/);
   assert.match(main[1], /This page does not exist or has moved\./);
   const links = [...main[1].matchAll(/<a\s+href="([^"]+)"[^>]*>([^<]+)<\/a>/g)].map((m) => [m[1], m[2]]);
-  assert.deepEqual(links, [['/', 'Home'], ['/courses/', 'Free Courses'], ['/programs', 'Programs']]);
+  assert.deepEqual(links, [['/', 'Home'], ['/courses/', 'Free Courses'], ['/programs/', 'Programs']]);
 });
 
 test('root index.html has no relative src or href (works when served at any URL depth)', () => {

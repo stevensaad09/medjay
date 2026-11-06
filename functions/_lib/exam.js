@@ -8,8 +8,8 @@ import data from '../_data/exam-questions.json';
 
 // ---- Config constants (Steven fills the empty ones after merge) ----
 
-// LinkedIn numeric company id. While empty, the "Add to LinkedIn" link
-// sends organizationName=MEDJAY; once set, it sends organizationId.
+// LinkedIn numeric company id. The "Add to LinkedIn" link always sends
+// organizationName=MEDJAY; when this id is set it also sends organizationId.
 export const LINKEDIN_COMPANY_ID = '106624858';
 // Shown on the verification page next to "Issued by MEDJAY".
 export const LINKEDIN_PROFILE_URL = 'https://linkedin.com/in/steven-saad';
@@ -130,7 +130,8 @@ export function linkedInAddUrl({ courseTitle, certNo, issuedAt }, companyId = LI
   p.set('startTask', 'CERTIFICATION_NAME');
   p.set('name', `${courseTitle} (Level 1)`);
   if (companyId) p.set('organizationId', String(companyId));
-  else p.set('organizationName', 'MEDJAY');
+  // Always sent: a plain-text fallback if LinkedIn cannot resolve the id.
+  p.set('organizationName', 'MEDJAY');
   p.set('issueYear', String(d.getUTCFullYear()));
   p.set('issueMonth', String(d.getUTCMonth() + 1));
   p.set('certUrl', verifyUrl(certNo));
