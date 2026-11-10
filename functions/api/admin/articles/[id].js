@@ -4,6 +4,13 @@
 // the infrastructure level (same policy as /dashboard/*), and every
 // request also passes functions/api/admin/_middleware.js first: it checks
 // the Access headers and blocks writes on preview hosts.
+//
+// PUT body.audience is optional. When it is sent (general, founders,
+// job-seekers) it is saved; when it is NOT sent the stored audience is
+// left exactly as it is, so a client that only knows the older fields
+// (for example a publish/unpublish toggle) can never reset the tag.
+
+import { DEFAULT_AUDIENCE, isAudience, isMissingAudienceColumn, MIGRATION_HINT } from '../../../_lib/articles.js';
 
 export async function onRequestPut(context) {
   const { request, env, params } = context;
@@ -29,17 +36,39 @@ export async function onRequestPut(context) {
   const excerpt = (body.excerpt || '').trim();
   const content = (body.content || '').trim();
   const published = body.published ? 1 : 0;
+  const hasAudience = body.audience !== undefined && body.audience !== null && body.audience !== '';
 
   if (!title || !slug || !content) {
     return jsonResponse({ message: 'Title, slug, and content are required.' }, 400);
   }
+  if (hasAudience && !isAudience(body.audience)) {
+    return jsonResponse({ message: 'Unknown audience.' }, 400);
+  }
 
   try {
     const now = new Date().toISOString();
-    const result = await env.DB.prepare(
+    // Without an audience in the request, this statement does not touch
+    // the audience column at all.
+    const keepAudience = () => env.DB.prepare(
       `UPDATE articles SET title = ?, slug = ?, excerpt = ?, content = ?, published = ?, updated_at = ?
        WHERE id = ?`
     ).bind(title, slug, excerpt, content, published, now, id).run();
+
+    let result;
+    if (!hasAudience) {
+      result = await keepAudience();
+    } else {
+      try {
+        result = await env.DB.prepare(
+          `UPDATE articles SET title = ?, slug = ?, excerpt = ?, content = ?, published = ?, audience = ?, updated_at = ?
+           WHERE id = ?`
+        ).bind(title, slug, excerpt, content, published, body.audience, now, id).run();
+      } catch (err) {
+        if (!isMissingAudienceColumn(err)) throw err;
+        if (body.audience !== DEFAULT_AUDIENCE) return jsonResponse({ message: MIGRATION_HINT }, 409);
+        result = await keepAudience();
+      }
+    }
 
     if (!result.meta || result.meta.changes === 0) {
       return jsonResponse({ message: 'Article not found.' }, 404);

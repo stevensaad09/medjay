@@ -214,6 +214,7 @@
     margin-bottom:8px;
   }
   .form-field input,
+  .form-field select,
   .form-field textarea{
     width:100%;
     background:var(--navy);
@@ -227,6 +228,7 @@
   .form-field textarea{resize:vertical; min-height:110px; line-height:1.6;}
   #dash-content{min-height:280px;}
   .form-field input:focus-visible,
+  .form-field select:focus-visible,
   .form-field textarea:focus-visible{
     outline:2px solid var(--gold-bright);
     outline-offset:2px;
@@ -359,6 +361,7 @@
       <li><a href="/info/stevensaad/">Info</a></li>
       <li><a href="/programs/">Programs</a></li>
       <li><a href="/courses/">Free Courses</a></li>
+      <li><a href="/founders/">Founders</a></li>
       <li><a href="/articles/">Articles</a></li>
       <li><a href="/#contact">Contact Us</a></li>
     </ul>
@@ -403,6 +406,15 @@
 Leave a blank line between paragraphs, like this one.
 
 Use **bold text** when you want emphasis." required></textarea>
+      </div>
+      <div class="form-field">
+        <label for="dash-audience">Audience</label>
+        <p class="form-hint">Every article appears on /articles/. Only "Founders" articles also appear on /founders/.</p>
+        <select id="dash-audience">
+          <option value="general" selected>General</option>
+          <option value="founders">Founders</option>
+          <option value="job-seekers">Job seekers</option>
+        </select>
       </div>
       <label class="form-checkbox">
         <input type="checkbox" id="dash-published">
@@ -505,6 +517,8 @@ Use **bold text** when you want emphasis." required></textarea>
   const excerptInput = document.getElementById('dash-excerpt');
   const contentInput = document.getElementById('dash-content');
   const publishedInput = document.getElementById('dash-published');
+  const audienceInput = document.getElementById('dash-audience');
+  const AUDIENCE_LABELS = { 'general': 'General', 'founders': 'Founders', 'job-seekers': 'Job seekers' };
   const submitBtn = document.getElementById('dash-submit-btn');
   const cancelBtn = document.getElementById('dash-cancel-btn');
   const statusEl = document.getElementById('dash-status');
@@ -559,6 +573,7 @@ Use **bold text** when you want emphasis." required></textarea>
     excerptInput.value = article.excerpt || '';
     contentInput.value = article.content || '';
     publishedInput.checked = !!article.published;
+    audienceInput.value = AUDIENCE_LABELS[article.audience] ? article.audience : 'general';
     submitBtn.textContent = 'Update Article';
     cancelBtn.hidden = false;
     statusEl.textContent = '';
@@ -577,7 +592,8 @@ Use **bold text** when you want emphasis." required></textarea>
       slug: slugify(slugInput.value.trim() || titleInput.value.trim()),
       excerpt: excerptInput.value.trim(),
       content: contentInput.value.trim(),
-      published: publishedInput.checked
+      published: publishedInput.checked,
+      audience: audienceInput.value
     };
     if(!payload.title || !payload.slug || !payload.content){
       statusEl.textContent = 'Title, slug, and content are required.';
@@ -617,7 +633,10 @@ Use **bold text** when you want emphasis." required></textarea>
           slug: article.slug,
           excerpt: article.excerpt,
           content: article.content,
-          published: !article.published
+          published: !article.published,
+          // Sent so the audience tag is never changed by this button. (The
+          // server also keeps the stored tag when this field is missing.)
+          audience: article.audience
         })
       });
       if(res.ok){
@@ -659,7 +678,8 @@ Use **bold text** when you want emphasis." required></textarea>
       const badgeLabel = a.published ? 'Published' : 'Draft';
       return '<div class="dash-item">' +
         '<div class="dash-item-main">' +
-          '<h4>' + escapeHtml(a.title) + '<span class="dash-badge ' + badgeClass + '">' + badgeLabel + '</span></h4>' +
+          '<h4>' + escapeHtml(a.title) + '<span class="dash-badge ' + badgeClass + '">' + badgeLabel + '</span>' +
+            (a.audience && a.audience !== 'general' ? '<span class="dash-badge">' + escapeHtml(AUDIENCE_LABELS[a.audience] || a.audience) + '</span>' : '') + '</h4>' +
           '<div class="dash-meta">/articles/' + escapeHtml(a.slug) + ' · ' + escapeHtml(formatDate(a.created_at)) + '</div>' +
         '</div>' +
         '<div class="dash-actions">' +

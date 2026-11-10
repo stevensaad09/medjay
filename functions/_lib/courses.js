@@ -1,4 +1,5 @@
-// Shared allowlists for the free Level 1 course tracking endpoints.
+// Shared allowlists for the free course tracking endpoints: the 11 Level 1
+// courses under /courses/ and the founder courses under /founders/.
 // Not a route: this file exports no onRequest handlers.
 
 export const COURSE_NAMES = {
@@ -13,6 +14,8 @@ export const COURSE_NAMES = {
   'store-manager-essentials': 'Store Manager Essentials',
   'area-manager-essentials': 'Area Manager Essentials',
   'sales-manager-essentials': 'Sales Manager Essentials',
+  // For Founders (page: /founders/first-customer/).
+  'first-customer': 'First Customer',
 };
 
 export const COURSE_SLUGS = Object.keys(COURSE_NAMES);
@@ -24,8 +27,41 @@ export const FILES = {
   'day-3': '-day-3.pdf',
   'day-4': '-day-4.pdf',
   'day-5': '-day-5.pdf',
+  'day-6': '-day-6.pdf',
+  'day-7': '-day-7.pdf',
+  'day-8': '-day-8.pdf',
+  'day-9': '-day-9.pdf',
+  'day-10': '-day-10.pdf',
   'all': '-all.zip',
 };
+
+// Number of daily files per course. Every course has 5 unless listed here.
+export const DEFAULT_DAYS = 5;
+export const COURSE_DAYS = {
+  'first-customer': 10,
+};
+
+export function daysOf(slug) {
+  return COURSE_DAYS[slug] || DEFAULT_DAYS;
+}
+
+// True when `file` is a real download of this course: "all", or a day
+// within the course's length (day-6 is a file of a 10-day course only).
+export function hasFile(slug, file) {
+  if (!isCourse(slug) || !Object.prototype.hasOwnProperty.call(FILES, file)) return false;
+  if (file === 'all') return true;
+  return Number(file.slice(4)) <= daysOf(slug);
+}
+
+// Downloads that are counted in course_events. The table only accepts
+// open, day-1 to day-5 and all (a CHECK constraint), and the dashboard
+// reads open, day-1, day-5 and all. Days 6 to 10 of a 10-day course are
+// served but deliberately not counted.
+const COUNTED_FILES = ['day-1', 'day-2', 'day-3', 'day-4', 'day-5', 'all'];
+
+export function isCountedFile(file) {
+  return COUNTED_FILES.includes(file);
+}
 
 export const ROLES = ['Individual', 'Team Leader', 'Manager', 'Business Owner'];
 export const TEAM_SIZES = ['1', '2-10', '11-50', '50+'];

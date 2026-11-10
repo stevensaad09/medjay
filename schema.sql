@@ -29,11 +29,15 @@ CREATE TABLE IF NOT EXISTS articles (
   excerpt TEXT NOT NULL DEFAULT '',
   published INTEGER NOT NULL DEFAULT 0,
   created_at TEXT NOT NULL DEFAULT (datetime('now')),
-  updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+  updated_at TEXT NOT NULL DEFAULT (datetime('now')),
+  -- Added to existing databases by migrations/0004_article_audience.sql.
+  audience TEXT NOT NULL DEFAULT 'general'
+    CHECK (audience IN ('general','founders','job-seekers'))
 );
 
 CREATE INDEX IF NOT EXISTS idx_articles_slug ON articles(slug);
 CREATE INDEX IF NOT EXISTS idx_articles_published ON articles(published);
+CREATE INDEX IF NOT EXISTS idx_articles_audience ON articles(published, audience);
 
 CREATE TABLE IF NOT EXISTS comments (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
