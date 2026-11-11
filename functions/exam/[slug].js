@@ -11,7 +11,7 @@
 //      it will be printed, then POSTs /api/exam/claim and opens the
 //      certificate page.
 
-import { getExam, coursePath, NAME_MIN, NAME_MAX } from '../_lib/exam.js';
+import { getExam, NAME_MIN, NAME_MAX } from '../_lib/exam.js';
 import { escapeHtml, pageShell, htmlResponse } from '../_lib/site.js';
 import { siteKeyFor } from '../_lib/turnstile.js';
 
@@ -53,7 +53,7 @@ function renderExam(exam, siteKey) {
     <span class="eyebrow">Free course · Level 1 exam</span>
     <h1>${escapeHtml(exam.title)}: Level 1 Exam</h1>
     <p class="lede">${total} multiple-choice questions, one correct answer each. Pass with ${passMark} out of ${total} or more and you can claim your free MEDJAY certificate. No time limit, and you can retake it as often as you like.</p>
-    <p class="lede small"><a href="${escapeHtml(coursePath(exam))}">Back to the course</a></p>
+    <p class="lede small"><a href="/courses/${escapeHtml(exam.slug)}/">Back to the course</a></p>
   </div>
 </section>
 <div class="watchline"></div>

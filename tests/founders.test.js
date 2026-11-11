@@ -1,9 +1,9 @@
-// For Founders section: hub, First Customer template, nav, article
-// audience tag, 10-day downloads and the exam back link.
+// For Founders section: hub, First Customer course and download pages,
+// nav, article audience tag and 10-day downloads.
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DatabaseSync } from 'node:sqlite';
@@ -15,8 +15,8 @@ import { onRequestPut as adminUpdate } from '../functions/api/admin/articles/[id
 import { onRequest as dl } from '../functions/api/dl.js';
 import { onRequestGet as sitemap } from '../functions/sitemap.xml.js';
 import { AUDIENCES } from '../functions/_lib/articles.js';
-import { hasFile, isCountedFile, daysOf, isCourse, COURSE_NAMES } from '../functions/_lib/courses.js';
-import { coursePath, getExam, EXAM_SLUGS } from '../functions/_lib/exam.js';
+import { hasFile, isCountedFile, daysOf, isCourse, COURSE_NAMES, COURSE_SLUGS, FILES } from '../functions/_lib/courses.js';
+import { getExam, EXAM_SLUGS } from '../functions/_lib/exam.js';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const read = (p) => readFileSync(join(ROOT, p), 'utf8');
@@ -81,7 +81,7 @@ test('founders hub: SEO basics, course card, contact line, no placeholders', () 
 
   const main = rendered(h.match(/<main[^>]*>([\s\S]*?)<\/main>/)[1]);
   assert.match(main, /from job seekers to founders/);
-  assert.match(main, /<article class="course-card">[\s\S]*?<h3>First Customer<\/h3>[\s\S]*?href="\/founders\/first-customer\/"/);
+  assert.match(main, /<article class="course-card">[\s\S]*?<h3>First Customer<\/h3>[\s\S]*?href="\/founders\/first-customer\/"[^>]*>Start free</);
   assert.equal((main.match(/<article class="course-card">/g) || []).length, 1);
   assert.match(main, /Training a team once you grow\?[\s\S]*?href="\/#contact"[^>]*>Talk to us/);
   assert.ok(!/coming soon|\[\[|lorem/i.test(main), 'no placeholder text');
@@ -98,55 +98,127 @@ test('founders hub: articles section starts hidden and only asks for founders ar
 
 // ---------------------------------------------------------------- course page
 
-test('first customer page: noindex and out of the sitemap until import; go-live is consistent', async () => {
-  const c = read('founders/first-customer/index.html');
-  const xml = await (await sitemap({ env: {} })).text();
-  const inSitemap = xml.includes('<loc>https://medjay.pro/founders/first-customer/</loc>');
-  const indexable = c.includes('<meta name="robots" content="index, follow">');
-  const pending = /\[\[[A-Z0-9_]+\]\]/.test(c) || c.includes('<template data-pending');
+const DAY_TITLES = [
+  'Target Customer and Buying Trigger',
+  'Finding the First Buyers: Networks, Communities, and Signals',
+  'The Opener That Earns Attention',
+  'Discovery: Validate the Problem with Past Behavior',
+  'The Offer and Pricing for First Customers',
+  'The First-Customer Offer: Pilots and Launch Deals',
+  'Presenting the Offer with A.I.M.',
+  'Handling Objections with A.R.T.',
+  'The Close: From Yes to Payment',
+  'Pipeline, Follow-Up Cadence, and Activity Math',
+];
 
-  assert.ok(xml.includes('<loc>https://medjay.pro/founders/</loc>'), 'hub is in the sitemap');
-  assert.ok(!xml.includes('/founders/first-customer/download/'), 'download page never listed');
-  assert.equal(inSitemap, indexable, 'sitemap and robots tag must agree');
-  if (indexable) {
-    assert.ok(!pending, 'page is set to index but import tokens or pending <template> blocks remain');
-    assert.ok(getExam('first-customer'), 'live page needs its exam entry');
-  } else {
-    assert.ok(c.includes('<meta name="robots" content="noindex, follow">'));
+const FC_PAGES = ['founders/first-customer/index.html', 'founders/first-customer/download/index.html'];
+
+function text(fragment) {
+  return rendered(fragment).replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+}
+
+test('first customer pages are finished: no import tokens, pending blocks or placeholder notes', () => {
+  for (const f of [...FC_PAGES, 'founders/index.html']) {
+    const h = read(f);
+    assert.ok(!/\[\[[^\]]*\]\]/.test(h), `${f}: import token left`);
+    assert.ok(!/<template\b/i.test(h), `${f}: <template> block left`);
+    assert.ok(!/IMPORT FROM SCC|GO-LIVE|data-pending|provisional|coming soon|lorem/i.test(h), `${f}: placeholder note left`);
   }
 });
 
-test('first customer page: before import, nothing unfinished is visible', () => {
-  const c = read('founders/first-customer/index.html');
-  if (!c.includes('<template data-pending')) return; // already live
-  const shown = rendered(c.match(/<main[^>]*>([\s\S]*?)<\/main>/)[1]);
-  assert.ok(!shown.includes('[['), 'no import token is rendered');
-  assert.ok(!shown.includes('/download/'), 'Download button hidden');
-  assert.ok(!shown.includes('/exam/'), 'Exam button hidden');
-  assert.match(shown, /<h1[^>]*>First Customer<\/h1>/);
-  assert.match(shown, /10 days · Self-study · Free/);
-  assert.match(shown, /href="\/#contact"/);
+test('first customer page: live, indexable, in the sitemap; download page stays noindex and unlisted', async () => {
+  const c = read(FC_PAGES[0]);
+  const xml = await (await sitemap({ env: {} })).text();
+  assert.ok(c.includes('<meta name="robots" content="index, follow">'));
+  assert.ok(c.includes('<link rel="canonical" href="https://medjay.pro/founders/first-customer/">'));
+  assert.ok(c.includes('<meta property="og:url" content="https://medjay.pro/founders/first-customer/">'));
+  assert.ok(xml.includes('<loc>https://medjay.pro/founders/</loc>'));
+  assert.ok(xml.includes('<loc>https://medjay.pro/founders/first-customer/</loc>'));
+  assert.ok(!xml.includes('/founders/first-customer/download/'));
+  assert.ok(read(FC_PAGES[1]).includes('<meta name="robots" content="noindex, follow">'));
 });
 
-test('first customer page: 10-day template, canonical, valid JSON-LD', () => {
-  const c = read('founders/first-customer/index.html');
-  assert.ok(c.includes('<link rel="canonical" href="https://medjay.pro/founders/first-customer/">'));
-  for (let n = 1; n <= 10; n++) assert.ok(c.includes(`<span class="mnum">Day ${n}</span>`), `Day ${n} slot`);
-  assert.ok(!c.includes('<span class="mnum">Day 11</span>'));
-  assert.ok(c.includes('href="/exam/first-customer"'));
+test('first customer has no exam and no certificate, anywhere', () => {
+  assert.equal(getExam('first-customer'), null);
+  assert.equal(EXAM_SLUGS.length, 11);
+  assert.ok(!read('functions/_data/exam-questions.json').includes('first-customer'));
+  assert.ok(!/FCU/.test(read('migrations/0003_exams.sql') + read('schema.sql')));
+  for (const f of FC_PAGES) {
+    const h = read(f);
+    assert.ok(!/\bexams?\b|certificat|Level 1|\/exam\/|MJ-FCU/i.test(h), `${f}: exam or certificate mention`);
+  }
+  assert.ok(!/\bexams?\b|certificat/i.test(text(read('founders/index.html').match(/<main[^>]*>([\s\S]*?)<\/main>/)[1])));
+});
+
+test('first customer page: ten days with the guide titles, full content, download button', () => {
+  const c = read(FC_PAGES[0]);
+  const main = c.match(/<main[^>]*>([\s\S]*?)<\/main>/)[1];
+  assert.equal((c.match(/<h1[\s>]/g) || []).length, 1);
+  assert.match(main, /<h1[^>]*>First Customer<\/h1>/);
+  assert.match(main, /10 days · Self-study · Free/);
+  assert.match(main, /in English/);
+  assert.ok(!/anywhere|global|minutes/i.test(text(main)), 'no "global" claim and no time per day');
+
+  const days = [...main.matchAll(/<span class="mnum">Day (\d+)<\/span>\s*<h3>([^<]+)<\/h3>\s*<p>([^<]+)<\/p>/g)];
+  assert.deepEqual(days.map((m) => Number(m[1])), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  assert.deepEqual(days.map((m) => m[2].replace(/&amp;/g, '&')), DAY_TITLES);
+  const items = main.split('<span class="mnum">Day ').slice(1);
+  for (const [i, item] of items.entries()) {
+    for (const label of ['What you’ll learn:', 'How you’ll think:', 'Stretch goal:', 'What’s inside:']) {
+      assert.ok(item.includes(`<strong>${label}</strong>`), `Day ${i + 1}: ${label}`);
+    }
+    assert.match(item, /a self-check quiz/, `Day ${i + 1}: self-check quiz`);
+  }
+
+  assert.equal((main.match(/<section id="outcomes">[\s\S]*?<\/section>/)[0].match(/<li>/g) || []).length, 10);
+  for (const id of ['who', 'outcomes', 'days', 'how', 'reading', 'faq', 'teams']) assert.ok(main.includes(`<section id="${id}">`), id);
+  for (const id of ['exam', 'related']) assert.ok(!main.includes(`<section id="${id}">`), `no ${id} section`);
+  assert.equal((main.match(/Voss/g) || []).filter(Boolean).length >= 1, true);
+  assert.equal((main.match(/Never Split the Difference/g) || []).length, 1, 'Voss cited once in Further reading');
+  assert.ok(main.includes('Voss, C., &amp; Raz, T. (2016), Never Split the Difference: Negotiating As If Your Life Depended On It'));
+
+  const links = [...rendered(main).matchAll(/href="([^"]+)"/g)].map((m) => m[1]);
+  assert.deepEqual([...new Set(links)].sort(), ['/#contact', '/founders/', '/founders/first-customer/download/']);
+  assert.ok(text(main).split(' ').length >= 700, 'page has real content');
+});
+
+test('first customer page: JSON-LD is valid, 10 days, syllabus matches the day titles', () => {
+  const c = read(FC_PAGES[0]);
   const graph = JSON.parse(c.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
   const course = graph.find((n) => n['@type'] === 'Course');
+  assert.equal(course.name, 'First Customer');
   assert.equal(course.url, 'https://medjay.pro/founders/first-customer/');
+  assert.equal(course.isAccessibleForFree, true);
   assert.equal(course.hasCourseInstance.courseSchedule.repeatCount, 10);
+  assert.deepEqual(course.syllabusSections.map((s) => s.name), DAY_TITLES.map((t, i) => `Day ${i + 1}: ${t}`));
+  assert.ok(course.syllabusSections.every((s) => s.description.length > 40));
+  const crumbs = graph.find((n) => n['@type'] === 'BreadcrumbList').itemListElement.map((i) => i.item);
+  assert.deepEqual(crumbs, ['https://medjay.pro/', 'https://medjay.pro/founders/', 'https://medjay.pro/founders/first-customer/']);
 });
 
-test('first customer download page: noindex, ten day links and the zip', () => {
-  const d = read('founders/first-customer/download/index.html');
-  assert.ok(d.includes('<meta name="robots" content="noindex, follow">'));
-  for (let n = 1; n <= 10; n++) assert.ok(d.includes(`/api/dl?course=first-customer&amp;file=day-${n}"`));
+test('first customer download page: noindex, ten titled day links and the zip', () => {
+  const d = read(FC_PAGES[1]);
+  for (const [i, title] of DAY_TITLES.entries()) {
+    const n = i + 1;
+    assert.ok(d.includes(`/api/dl?course=first-customer&amp;file=day-${n}"`), `day ${n} link`);
+    assert.ok(d.includes(`<span class="label"><b>Day ${n}:</b> ${title}</span>`), `day ${n} title`);
+  }
   assert.ok(d.includes('/api/dl?course=first-customer&amp;file=all"'));
   assert.ok(d.includes("var course = 'first-customer';"));
+  assert.ok(d.includes('href="/founders/first-customer/"') && d.includes('href="/founders/"'));
   assert.ok(!/b2b/i.test(d));
+});
+
+test('every download link of every course points at a file that exists (PDF or zip)', () => {
+  for (const slug of COURSE_SLUGS) {
+    for (const file of Object.keys(FILES)) {
+      if (!hasFile(slug, file)) continue;
+      const path = `courses/files/${slug}${FILES[file]}`;
+      assert.ok(existsSync(join(ROOT, path)), `${path} is missing`);
+      const head = readFileSync(join(ROOT, path)).subarray(0, 4).toString('latin1');
+      assert.equal(head, file === 'all' ? 'PK\x03\x04' : '%PDF', `${path}: wrong file type`);
+    }
+  }
 });
 
 // ---------------------------------------------------------------- downloads
@@ -190,18 +262,6 @@ test('/api/dl: existing courses unchanged; first-customer day 6-10 redirect with
   assert.equal(sqls.length, 2, 'day 10 is not written to course_events');
 
   assert.equal((await get('course=first-customer&file=day-11')).status, 404);
-});
-
-// ---------------------------------------------------------------- exam link
-
-test('exam back link: /courses/<slug>/ by default, course_url when set and safe', () => {
-  for (const slug of EXAM_SLUGS) {
-    if (!getExam(slug).course_url) assert.equal(coursePath(getExam(slug)), `/courses/${slug}/`);
-  }
-  assert.equal(coursePath({ slug: 'first-customer', course_url: '/founders/first-customer/' }), '/founders/first-customer/');
-  for (const bad of ['https://evil.example/', '//evil.example/', '/x"onclick="/', 'founders/', 7]) {
-    assert.equal(coursePath({ slug: 'first-customer', course_url: bad }), '/courses/first-customer/');
-  }
 });
 
 // ---------------------------------------------------------------- article audience

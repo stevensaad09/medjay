@@ -32,16 +32,6 @@ export function getExam(slug) {
     : null;
 }
 
-// Path of the course page an exam belongs to. Courses under /courses/
-// need nothing; a course that lives elsewhere (for example a founder
-// course at /founders/first-customer/) sets "course_url" on its entry in
-// exam-questions.json. Only a same-site path is accepted.
-export function coursePath(exam) {
-  const url = exam && exam.course_url;
-  if (typeof url === 'string' && /^\/[a-z0-9\/-]*\/$/.test(url) && !url.startsWith('//')) return url;
-  return `/courses/${exam.slug}/`;
-}
-
 // answers: exactly `total` characters, each A-D (upper case only).
 export function isValidAnswers(answers, total) {
   return typeof answers === 'string'
