@@ -7,6 +7,8 @@
 // /courses/<slug>/ page per slug (with trailing slashes, matching their
 // canonical URLs). Download pages and /courses/files/* are deliberately
 // never listed. To add a course, add its slug to COURSE_SLUGS.
+// Founder courses live under /founders/ and are listed in STATIC_PAGES
+// one by one (their download pages are never listed).
 // If D1 is unavailable, the static pages are still returned so search
 // engines always get a valid sitemap.
 
@@ -22,6 +24,8 @@ const STATIC_PAGES = [
   { path: '/programs/selling-to-contractors/', changefreq: 'monthly', priority: '0.8' },
   { path: '/books/', changefreq: 'monthly', priority: '0.8' },
   { path: '/info/stevensaad/', changefreq: 'monthly', priority: '0.7' },
+  { path: '/founders/', changefreq: 'monthly', priority: '0.8' },
+  { path: '/founders/first-customer/', changefreq: 'monthly', priority: '0.7' },
   { path: '/articles/', changefreq: 'weekly', priority: '0.7' },
   { path: '/privacy/', changefreq: 'yearly', priority: '0.3' },
 ];
