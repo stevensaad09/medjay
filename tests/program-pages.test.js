@@ -166,10 +166,9 @@ for (const p of CHANGED) {
 }
 
 // ---- 11. program pages link to free courses and Discovery Call
-// No P2 page has a Discovery Call link in main: selling-to-contractors keeps
-// its interest form, and the two USA pages offer Buy Now plus a "Discuss more"
-// link to the kept interest form. The UAE pages (P3) keep their Discovery
-// Call link for now.
+// No P2 page has a Discovery Call link in main: all three P2 pages offer
+// Buy Now plus a "Discuss more" link to the kept interest form. The UAE
+// pages (P3) keep their Discovery Call link for now.
 const P2_SLUGS = ['usa-real-estate', 'usa-real-estate-enterprise', 'selling-to-contractors'];
 for (const p of PROGRAM_PAGES) {
   test(`${p} links to /courses/ in main (and /#contact unless it has the interest form)`, () => {
@@ -293,14 +292,6 @@ const sectionOf = (h, id) => { const m = h.match(new RegExp(`<section id="${id}"
 const graphOf = (h) => JSON.parse(jsonLd(h)[0])['@graph'];
 const attrDecode = (s) => s.replace(/&#39;/g, "'").replace(/&amp;/g, '&');
 
-test('selling-to-contractors: no Payhip reference anywhere in the full source, JSON-LD included', () => {
-  for (const slug of ['selling-to-contractors']) {
-    const h = pageOf(slug);
-    assert.ok(!/payhip/i.test(h), `${slug}: Payhip found in source`);
-    assert.ok(!/payhip/i.test(jsonLd(h).join('')), `${slug}: Payhip found in JSON-LD`);
-  }
-});
-
 for (const [slug, c] of Object.entries(P2)) {
   test(`P2 ${slug}: H1, unchanged title, new meta/og/twitter description`, () => {
     const h = pageOf(slug);
@@ -359,20 +350,51 @@ for (const [slug, c] of Object.entries(P2)) {
 
 }
 
-test('P2 selling-to-contractors: buttons and links kept or dropped as approved', () => {
+const CONTRACTOR_BUY = {
+  'Level 1': 'https://payhip.com/b/BNEAT',
+  'Level 2': 'https://payhip.com/b/u90Xw',
+  'Level 3': 'https://payhip.com/b/hzk6p',
+  'All 3 Levels': 'https://payhip.com/b/pt9ck',
+};
+
+test('Selling to Contractors: Buy Now primary, Discuss more secondary, interest form kept', () => {
   const c = P2['selling-to-contractors'];
   const main = mainOfP(pageOf('selling-to-contractors'));
   const text = visible(main);
-  assert.match(main, new RegExp(`<a href="#request" class="btn-primary">${c.button}</a>`), 'hero button to the form');
-  assert.match(main, /<a href="\/programs\/" class="btn-ghost">View All Programs →<\/a>/);
+  assert.ok(main.includes('<a href="https://payhip.com/b/pt9ck" class="btn-primary payhip-buy" data-payhip="https://payhip.com/b/pt9ck">Buy Now — All 3 Levels $9,900</a>'), 'hero Buy Now button');
+  assert.ok(main.includes('<a href="#request" class="btn-ghost">Discuss more</a>'), 'Discuss more button to the form');
+  assert.ok(main.includes('<a href="/programs/" class="btn-ghost">View All Programs →</a>'));
   const after = main.split('</form>')[1];
   assert.match(after, /<a href="\/courses\/" class="btn-ghost">Browse free courses →<\/a>/, 'Browse free courses under the form');
+  assert.ok(main.includes('<form id="interest-form"'), 'interest form kept');
+  for (const [label, url] of Object.entries(CONTRACTOR_BUY)) {
+    assert.ok(main.includes(`<a href="${url}" class="payhip-buy" data-payhip="${url}">Buy Now</a>`), `Buy Now link for ${label}`);
+  }
+  assert.ok(main.includes('Multi-branch, all 3 levels, up to 100 learners per level: $24,900 &mdash; <a href="#request">Request a proposal</a>'), 'multi-branch stays proposal');
+  assert.ok(main.includes('Additional learners: $120 per learner, per level &mdash; <a href="#request">Request a proposal</a>'), 'additional learners stay proposal');
+  assert.ok(main.includes('This program also works outside the United States.'), 'international note');
   assert.ok(!/Book a Discovery Call/.test(text), 'no Discovery Call button in main');
   assert.ok(!/Compare to|Looking for the Enterprise version/.test(text), 'old cross-link buttons dropped');
   assert.ok(!/Enroll Now/.test(text));
   const faqs = (sectionOf(main, 'faq').match(/<h3>/g) || []).length;
   assert.equal(faqs, c.faqs, 'FAQ questions');
   assert.ok(sectionOf(main, 'references').includes('<li>'), 'references listed');
+});
+
+test('Selling to Contractors: Payhip checkout modal present with the approved copy, JSON-LD free of Payhip', () => {
+  const h = pageOf('selling-to-contractors');
+  assert.ok(h.includes('<div class="payhip-overlay" id="payhipOverlay" role="dialog" aria-modal="true" aria-labelledby="payhipTitle"'), 'modal overlay');
+  assert.ok(h.includes('<h2 id="payhipTitle">Secure checkout with Payhip</h2>'), 'modal title');
+  assert.ok(h.includes('You&rsquo;ll check out securely with Payhip, our payment partner. Your payment is taken in USD, and you&rsquo;ll get instant access to your program as soon as it&rsquo;s complete.'), 'modal body');
+  assert.ok(h.includes('<a href="#" target="_blank" rel="noopener" class="payhip-continue" id="payhipContinue">Continue to secure checkout</a>'), 'modal Continue link');
+  assert.ok(h.includes('<button type="button" class="payhip-cancel" id="payhipCancel">Cancel</button>'), 'modal Cancel button');
+  assert.ok(!/payhip/i.test(jsonLd(h).join('')), 'no Payhip in JSON-LD');
+  for (const m of h.matchAll(/<a href="(https:\/\/payhip\.com\/b\/[^"]+)"[^>]*data-payhip="([^"]+)"/g)) {
+    assert.equal(m[1], m[2], 'Buy Now data-payhip matches href');
+  }
+  for (const url of Object.values(CONTRACTOR_BUY)) {
+    assert.ok(h.includes(`data-payhip="${url}"`), `Buy Now button for ${url}`);
+  }
 });
 
 const USA_BUY = {
