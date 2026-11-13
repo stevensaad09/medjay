@@ -53,11 +53,10 @@ const NAV = [
 ];
 
 test('every copy of the main menu is identical, with Founders between Free Courses and Articles', () => {
-  // programs/saas/ is the retired page (301-redirected, old menu kept until removal).
   const files = walk(ROOT)
     .filter((p) => /\.(html|js)$/.test(p))
     .map((p) => p.slice(ROOT.length).replace(/\\/g, '/'))
-    .filter((p) => p !== 'programs/saas/index.html' && read(p).includes('<ul class="navlinks">'));
+    .filter((p) => read(p).includes('<ul class="navlinks">'));
   assert.ok(files.length >= 41, `expected at least 41 menu copies, found ${files.length}`);
   for (const f of files) {
     const menus = [...read(f).matchAll(/<ul class="navlinks">([\s\S]*?)<\/ul>/g)];
