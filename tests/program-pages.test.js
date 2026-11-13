@@ -84,6 +84,16 @@ test('sitemap lists the new route and not the old one', async () => {
   assert.ok(!xml.includes('contractor-sales-mastery'));
 });
 
+test('sitemap gives every static URL a lastmod date', async () => {
+  const xml = await (await sitemap({ env: {} })).text();
+  const urls = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((m) => m[1]);
+  assert.equal(urls.length, 25, '13 static pages + courses index + 11 course pages');
+  for (const u of urls) {
+    const loc = u.match(/<loc>([^<]+)<\/loc>/)[1];
+    assert.match(u, /<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/, `${loc}: no lastmod`);
+  }
+});
+
 // ---- 6. redirects
 test('_redirects sends the three old paths to the new route with 301', () => {
   const r = read('_redirects');
@@ -222,7 +232,7 @@ test('every sitemap URL equals the canonical (and og:url) of its page', async ()
 });
 
 test('no internal href to a folder page lacks the trailing slash', () => {
-  const files = allFiles().filter((p) => (p.endsWith('.html') && p !== 'programs/saas/index.html') || FUNCTION_ROUTE_FILES.includes(p));
+  const files = allFiles().filter((p) => p.endsWith('.html') || FUNCTION_ROUTE_FILES.includes(p));
   const bad = [];
   for (const f of files) {
     const src = readFileSync(join(ROOT, f), 'utf8');
@@ -276,7 +286,7 @@ const P2 = {
   },
   'selling-to-contractors': {
     h1: 'Selling to Contractors',
-    title: 'Selling to Contractors: Sales Training for Distribution &amp; Rental Teams (USA) | MEDJAY',
+    title: 'Selling to Contractors: Sales Training | MEDJAY',
     desc: 'Trainer-led sales program for US distribution and rental teams that sell to contractors: 3 levels, 30 days, role-plays, final exams and certificates of completion.',
     crumb: 'Selling to Contractors',
     button: 'Request a proposal',
