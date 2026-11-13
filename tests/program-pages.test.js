@@ -166,8 +166,10 @@ for (const p of CHANGED) {
 }
 
 // ---- 11. program pages link to free courses and Discovery Call
-// The three P2 pages replace the Discovery Call buttons with an interest form;
-// the UAE pages (P3) keep their Discovery Call link for now.
+// No P2 page has a Discovery Call link in main: selling-to-contractors keeps
+// its interest form, and the two USA pages offer Buy Now plus a "Discuss more"
+// link to the kept interest form. The UAE pages (P3) keep their Discovery
+// Call link for now.
 const P2_SLUGS = ['usa-real-estate', 'usa-real-estate-enterprise', 'selling-to-contractors'];
 for (const p of PROGRAM_PAGES) {
   test(`${p} links to /courses/ in main (and /#contact unless it has the interest form)`, () => {
@@ -256,8 +258,8 @@ const P2 = {
     title: 'USA Real Estate Sales Training for Agents | MEDJAY Self-Study',
     desc: '12-week self-study sales psychology program for US real estate agents. Weekly study guides, AI role-play practice, monthly assessments and a 93-page Sales Playbook. $347.',
     crumb: 'USA Real Estate Self-Study',
-    button: 'Request access',
-    note: 'We will email you the purchase link. We use these details only to reply about this program.',
+    button: 'Discuss more',
+    note: 'We will reply to discuss the program with you. We use these details only to reply about this program.',
     teams: HUB_TEAM,
     faqs: 6,
     course: {"@type":"Course","@id":"https://medjay.pro/programs/usa-real-estate/#course","name":"MEDJAY Elite Training: USA Self-Study Edition","description":"12-week self-study sales psychology program for independent US residential agents: discovery, compliant cold calling, objections and closing.","url":"https://medjay.pro/programs/usa-real-estate/","provider":{"@id":"https://medjay.pro/#organization"},"creator":{"@id":"https://medjay.pro/#founder"},"inLanguage":"en","timeRequired":"P12W","offers":{"@type":"Offer","price":"347","priceCurrency":"USD","category":"Paid","availability":"https://schema.org/InStock","url":"https://medjay.pro/programs/usa-real-estate/"}},
@@ -291,8 +293,8 @@ const sectionOf = (h, id) => { const m = h.match(new RegExp(`<section id="${id}"
 const graphOf = (h) => JSON.parse(jsonLd(h)[0])['@graph'];
 const attrDecode = (s) => s.replace(/&#39;/g, "'").replace(/&amp;/g, '&');
 
-test('P2 pages: no Payhip reference anywhere in the full source, JSON-LD included', () => {
-  for (const slug of Object.keys(P2)) {
+test('selling-to-contractors: no Payhip reference anywhere in the full source, JSON-LD included', () => {
+  for (const slug of ['selling-to-contractors']) {
     const h = pageOf(slug);
     assert.ok(!/payhip/i.test(h), `${slug}: Payhip found in source`);
     assert.ok(!/payhip/i.test(jsonLd(h).join('')), `${slug}: Payhip found in JSON-LD`);
@@ -355,21 +357,70 @@ for (const [slug, c] of Object.entries(P2)) {
     assert.match(h, /<noscript><p class="pp-form-note">Please turn on JavaScript to send this form, or email <a href="mailto:steven@medjay.pro">steven@medjay.pro<\/a>\.<\/p><\/noscript>/);
   });
 
-  test(`P2 ${slug}: buttons and links kept or dropped as approved`, () => {
+}
+
+test('P2 selling-to-contractors: buttons and links kept or dropped as approved', () => {
+  const c = P2['selling-to-contractors'];
+  const main = mainOfP(pageOf('selling-to-contractors'));
+  const text = visible(main);
+  assert.match(main, new RegExp(`<a href="#request" class="btn-primary">${c.button}</a>`), 'hero button to the form');
+  assert.match(main, /<a href="\/programs\/" class="btn-ghost">View All Programs →<\/a>/);
+  const after = main.split('</form>')[1];
+  assert.match(after, /<a href="\/courses\/" class="btn-ghost">Browse free courses →<\/a>/, 'Browse free courses under the form');
+  assert.ok(!/Book a Discovery Call/.test(text), 'no Discovery Call button in main');
+  assert.ok(!/Compare to|Looking for the Enterprise version/.test(text), 'old cross-link buttons dropped');
+  assert.ok(!/Enroll Now/.test(text));
+  const faqs = (sectionOf(main, 'faq').match(/<h3>/g) || []).length;
+  assert.equal(faqs, c.faqs, 'FAQ questions');
+  assert.ok(sectionOf(main, 'references').includes('<li>'), 'references listed');
+});
+
+const USA_BUY = {
+  'usa-real-estate': { url: 'https://payhip.com/b/bZ9pw', hero: 'Buy Now — $347' },
+  'usa-real-estate-enterprise': { url: 'https://payhip.com/b/pyg7l', hero: 'Buy Now — $4,900' },
+};
+
+test('USA pages: Buy Now primary, Discuss more secondary, interest form kept', () => {
+  for (const [slug, buy] of Object.entries(USA_BUY)) {
+    const c = P2[slug];
     const main = mainOfP(pageOf(slug));
     const text = visible(main);
-    assert.match(main, new RegExp(`<a href="#request" class="btn-primary">${c.button}</a>`), 'hero button to the form');
-    assert.match(main, /<a href="\/programs\/" class="btn-ghost">View All Programs →<\/a>/);
-    const after = main.split('</form>')[1];
-    assert.match(after, /<a href="\/courses\/" class="btn-ghost">Browse free courses →<\/a>/, 'Browse free courses under the form');
+    assert.ok(main.includes(`<a href="${buy.url}" class="btn-primary payhip-buy" data-payhip="${buy.url}">${buy.hero}</a>`), 'hero Buy Now button');
+    assert.ok(main.includes('<a href="#request" class="btn-ghost">Discuss more</a>'), 'Discuss more button to the form');
+    assert.ok(main.includes('<a href="/programs/" class="btn-ghost">View All Programs →</a>'));
+    assert.ok(main.includes('<a href="/courses/" class="btn-ghost">Browse free courses →</a>'));
+    assert.ok(main.includes('<form id="interest-form"'), 'interest form kept');
+    if (slug === 'usa-real-estate') {
+      assert.ok(main.includes('Not sure yet? Discuss more with us'), 'form reframed as a discussion');
+    }
+    if (slug === 'usa-real-estate-enterprise') {
+      assert.ok(main.includes('<a href="#request">Request a proposal</a>'), 'proposal links kept on 50/100 tiers');
+      assert.ok(main.includes('<a href="#request">contact us for a custom quote.</a>'), 'custom quote link to the form');
+    }
     assert.ok(!/Book a Discovery Call/.test(text), 'no Discovery Call button in main');
     assert.ok(!/Compare to|Looking for the Enterprise version/.test(text), 'old cross-link buttons dropped');
     assert.ok(!/Enroll Now/.test(text));
     const faqs = (sectionOf(main, 'faq').match(/<h3>/g) || []).length;
     assert.equal(faqs, c.faqs, 'FAQ questions');
     assert.ok(sectionOf(main, 'references').includes('<li>'), 'references listed');
-  });
-}
+  }
+});
+
+test('USA pages: Payhip checkout modal present with the approved copy, JSON-LD free of Payhip', () => {
+  for (const [slug, buy] of Object.entries(USA_BUY)) {
+    const h = pageOf(slug);
+    assert.ok(h.includes('<div class="payhip-overlay" id="payhipOverlay" role="dialog" aria-modal="true" aria-labelledby="payhipTitle"'), 'modal overlay');
+    assert.ok(h.includes('<h2 id="payhipTitle">Secure checkout with Payhip</h2>'), 'modal title');
+    assert.ok(h.includes('You&rsquo;ll check out securely with Payhip, our payment partner. Your payment is taken in USD, and you&rsquo;ll get instant access to your program as soon as it&rsquo;s complete.'), 'modal body');
+    assert.ok(h.includes('<a href="#" target="_blank" rel="noopener" class="payhip-continue" id="payhipContinue">Continue to secure checkout</a>'), 'modal Continue link');
+    assert.ok(h.includes('<button type="button" class="payhip-cancel" id="payhipCancel">Cancel</button>'), 'modal Cancel button');
+    assert.ok(!/payhip/i.test(jsonLd(h).join('')), 'no Payhip in JSON-LD');
+    for (const m of h.matchAll(/<a href="(https:\/\/payhip\.com\/b\/[^"]+)"[^>]*data-payhip="([^"]+)"/g)) {
+      assert.equal(m[1], m[2], 'Buy Now data-payhip matches href');
+    }
+    assert.ok(h.includes(`data-payhip="${buy.url}"`), 'Buy Now button for this product');
+  }
+});
 
 test('P2 cross-links: Self-Study -> Enterprise in Who It\'s For and FAQ; Enterprise -> Self-Study', () => {
   const self = mainOfP(pageOf('usa-real-estate'));

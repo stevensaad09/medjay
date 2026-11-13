@@ -862,6 +862,18 @@
   .skip-link:focus{
     left:0;
   }
+
+  /* ---------- Payhip checkout modal ---------- */
+  .payhip-overlay{position:fixed; inset:0; background:rgba(5,10,24,.72); display:none; align-items:center; justify-content:center; padding:20px; z-index:9999;}
+  .payhip-overlay.open{display:flex;}
+  .payhip-modal{background:#0a1428; color:#f7f4ec; border:1px solid rgba(201,162,75,.45); border-radius:4px; max-width:440px; width:100%; padding:28px 26px 24px; box-shadow:0 24px 60px rgba(0,0,0,.5); font-family:'Inter',system-ui,sans-serif;}
+  .payhip-modal h2{font-size:20px; margin:0 0 12px; line-height:1.3;}
+  .payhip-modal p{font-size:15px; line-height:1.6; color:rgba(247,244,236,.85); margin:0 0 22px;}
+  .payhip-actions{display:flex; gap:12px; flex-wrap:wrap;}
+  .payhip-continue{background:#c9a24b; color:#0a1428; border:1px solid #c9a24b; font-weight:600; font-size:15px; padding:12px 20px; border-radius:2px; cursor:pointer; font-family:inherit; display:inline-block; text-decoration:none;}
+  .payhip-continue:hover{background:#e3c478;}
+  .payhip-cancel{background:transparent; color:#f7f4ec; border:1px solid rgba(247,244,236,.35); font-size:15px; padding:12px 20px; border-radius:2px; cursor:pointer; font-family:inherit;}
+  .payhip-cancel:hover{border-color:#c9a24b;}
   /* ---------- Program page content, FAQ and interest form ---------- */
   #main section h2{margin:0 0 22px;}
   .pp-list{list-style:none; margin:0; padding:0; max-width:76ch;}
@@ -936,7 +948,8 @@
     <h1 class="reveal">MEDJAY Elite Training: USA Self-Study Edition</h1>
     <p class="lede reveal">A 12-week sales psychology program for licensed US residential real estate agents. Calm, evidence-based selling that respects the client's choice.</p>
     <div class="hero-ctas reveal">
-      <a href="#request" class="btn-primary">Request access</a>
+      <a href="https://payhip.com/b/bZ9pw" class="btn-primary payhip-buy" data-payhip="https://payhip.com/b/bZ9pw">Buy Now — $347</a>
+      <a href="#request" class="btn-ghost">Discuss more</a>
       <a href="/programs/" class="btn-ghost">View All Programs →</a>
     </div>
   </div>
@@ -1065,7 +1078,7 @@
 
 <section id="request">
   <div class="wrap">
-    <h2 class="reveal">Get Access</h2>
+    <h2 class="reveal">Not sure yet? Discuss more with us</h2>
     <form id="interest-form" class="pp-form reveal" novalidate>
       <input type="hidden" name="program" value="usa-real-estate">
       <div class="hp-field" aria-hidden="true">
@@ -1105,8 +1118,8 @@
         </select>
       </div>
       <div class="cf-turnstile" data-sitekey="0x4AAAAAAEdGei9y6nHiNLdP"></div>
-      <button type="submit" class="btn-primary">Request access</button>
-      <p class="pp-form-note">We will email you the purchase link. We use these details only to reply about this program.</p>
+      <button type="submit" class="btn-primary">Discuss more</button>
+      <p class="pp-form-note">We will reply to discuss the program with you. We use these details only to reply about this program.</p>
       <p class="pp-status" id="interest-status" role="status" aria-live="polite"></p>
     </form>
     <noscript><p class="pp-form-note">Please turn on JavaScript to send this form, or email <a href="mailto:steven@medjay.pro">steven@medjay.pro</a>.</p></noscript>
@@ -1264,6 +1277,39 @@
       }
     });
   })();
+</script>
+
+<div class="payhip-overlay" id="payhipOverlay" role="dialog" aria-modal="true" aria-labelledby="payhipTitle" aria-hidden="true">
+  <div class="payhip-modal">
+    <h2 id="payhipTitle">Secure checkout with Payhip</h2>
+    <p>You&rsquo;ll check out securely with Payhip, our payment partner. Your payment is taken in USD, and you&rsquo;ll get instant access to your program as soon as it&rsquo;s complete.</p>
+    <div class="payhip-actions">
+      <a href="#" target="_blank" rel="noopener" class="payhip-continue" id="payhipContinue">Continue to secure checkout</a>
+      <button type="button" class="payhip-cancel" id="payhipCancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var overlay=document.getElementById('payhipOverlay');
+  var cont=document.getElementById('payhipContinue');
+  var cancel=document.getElementById('payhipCancel');
+  var lastFocus=null;
+  function open(url){ lastFocus=document.activeElement;
+    cont.setAttribute('href', url);
+    overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false');
+    cont.focus(); }
+  function close(){ overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true');
+    if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
+  document.querySelectorAll('a.payhip-buy').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault();
+      open(a.getAttribute('data-payhip')||a.getAttribute('href')); });
+  });
+  cancel.addEventListener('click',close);
+  overlay.addEventListener('click',function(e){ if(e.target===overlay) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&overlay.classList.contains('open')) close(); });
+})();
 </script>
 
 </body>
