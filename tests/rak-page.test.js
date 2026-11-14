@@ -3,10 +3,8 @@
 // Everything is read from the raw HTML on disk, so it proves the content is
 // visible without JavaScript and that the JSON-LD stays valid.
 //
-// Price is AED 10,000 (~$2,723 USD via Payhip). The Payhip product does NOT
-// exist yet: both Buy Now buttons point at the placeholder
-// https://payhip.com/b/RAK-PAYHIP-LINK-TODO, which must be swapped for the
-// real product URL (and PAYHIP_PLACEHOLDER below updated) before merge.
+// Price is AED 10,000 (~$2,723 USD via Payhip). Both Buy Now buttons point
+// at the real Payhip product https://payhip.com/b/HyZWa.
 // Do NOT point Buy Now at the existing $4,900 enterprise product.
 //
 // Hard rule: no learner count anywhere on this page — not in visible text,
@@ -18,7 +16,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { onRequestGet as sitemap } from '../functions/sitemap.xml.js';
 
 const PAGE_URL = 'https://medjay.pro/programs/rak-real-estate-enterprise/';
-const PAYHIP_PLACEHOLDER = 'https://payhip.com/b/RAK-PAYHIP-LINK-TODO';
+const PAYHIP_URL = 'https://payhip.com/b/HyZWa';
 
 const html = readFileSync(new URL('../programs/rak-real-estate-enterprise/index.html', import.meta.url), 'utf8');
 
@@ -48,9 +46,10 @@ test('rak page: AED 10,000 first, about $2,723 in parentheses', () => {
   assert.ok(!/17,995|29,013|47,375/.test(html), 'no UAE enterprise tier prices');
 });
 
-test('rak page: Buy Now primary (hero + pricing), both to the Payhip placeholder via the modal', () => {
-  const buys = [...html.matchAll(/<a href="(https:\/\/payhip\.com\/b\/RAK-PAYHIP-LINK-TODO)" class="[^"]*payhip-buy" data-payhip="\1"/g)];
+test('rak page: Buy Now primary (hero + pricing), both to the real Payhip product via the modal', () => {
+  const buys = [...html.matchAll(/<a href="(https:\/\/payhip\.com\/b\/HyZWa)" class="[^"]*payhip-buy" data-payhip="\1"/g)];
   assert.equal(buys.length, 2, `expected 2 Buy Now buttons, found ${buys.length}`);
+  assert.ok(buys.every((b) => b[1] === PAYHIP_URL), 'both buttons link to the real Payhip product');
   assert.ok(html.includes('Buy Now — AED 10,000'));
   assert.ok(html.includes('Buy Now &mdash; AED 10,000'));
   assert.ok(!html.includes('https://payhip.com/b/P8vD9'), 'must not point at the $4,900 enterprise product');
@@ -59,7 +58,8 @@ test('rak page: Buy Now primary (hero + pricing), both to the Payhip placeholder
   assert.ok(html.includes('You&rsquo;ll check out securely with Payhip, our payment partner. Your payment is taken in USD, and you&rsquo;ll get instant access to your program as soon as it&rsquo;s complete.'), 'modal body');
   assert.ok(html.includes('<a href="#" target="_blank" rel="noopener" class="payhip-continue" id="payhipContinue">Continue to secure checkout</a>'), 'modal Continue link');
   assert.ok(html.includes('<button type="button" class="payhip-cancel" id="payhipCancel">Cancel</button>'), 'modal Cancel button');
-  assert.ok(html.includes('TODO-PAYHIP'), 'placeholder is marked TODO in the page source');
+  assert.ok(!html.includes('RAK-PAYHIP-LINK-TODO'), 'no placeholder Payhip link');
+  assert.ok(!html.includes('TODO-PAYHIP'), 'no TODO marker in the page source');
   assert.ok(!/payhip/i.test(jsonLd(html).join('')), 'no Payhip in JSON-LD');
 });
 
