@@ -6,17 +6,22 @@
 // 1. Validates the slug and that all 20 questions are answered (A-D).
 // 2. Verifies Turnstile on EVERY submit (one token per submit), so the
 //    endpoint cannot be used to brute-force the answer key cheaply.
-// 3. Loads the key from D1 (exam_keys) and grades on the server.
-// 4. Stores the attempt and returns ONLY { score, total, passed } plus,
+// 3. For Level 2 (paid) exams only, checks the access code on the server
+//    (D1 exam_access_codes) with a per-IP rate limit on wrong codes.
+//    Level 1 exams need no code and skip this step entirely.
+// 4. Loads the key from D1 (exam_keys) and grades on the server.
+// 5. Stores the attempt and returns ONLY { score, total, passed } plus,
 //    when passed, the attempt_id needed to claim the certificate.
 //    It never returns correct answers or which questions were wrong.
+//    Level 2 keeps this score-only response: with unlimited retakes,
+//    per-question feedback would let anyone reverse-engineer the key.
 //
 // Preview deployments (*.pages.dev) share the production D1, so exams
 // are refused there; they work on medjay.pro, and on localhost when
 // EXAM_LOCAL_WRITES=1 (local D1, Turnstile skipped).
 
-import { getExam, isValidAnswers, grade } from '../../_lib/exam.js';
-import { loadExamRow, loadKeys, insertAttempt } from '../../_lib/exam-db.js';
+import { getExam, isValidAnswers, grade, levelOf } from '../../_lib/exam.js';
+import { loadExamRow, loadKeys, insertAttempt, checkAccessCode } from '../../_lib/exam-db.js';
 import { isProduction, isLocalDevWrites } from '../../_lib/env.js';
 import { verifyTurnstile } from '../../_lib/turnstile.js';
 import { jsonResponse } from '../../_lib/site.js';
@@ -56,6 +61,24 @@ export async function onRequestPost(context) {
   }
 
   if (!env.DB) return jsonResponse({ message: 'Server not configured. Please try again later.' }, 500);
+
+  // Level 2 only: the access code is checked on the server, never only
+  // in the browser. A missing code is a 400; a wrong code counts toward
+  // the per-IP rate limit inside checkAccessCode.
+  if (levelOf(exam) === 2) {
+    const codeCheck = await checkAccessCode(env.DB, {
+      request, slug: exam.slug, code: body.access_code,
+    });
+    if (!codeCheck.ok) {
+      if (codeCheck.reason === 'missing') {
+        return jsonResponse({ message: 'An access code is required for this exam. Enter the code from your purchase.' }, 400);
+      }
+      if (codeCheck.reason === 'rate_limited') {
+        return jsonResponse({ message: 'Too many wrong codes. Try again in 15 minutes.' }, 429);
+      }
+      return jsonResponse({ message: 'This access code is not valid for this exam. Check the code and try again.' }, 403);
+    }
+  }
 
   let row, keys;
   try {

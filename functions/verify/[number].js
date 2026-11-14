@@ -8,7 +8,7 @@
 // noindex (meta + X-Robots-Tag).
 
 import {
-  getExam, isCertificateNo, formatIssueDate, LINKEDIN_PROFILE_URL, LINKEDIN_COMPANY_URL,
+  getExam, isCertificateNo, formatIssueDate, LINKEDIN_PROFILE_URL, LINKEDIN_COMPANY_URL, levelLabel,
 } from '../_lib/exam.js';
 import { getCertificate } from '../_lib/exam-db.js';
 import { escapeHtml, pageShell, htmlResponse, certNotFoundPage } from '../_lib/site.js';
@@ -56,7 +56,7 @@ function renderVerify(cert, exam) {
     <dl class="vcard">
       <div><dt>Status</dt><dd><span class="badge ${valid ? 'ok' : 'bad'}">${valid ? 'Valid' : 'Revoked'}</span></dd></div>
       <div><dt>Full name</dt><dd class="v-name" dir="auto">${escapeHtml(cert.full_name)}</dd></div>
-      <div><dt>Course</dt><dd>${escapeHtml(exam.title)} — Level 1</dd></div>
+      <div><dt>Course</dt><dd>${escapeHtml(exam.title)} — ${levelLabel(exam)}</dd></div>
       <div><dt>Issue date</dt><dd>${escapeHtml(formatIssueDate(cert.issued_at))}</dd></div>
       <div><dt>Certificate No</dt><dd class="mono">${escapeHtml(cert.certificate_no)}</dd></div>
       <div><dt>Issuer</dt><dd>Issued by ${link(LINKEDIN_COMPANY_URL, 'MEDJAY')}${LINKEDIN_PROFILE_URL ? ` · Founder: ${link(LINKEDIN_PROFILE_URL, 'Steven Saad')}` : ''}</dd></div>

@@ -298,3 +298,96 @@ test('no SQL string concatenation of user input in exam code', async () => {
     assert.ok(!/prepare\(\s*`[^`]*\$\{/.test(src), f);
   }
 });
+
+// ---------- Level 2 (paid): access code + rate limit ----------
+
+const L2_SLUG = 'retail-sales-essentials-level-2';
+const L2_CODE = 'L2-TEST-RS7K';
+
+function setupL2() {
+  const DB = makeD1();
+  const key = seedDummyKeys(DB, L2_SLUG, 40);
+  DB.raw.prepare('INSERT INTO exam_access_codes (code, course_slug) VALUES (?, ?)').run(L2_CODE, L2_SLUG);
+  const env = { DB, TURNSTILE_SECRET_KEY: 'test-secret', BREVO_API_KEY: 'test-brevo' };
+  return { DB, key, env };
+}
+async function passL2(env, key, score = 30) {
+  const r = await doSubmit(env, { course: L2_SLUG, answers: answersWithScore(key, score), turnstile_token: 'ok', access_code: L2_CODE });
+  assert.equal(r.status, 200, JSON.stringify(r.data));
+  assert.equal(r.data.passed, true);
+  return r.data.attempt_id;
+}
+
+test('level2 submit: missing code -> 400, wrong code -> 403, nothing stored', async () => {
+  const { DB, key, env } = setupL2();
+  const answers = answersWithScore(key, 30);
+  assert.equal((await doSubmit(env, { course: L2_SLUG, answers, turnstile_token: 'ok' })).status, 400);
+  const wrong = await doSubmit(env, { course: L2_SLUG, answers, turnstile_token: 'ok', access_code: 'L2-WRONG-CODE' });
+  assert.equal(wrong.status, 403);
+  assert.equal(DB.raw.prepare('SELECT COUNT(*) n FROM exam_attempts').get().n, 0);
+  assert.equal(DB.raw.prepare('SELECT COUNT(*) n FROM exam_code_failures').get().n, 1);
+  // code for another course is also rejected
+  const other = await doSubmit(env, { course: 'counter-sales-essentials-level-2', answers, turnstile_token: 'ok', access_code: L2_CODE });
+  assert.equal(other.status, 403);
+});
+
+test('level2 submit: 10 wrong codes from one IP, then 429', async () => {
+  const { DB, key, env } = setupL2();
+  const answers = answersWithScore(key, 30);
+  for (let i = 0; i < 10; i++) {
+    assert.equal((await doSubmit(env, { course: L2_SLUG, answers, turnstile_token: 'ok', access_code: 'L2-WRONG-CODE' })).status, 403);
+  }
+  assert.equal((await doSubmit(env, { course: L2_SLUG, answers, turnstile_token: 'ok', access_code: 'L2-WRONG-CODE' })).status, 429);
+  // even the right code is rate-limited until the window passes
+  assert.equal((await doSubmit(env, { course: L2_SLUG, answers, turnstile_token: 'ok', access_code: L2_CODE })).status, 429);
+  assert.equal(DB.raw.prepare('SELECT COUNT(*) n FROM exam_code_failures').get().n, 10);
+});
+
+test('level2 submit: right code returns score-only, and the same code retakes', async () => {
+  const { DB, key, env } = setupL2();
+  const r = await doSubmit(env, { course: L2_SLUG, answers: answersWithScore(key, 30), turnstile_token: 'ok', access_code: L2_CODE });
+  assert.equal(r.status, 200);
+  assert.deepEqual(Object.keys(r.data).sort(), ['attempt_id', 'passed', 'score', 'total']);
+  assert.equal(r.data.score, 30);
+  assert.equal(r.data.total, 40);
+  assert.equal(r.data.passed, true);
+  assert.ok(!JSON.stringify(r.data).includes(key));
+  // retake with the same code (fail this time) also works
+  const r2 = await doSubmit(env, { course: L2_SLUG, answers: answersWithScore(key, 20), turnstile_token: 'ok', access_code: L2_CODE });
+  assert.equal(r2.status, 200);
+  assert.deepEqual(r2.data, { score: 20, total: 40, passed: false });
+  assert.equal(DB.raw.prepare('SELECT COUNT(*) n FROM exam_attempts').get().n, 2);
+});
+
+test('level2 claim: wrong code -> 403, right code binds to first email, second email -> 409', async () => {
+  const { DB, key, env } = setupL2();
+  const id = await passL2(env, key);
+  const wrong = await doClaim(env, { course: L2_SLUG, attempt_id: id, full_name: 'Jane Doe', email: 'jane@example.com', access_code: 'L2-WRONG-CODE' });
+  assert.equal(wrong.status, 403);
+  const r = await doClaim(env, { course: L2_SLUG, attempt_id: id, full_name: 'Jane Doe', email: 'jane@example.com', access_code: L2_CODE });
+  assert.equal(r.status, 201);
+  assert.match(r.data.certificate_no, /^MJ-2RS-\d{4}-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{6}$/);
+  assert.equal(DB.raw.prepare('SELECT email FROM exam_access_codes WHERE code = ?').get(L2_CODE).email, 'jane@example.com');
+  const brevo = fx.calls.filter((x) => x.url.includes('brevo'));
+  assert.ok(brevo[0].init.body.includes('(Level 2)'), 'certificate email says Level 2');
+  // second passing attempt, same code, different email -> 409, no second certificate
+  const id2 = await passL2(env, key, 35);
+  const b = await doClaim(env, { course: L2_SLUG, attempt_id: id2, full_name: 'Mallory', email: 'mallory@example.com', access_code: L2_CODE });
+  assert.equal(b.status, 409);
+  assert.equal(DB.raw.prepare('SELECT COUNT(*) n FROM certificates').get().n, 1);
+  // same email again (new attempt) returns the existing certificate
+  const c = await doClaim(env, { course: L2_SLUG, attempt_id: id2, full_name: 'Jane Doe', email: 'jane@example.com', access_code: L2_CODE });
+  assert.equal(c.status, 200);
+  assert.equal(c.data.existing, true);
+  assert.equal(c.data.certificate_no, r.data.certificate_no);
+});
+
+test('level2: Level 1 submit still needs no code and is unchanged', async () => {
+  const { DB, key, env } = setup();
+  // setup() uses the Level 1 slug; makeD1 now also applies 0005, which
+  // must not affect Level 1 rows or grading.
+  assert.equal(DB.raw.prepare('SELECT COUNT(*) n FROM exams WHERE course_slug = ?').get(SLUG).n, 1);
+  const r = await doSubmit(env, { course: SLUG, answers: answersWithScore(key, 16), turnstile_token: 'ok' });
+  assert.equal(r.status, 200);
+  assert.equal(r.data.total, 20);
+});

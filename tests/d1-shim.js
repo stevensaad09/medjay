@@ -3,7 +3,10 @@
 import { DatabaseSync } from 'node:sqlite';
 import { readFileSync } from 'node:fs';
 
-const MIGRATION = new URL('../migrations/0003_exams.sql', import.meta.url);
+const MIGRATIONS = [
+  new URL('../migrations/0003_exams.sql', import.meta.url),
+  new URL('../migrations/0005_level2_exams.sql', import.meta.url),
+];
 
 class Stmt {
   constructor(db, sql, args = []) { this.db = db; this.sql = sql; this.args = args; }
@@ -29,7 +32,7 @@ class Stmt {
 
 export function makeD1({ migrate = true } = {}) {
   const raw = new DatabaseSync(':memory:');
-  if (migrate) raw.exec(readFileSync(MIGRATION, 'utf8'));
+  if (migrate) for (const m of MIGRATIONS) raw.exec(readFileSync(m, 'utf8'));
   const db = { raw, calls: [], failNext: null, prepare(sql) { return new Stmt(db, sql); } };
   return db;
 }

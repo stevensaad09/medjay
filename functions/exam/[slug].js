@@ -1,17 +1,20 @@
 // Cloudflare Pages Function
 // Handles GET /exam/:slug
 //
-// Server-renders the Level 1 exam for one course from
+// Server-renders the Level 1 or Level 2 exam for one course from
 // functions/_data/exam-questions.json (questions and options only; the
 // answer key lives in D1 and never reaches the browser). Questions and
 // options keep the JSON order. The page script:
-//   1. requires all questions answered + Turnstile, POSTs /api/exam/submit;
-//   2. failed: shows the score, an encouragement line and Retake;
+//   1. requires all questions answered + Turnstile, POSTs /api/exam/submit
+//      (Level 2 also sends the access code; the server checks it);
+//   2. failed: shows the score only, an encouragement line and Retake;
 //   3. passed: asks for full name + email, previews the name exactly as
 //      it will be printed, then POSTs /api/exam/claim and opens the
 //      certificate page.
+// The submit response is score-only for both levels: it never says which
+// questions were wrong or what the correct letters are.
 
-import { getExam, NAME_MIN, NAME_MAX } from '../_lib/exam.js';
+import { getExam, NAME_MIN, NAME_MAX, levelOf } from '../_lib/exam.js';
 import { escapeHtml, pageShell, htmlResponse } from '../_lib/site.js';
 import { siteKeyFor } from '../_lib/turnstile.js';
 
@@ -44,22 +47,33 @@ function renderQuestion(q) {
 function renderExam(exam, siteKey) {
   const total = exam.questions.length;
   const passMark = exam.pass_mark;
-  const title = `${exam.title} Level 1 Exam | MEDJAY`;
+  const level = levelOf(exam);
+  const isPaid = level === 2;
+  const title = `${exam.title} Level ${level} Exam | MEDJAY`;
+  const lede = isPaid
+    ? `${total} multiple-choice questions, one correct answer each. Pass with ${passMark} out of ${total} or more and you can claim your MEDJAY certificate. Enter the access code from your purchase below. No time limit, and you can retake it as often as you like with the same code.`
+    : `${total} multiple-choice questions, one correct answer each. Pass with ${passMark} out of ${total} or more and you can claim your free MEDJAY certificate. No time limit, and you can retake it as often as you like.`;
 
   const bodyContent = `
 <main id="main">
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow">Free course · Level 1 exam</span>
-    <h1>${escapeHtml(exam.title)}: Level 1 Exam</h1>
-    <p class="lede">${total} multiple-choice questions, one correct answer each. Pass with ${passMark} out of ${total} or more and you can claim your free MEDJAY certificate. No time limit, and you can retake it as often as you like.</p>
-    <p class="lede small"><a href="/courses/${escapeHtml(exam.slug)}/">Back to the course</a></p>
+    <span class="eyebrow">${isPaid ? 'Paid course · Level 2 exam' : 'Free course · Level 1 exam'}</span>
+    <h1>${escapeHtml(exam.title)}: Level ${level} Exam</h1>
+    <p class="lede">${lede}</p>
+    ${isPaid ? '' : `<p class="lede small"><a href="/courses/${escapeHtml(exam.slug)}/">Back to the course</a></p>`}
   </div>
 </section>
 <div class="watchline"></div>
 
 <section id="exam-section">
   <div class="wrap narrow">
+    ${isPaid ? `
+    <div class="field">
+      <label for="access-code">Access code (from your purchase)</label>
+      <input id="access-code" name="access_code" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="20" required>
+      <p class="note">One code per course. It is tied to the email you claim the certificate with.</p>
+    </div>` : ''}
     <form id="exam-form" novalidate>
       ${exam.questions.map(renderQuestion).join('')}
       <div class="submit-box">
@@ -80,7 +94,7 @@ function renderExam(exam, siteKey) {
     <div id="result-pass" class="panel" hidden tabindex="-1">
       <span class="eyebrow">You passed</span>
       <p class="score"><span id="pass-score"></span> / ${total}</p>
-      <p>Well done. Enter your details to claim your free certificate.</p>
+      <p>Well done. Enter your details to claim your ${isPaid ? '' : 'free '}certificate.</p>
 
       <form id="claim-form" novalidate>
         <div class="field">
@@ -151,6 +165,9 @@ function renderExam(exam, siteKey) {
 (function(){
   var COURSE = ${JSON.stringify(exam.slug)};
   var TOTAL = ${total};
+  var IS_PAID = ${isPaid};
+  var accessCodeInput = document.getElementById('access-code');
+  var accessCode = '';
   var form = document.getElementById('exam-form');
   var progress = document.getElementById('progress');
   var examStatus = document.getElementById('exam-status');
@@ -188,6 +205,10 @@ function renderExam(exam, siteKey) {
       firstMissing.scrollIntoView({behavior:'smooth', block:'center'});
       return;
     }
+    if (IS_PAID) {
+      accessCode = accessCodeInput ? accessCodeInput.value.trim() : '';
+      if (!accessCode) { examStatus.textContent = 'Enter the access code from your purchase.'; if (accessCodeInput) accessCodeInput.focus(); return; }
+    }
     var tokenEl = form.querySelector('[name="cf-turnstile-response"]');
     var token = tokenEl ? tokenEl.value : '';
     if (!token) { examStatus.textContent = 'Please complete the verification check above the button.'; return; }
@@ -197,7 +218,7 @@ function renderExam(exam, siteKey) {
     fetch('/api/exam/submit', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({course: COURSE, answers: letters, turnstile_token: token})
+      body: JSON.stringify({course: COURSE, answers: letters, turnstile_token: token, access_code: accessCode})
     }).then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ return {ok: r.ok, d: d}; }); })
     .then(function(res){
       submitBtn.disabled = false;
@@ -281,7 +302,7 @@ function renderExam(exam, siteKey) {
     fetch('/api/exam/claim', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({course: COURSE, attempt_id: attemptId, full_name: pending.name, email: pending.email, updates: pending.updates})
+      body: JSON.stringify({course: COURSE, attempt_id: attemptId, full_name: pending.name, email: pending.email, updates: pending.updates, access_code: accessCode})
     }).then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ return {ok: r.ok, d: d}; }); })
     .then(function(res){
       if (!res.ok || !res.d.url) {
@@ -305,7 +326,9 @@ function renderExam(exam, siteKey) {
 
   return pageShell({
     title,
-    description: `Take the free ${exam.title} Level 1 exam and earn a MEDJAY certificate.`,
+    description: isPaid
+      ? `Take the ${exam.title} Level 2 exam and earn a MEDJAY certificate. An access code from your purchase is required.`
+      : `Take the free ${exam.title} Level 1 exam and earn a MEDJAY certificate.`,
     canonical: `https://medjay.pro/exam/${exam.slug}`,
     robots: 'noindex, follow',
     bodyContent,
@@ -325,7 +348,7 @@ function renderNotFound() {
   <div class="wrap">
     <span class="eyebrow">Exams</span>
     <h1>Exam not found</h1>
-    <p class="lede">There is no exam at this address. Every free course has its exam linked from the course page.</p>
+    <p class="lede">There is no exam at this address. Exams are linked from the course page or your purchase confirmation.</p>
     <p style="margin-top:28px;"><a href="/courses/" class="btn-primary">Browse free courses</a></p>
   </div>
 </section>

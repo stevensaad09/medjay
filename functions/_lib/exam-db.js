@@ -24,6 +24,77 @@ export async function loadKeys(db, slug) {
   return keys;
 }
 
+// ---- Level 2 access codes (paid exams only; Level 1 never uses these) ----
+
+// The access-code row for a code, or null. Codes live only in D1.
+export async function loadAccessCode(db, code) {
+  if (typeof code !== 'string' || !code) return null;
+  return db.prepare(
+    'SELECT code, course_slug, email, bound_at, revoked FROM exam_access_codes WHERE code = ?'
+  ).bind(code).first();
+}
+
+// Binds an unbound code to an email on first successful claim.
+// Returns true when this call bound it, false when it was already bound
+// (to anyone). The caller re-reads the row to see who owns it.
+export async function bindAccessCode(db, { code, email }) {
+  const res = await db.prepare(
+    `UPDATE exam_access_codes SET email = ?, bound_at = datetime('now')
+     WHERE code = ? AND email IS NULL AND revoked = 0`
+  ).bind(email, code).run();
+  return changes(res);
+}
+
+// ---- Wrong-code rate limiting (per IP, Level 2 only) ----
+
+export const CODE_FAILURE_LIMIT = 10;
+export const CODE_FAILURE_WINDOW_MINUTES = 15;
+
+export function clientIp(request) {
+  return request.headers.get('CF-Connecting-IP') || '';
+}
+
+export async function countRecentCodeFailures(db, ip) {
+  const row = await db.prepare(
+    `SELECT COUNT(*) AS n FROM exam_code_failures
+     WHERE ip = ? AND created_at >= datetime('now', ?)`
+  ).bind(ip, `-${CODE_FAILURE_WINDOW_MINUTES} minutes`).first();
+  return Number(row ? row.n : 0);
+}
+
+export async function recordCodeFailure(db, { ip, slug }) {
+  await db.prepare(
+    `DELETE FROM exam_code_failures WHERE created_at < datetime('now', '-1 day')`
+  ).run().catch(() => {});
+  await db.prepare(
+    'INSERT INTO exam_code_failures (ip, course_slug) VALUES (?, ?)'
+  ).bind(ip, slug).run();
+}
+
+// Validates a Level 2 access code on the server. Returns:
+//   { ok: true, row }                      code is valid for this course
+//   { ok: false, reason: 'missing' }       no code supplied
+//   { ok: false, reason: 'invalid' }       unknown code, wrong course, or revoked
+//   { ok: false, reason: 'bound' }         code is bound to a different email
+//   { ok: false, reason: 'rate_limited' }  too many wrong codes from this IP
+// Level 1 exams never call this: they need no code. The browser never
+// decides: every check here reads D1.
+export async function checkAccessCode(db, { request, slug, code, email = null }) {
+  if (typeof code !== 'string' || !code.trim()) return { ok: false, reason: 'missing' };
+  const clean = code.trim().toUpperCase();
+  const ip = clientIp(request);
+  if ((await countRecentCodeFailures(db, ip)) >= CODE_FAILURE_LIMIT) {
+    return { ok: false, reason: 'rate_limited' };
+  }
+  const row = await loadAccessCode(db, clean);
+  if (!row || row.course_slug !== slug || Number(row.revoked) === 1) {
+    await recordCodeFailure(db, { ip, slug });
+    return { ok: false, reason: 'invalid' };
+  }
+  if (email && row.email && row.email !== email) return { ok: false, reason: 'bound' };
+  return { ok: true, row };
+}
+
 export async function insertAttempt(db, { id, slug, answers, score, passed, createdAt }) {
   await db.prepare(
     `INSERT INTO exam_attempts (id, course_slug, answers, score, passed, created_at)

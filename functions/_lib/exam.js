@@ -32,6 +32,17 @@ export function getExam(slug) {
     : null;
 }
 
+// Level of an exam: 2 for Level 2 entries in exam-questions.json, 1 for
+// everything else (Level 1 entries carry no `level` field, so missing
+// means 1). Level 1 behaviour is unchanged by this.
+export function levelOf(exam) {
+  return exam && exam.level === 2 ? 2 : 1;
+}
+
+export function levelLabel(exam) {
+  return `Level ${levelOf(exam)}`;
+}
+
 // answers: exactly `total` characters, each A-D (upper case only).
 export function isValidAnswers(answers, total) {
   return typeof answers === 'string'
@@ -124,11 +135,11 @@ export function certificateUrl(certNo) {
   return `${SITE_ORIGIN}/certificate/${encodeURIComponent(certNo)}`;
 }
 
-export function linkedInAddUrl({ courseTitle, certNo, issuedAt }, companyId = LINKEDIN_COMPANY_ID) {
+export function linkedInAddUrl({ courseTitle, certNo, issuedAt, level }, companyId = LINKEDIN_COMPANY_ID) {
   const d = new Date(issuedAt);
   const p = new URLSearchParams();
   p.set('startTask', 'CERTIFICATION_NAME');
-  p.set('name', `${courseTitle} (Level 1)`);
+  p.set('name', `${courseTitle} (Level ${level === 2 ? 2 : 1})`);
   if (companyId) p.set('organizationId', String(companyId));
   // Always sent: a plain-text fallback if LinkedIn cannot resolve the id.
   p.set('organizationName', 'MEDJAY');
