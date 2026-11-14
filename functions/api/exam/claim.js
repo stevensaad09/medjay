@@ -16,8 +16,8 @@
 //   - only if "updates" was ticked: add the email to Brevo list 57.
 // Emails are never written to logs.
 
-import { getExam, cleanName, cleanEmail, certificateUrl, verifyUrl, formatIssueDate } from '../../_lib/exam.js';
-import { claimCertificate } from '../../_lib/exam-db.js';
+import { getExam, cleanName, cleanEmail, certificateUrl, verifyUrl, formatIssueDate, levelOf } from '../../_lib/exam.js';
+import { claimCertificate, checkAccessCode, bindAccessCode, loadAccessCode } from '../../_lib/exam-db.js';
 import { isProduction, isLocalDevWrites } from '../../_lib/env.js';
 import { jsonResponse, escapeHtml } from '../../_lib/site.js';
 
@@ -52,6 +52,34 @@ export async function onRequestPost(context) {
   const wantsUpdates = body.updates === true;
 
   if (!env.DB) return jsonResponse({ message: 'Server not configured. Please try again later.' }, 500);
+
+  // Level 2 only: the access code is checked on the server and bound to
+  // this email BEFORE the certificate is issued, so a certificate can
+  // never be issued on a code owned by someone else. Level 1 skips this.
+  if (levelOf(exam) === 2) {
+    const codeCheck = await checkAccessCode(env.DB, {
+      request, slug: exam.slug, code: body.access_code, email,
+    });
+    if (!codeCheck.ok) {
+      if (codeCheck.reason === 'missing') {
+        return jsonResponse({ message: 'An access code is required for this exam. Enter the code from your purchase.' }, 400);
+      }
+      if (codeCheck.reason === 'rate_limited') {
+        return jsonResponse({ message: 'Too many wrong codes. Try again in 15 minutes.' }, 429);
+      }
+      if (codeCheck.reason === 'bound') {
+        return jsonResponse({ message: 'This access code is already tied to another email address.' }, 409);
+      }
+      return jsonResponse({ message: 'This access code is not valid for this exam. Check the code and try again.' }, 403);
+    }
+    const bound = await bindAccessCode(env.DB, { code: codeCheck.row.code, email });
+    if (!bound) {
+      const again = await loadAccessCode(env.DB, codeCheck.row.code);
+      if (!again || again.email !== email) {
+        return jsonResponse({ message: 'This access code is already tied to another email address.' }, 409);
+      }
+    }
+  }
 
   let result;
   try {
@@ -100,7 +128,7 @@ async function sendCertificateEmail(apiKey, email, cert, exam) {
   const htmlContent = `
 <div style="font-family:Arial,Helvetica,sans-serif;color:#0a1428;max-width:560px;">
   <p>Hello ${escapeHtml(cert.full_name)},</p>
-  <p>Congratulations on completing <strong>${escapeHtml(exam.title)} (Level 1)</strong>.</p>
+  <p>Congratulations on completing <strong>${escapeHtml(exam.title)} (Level ${levelOf(exam)})</strong>.</p>
   <p>Your certificate: <a href="${escapeHtml(certLink)}">${escapeHtml(certLink)}</a></p>
   <p>Certificate No: ${escapeHtml(cert.certificate_no)}<br>Issued: ${escapeHtml(formatIssueDate(cert.issued_at))}</p>
   <p>Anyone can check it at <a href="${escapeHtml(verify)}">${escapeHtml(verify)}</a>.</p>
@@ -114,7 +142,7 @@ async function sendCertificateEmail(apiKey, email, cert, exam) {
       body: JSON.stringify({
         sender: SENDER,
         to: [{ email, name: cert.full_name }],
-        subject: `Your MEDJAY certificate: ${exam.title} (Level 1)`,
+        subject: `Your MEDJAY certificate: ${exam.title} (Level ${levelOf(exam)})`,
         htmlContent,
       }),
     });

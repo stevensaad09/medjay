@@ -139,9 +139,9 @@ test('first customer page: live, indexable, in the sitemap; download page stays 
 
 test('first customer has no exam and no certificate, anywhere', () => {
   assert.equal(getExam('first-customer'), null);
-  assert.equal(EXAM_SLUGS.length, 11);
+  assert.equal(EXAM_SLUGS.length, 22); // 11 Level 1 + 11 Level 2
   assert.ok(!read('functions/_data/exam-questions.json').includes('first-customer'));
-  assert.ok(!/FCU/.test(read('migrations/0003_exams.sql') + read('schema.sql')));
+  assert.ok(!/FCU/.test(read('migrations/0003_exams.sql') + read('migrations/0005_level2_exams.sql') + read('schema.sql')));
   for (const f of FC_PAGES) {
     const h = read(f);
     assert.ok(!/\bexams?\b|certificat|Level 1|\/exam\/|MJ-FCU/i.test(h), `${f}: exam or certificate mention`);

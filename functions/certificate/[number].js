@@ -7,7 +7,7 @@
 // browser's print dialog; the print stylesheet lays the certificate out
 // on one A4 landscape page. noindex (meta + X-Robots-Tag).
 
-import { getExam, isCertificateNo, formatIssueDate, linkedInAddUrl } from '../_lib/exam.js';
+import { getExam, isCertificateNo, formatIssueDate, linkedInAddUrl, levelOf, levelLabel } from '../_lib/exam.js';
 import { getCertificate } from '../_lib/exam-db.js';
 import { escapeHtml, pageShell, htmlResponse, certNotFoundPage as notFoundPage } from '../_lib/site.js';
 
@@ -42,7 +42,7 @@ function renderCertificate(cert, exam) {
   const course = escapeHtml(exam.title);
   const issued = escapeHtml(formatIssueDate(cert.issued_at));
   const no = escapeHtml(cert.certificate_no);
-  const linkedIn = escapeHtml(linkedInAddUrl({ courseTitle: exam.title, certNo: cert.certificate_no, issuedAt: cert.issued_at }));
+  const linkedIn = escapeHtml(linkedInAddUrl({ courseTitle: exam.title, certNo: cert.certificate_no, issuedAt: cert.issued_at, level: levelOf(exam) }));
   const verifyHref = escapeHtml(`/verify/${cert.certificate_no}`);
 
   const bodyContent = `
@@ -72,7 +72,7 @@ function renderCertificate(cert, exam) {
           <div class="rule"></div>
           <p class="c-name ${nameClass}" dir="auto">${name}</p>
           <p class="c-text">has successfully completed</p>
-          <p class="c-course">${course} — Level 1</p>
+          <p class="c-course">${course} — ${levelLabel(exam)}</p>
           <p class="c-meta">Issued: ${issued} · Certificate No: ${no}</p>
           <p class="c-verify">Verify at medjay.pro/verify/${no}</p>
           <div class="sig">

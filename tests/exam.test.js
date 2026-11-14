@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   EXAMS, EXAM_SLUGS, getExam, isValidAnswers, grade, randomCode, makeCertificateNo,
   isCertificateNo, CERT_CHARSET, cleanName, cleanEmail, addYears, linkedInAddUrl, formatIssueDate,
-  LINKEDIN_COMPANY_ID,
+  LINKEDIN_COMPANY_ID, levelOf, levelLabel,
 } from '../functions/_lib/exam.js';
 import { readFileSync } from 'node:fs';
 
@@ -14,18 +14,52 @@ const EXPECTED = {
   'area-manager-essentials': 'ARM', 'sales-manager-essentials': 'SLM',
 };
 
-test('exam data: 11 exams, prefixes as specified, 20 questions each with A-D in order', () => {
-  assert.equal(EXAM_SLUGS.length, 11);
+const EXPECTED_L2 = {
+  'retail-sales-essentials-level-2': '2RS', 'customer-service-essentials-level-2': '2CS',
+  'team-leader-essentials-level-2': '2TL', 'assistant-manager-essentials-level-2': '2AM',
+  'b2b-sales-essentials-level-2': '2B2', 'call-center-essentials-level-2': '2CC',
+  'counter-sales-essentials-level-2': '2CT', 'store-manager-essentials-level-2': '2SM',
+  'tele-sales-essentials-level-2': '2TS', 'area-manager-essentials-level-2': '2AR',
+  'sales-manager-essentials-level-2': '2SL',
+};
+
+test('exam data: 22 exams, Level 1 has 20 questions, Level 2 has 40, prefixes as specified', () => {
+  assert.equal(EXAM_SLUGS.length, 22);
   for (const [slug, prefix] of Object.entries(EXPECTED)) {
     const e = getExam(slug);
     assert.ok(e, slug);
     assert.equal(e.prefix, prefix);
+    assert.equal(levelOf(e), 1);
+    assert.equal(levelLabel(e), 'Level 1');
+    assert.equal(e.total, 20);
+    assert.equal(e.pass_mark, 14);
     assert.equal(e.questions.length, 20);
     e.questions.forEach((q, i) => {
       assert.equal(q.no, i + 1);
       assert.deepEqual(Object.keys(q.options), ['A', 'B', 'C', 'D']);
     });
   }
+  for (const [slug, prefix] of Object.entries(EXPECTED_L2)) {
+    const e = getExam(slug);
+    assert.ok(e, slug);
+    assert.equal(e.prefix, prefix);
+    assert.equal(levelOf(e), 2);
+    assert.equal(levelLabel(e), 'Level 2');
+    assert.equal(e.total, 40);
+    assert.equal(e.pass_mark, 28);
+    assert.equal(e.questions.length, 40);
+    e.questions.forEach((q, i) => {
+      assert.equal(q.no, i + 1);
+      assert.deepEqual(Object.keys(q.options), ['A', 'B', 'C', 'D']);
+    });
+  }
+});
+
+test('levelOf defaults to 1 when the level field is missing', () => {
+  assert.equal(levelOf({}), 1);
+  assert.equal(levelOf({ level: 1 }), 1);
+  assert.equal(levelOf({ level: 2 }), 2);
+  assert.equal(levelLabel({ level: 2 }), 'Level 2');
 });
 
 test('exam data contains no answer key fields', () => {
@@ -34,12 +68,23 @@ test('exam data contains no answer key fields', () => {
   }
 });
 
-test('migration exams rows match the JSON exactly', () => {
-  const sql = readFileSync(new URL('../migrations/0003_exams.sql', import.meta.url), 'utf8');
-  for (const e of Object.values(EXAMS)) {
-    assert.ok(sql.includes(`('${e.slug}', '${e.prefix}', '${e.title}', 20, 14)`), e.slug);
+test('migration exams rows match the JSON exactly (0003 for Level 1, 0005 for Level 2)', () => {
+  const sql1 = readFileSync(new URL('../migrations/0003_exams.sql', import.meta.url), 'utf8');
+  const sql2 = readFileSync(new URL('../migrations/0005_level2_exams.sql', import.meta.url), 'utf8');
+  for (const [slug, prefix] of Object.entries(EXPECTED)) {
+    const e = getExam(slug);
+    assert.ok(sql1.includes(`('${e.slug}', '${e.prefix}', '${e.title}', 20, 14)`), e.slug);
   }
-  assert.ok(!/INSERT\s+(OR\s+\w+\s+)?INTO\s+exam_keys/i.test(sql), 'no exam_keys inserts in migration');
+  for (const [slug, prefix] of Object.entries(EXPECTED_L2)) {
+    const e = getExam(slug);
+    assert.ok(sql2.includes(`('${e.slug}', '${e.prefix}', '${e.title}', 40, 28)`), e.slug);
+  }
+  for (const sql of [sql1, sql2]) {
+    assert.ok(!/INSERT\s+(OR\s+\w+\s+)?INTO\s+exam_keys/i.test(sql), 'no exam_keys inserts in migration');
+    assert.ok(!/INSERT\s+INTO\s+exam_access_codes/i.test(sql), 'no access codes in migration');
+  }
+  assert.ok(sql2.includes('CREATE TABLE IF NOT EXISTS exam_access_codes'), '0005 creates exam_access_codes');
+  assert.ok(sql2.includes('CREATE TABLE IF NOT EXISTS exam_code_failures'), '0005 creates exam_code_failures');
 });
 
 test('getExam rejects unknown and prototype keys', () => {
@@ -130,6 +175,12 @@ test('LINKEDIN_COMPANY_ID is set, and the default Add to LinkedIn link uses it',
 test('purge_after is issued_at + 10 years', () => {
   assert.equal(addYears('2026-11-05T10:00:00.000Z', 10), '2036-11-05T10:00:00.000Z');
   assert.equal(formatIssueDate('2026-11-05T10:00:00.000Z'), '5 November 2026');
+});
+
+test('LinkedIn URL: Level 2 name uses (Level 2), missing level defaults to Level 1', () => {
+  const base = { courseTitle: 'Retail Sales Essentials', certNo: 'MJ-2RS-2026-7K4Q9X', issuedAt: '2026-11-05T10:00:00Z' };
+  assert.equal(new URL(linkedInAddUrl({ ...base, level: 2 })).searchParams.get('name'), 'Retail Sales Essentials (Level 2)');
+  assert.equal(new URL(linkedInAddUrl(base)).searchParams.get('name'), 'Retail Sales Essentials (Level 1)');
 });
 
 test('LinkedIn URL: encoded, organizationName always, organizationId when set', () => {
