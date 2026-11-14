@@ -21,6 +21,7 @@ const ORIGIN = 'https://medjay.pro';
 const STATIC_PAGES = [
   { path: '/', changefreq: 'monthly', priority: '1.0', lastmod: '2026-11-11' },
   { path: '/programs/', changefreq: 'monthly', priority: '0.9', lastmod: '2026-11-11' },
+  { path: '/courses/advanced/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-15' },
   { path: '/programs/usa-real-estate/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-13' },
   { path: '/programs/usa-real-estate-enterprise/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-13' },
   { path: '/programs/uae-real-estate/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-13' },
@@ -49,8 +50,8 @@ const COURSE_SLUGS = [
 ];
 
 const COURSE_PAGES = [
-  { path: '/courses/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-13' },
-  ...COURSE_SLUGS.map((slug) => ({ path: `/courses/${slug}/`, changefreq: 'monthly', priority: '0.7', lastmod: '2026-11-11' })),
+  { path: '/courses/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-15' },
+  ...COURSE_SLUGS.map((slug) => ({ path: `/courses/${slug}/`, changefreq: 'monthly', priority: '0.7', lastmod: '2026-11-15' })),
 ];
 
 export async function onRequestGet(context) {
