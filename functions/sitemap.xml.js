@@ -26,6 +26,7 @@ const STATIC_PAGES = [
   { path: '/programs/usa-real-estate-enterprise/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-13' },
   { path: '/programs/uae-real-estate/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-13' },
   { path: '/programs/uae-real-estate-enterprise/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-13' },
+  { path: '/programs/rak-real-estate-enterprise/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-15' },
   { path: '/programs/selling-to-contractors/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-13' },
   { path: '/books/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-11' },
   { path: '/info/stevensaad/', changefreq: 'monthly', priority: '0.7', lastmod: '2026-11-11' },
