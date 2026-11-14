@@ -87,7 +87,7 @@ test('sitemap lists the new route and not the old one', async () => {
 test('sitemap gives every static URL a lastmod date', async () => {
   const xml = await (await sitemap({ env: {} })).text();
   const urls = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((m) => m[1]);
-  assert.equal(urls.length, 26, '14 static pages + courses index + 11 course pages');
+  assert.equal(urls.length, 27, '15 static pages + courses index + 11 course pages');
   for (const u of urls) {
     const loc = u.match(/<loc>([^<]+)<\/loc>/)[1];
     assert.match(u, /<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/, `${loc}: no lastmod`);
