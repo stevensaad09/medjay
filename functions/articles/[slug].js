@@ -708,6 +708,7 @@ ${jsonLd ? `<script type="application/ld+json">${jsonLd}</script>` : ''}
       <li><a href="/info/stevensaad/">Info</a></li>
       <li><a href="/programs/">Programs</a></li>
       <li><a href="/courses/">Free Courses</a></li>
+      <li><a href="/courses/advanced/">Advanced Courses</a></li>
       <li><a href="/founders/">Founders</a></li>
       <li><a href="/articles/">Articles</a></li>
       <li><a href="/#contact">Contact Us</a></li>
@@ -730,6 +731,7 @@ ${bodyContent}
       <div class="footer-col">
         <h4>Programs</h4>
         <a href="/courses/">Free Courses</a>
+        <a href="/courses/advanced/">Advanced Courses</a>
         <a href="/programs/usa-real-estate/">USA Real Estate: Self-Study</a>
         <a href="/programs/usa-real-estate-enterprise/">USA Real Estate: Enterprise</a>
         <a href="/programs/uae-real-estate/">UAE Real Estate: Self-Study</a>

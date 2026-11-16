@@ -47,12 +47,13 @@ const NAV = [
   ['/info/stevensaad/', 'Info'],
   ['/programs/', 'Programs'],
   ['/courses/', 'Free Courses'],
+  ['/courses/advanced/', 'Advanced Courses'],
   ['/founders/', 'Founders'],
   ['/articles/', 'Articles'],
   ['/#contact', 'Contact Us'],
 ];
 
-test('every copy of the main menu is identical, with Founders between Free Courses and Articles', () => {
+test('every copy of the main menu is identical, with Advanced Courses after Free Courses', () => {
   const files = walk(ROOT)
     .filter((p) => /\.(html|js)$/.test(p))
     .map((p) => p.slice(ROOT.length).replace(/\\/g, '/'))
