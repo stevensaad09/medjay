@@ -4,7 +4,9 @@
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { onRequestGet as sitemap } from '../functions/sitemap.xml.js';
 
 const PAYHIP = {
@@ -83,5 +85,38 @@ test('hub links to Advanced Courses; every Level 1 page links to its Advanced ca
     assert.ok(page.includes(`href="/courses/advanced/#${slug}"`), `${slug}: anchor link missing`);
     assert.ok(!/Level 2/i.test(page.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ')),
       `${slug}: visible text must stay free of "Level 2"`);
+  }
+});
+
+test('homepage: Advanced Courses section after Free Courses, plus footer link', () => {
+  const home = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  assert.ok(home.includes('id="advanced-courses"'), 'homepage has the Advanced section');
+  assert.ok(home.includes('Want to go deeper?'), 'homepage teaser heading present');
+  assert.ok(home.includes('Browse Advanced Courses'), 'homepage teaser CTA present');
+  assert.ok(home.includes('href="/courses/advanced/"'), 'homepage links to the Advanced page');
+  assert.ok(home.includes('<a href="/courses/advanced/">Advanced Courses</a>'), 'homepage footer links to Advanced');
+  const freeAt = home.indexOf('id="free-courses"');
+  const advAt = home.indexOf('id="advanced-courses"');
+  const contactAt = home.indexOf('id="contact"');
+  assert.ok(freeAt > -1 && advAt > freeAt && contactAt > advAt, 'Advanced section sits after Free Courses, before Contact');
+});
+
+test('every page with a Programs footer column links to Advanced Courses', () => {
+  const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+  const files = [];
+  const walk = (dir) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.name === '.git' || entry.name === 'node_modules') continue;
+      const p = join(dir, entry.name);
+      if (entry.isDirectory()) walk(p);
+      else if (entry.name.endsWith('.html')) files.push(p);
+    }
+  };
+  walk(root);
+  const withFooter = files.filter((f) => readFileSync(f, 'utf8').includes('<h4>Programs</h4>'));
+  assert.equal(withFooter.length, 41, `expected 41 pages with a Programs footer, found ${withFooter.length}`);
+  for (const f of withFooter) {
+    const page = readFileSync(f, 'utf8');
+    assert.ok(page.includes('<a href="/courses/advanced/">Advanced Courses</a>'), `${f}: footer link to Advanced missing`);
   }
 });
