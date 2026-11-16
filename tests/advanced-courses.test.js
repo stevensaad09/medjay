@@ -120,3 +120,8 @@ test('every page with a Programs footer column links to Advanced Courses', () =>
     assert.ok(page.includes('<a href="/courses/advanced/">Advanced Courses</a>'), `${f}: footer link to Advanced missing`);
   }
 });
+
+test('article template footer also links to Advanced Courses', () => {
+  const slug = readFileSync(new URL('../functions/articles/[slug].js', import.meta.url), 'utf8');
+  assert.ok(slug.includes('<a href="/courses/advanced/">Advanced Courses</a>'), 'article template footer links to Advanced');
+});
