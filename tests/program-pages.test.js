@@ -61,11 +61,41 @@ test('hub has For Individuals and For Companies with the right cards', () => {
   const com = h.match(/<h2[^>]*>For Companies<\/h2>([\s\S]*?)class="free-card/);
   assert.ok(com, 'For Companies section');
   const links = (x) => [...x.matchAll(/class="kit-link" aria-label="[^"]*" ?>|href="(\/programs\/[a-z-]+\/)" class="kit-link"/g)].map((m) => m[1]).filter(Boolean);
-  assert.deepEqual(links(ind[1]), ['/programs/usa-real-estate/', '/programs/uae-real-estate/']);
+  assert.deepEqual(links(ind[1]), ['/programs/usa-real-estate/', '/programs/usa-real-estate-video/', '/programs/uae-real-estate/', '/programs/uae-real-estate-video/']);
   assert.deepEqual(links(com[1]), ['/programs/usa-real-estate-enterprise/', '/programs/uae-real-estate-enterprise/', '/programs/selling-to-contractors/']);
   assert.match(h, /Customize Your Course/);
   assert.match(h, /id="customize-form"/);
   assert.match(h, /href="\/courses\/" class="btn-ghost">Browse free courses/);
+});
+
+// ---- 3b. video-course cards on the hub
+test('hub shows a Video Course card after each Self-Study PDF card, linking to the video pages', () => {
+  const h = read('programs/index.html');
+  const ind = h.match(/<h2[^>]*>For Individuals<\/h2>([\s\S]*?)<h2[^>]*>For Companies<\/h2>/)[1];
+  const cards = [...ind.matchAll(/<div class="program-card reveal">([\s\S]*?)<\/div>\s*(?=<div class="program-card reveal">|<\/div>)/g)].map((m) => m[1]);
+  assert.equal(cards.length, 4, 'USA PDF, USA video, UAE PDF, UAE video');
+  const [usaPdf, usaVideo, uaePdf, uaeVideo] = cards;
+  // PDF cards unchanged: same titles, same links, no video facts or prices on them.
+  assert.match(usaPdf, /MEDJAY Elite Training: USA Self-Study Edition<\/h3>/);
+  assert.ok(usaPdf.includes('href="/programs/usa-real-estate/"'));
+  assert.ok(!/Video Course/.test(usaPdf));
+  assert.match(uaePdf, /MEDJAY Elite Training: UAE Self-Study Edition with Beginner Kit<\/h3>/);
+  assert.ok(uaePdf.includes('href="/programs/uae-real-estate/"'));
+  assert.ok(!/Video Course/.test(uaePdf));
+  // USA video card: facts, price, link to the video page (not Gumroad).
+  assert.match(usaVideo, /MEDJAY Elite Training: USA Self-Study Edition — Video Course<\/h3>/);
+  assert.ok(usaVideo.includes('href="/programs/usa-real-estate-video/"'));
+  assert.ok(!/gumroad/i.test(usaVideo), 'hub card links to the video page, not Gumroad');
+  for (const fact of ['72 video lessons', 'about 18 hours', 'subtitles on every lesson', 'stream-only', '$497 one-time']) {
+    assert.ok(usaVideo.includes(fact), `USA video card: ${fact}`);
+  }
+  // UAE video card: facts, price, 12-week-only scope, link to the video page (not Gumroad).
+  assert.match(uaeVideo, /MEDJAY Elite Training: UAE Self-Study Edition — Video Course<\/h3>/);
+  assert.ok(uaeVideo.includes('href="/programs/uae-real-estate-video/"'));
+  assert.ok(!/gumroad/i.test(uaeVideo), 'hub card links to the video page, not Gumroad');
+  for (const fact of ['101 video lessons', 'about 24 hours', 'subtitles on every lesson', 'stream-only', '$597 one-time', 'about AED 2,192', 'The Beginner Kit is not included']) {
+    assert.ok(uaeVideo.includes(fact), `UAE video card: ${fact}`);
+  }
 });
 
 // ---- 4. old name gone
