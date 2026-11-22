@@ -178,7 +178,13 @@ test('first customer page: ten days with the guide titles, full content, downloa
   assert.ok(main.includes('Voss, C., &amp; Raz, T. (2016), Never Split the Difference: Negotiating As If Your Life Depended On It'));
 
   const links = [...rendered(main).matchAll(/href="([^"]+)"/g)].map((m) => m[1]);
-  assert.deepEqual([...new Set(links)].sort(), ['/#contact', '/founders/', '/founders/first-customer/download/']);
+  assert.deepEqual([...new Set(links)].sort(), ['/#contact', '/founders/',
+    '/founders/first-customer/day-1/', '/founders/first-customer/day-10/',
+    '/founders/first-customer/day-2/', '/founders/first-customer/day-3/',
+    '/founders/first-customer/day-4/', '/founders/first-customer/day-5/',
+    '/founders/first-customer/day-6/', '/founders/first-customer/day-7/',
+    '/founders/first-customer/day-8/', '/founders/first-customer/day-9/',
+    '/founders/first-customer/download/']);
   assert.ok(text(main).split(' ').length >= 700, 'page has real content');
 });
 
