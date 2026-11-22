@@ -33,7 +33,7 @@ const STATIC_PAGES = [
   { path: '/books/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-11' },
   { path: '/info/stevensaad/', changefreq: 'monthly', priority: '0.7', lastmod: '2026-11-11' },
   { path: '/founders/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-11' },
-  { path: '/founders/first-customer/', changefreq: 'monthly', priority: '0.7', lastmod: '2026-11-11' },
+  { path: '/founders/first-customer/', changefreq: 'monthly', priority: '0.7', lastmod: '2026-11-22' },
   { path: '/articles/', changefreq: 'weekly', priority: '0.7', lastmod: '2026-11-11' },
   { path: '/privacy/', changefreq: 'yearly', priority: '0.3', lastmod: '2026-11-11' },
 ];
@@ -53,7 +53,7 @@ const COURSE_SLUGS = [
 ];
 
 // Full-lesson day pages published on the site (Retail Sales Essentials pilot,
-// Nov 2026). Download pages and /courses/files/* are deliberately never
+// Nov 2026; First Customer, Nov 2026). Download pages and /courses/files/* are deliberately never
 // listed; day pages are real content pages, so they are listed.
 const COURSE_DAY_PAGES = [
   { path: '/courses/retail-sales-essentials/day-1/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
@@ -61,6 +61,16 @@ const COURSE_DAY_PAGES = [
   { path: '/courses/retail-sales-essentials/day-3/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
   { path: '/courses/retail-sales-essentials/day-4/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
   { path: '/courses/retail-sales-essentials/day-5/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/founders/first-customer/day-1/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/founders/first-customer/day-2/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/founders/first-customer/day-3/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/founders/first-customer/day-4/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/founders/first-customer/day-5/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/founders/first-customer/day-6/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/founders/first-customer/day-7/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/founders/first-customer/day-8/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/founders/first-customer/day-9/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/founders/first-customer/day-10/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
 ];
 
 // Lastmod overrides for course landing pages edited after the shared date.
