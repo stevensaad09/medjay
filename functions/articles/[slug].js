@@ -134,6 +134,11 @@ function renderArticlePage(article, comments) {
       "url": "https://medjay.pro/",
       "logo": "https://medjay.pro/assets/icon-512.png",
       "description": "Psychology-driven sales training programs for real estate and distribution teams.",
+      "sameAs": [
+        "https://www.linkedin.com/company/medjay-physcology-training/",
+        "https://www.youtube.com/@StevenSaadConsultant",
+        "https://www.instagram.com/medjay.pro/"
+      ],
       "founder": { "@id": "https://medjay.pro/#founder" },
       "address": { "@type": "PostalAddress", "addressLocality": "Ras Al Khaimah", "addressCountry": "AE" },
       "email": "steven@medjay.pro"
@@ -143,6 +148,7 @@ function renderArticlePage(article, comments) {
       "@id": "https://medjay.pro/#founder",
       "name": "Steven Saad",
       "jobTitle": "Founder & Sales Psychology Trainer",
+      "hasCredential": "IBCT Associate Trainer",
       "worksFor": { "@id": "https://medjay.pro/#organization" },
       "sameAs": ["https://linkedin.com/in/steven-saad"],
       "email": "steven@medjay.pro"
