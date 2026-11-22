@@ -53,7 +53,7 @@ const COURSE_SLUGS = [
 ];
 
 // Full-lesson day pages published on the site (Retail Sales Essentials pilot,
-// Nov 2026; First Customer, Nov 2026). Download pages and /courses/files/* are deliberately never
+// Nov 2026; First Customer, Nov 2026; Customer Service, Call Center and Tele Sales, Nov 2026). Download pages and /courses/files/* are deliberately never
 // listed; day pages are real content pages, so they are listed.
 const COURSE_DAY_PAGES = [
   { path: '/courses/retail-sales-essentials/day-1/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
@@ -71,11 +71,29 @@ const COURSE_DAY_PAGES = [
   { path: '/founders/first-customer/day-8/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
   { path: '/founders/first-customer/day-9/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
   { path: '/founders/first-customer/day-10/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/customer-service-essentials/day-1/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/customer-service-essentials/day-2/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/customer-service-essentials/day-3/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/customer-service-essentials/day-4/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/customer-service-essentials/day-5/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/call-center-essentials/day-1/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/call-center-essentials/day-2/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/call-center-essentials/day-3/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/call-center-essentials/day-4/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/call-center-essentials/day-5/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/tele-sales-essentials/day-1/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/tele-sales-essentials/day-2/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/tele-sales-essentials/day-3/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/tele-sales-essentials/day-4/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/tele-sales-essentials/day-5/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
 ];
 
 // Lastmod overrides for course landing pages edited after the shared date.
 const COURSE_LASTMOD = {
   'retail-sales-essentials': '2026-11-22',
+  'customer-service-essentials': '2026-11-22',
+  'call-center-essentials': '2026-11-22',
+  'tele-sales-essentials': '2026-11-22',
 };
 
 const COURSE_PAGES = [
