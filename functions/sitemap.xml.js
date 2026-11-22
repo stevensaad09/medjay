@@ -52,9 +52,26 @@ const COURSE_SLUGS = [
   'sales-manager-essentials',
 ];
 
+// Full-lesson day pages published on the site (Retail Sales Essentials pilot,
+// Nov 2026). Download pages and /courses/files/* are deliberately never
+// listed; day pages are real content pages, so they are listed.
+const COURSE_DAY_PAGES = [
+  { path: '/courses/retail-sales-essentials/day-1/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/retail-sales-essentials/day-2/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/retail-sales-essentials/day-3/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/retail-sales-essentials/day-4/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+  { path: '/courses/retail-sales-essentials/day-5/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-11-22' },
+];
+
+// Lastmod overrides for course landing pages edited after the shared date.
+const COURSE_LASTMOD = {
+  'retail-sales-essentials': '2026-11-22',
+};
+
 const COURSE_PAGES = [
   { path: '/courses/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-15' },
-  ...COURSE_SLUGS.map((slug) => ({ path: `/courses/${slug}/`, changefreq: 'monthly', priority: '0.7', lastmod: '2026-11-15' })),
+  ...COURSE_SLUGS.map((slug) => ({ path: `/courses/${slug}/`, changefreq: 'monthly', priority: '0.7', lastmod: COURSE_LASTMOD[slug] || '2026-11-15' })),
+  ...COURSE_DAY_PAGES,
 ];
 
 export async function onRequestGet(context) {

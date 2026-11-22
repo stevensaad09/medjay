@@ -114,7 +114,7 @@ test('every page with a Programs footer column links to Advanced Courses', () =>
   };
   walk(root);
   const withFooter = files.filter((f) => readFileSync(f, 'utf8').includes('<h4>Programs</h4>'));
-  assert.equal(withFooter.length, 43, `expected 43 pages with a Programs footer, found ${withFooter.length}`);
+  assert.equal(withFooter.length, 48, `expected 48 pages with a Programs footer, found ${withFooter.length}`);
   for (const f of withFooter) {
     const page = readFileSync(f, 'utf8');
     assert.ok(page.includes('<a href="/courses/advanced/">Advanced Courses</a>'), `${f}: footer link to Advanced missing`);
