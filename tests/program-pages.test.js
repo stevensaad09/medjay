@@ -61,7 +61,7 @@ test('hub has For Individuals and For Companies with the right cards', () => {
   const com = h.match(/<h2[^>]*>For Companies<\/h2>([\s\S]*?)class="free-card/);
   assert.ok(com, 'For Companies section');
   const links = (x) => [...x.matchAll(/class="kit-link" aria-label="[^"]*" ?>|href="(\/programs\/[a-z-]+\/)" class="kit-link"/g)].map((m) => m[1]).filter(Boolean);
-  assert.deepEqual(links(ind[1]), ['/programs/usa-real-estate/', '/programs/usa-real-estate-video/', '/programs/uae-real-estate/', '/programs/uae-real-estate-video/']);
+  assert.deepEqual(links(ind[1]), ['/programs/usa-real-estate/', '/programs/usa-real-estate-video/', '/programs/uae-real-estate/', '/programs/uae-real-estate-video/', '/programs/uae-beginner-kit-video/']);
   assert.deepEqual(links(com[1]), ['/programs/usa-real-estate-enterprise/', '/programs/uae-real-estate-enterprise/', '/programs/selling-to-contractors/']);
   assert.match(h, /Customize Your Course/);
   assert.match(h, /id="customize-form"/);
@@ -73,8 +73,8 @@ test('hub shows a Video Course card after each Self-Study PDF card, linking to t
   const h = read('programs/index.html');
   const ind = h.match(/<h2[^>]*>For Individuals<\/h2>([\s\S]*?)<h2[^>]*>For Companies<\/h2>/)[1];
   const cards = [...ind.matchAll(/<div class="program-card reveal">([\s\S]*?)<\/div>\s*(?=<div class="program-card reveal">|<\/div>)/g)].map((m) => m[1]);
-  assert.equal(cards.length, 4, 'USA PDF, USA video, UAE PDF, UAE video');
-  const [usaPdf, usaVideo, uaePdf, uaeVideo] = cards;
+  assert.equal(cards.length, 5, 'USA PDF, USA video, UAE PDF, UAE video, Beginner Kit video');
+  const [usaPdf, usaVideo, uaePdf, uaeVideo, bkVideo] = cards;
   // PDF cards unchanged: same titles, same links, no video facts or prices on them.
   assert.match(usaPdf, /MEDJAY Elite Training: USA Self-Study Edition<\/h3>/);
   assert.ok(usaPdf.includes('href="/programs/usa-real-estate/"'));
@@ -95,6 +95,13 @@ test('hub shows a Video Course card after each Self-Study PDF card, linking to t
   assert.ok(!/gumroad/i.test(uaeVideo), 'hub card links to the video page, not Gumroad');
   for (const fact of ['101 video lessons', 'about 24 hours', 'subtitles on every lesson', 'stream-only', '$597 one-time', 'about AED 2,192', 'The Beginner Kit is not included']) {
     assert.ok(uaeVideo.includes(fact), `UAE video card: ${fact}`);
+  }
+  // Beginner Kit video card: facts, price, link to the video page (not Gumroad).
+  assert.match(bkVideo, /UAE Real Estate Beginner Kit — Video Course<\/h3>/);
+  assert.ok(bkVideo.includes('href="/programs/uae-beginner-kit-video/"'));
+  assert.ok(!/gumroad/i.test(bkVideo), 'hub card links to the video page, not Gumroad');
+  for (const fact of ['84 video lessons', 'about 22 hours', '21 Units in 3 Parts', 'subtitles on every lesson', 'stream-only', '$497 one-time', 'about AED 1,825']) {
+    assert.ok(bkVideo.includes(fact), `Beginner Kit video card: ${fact}`);
   }
 });
 
@@ -117,7 +124,7 @@ test('sitemap lists the new route and not the old one', async () => {
 test('sitemap gives every static URL a lastmod date', async () => {
   const xml = await (await sitemap({ env: {} })).text();
   const urls = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((m) => m[1]);
-  assert.equal(urls.length, 59, '17 static pages + courses index + 11 course pages + 5 retail day pages + 10 first-customer day pages + 15 customer-service/call-center/tele-sales day pages');
+  assert.equal(urls.length, 60, '18 static pages + courses index + 11 course pages + 5 retail day pages + 10 first-customer day pages + 15 customer-service/call-center/tele-sales day pages');
   for (const u of urls) {
     const loc = u.match(/<loc>([^<]+)<\/loc>/)[1];
     assert.match(u, /<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/, `${loc}: no lastmod`);

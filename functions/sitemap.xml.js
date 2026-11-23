@@ -20,13 +20,14 @@ const ORIGIN = 'https://medjay.pro';
 
 const STATIC_PAGES = [
   { path: '/', changefreq: 'monthly', priority: '1.0', lastmod: '2026-11-11' },
-  { path: '/programs/', changefreq: 'monthly', priority: '0.9', lastmod: '2026-11-11' },
+  { path: '/programs/', changefreq: 'monthly', priority: '0.9', lastmod: '2026-11-24' },
   { path: '/courses/advanced/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-15' },
   { path: '/programs/usa-real-estate/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-21' },
   { path: '/programs/usa-real-estate-video/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-21' },
   { path: '/programs/usa-real-estate-enterprise/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-13' },
-  { path: '/programs/uae-real-estate/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-21' },
-  { path: '/programs/uae-real-estate-video/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-21' },
+  { path: '/programs/uae-real-estate/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-24' },
+  { path: '/programs/uae-real-estate-video/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-24' },
+  { path: '/programs/uae-beginner-kit-video/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-24' },
   { path: '/programs/uae-real-estate-enterprise/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-13' },
   { path: '/programs/rak-real-estate-enterprise/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-15' },
   { path: '/programs/selling-to-contractors/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-11-13' },
