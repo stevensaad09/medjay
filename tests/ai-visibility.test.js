@@ -46,6 +46,7 @@ const EXPECTED_LINKS = [
   'https://medjay.pro/founders/first-customer/',
   'https://medjay.pro/programs/usa-real-estate-video/',
   'https://medjay.pro/programs/uae-real-estate-video/',
+  'https://medjay.pro/programs/uae-beginner-kit-video/',
   'https://medjay.pro/programs/rak-real-estate-enterprise/',
   'https://medjay.pro/programs/selling-to-contractors/',
   'https://medjay.pro/books/',

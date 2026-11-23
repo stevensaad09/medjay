@@ -1,6 +1,7 @@
-// Static checks for the two separate video-course pages:
-// programs/usa-real-estate-video/ ($497 Gumroad) and
-// programs/uae-real-estate-video/ ($597 Gumroad).
+// Static checks for the three separate video-course pages:
+// programs/usa-real-estate-video/ ($497 Gumroad),
+// programs/uae-real-estate-video/ ($597 Gumroad) and
+// programs/uae-beginner-kit-video/ ($497 Gumroad).
 // The PDF editions stay on Payhip and are only cross-linked from here;
 // these pages must contain no Payhip checkout at all.
 import test from 'node:test';
@@ -34,6 +35,21 @@ const VIDEO = {
     pdf: '/programs/uae-real-estate/',
     pdfPrice: 'AED 1,274',
     faqs: 8,
+    offer: 'UAE Self-Study Edition — Video Course, 12 weeks',
+    crumb: 'UAE Real Estate Self-Study — Video',
+  },
+  'uae-beginner-kit-video': {
+    path: 'programs/uae-beginner-kit-video/index.html',
+    url: 'https://medjay.pro/programs/uae-beginner-kit-video/',
+    gumroad: 'https://stevensaad.gumroad.com/l/ctcxr',
+    price: '497',
+    lessons: '84',
+    hours: '22 hours',
+    pdf: '/programs/uae-real-estate/',
+    pdfPrice: 'AED 1,642',
+    faqs: 7,
+    offer: 'UAE Real Estate Beginner Kit — Video Course',
+    crumb: 'UAE Real Estate Beginner Kit — Video',
   },
 };
 
@@ -77,9 +93,7 @@ for (const [slug, v] of Object.entries(VIDEO)) {
     assert.match(course[0].name, /Video Course/);
     assert.deepEqual(course[0].offers, {
       '@type': 'Offer',
-      name: slug === 'usa-real-estate-video'
-        ? 'USA Self-Study Edition — Video Course'
-        : 'UAE Self-Study Edition — Video Course, 12 weeks',
+      name: v.offer || 'USA Self-Study Edition — Video Course',
       price: v.price,
       priceCurrency: 'USD',
       category: 'Paid',
@@ -92,9 +106,7 @@ for (const [slug, v] of Object.entries(VIDEO)) {
     assert.deepEqual(bc[0].itemListElement[2], {
       '@type': 'ListItem',
       position: 3,
-      name: slug === 'usa-real-estate-video'
-        ? 'USA Real Estate Self-Study — Video'
-        : 'UAE Real Estate Self-Study — Video',
+      name: v.crumb || 'USA Real Estate Self-Study — Video',
       item: v.url,
     });
   });
@@ -168,11 +180,12 @@ test('UAE video: Discuss more is Book a Discovery Call, 12-week-only honesty', (
   const main = mainOf(h);
   assert.ok(main.includes('href="/#contact"'), 'Discovery Call link kept in main');
   assert.ok(main.includes('This video course covers the 12-week program only'), '12-week-only statement');
-  assert.ok(main.includes('The Beginner Kit is PDF only for now'), 'Beginner Kit PDF-only statement');
+  assert.ok(main.includes('The Beginner Kit is now also a video course'), 'Beginner Kit video now exists');
+  assert.ok(main.includes('href="/programs/uae-beginner-kit-video/"'), 'links to the Beginner Kit video course');
   const faqs = (main.match(/<section id="faq">([\s\S]*?)<\/section>/)[1].match(/<h3 style=/g) || []).length;
   assert.equal(faqs, 8, 'FAQ has 8 questions');
   assert.ok(main.includes('Is there a video version of the Beginner Kit?'), 'Beginner Kit video FAQ');
-  assert.ok(main.includes('Not yet. The Beginner Kit is PDF only for now.'), 'Beginner Kit video FAQ answer');
+  assert.ok(main.includes('Yes. The Beginner Kit is now a video course'), 'Beginner Kit video FAQ answer');
   const buys = [...h.matchAll(/data-gumroad="([^"]+)"/g)].map((m) => m[1]);
   assert.deepEqual([...new Set(buys)], [VIDEO['uae-real-estate-video'].gumroad], 'only the 12-week Gumroad product is sold');
 });
@@ -187,12 +200,13 @@ test('USA video: 7 FAQ questions, watch-online section, no PDF-only sections', (
   assert.ok(!/Study Guide|Workbook/i.test(visible(main)), 'no Study Guide / Workbook wording');
 });
 
-test('PDF pages: exactly one cross-link line each to the video edition', () => {
+test('PDF pages: cross-link lines to the video editions', () => {
   const usa = read('programs/usa-real-estate/index.html');
   assert.ok(usa.includes('<a href="/programs/usa-real-estate-video/">Watch the video course</a> — 72 lessons, about 18 hours, $497.'), 'USA PDF cross-link');
   assert.ok(usa.includes('<a href="https://payhip.com/b/bZ9pw" class="btn-primary payhip-buy" data-payhip="https://payhip.com/b/bZ9pw">Buy Now — $347</a>'), 'USA PDF Buy Now unchanged');
   const uae = read('programs/uae-real-estate/index.html');
   assert.ok(uae.includes('<a href="/programs/uae-real-estate-video/">Watch the 12-week video course</a> — 101 lessons, about 24 hours, $597.'), 'UAE PDF cross-link');
+  assert.ok(uae.includes('<a href="/programs/uae-beginner-kit-video/">Watch the Beginner Kit video course</a> — 84 lessons, about 22 hours, $497.'), 'UAE PDF Beginner Kit cross-link');
   assert.ok(uae.includes('<a href="https://payhip.com/b/x3G0t" class="kit-link payhip-buy" data-payhip="https://payhip.com/b/x3G0t">Buy now &mdash; AED 1,642</a>'), 'UAE bundle Buy Now unchanged');
   assert.ok(uae.includes('<a href="https://payhip.com/b/bY9PN" class="kit-link payhip-buy" data-payhip="https://payhip.com/b/bY9PN">Buy now &mdash; AED 1,274</a>'), 'UAE 12W Buy Now unchanged');
 });
